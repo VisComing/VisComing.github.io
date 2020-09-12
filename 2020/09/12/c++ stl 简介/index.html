@@ -20,28 +20,32 @@
     var CONFIG = {"hostname":"adslppp.gitee.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
+  <meta name="description" content="C++ STL 简介vector头文件#include &lt;vector&gt; using std::vector 初始化vector&lt;int&gt;  a&#x2F;&#x2F;初始化一个空vector vector&lt;int&gt; a(10, 3)&#x2F;10个int型元素，它们的值均为3 vector&lt;int&gt; a(10)&#x2F;&#x2F;10个int型元素，执行类的默认初始化，这里10个元素均被初始">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://adslppp.gitee.io/index.html">
+<meta property="og:url" content="https://adslppp.gitee.io/2020/09/12/c++%20stl%20%E7%AE%80%E4%BB%8B/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="C++ STL 简介vector头文件#include &lt;vector&gt; using std::vector 初始化vector&lt;int&gt;  a&#x2F;&#x2F;初始化一个空vector vector&lt;int&gt; a(10, 3)&#x2F;10个int型元素，它们的值均为3 vector&lt;int&gt; a(10)&#x2F;&#x2F;10个int型元素，执行类的默认初始化，这里10个元素均被初始">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-09-12T08:51:23.035Z">
+<meta property="article:modified_time" content="2020-09-12T13:27:54.584Z">
 <meta property="article:author" content="zrf">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://adslppp.gitee.io/">
+<link rel="canonical" href="https://adslppp.gitee.io/2020/09/12/c++%20stl%20%E7%AE%80%E4%BB%8B/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'en'
   };
 </script>
 
-  <title>Hexo</title>
+  <title> | Hexo</title>
   
 
 
@@ -139,9 +143,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
@@ -157,10 +162,9 @@
       <meta itemprop="name" content="Hexo">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
+        <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/12/c++%20stl%20%E7%AE%80%E4%BB%8B/" class="post-title-link" itemprop="url">Untitled</a>
-        </h2>
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -184,7 +188,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="C-STL-简介"><a href="#C-STL-简介" class="headerlink" title="C++ STL 简介"></a>C++ STL 简介</h1><h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h2><h3 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h3><p><code>#include &lt;vector&gt;</code></p>
+        <h1 id="C-STL-简介"><a href="#C-STL-简介" class="headerlink" title="C++ STL 简介"></a>C++ STL 简介</h1><h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h2><h3 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h3><p><code>#include &lt;vector&gt;</code></p>
 <p><code>using std::vector</code></p>
 <h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p><code>vector&lt;int&gt;  a</code>//初始化一个空vector</p>
 <p><code>vector&lt;int&gt; a(10, 3)</code>/10个int型元素，它们的值均为3</p>
@@ -294,259 +298,30 @@
 <h2 id="unorder-set-unorder-multiset-unorder-map-unorder-multimap"><a href="#unorder-set-unorder-multiset-unorder-map-unorder-multimap" class="headerlink" title="unorder_set    unorder_multiset    unorder_map    unorder_multimap"></a>unorder_set    unorder_multiset    unorder_map    unorder_multimap</h2><p>优点：增删改查时间复杂度是O(1)</p>
 <p>缺点：不支持lower_bound()    upper_bound()</p>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://adslppp.gitee.io/2020/09/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E7%AC%94%E8%AE%B0/">
+        
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="zrf">
-      <meta itemprop="description" content="">
-    </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">Untitled</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-09-12 15:00:16" itemprop="dateCreated datePublished" datetime="2020-09-12T15:00:16+08:00">2020-09-12</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-08-30 18:39:43" itemprop="dateModified" datetime="2020-08-30T18:39:43+08:00">2020-08-30</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><p>1、用double, 不用 float, double的精度为15-16位， float 的精度为6-7位</p>
-<p>2、c语言用字符数组保存字符串    字符串常量使用双引号标注的字符集合     char str[30] = “wo ai zhong guo”;</p>
-<p>3、尽量不要使用宏定义（#define）定义除了定义常量之外的事情</p>
-<p>4、i ++ 先使用i再将i加一        ++ i 先将i加一再使用i</p>
-<p>5、条件运算符（?   :）三目运算符    A ? B : C     判断A， 如果为真，执行B，如果为假，执行C</p>
-<p>6、int的上限为2的32次方减1            INT_MAX =（1 &lt;&lt; 31）- 1 = 2147483647    左移相当于乘法</p>
-<p>7、^ 运算符 异或 相异为1， 相同为0</p>
-<p>8、连续等号 m = n = 10      赋值m, n均为10</p>
-<p>9、scanf(“%d:%d:%d”, &amp;hour, &amp;minute, &amp;second);                10:27:54    scanf中的双引号内容就是整个输入</p>
-<p>​      scanf(“%d,%lf,%d”, &amp;a, &amp;b, &amp;c);                    输入数据：12,17.2,23</p>
-<p>10、除%c之外，scanf对其他格式符的输入是以空白符（空格、Tab）为结束判断标志的</p>
-<p>​        注意，scanf的%c格式是可以读入空格跟空行的</p>
-<p>​                scanf(“%d%c%s”, &amp;a, &amp;ch, &amp; str);            输入：8 q nihao            结果： a = 8; ch =  ; str = q;</p>
-<p>​        所以，读入字符时，最好用字符串的方式读入，比如读入一个字符，int st[2]; scanf(“%s”, st);//%s遇到空格就会停止读入</p>
-<p>11、%.mf，让浮点数保留m位进行输出</p>
-<p>12、getchar()用来输入单个字符， putchar用来输出单个字符</p>
-<p>13、typedef 给数据类型起一个别名      如 ：typedef long long LL;</p>
-<p>14、常用math函数</p>
-<p>​                fabs(double x)  对double变量取绝对值</p>
-<p>​                floor(double x) 对double变量向下取整            ceil(double x) double变量向上取整</p>
-<p>​                double pow(double a, double b) 计算a的b次方，参数和返回值都是double</p>
-<p>​                double sqrt(double x)  计算x的算术平方根， 参数和返回值均为double</p>
-<p>​                double log(double x) 计算x以自然对数为底的对数</p>
-<p>​                sin(double x)    cos(double x)    tan(double x)  参数和返回值都是double</p>
-<p>15、每个case后，必须加上break，否则执行完该case后，不会break，会继续向下执行，执行下面的case</p>
-<p>16、一维数组初始化 int a[10] = {0}; 注意 int a[10] = {1} 不会将数组全初始化为1！memset(a, 1, sizeof a) 依然不能将数组置为1，memset按字节对内存进行初始化，所以内存里存的其实是0x0101 0101……，也就是16843009。</p>
-<p>17、建议只用memset置0或者-1.memset是按字节赋值</p>
-<p>18、gets用来输入一行字符串，注意识别\n作为输入结束标志</p>
-<p>19、字符数组以\0结尾，开字符数组的时候一定要至少比要存储的字符串长度多1，int数组则不需要多1</p>
-<p>20、如果不是用scanf的%s或者gets输入字符串的，则务必要在字符串后加上\0</p>
-<p>21、strlen, 注意返回类型是无符号整型（unsigned int），strlen(str) &lt; -1可能为真， 无符号数和有符号数比较大小时，会转换为无符号数比较</p>
-<p>22、strcmp(字符串1， 字符串2) 按照字典序比较， 如果等于，返回0，如果大于，返回正整数，如果小于，返回负整数</p>
-<p>23、strcpy(字符数组1， 字符数组2) ，把字符数组2赋给字符数组1</p>
-<p>24、strcat(字符数组1， 字符数组2)，把字符数组2接在字符数组1后面</p>
-<p>25、数组作为函数的参数，int func(int a[], int b[][5] [] [8]), 注意 二维数组的第二维需要填写个数</p>
-<p>26、在函数中对数组修改就相当于对原数组修改</p>
-<p>27、指针是一个unsigned类型的整数</p>
-<p>28、浮点数的比较</p>
-<p>​                const double esp = 1e-8</p>
-<p>​                if(fabs(a - b) &lt; esp)  则可说明两个浮点数相等</p>
-<p>29、const double pi = acos(-1.0)</p>
-<p>30、while(scanf(“%d”, &amp;a) != EOF) 如果没有读到文件末尾，就继续读</p>
-<p>31、while(gets(str) != NULL) 使用gets读取字符串时</p>
-<h2 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h2><p>1、简单模拟：不需要什么算法，题目怎么说，我就怎么做，就好像把题目翻译成了代码语言</p>
-<p>2、闰年：if ((year % 4 == 0 &amp;&amp; year %100 != 0)  || (year % 400 == 0))</p>
-<p>3、product ：乘积</p>
-<h2 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h2><p>​    </p>
-
-      
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/09/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E7%AC%94%E8%AE%B0/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://adslppp.gitee.io/2020/09/12/test-my-blog/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="zrf">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/12/test-my-blog/" class="post-title-link" itemprop="url">test_my_blog</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-09-12 10:52:37" itemprop="dateCreated datePublished" datetime="2020-09-12T10:52:37+08:00">2020-09-12</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://adslppp.gitee.io/2020/09/12/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="zrf">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/12/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-
-              <time title="Created: 2020-09-12 10:42:23" itemprop="dateCreated datePublished" datetime="2020-09-12T10:42:23+08:00">2020-09-12</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
   
 
 
@@ -599,6 +374,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#C-STL-%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">C++ STL 简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#vector"><span class="nav-number">1.1.</span> <span class="nav-text">vector</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%B4%E6%96%87%E4%BB%B6"><span class="nav-number">1.1.1.</span> <span class="nav-text">头文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">1.1.2.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C"><span class="nav-number">1.1.3.</span> <span class="nav-text">常用操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#a-push-back-x"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">a.push_back(x)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#a-empty"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">a.empty()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#a-size"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">a.size()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#a-n"><span class="nav-number">1.1.3.4.</span> <span class="nav-text">a[n]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#a-b-a-b"><span class="nav-number">1.1.3.5.</span> <span class="nav-text">a&#x3D;&#x3D;b    a!&#x3D;b</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-lt-gt-gt"><span class="nav-number">1.1.3.6.</span> <span class="nav-text">&lt;    &lt;&#x3D;    &gt;    &gt;&#x3D;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#a-clear"><span class="nav-number">1.1.3.7.</span> <span class="nav-text">a.clear()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#a-front-a-back"><span class="nav-number">1.1.3.8.</span> <span class="nav-text">a.front()    a.back()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#a-begin-a-end"><span class="nav-number">1.1.3.9.</span> <span class="nav-text">a.begin()    a.end()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%81%8D%E5%8E%86%E6%96%B9%E5%BC%8F"><span class="nav-number">1.1.4.</span> <span class="nav-text">遍历方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vector%E7%9A%84%E5%A2%9E%E9%95%BF"><span class="nav-number">1.1.5.</span> <span class="nav-text">vector的增长</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E7%BB%B4vector"><span class="nav-number">1.1.6.</span> <span class="nav-text">二维vector</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#string"><span class="nav-number">1.2.</span> <span class="nav-text">string</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%B4%E6%96%87%E4%BB%B6-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">头文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C-1"><span class="nav-number">1.2.3.</span> <span class="nav-text">常用操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#s-size"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">s.size()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#s-empty"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">s.empty()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#s-clear"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">s.clear()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#s-n"><span class="nav-number">1.2.3.4.</span> <span class="nav-text">s[n]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.2.3.5.</span> <span class="nav-text">+</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#s-substr-pos-n"><span class="nav-number">1.2.3.6.</span> <span class="nav-text">s.substr(pos, n)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#s-c-str"><span class="nav-number">1.2.3.7.</span> <span class="nav-text">s.c_str()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#stoi-s"><span class="nav-number">1.2.3.8.</span> <span class="nav-text">stoi(s)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#to-string-val"><span class="nav-number">1.2.3.9.</span> <span class="nav-text">to_string(val)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%81%8D%E5%8E%86%E6%96%B9%E5%BC%8F-1"><span class="nav-number">1.2.4.</span> <span class="nav-text">遍历方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#queue"><span class="nav-number">1.3.</span> <span class="nav-text">queue</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%B4%E6%96%87%E4%BB%B6-2"><span class="nav-number">1.3.1.</span> <span class="nav-text">头文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">1.3.2.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C-2"><span class="nav-number">1.3.3.</span> <span class="nav-text">常用操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#q-front"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">q.front()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#q-back"><span class="nav-number">1.3.3.2.</span> <span class="nav-text">q.back()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#q-push-i"><span class="nav-number">1.3.3.3.</span> <span class="nav-text">q.push(i)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#q-pop"><span class="nav-number">1.3.3.4.</span> <span class="nav-text">q.pop()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#q-size"><span class="nav-number">1.3.3.5.</span> <span class="nav-text">q.size()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#q-empty"><span class="nav-number">1.3.3.6.</span> <span class="nav-text">q.empty()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#priority-queue"><span class="nav-number">1.4.</span> <span class="nav-text">priority_queue</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%B4%E6%96%87%E4%BB%B6-3"><span class="nav-number">1.4.1.</span> <span class="nav-text">头文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-1"><span class="nav-number">1.4.2.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C-3"><span class="nav-number">1.4.3.</span> <span class="nav-text">常用操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#p-push"><span class="nav-number">1.4.3.1.</span> <span class="nav-text">p.push()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#p-top"><span class="nav-number">1.4.3.2.</span> <span class="nav-text">p.top()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#p-pop"><span class="nav-number">1.4.3.3.</span> <span class="nav-text">p.pop()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#p-empty"><span class="nav-number">1.4.3.4.</span> <span class="nav-text">p.empty()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#p-size"><span class="nav-number">1.4.3.5.</span> <span class="nav-text">p.size()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#p-push-i"><span class="nav-number">1.4.3.6.</span> <span class="nav-text">p.push(i)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stack"><span class="nav-number">1.5.</span> <span class="nav-text">stack</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%B4%E6%96%87%E4%BB%B6-4"><span class="nav-number">1.5.1.</span> <span class="nav-text">头文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-2"><span class="nav-number">1.5.2.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C-4"><span class="nav-number">1.5.3.</span> <span class="nav-text">常用操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#s-push-i"><span class="nav-number">1.5.3.1.</span> <span class="nav-text">s.push(i)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#s-pop"><span class="nav-number">1.5.3.2.</span> <span class="nav-text">s.pop()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#s-top"><span class="nav-number">1.5.3.3.</span> <span class="nav-text">s.top()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#s-empty-1"><span class="nav-number">1.5.3.4.</span> <span class="nav-text">s.empty()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#s-size-1"><span class="nav-number">1.5.3.5.</span> <span class="nav-text">s.size()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deque"><span class="nav-number">1.6.</span> <span class="nav-text">deque</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-3"><span class="nav-number">1.6.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C-5"><span class="nav-number">1.6.2.</span> <span class="nav-text">常用操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#d-size"><span class="nav-number">1.6.2.1.</span> <span class="nav-text">d.size()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#d-empty"><span class="nav-number">1.6.2.2.</span> <span class="nav-text">d.empty()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#d-clear"><span class="nav-number">1.6.2.3.</span> <span class="nav-text">d.clear()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#d-front-d-back"><span class="nav-number">1.6.2.4.</span> <span class="nav-text">d.front()&#x2F;d.back()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#d-push-back-d-pop-back"><span class="nav-number">1.6.2.5.</span> <span class="nav-text">d.push_back&#x2F;d.pop_back()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#d-push-front-d-pop-front"><span class="nav-number">1.6.2.6.</span> <span class="nav-text">d.push_front()&#x2F;d.pop_front()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-1"><span class="nav-number">1.6.2.7.</span> <span class="nav-text">[]</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#set-multiset"><span class="nav-number">1.7.</span> <span class="nav-text">set&#x2F;multiset</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C-6"><span class="nav-number">1.7.1.</span> <span class="nav-text">常用操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#begin-end-size-empty"><span class="nav-number">1.7.1.1.</span> <span class="nav-text">begin()    end()    size()    empty()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#s-insert-x"><span class="nav-number">1.7.1.2.</span> <span class="nav-text">s.insert(x)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#s-find-x"><span class="nav-number">1.7.1.3.</span> <span class="nav-text">s.find(x)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#s-count-x"><span class="nav-number">1.7.1.4.</span> <span class="nav-text">s.count(x)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#s-erase"><span class="nav-number">1.7.1.5.</span> <span class="nav-text">s.erase()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lower-bound-upper-bound"><span class="nav-number">1.7.1.6.</span> <span class="nav-text">lower_bound()&#x2F;upper_bound</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pair"><span class="nav-number">1.8.</span> <span class="nav-text">pair</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%B4%E6%96%87%E4%BB%B6-5"><span class="nav-number">1.8.1.</span> <span class="nav-text">头文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96-2"><span class="nav-number">1.8.2.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C-7"><span class="nav-number">1.8.3.</span> <span class="nav-text">常用操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#p-first"><span class="nav-number">1.8.3.1.</span> <span class="nav-text">p.first</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#p-second"><span class="nav-number">1.8.3.2.</span> <span class="nav-text">p.second</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#make-pair-v1-v2"><span class="nav-number">1.8.3.3.</span> <span class="nav-text">make_pair(v1, v2)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#p1-p2-p1-p2"><span class="nav-number">1.8.3.4.</span> <span class="nav-text">p1 &#x3D;&#x3D; p2    p1 !&#x3D; p2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#map-multimap"><span class="nav-number">1.9.</span> <span class="nav-text">map&#x2F;multimap</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#insert"><span class="nav-number">1.9.0.1.</span> <span class="nav-text">insert()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#erase"><span class="nav-number">1.9.0.2.</span> <span class="nav-text">erase()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#find"><span class="nav-number">1.9.0.3.</span> <span class="nav-text">find()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#count-k"><span class="nav-number">1.9.0.4.</span> <span class="nav-text">count(k)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#clear"><span class="nav-number">1.9.0.5.</span> <span class="nav-text">clear()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#size-empty"><span class="nav-number">1.9.0.6.</span> <span class="nav-text">size()    empty()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-2"><span class="nav-number">1.9.0.7.</span> <span class="nav-text">[]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lower-bound-k-upper-bound-k"><span class="nav-number">1.9.0.8.</span> <span class="nav-text">lower_bound(k)&#x2F;upper_bound(k)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#unorder-set-unorder-multiset-unorder-map-unorder-multimap"><span class="nav-number">1.10.</span> <span class="nav-text">unorder_set    unorder_multiset    unorder_map    unorder_multimap</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
