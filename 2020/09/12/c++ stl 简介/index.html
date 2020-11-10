@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"adslppp.gitee.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
   <meta name="description" content="C++ STL 简介vector">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://adslppp.gitee.io/2020/09/12/c++%20stl%20%E7%AE%80%E4%BB%8B/index.html">
+<meta property="og:url" content="http://yoursite.com/2020/09/12/c++%20stl%20%E7%AE%80%E4%BB%8B/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="C++ STL 简介vector">
 <meta property="og:locale" content="en_US">
@@ -32,7 +32,7 @@
 <meta property="article:author" content="zrf">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://adslppp.gitee.io/2020/09/12/c++%20stl%20%E7%AE%80%E4%BB%8B/">
+<link rel="canonical" href="http://yoursite.com/2020/09/12/c++%20stl%20%E7%AE%80%E4%BB%8B/">
 
 
 <script id="page-configurations">
@@ -150,7 +150,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://adslppp.gitee.io/2020/09/12/c++%20stl%20%E7%AE%80%E4%BB%8B/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/12/c++%20stl%20%E7%AE%80%E4%BB%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -224,7 +224,7 @@
 <h4 id="s-empty"><a href="#s-empty" class="headerlink" title="s.empty()"></a>s.empty()</h4><p>判断s是否为空，空则返回true</p>
 <h4 id="s-clear"><a href="#s-clear" class="headerlink" title="s.clear()"></a>s.clear()</h4><p>删除字符串的所有字符</p>
 <h4 id="s-n"><a href="#s-n" class="headerlink" title="s[n]"></a>s[n]</h4><p>string支持随机访问</p>
-<h4 id=""><a href="#" class="headerlink" title="+"></a>+</h4><p>在字符串末尾追加字符串，注意必须确保每个加号的两侧的运算对象至少有一个是string</p>
+<h4 id><a href="#" class="headerlink" title="+"></a>+</h4><p>在字符串末尾追加字符串，注意必须确保每个加号的两侧的运算对象至少有一个是string</p>
 <h4 id="s-substr-pos-n"><a href="#s-substr-pos-n" class="headerlink" title="s.substr(pos, n)"></a>s.substr(pos, n)</h4><p>返回从s字符串的pos位置（从0开始）开始的向后n个字符的字符串，如果不写第二个参数，则默认返回从pos位置开始到最后一个字符的字符串</p>
 <h4 id="s-c-str"><a href="#s-c-str" class="headerlink" title="s.c_str()"></a>s.c_str()</h4><p>该函数返回一个const char*，指向以空值结尾的字符串（即c风格的字符串）。当你想要将一个string对象传递给需要c风格字符串的函数的时候，就可以使用该函数</p>
 <h4 id="stoi-s"><a href="#stoi-s" class="headerlink" title="stoi(s)"></a>stoi(s)</h4><p>将字符串转换为int型，stoi()会做范围检查，默认范围是在int的范围内的，如果超出范围的话则会出现runtime error</p>
@@ -261,7 +261,7 @@
 <h4 id="s-empty-1"><a href="#s-empty-1" class="headerlink" title="s.empty()"></a>s.empty()</h4><p>判断栈是否为空，空则返回true</p>
 <h4 id="s-size-1"><a href="#s-size-1" class="headerlink" title="s.size()"></a>s.size()</h4><p>返回栈中元素的个数</p>
 <h2 id="deque"><a href="#deque" class="headerlink" title="deque"></a>deque</h2><p>双端队列</p>
-<h3 id="定义-3"><a href="#定义-3" class="headerlink" title="定义"></a>定义</h3><p>deque<int> d;</p>
+<h3 id="定义-3"><a href="#定义-3" class="headerlink" title="定义"></a>定义</h3><p>deque<int> d;</int></p>
 <h3 id="常用操作-5"><a href="#常用操作-5" class="headerlink" title="常用操作"></a>常用操作</h3><h4 id="d-size"><a href="#d-size" class="headerlink" title="d.size()"></a>d.size()</h4><p>返回双端队列的大小</p>
 <h4 id="d-empty"><a href="#d-empty" class="headerlink" title="d.empty()"></a>d.empty()</h4><p>判断双端队列是否为空</p>
 <h4 id="d-clear"><a href="#d-clear" class="headerlink" title="d.clear()"></a>d.clear()</h4><p>删除双端队列的所有元素</p>
