@@ -599,19 +599,19 @@
     <title>listen music</title>
     <url>/2020/11/10/listen-music/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>
-        <div id="aplayer-UiFdDqCw" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-FwFNIekt" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-UiFdDqCw"),
+            element: document.getElementById("aplayer-FwFNIekt"),
             narrow: false,
             autoplay: false,
             showlrc: false,
             music: {
               title: "雨幕",
               author: "许嵩",
-              url: "listen-music/许嵩-雨幕-新天龙八部端游主题曲.mp3",
+              url: "许嵩-雨幕-新天龙八部端游主题曲.mp3",
               pic: "",
               lrc: ""
             }
@@ -621,19 +621,19 @@
         </script>
 
 
-        <div id="aplayer-UleTbdPT" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-CplJTbPe" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-UleTbdPT"),
+            element: document.getElementById("aplayer-CplJTbPe"),
             narrow: false,
             autoplay: false,
             showlrc: false,
             music: {
               title: "Delicate",
               author: "Taylor Swift",
-              url: "listen-music/Taylor Swift-Delicate.mp3",
+              url: "Taylor Swift-Delicate.mp3",
               pic: "",
               lrc: ""
             }
@@ -642,6 +642,7 @@
           window.aplayers.push(ap);
         </script>
 
+<p>nini</p>
 ]]></content>
   </entry>
 </search>
