@@ -599,12 +599,12 @@
     <title>listen music</title>
     <url>/2020/11/10/listen-music/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>
-        <div id="aplayer-OyHKyESk" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-UiFdDqCw" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-OyHKyESk"),
+            element: document.getElementById("aplayer-UiFdDqCw"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -621,12 +621,12 @@
         </script>
 
 
-        <div id="aplayer-JkNizkHm" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-UleTbdPT" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-JkNizkHm"),
+            element: document.getElementById("aplayer-UleTbdPT"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -640,6 +640,8 @@
           });
           window.aplayers || (window.aplayers = []);
           window.aplayers.push(ap);
-        </script>]]></content>
+        </script>
+
+]]></content>
   </entry>
 </search>
