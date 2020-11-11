@@ -137,12 +137,12 @@
     <title>listen music</title>
     <url>/2020/11/10/listen-music/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>
-        <div id="aplayer-RWolypoe" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-VXbxcDvR" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-RWolypoe"),
+            element: document.getElementById("aplayer-VXbxcDvR"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -158,12 +158,12 @@
           window.aplayers.push(ap);
         </script>
 
-        <div id="aplayer-CjOTWfvH" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-GKjGZLzK" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-CjOTWfvH"),
+            element: document.getElementById("aplayer-GKjGZLzK"),
             narrow: false,
             autoplay: false,
             showlrc: false,
