@@ -137,12 +137,12 @@
     <title>listen music</title>
     <url>/2020/11/10/listen-music/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>
-        <div id="aplayer-vRBElkjM" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-EVANxHPQ" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-vRBElkjM"),
+            element: document.getElementById("aplayer-EVANxHPQ"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -158,12 +158,12 @@
           window.aplayers.push(ap);
         </script>
 
-        <div id="aplayer-cGrmpYQQ" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-wdiydmBX" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-cGrmpYQQ"),
+            element: document.getElementById("aplayer-wdiydmBX"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -180,7 +180,7 @@
         </script>
 
 			<script>
-				console.error("SyntaxError: Unexpected token ] in JSON at position 193");
+				console.error("Error: [hexo-tag-aplayer] Specified asset file not found (放肆.mp3)");
 			</script>
 <!-- 
 			<script>
