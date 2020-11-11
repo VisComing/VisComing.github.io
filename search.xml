@@ -137,12 +137,12 @@
     <title>listen music</title>
     <url>/2020/11/10/listen-music/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>
-        <div id="aplayer-qqTFGAns" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-gGhkSWin" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-qqTFGAns"),
+            element: document.getElementById("aplayer-gGhkSWin"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -158,12 +158,12 @@
           window.aplayers.push(ap);
         </script>
 
-        <div id="aplayer-yGgZQLBs" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-SrysknbY" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-yGgZQLBs"),
+            element: document.getElementById("aplayer-SrysknbY"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -179,27 +179,9 @@
           window.aplayers.push(ap);
         </script>
 
-
-        <div id="aplayer-tVYkVDCO" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
-            <pre class="aplayer-lrc-content"></pre>
-        </div>
-        <script>
-          var ap = new APlayer({
-            element: document.getElementById("aplayer-tVYkVDCO"),
-            narrow: false,
-            autoplay: false,
-            showlrc: false,
-            music: {
-              title: "Delicate",
-              author: "Taylor Swift",
-              url: "Taylor Swift-Delicate.mp3",
-              pic: "",
-              lrc: ""
-            }
-          });
-          window.aplayers || (window.aplayers = []);
-          window.aplayers.push(ap);
-        </script>
+			<script>
+				console.error("SyntaxError: Unexpected token / in JSON at position 48");
+			</script>
 
 <p>nini</p>
 ]]></content>
