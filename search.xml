@@ -137,12 +137,12 @@
     <title>listen music</title>
     <url>/2020/11/10/listen-music/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>
-        <div id="aplayer-NFDJFfNb" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-zaEHQotG" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-NFDJFfNb"),
+            element: document.getElementById("aplayer-zaEHQotG"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -158,12 +158,12 @@
           window.aplayers.push(ap);
         </script>
 
-        <div id="aplayer-mVEEJWQT" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-OSHomKwJ" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-mVEEJWQT"),
+            element: document.getElementById("aplayer-OSHomKwJ"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -180,7 +180,7 @@
         </script>
 
 			<script>
-				console.error("SyntaxError: Unexpected token / in JSON at position 48");
+				console.error("SyntaxError: Unexpected token , in JSON at position 43");
 			</script>
 
 <p>nini</p>
