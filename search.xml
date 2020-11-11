@@ -137,12 +137,12 @@
     <title>listen music</title>
     <url>/2020/11/10/listen-music/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script>
-        <div id="aplayer-uBWKLooe" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-kFNogMYo" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-uBWKLooe"),
+            element: document.getElementById("aplayer-kFNogMYo"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -158,12 +158,12 @@
           window.aplayers.push(ap);
         </script>
 
-        <div id="aplayer-QofeinSg" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
+        <div id="aplayer-XOdtoMaH" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;">
             <pre class="aplayer-lrc-content"></pre>
         </div>
         <script>
           var ap = new APlayer({
-            element: document.getElementById("aplayer-QofeinSg"),
+            element: document.getElementById("aplayer-XOdtoMaH"),
             narrow: false,
             autoplay: false,
             showlrc: false,
@@ -179,14 +179,9 @@
           window.aplayers.push(ap);
         </script>
 
-        <div id="aplayer-kPqFqZyZ" class="aplayer aplayer-tag-marker" style="margin-bottom: 20px;"></div>
-			  <script>
-				  var options = {"narrow":false,"autoplay":false,"showlrc":0,"music":[{"title":"CoCo","author":"Jeff Williams","url":"/2020/11/10/listen-music/许嵩-放肆.mp3","pic":"","lrc":""}]};
-				  options.element = document.getElementById("aplayer-kPqFqZyZ");
-				  var ap = new APlayer(options);
-			    window.aplayers || (window.aplayers = []);
-				  window.aplayers.push(ap);
-			  </script>
+			<script>
+				console.error("SyntaxError: Unexpected token } in JSON at position 135");
+			</script>
 <!-- 
 			<script>
 				console.error("SyntaxError: Unexpected token , in JSON at position 43");
