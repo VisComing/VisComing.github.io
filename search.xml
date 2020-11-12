@@ -655,4 +655,27 @@
 
 ]]></content>
   </entry>
+  <entry>
+    <title>植物大战僵尸制作说明</title>
+    <url>/2020/11/12/%E6%A4%8D%E7%89%A9%E5%A4%A7%E6%88%98%E5%83%B5%E5%B0%B8/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="植物大战僵尸制作说明"><a href="#植物大战僵尸制作说明" class="headerlink" title="植物大战僵尸制作说明"></a>植物大战僵尸制作说明</h1><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>双人网络对战游戏，一人摆植物，一人摆僵尸。</p>
+<h2 id="用户的注册和登录"><a href="#用户的注册和登录" class="headerlink" title="用户的注册和登录"></a>用户的注册和登录</h2><p>要有一张背景图，尺寸1400 * 600像素，设计几个按钮，显示登录，注册</p>
+<p>比如，就像许多软件的登录注册</p>
+<p>用户名输入框</p>
+<p>密码输入框</p>
+<p>  登录按钮</p>
+<p>​                —没有账号？注册一个！</p>
+<p>如果点击登录按钮，那么来到游戏主界面；如果点击注册按钮，来到注册界面。</p>
+<p>注册时要求用户名不能重复，密码复杂度要求（自己设计）。点击注册按钮后，提示注册是否成功，如果失败，则提示失败。如果成功，则提示成功，然后回到登录界面。</p>
+<p>以上为一个场景，登录界面、注册界面用不同的层来表示。</p>
+<p>数据库的设计—mysql</p>
+<p>目前需要保存用户名和密码，可以再添加一些胜率等信息</p>
+<p>服务器端</p>
+<p>数据库保存在linux服务器上，服务器上运行程序，接收来自客户端的tcp连接 ， 我们要在此处体现多线程，高并发</p>
+<p>用python 的 async io来写？这是异步io，可能无法满足老师要求</p>
+<p>处理客户端发来的sql查询，插入请求，将结果返回客户端。</p>
+<p>当用户进行双人对战时，如何显示对方的信息。可以当对方每放一个植物/僵尸时，向服务器发送放植物的种类和位置，服务器发送给另一客户端</p>
+<p>多线程？采用线程池</p>
+]]></content>
+  </entry>
 </search>
