@@ -181,7 +181,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-13 17:23:54" itemprop="dateModified" datetime="2020-11-13T17:23:54+08:00">2020-11-13</time>
+                <time title="Modified: 2020-11-13 17:47:20" itemprop="dateModified" datetime="2020-11-13T17:47:20+08:00">2020-11-13</time>
               </span>
 
           
@@ -215,15 +215,52 @@
 <p>NO！采用python的async IO，可以减少很多不必要的麻烦。当然如果你的C++很好，并且可以很好的控制多线程的同步问题以及很好的使用TCP，也可以采用C++。</p>
 <p>python的异步IO可以满足并发要求，利用python课学到的知识即可。</p>
 <h3 id="需求："><a href="#需求：" class="headerlink" title="需求："></a>需求：</h3><h4 id="1、登录："><a href="#1、登录：" class="headerlink" title="1、登录："></a>1、登录：</h4><p>你会收到来自客户端的登录请求 </p>
-<p>格式为 LOGIN;username;password;        比如:    LOGIN;zrf;123456;</p>
+<p>格式为 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LOGIN;username;password;</span><br></pre></td></tr></table></figure>
+
+<p>​        比如:    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LOGIN;zrf;123456;</span><br></pre></td></tr></table></figure>
+
 <p>你需要根据收到的用户名和密码，查询sql数据库，并且返回登录成功或失败。</p>
-<p>登录成功，返回  LOGIN;1;    </p>
-<p>登陆失败（用户名或密码错误） LOGIN;0;</p>
+<p>登录成功，返回  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LOGIN;1;    </span><br></pre></td></tr></table></figure>
+
+<p>登陆失败（用户名或密码错误） </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LOGIN;0;</span><br></pre></td></tr></table></figure>
+
+
+
 <h4 id="2、注册："><a href="#2、注册：" class="headerlink" title="2、注册："></a>2、注册：</h4><p>你会收到来自客户端的注册请求   </p>
-<p>格式为  REGISTER;username;password;  比如REGISTER;zrf;123456;</p>
+<p>格式为  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">REGISTER;username;password;</span><br></pre></td></tr></table></figure>
+
+<p>  比如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">REGISTER;zrf;123456;</span><br></pre></td></tr></table></figure>
+
 <p>根据得到的用户名和密码，查询用户名是否已经存在，</p>
-<p>若存在，返回错误   REGISTER;0;  </p>
-<p> 如果不存在，注册成功，返回 REGISTER;1;  并且把用户名密码存入数据库中</p>
+<p>若存在，返回错误   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">REGISTER;0;  </span><br></pre></td></tr></table></figure>
+
+<p> 如果不存在，注册成功，返回 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">REGISTER;1; </span><br></pre></td></tr></table></figure>
+
+<p> 并且把用户名密码存入数据库中</p>
+<h4 id="3、匹配"><a href="#3、匹配" class="headerlink" title="3、匹配"></a>3、匹配</h4><p>当用户点击主界面的匹配按钮时，就会向服务器发送  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MATCH;</span><br></pre></td></tr></table></figure>
+
+<p>再还未匹配到对手之前，用户可以点击取消匹配按钮，然后客户端重新回到主界面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CANCELMATCH;</span><br></pre></td></tr></table></figure>
+
+<p>当匹配成功后，服务器向客户端发送</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MATCHSUCCESS;0;</span><br></pre></td></tr></table></figure>
+
+<p>客户端收到后，则自己为植物</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MATCHSUCCESS;1;</span><br></pre></td></tr></table></figure>
+
+<p>客户端收到后，则自己为僵尸</p>
+<p>注意，服务器收到两个客户端的匹配请求后，要随机向其中一个客户端发送MATCHSUCCESS;0;向另一个客户端发送MATCHSUCCESS;1;</p>
+<h4 id="4、对战过程"><a href="#4、对战过程" class="headerlink" title="4、对战过程"></a>4、对战过程</h4><p>两个客户端匹配成功后，服务器保持与这两个客户端的连接</p>
+<p>每个客户端每隔0.5秒会发送自己方（植物方或僵尸方）的信息，以此来同步两个客户端</p>
 <h2 id="ISSUE"><a href="#ISSUE" class="headerlink" title="ISSUE"></a>ISSUE</h2><p>1、土豆地雷只能炸死完全重合的多只僵尸，邻近的僵尸不能同时炸死</p>
 <p>2、土豆地雷的价格为25，每次应该减去25</p>
 <p>3、僵尸掉头动作与前进动作一块执行时，会发生闪烁，是否要删除僵尸死亡动画？</p>
