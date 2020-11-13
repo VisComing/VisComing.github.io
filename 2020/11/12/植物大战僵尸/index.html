@@ -28,7 +28,7 @@
 <meta property="og:description" content="植物大战僵尸制作说明目标双人网络对战游戏，一人摆植物，一人摆僵尸。 用户的注册和登录要有一张背景图，尺寸1400 * 600像素，设计几个按钮，显示登录，注册 比如，就像许多软件的登录注册 用户名输入框 密码输入框   登录按钮 ​                —没有账号？注册一个！ 如果点击登录按钮，那么来到游戏主界面；如果点击注册按钮，来到注册界面。 注册时要求用户名不能重复，密码复杂度要求">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-11-12T12:29:06.041Z">
-<meta property="article:modified_time" content="2020-11-13T09:01:54.163Z">
+<meta property="article:modified_time" content="2020-11-13T09:23:54.084Z">
 <meta property="article:author" content="zrf">
 <meta name="twitter:card" content="summary">
 
@@ -185,7 +185,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-13 17:01:54" itemprop="dateModified" datetime="2020-11-13T17:01:54+08:00">2020-11-13</time>
+                <time title="Modified: 2020-11-13 17:23:54" itemprop="dateModified" datetime="2020-11-13T17:23:54+08:00">2020-11-13</time>
               </span>
 
           
@@ -211,15 +211,27 @@
 <p>以上为一个场景，登录界面、注册界面用不同的层来表示。</p>
 <p>数据库的设计—mysql</p>
 <p>目前需要保存用户名和密码，可以再添加一些胜率等信息</p>
-<p>服务器端</p>
-<p>数据库保存在linux服务器上，服务器上运行程序，接收来自客户端的tcp连接 ， 我们要在此处体现多线程，高并发</p>
+<h2 id="服务器端"><a href="#服务器端" class="headerlink" title="服务器端"></a>服务器端</h2><p>数据库保存在linux服务器上，服务器上运行程序，接收来自客户端的tcp连接 ， 我们要在此处体现多线程，高并发</p>
 <p>用python 的 async io来写？这是异步io，可能无法满足老师要求</p>
 <p>处理客户端发来的sql查询，插入请求，将结果返回客户端。</p>
 <p>当用户进行双人对战时，如何显示对方的信息。可以当对方每放一个植物/僵尸时，向服务器发送放植物的种类和位置，服务器发送给另一客户端</p>
 <p>多线程？采用线程池</p>
+<p>NO！采用python的async IO，可以减少很多不必要的麻烦。当然如果你的C++很好，并且可以很好的控制多线程的同步问题以及很好的使用TCP，也可以采用C++。</p>
+<p>python的异步IO可以满足并发要求，利用python课学到的知识即可。</p>
+<h3 id="需求："><a href="#需求：" class="headerlink" title="需求："></a>需求：</h3><h4 id="1、登录："><a href="#1、登录：" class="headerlink" title="1、登录："></a>1、登录：</h4><p>你会收到来自客户端的登录请求 </p>
+<p>格式为 LOGIN;username;password;        比如:    LOGIN;zrf;123456;</p>
+<p>你需要根据收到的用户名和密码，查询sql数据库，并且返回登录成功或失败。</p>
+<p>登录成功，返回  LOGIN;1;    </p>
+<p>登陆失败（用户名或密码错误） LOGIN;0;</p>
+<h4 id="2、注册："><a href="#2、注册：" class="headerlink" title="2、注册："></a>2、注册：</h4><p>你会收到来自客户端的注册请求   </p>
+<p>格式为  REGISTER;username;password;  比如REGISTER;zrf;123456;</p>
+<p>根据得到的用户名和密码，查询用户名是否已经存在，</p>
+<p>若存在，返回错误   REGISTER;0;  </p>
+<p> 如果不存在，注册成功，返回 REGISTER;1;  并且把用户名密码存入数据库中</p>
 <h2 id="ISSUE"><a href="#ISSUE" class="headerlink" title="ISSUE"></a>ISSUE</h2><p>1、土豆地雷只能炸死完全重合的多只僵尸，邻近的僵尸不能同时炸死</p>
 <p>2、土豆地雷的价格为25，每次应该减去25</p>
 <p>3、僵尸掉头动作与前进动作一块执行时，会发生闪烁，是否要删除僵尸死亡动画？</p>
+<p>4、缓存？每当创建一个精灵时，都是从硬盘里读plist，是否应该做成缓存以加快图片绘制速度？</p>
 
     </div>
 
@@ -297,7 +309,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A4%8D%E7%89%A9%E5%A4%A7%E6%88%98%E5%83%B5%E5%B0%B8%E5%88%B6%E4%BD%9C%E8%AF%B4%E6%98%8E"><span class="nav-number">1.</span> <span class="nav-text">植物大战僵尸制作说明</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87"><span class="nav-number">1.1.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E7%9A%84%E6%B3%A8%E5%86%8C%E5%92%8C%E7%99%BB%E5%BD%95"><span class="nav-number">1.2.</span> <span class="nav-text">用户的注册和登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ISSUE"><span class="nav-number">1.3.</span> <span class="nav-text">ISSUE</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A4%8D%E7%89%A9%E5%A4%A7%E6%88%98%E5%83%B5%E5%B0%B8%E5%88%B6%E4%BD%9C%E8%AF%B4%E6%98%8E"><span class="nav-number">1.</span> <span class="nav-text">植物大战僵尸制作说明</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87"><span class="nav-number">1.1.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E7%9A%84%E6%B3%A8%E5%86%8C%E5%92%8C%E7%99%BB%E5%BD%95"><span class="nav-number">1.2.</span> <span class="nav-text">用户的注册和登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF"><span class="nav-number">1.3.</span> <span class="nav-text">服务器端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9C%80%E6%B1%82%EF%BC%9A"><span class="nav-number">1.3.1.</span> <span class="nav-text">需求：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%E3%80%81%E7%99%BB%E5%BD%95%EF%BC%9A"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">1、登录：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2%E3%80%81%E6%B3%A8%E5%86%8C%EF%BC%9A"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">2、注册：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ISSUE"><span class="nav-number">1.4.</span> <span class="nav-text">ISSUE</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
