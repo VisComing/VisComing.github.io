@@ -723,7 +723,21 @@
 <p>客户端收到后，则自己为僵尸</p>
 <p>注意，服务器收到两个客户端的匹配请求后，要随机向其中一个客户端发送MATCHSUCCESS;0;向另一个客户端发送MATCHSUCCESS;1;</p>
 <h4 id="4、对战过程"><a href="#4、对战过程" class="headerlink" title="4、对战过程"></a>4、对战过程</h4><p>两个客户端匹配成功后，服务器保持与这两个客户端的连接</p>
-<p>每个客户端每隔0.5秒会发送自己方（植物方或僵尸方）的信息，以此来同步两个客户端</p>
+<p>每个客户端每隔0.5秒会向服务器发送自己方（植物方或僵尸方）的信息，以此来同步两个客户端</p>
+<p>你不需要处理其中的内容，只需要将信息发送个另一个客户端</p>
+<p>1、植物方，发送植物的信息</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">PLANT:PeaShooter:x,y;Peashooter:x,y;.....</span><br></pre></td></tr></table></figure>
+
+<p>2、僵尸端</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ZOMBIE:NormalZombie:x,y;NormalZombie:x,y;......</span><br></pre></td></tr></table></figure>
+
+<h4 id="5、比赛结果"><a href="#5、比赛结果" class="headerlink" title="5、比赛结果"></a>5、比赛结果</h4><p>如果一方获胜，则会向服务器发送；注意，失败方不会向服务器发送任何信息</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">WIN;</span><br></pre></td></tr></table></figure>
+
+<p>然后服务器向失败的客户端发送</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">LOSE;</span><br></pre></td></tr></table></figure>
+
+<p>这次比赛结束，服务器释放与这两个客户端的连接。</p>
 <h2 id="ISSUE"><a href="#ISSUE" class="headerlink" title="ISSUE"></a>ISSUE</h2><p>1、土豆地雷只能炸死完全重合的多只僵尸，邻近的僵尸不能同时炸死</p>
 <p>2、土豆地雷的价格为25，每次应该减去25</p>
 <p>3、僵尸掉头动作与前进动作一块执行时，会发生闪烁，是否要删除僵尸死亡动画？</p>
