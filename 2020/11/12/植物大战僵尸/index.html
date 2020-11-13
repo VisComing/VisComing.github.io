@@ -28,7 +28,7 @@
 <meta property="og:description" content="植物大战僵尸制作说明目标双人网络对战游戏，一人摆植物，一人摆僵尸。 用户的注册和登录要有一张背景图，尺寸1400 * 600像素，设计几个按钮，显示登录，注册 比如，就像许多软件的登录注册 用户名输入框 密码输入框   登录按钮 ​                —没有账号？注册一个！ 如果点击登录按钮，那么来到游戏主界面；如果点击注册按钮，来到注册界面。 注册时要求用户名不能重复，密码复杂度要求">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-11-12T12:29:06.041Z">
-<meta property="article:modified_time" content="2020-11-12T12:29:25.335Z">
+<meta property="article:modified_time" content="2020-11-13T09:01:54.163Z">
 <meta property="article:author" content="zrf">
 <meta name="twitter:card" content="summary">
 
@@ -177,10 +177,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-11-12 20:29:06 / Modified: 20:29:25" itemprop="dateCreated datePublished" datetime="2020-11-12T20:29:06+08:00">2020-11-12</time>
+              <time title="Created: 2020-11-12 20:29:06" itemprop="dateCreated datePublished" datetime="2020-11-12T20:29:06+08:00">2020-11-12</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-11-13 17:01:54" itemprop="dateModified" datetime="2020-11-13T17:01:54+08:00">2020-11-13</time>
+              </span>
 
           
 
@@ -211,6 +217,9 @@
 <p>处理客户端发来的sql查询，插入请求，将结果返回客户端。</p>
 <p>当用户进行双人对战时，如何显示对方的信息。可以当对方每放一个植物/僵尸时，向服务器发送放植物的种类和位置，服务器发送给另一客户端</p>
 <p>多线程？采用线程池</p>
+<h2 id="ISSUE"><a href="#ISSUE" class="headerlink" title="ISSUE"></a>ISSUE</h2><p>1、土豆地雷只能炸死完全重合的多只僵尸，邻近的僵尸不能同时炸死</p>
+<p>2、土豆地雷的价格为25，每次应该减去25</p>
+<p>3、僵尸掉头动作与前进动作一块执行时，会发生闪烁，是否要删除僵尸死亡动画？</p>
 
     </div>
 
@@ -288,7 +297,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A4%8D%E7%89%A9%E5%A4%A7%E6%88%98%E5%83%B5%E5%B0%B8%E5%88%B6%E4%BD%9C%E8%AF%B4%E6%98%8E"><span class="nav-number">1.</span> <span class="nav-text">植物大战僵尸制作说明</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87"><span class="nav-number">1.1.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E7%9A%84%E6%B3%A8%E5%86%8C%E5%92%8C%E7%99%BB%E5%BD%95"><span class="nav-number">1.2.</span> <span class="nav-text">用户的注册和登录</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A4%8D%E7%89%A9%E5%A4%A7%E6%88%98%E5%83%B5%E5%B0%B8%E5%88%B6%E4%BD%9C%E8%AF%B4%E6%98%8E"><span class="nav-number">1.</span> <span class="nav-text">植物大战僵尸制作说明</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87"><span class="nav-number">1.1.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E7%9A%84%E6%B3%A8%E5%86%8C%E5%92%8C%E7%99%BB%E5%BD%95"><span class="nav-number">1.2.</span> <span class="nav-text">用户的注册和登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ISSUE"><span class="nav-number">1.3.</span> <span class="nav-text">ISSUE</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
