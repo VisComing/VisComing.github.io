@@ -181,7 +181,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-13 18:08:37" itemprop="dateModified" datetime="2020-11-13T18:08:37+08:00">2020-11-13</time>
+                <time title="Modified: 2020-11-13 18:12:40" itemprop="dateModified" datetime="2020-11-13T18:12:40+08:00">2020-11-13</time>
               </span>
 
           
@@ -268,7 +268,10 @@
 <p>2、僵尸端</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ZOMBIE:NormalZombie:x,y;NormalZombie:x,y;......</span><br></pre></td></tr></table></figure>
 
-<h4 id="5、比赛结果"><a href="#5、比赛结果" class="headerlink" title="5、比赛结果"></a>5、比赛结果</h4><p>如果一方获胜，则会向服务器发送；注意，失败方不会向服务器发送任何信息</p>
+<h4 id="5、比赛结果"><a href="#5、比赛结果" class="headerlink" title="5、比赛结果"></a>5、比赛结果</h4><p>如果一方获胜，则会向服务器发送；注意，失败方不会向服务器发送任何信息；注意，服务器判定第一次收到发送WIN的客户端是胜利方。如果客户端收到WIN则胜利了，如果客户端收到LOSE则失败。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WIN;</span><br></pre></td></tr></table></figure>
+
+<p>判定那一方胜利后，向胜利的客户端发送</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WIN;</span><br></pre></td></tr></table></figure>
 
 <p>然后服务器向失败的客户端发送</p>
