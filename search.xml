@@ -679,46 +679,46 @@
 <p>python的异步IO可以满足并发要求，利用python课学到的知识即可。</p>
 <h3 id="需求："><a href="#需求：" class="headerlink" title="需求："></a>需求：</h3><h4 id="1、登录："><a href="#1、登录：" class="headerlink" title="1、登录："></a>1、登录：</h4><p>你会收到来自客户端的登录请求 </p>
 <p>格式为 </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">LOGIN;username;password;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">LOGIN;username;password;\n</span><br></pre></td></tr></table></figure>
 
 <p>​        比如:    </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">LOGIN;zrf;123456;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">LOGIN;zrf;123456;\n</span><br></pre></td></tr></table></figure>
 
 <p>你需要根据收到的用户名和密码，查询sql数据库，并且返回登录成功或失败。</p>
 <p>登录成功，返回  </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">LOGIN;1;    </span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">LOGIN;1;\n    </span><br></pre></td></tr></table></figure>
 
 <p>登陆失败（用户名或密码错误） </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">LOGIN;0;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">LOGIN;0;\n</span><br></pre></td></tr></table></figure>
 
 
 
 <h4 id="2、注册："><a href="#2、注册：" class="headerlink" title="2、注册："></a>2、注册：</h4><p>你会收到来自客户端的注册请求   </p>
 <p>格式为  </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">REGISTER;username;password;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">REGISTER;username;password;\n</span><br></pre></td></tr></table></figure>
 
 <p>  比如</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">REGISTER;zrf;123456;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">REGISTER;zrf;123456;\n</span><br></pre></td></tr></table></figure>
 
 <p>根据得到的用户名和密码，查询用户名是否已经存在，</p>
 <p>若存在，返回错误   </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">REGISTER;0;  </span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">REGISTER;0;\n  </span><br></pre></td></tr></table></figure>
 
 <p> 如果不存在，注册成功，返回 </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">REGISTER;1; </span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">REGISTER;1;\n</span><br></pre></td></tr></table></figure>
 
 <p> 并且把用户名密码存入数据库中</p>
 <h4 id="3、匹配"><a href="#3、匹配" class="headerlink" title="3、匹配"></a>3、匹配</h4><p>当用户点击主界面的匹配按钮时，就会向服务器发送  </p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">MATCH;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">MATCH;\n</span><br></pre></td></tr></table></figure>
 
 <p>再还未匹配到对手之前，用户可以点击取消匹配按钮，然后客户端重新回到主界面</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CANCELMATCH;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CANCELMATCH;\n</span><br></pre></td></tr></table></figure>
 
 <p>当匹配成功后，服务器向客户端发送</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">MATCHSUCCESS;0;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">MATCHSUCCESS;0;\n</span><br></pre></td></tr></table></figure>
 
 <p>客户端收到后，则自己为植物</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">MATCHSUCCESS;1;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">MATCHSUCCESS;1;\n</span><br></pre></td></tr></table></figure>
 
 <p>客户端收到后，则自己为僵尸</p>
 <p>注意，服务器收到两个客户端的匹配请求后，要随机向其中一个客户端发送MATCHSUCCESS;0;向另一个客户端发送MATCHSUCCESS;1;</p>
@@ -726,19 +726,19 @@
 <p>每个客户端每隔0.5秒会向服务器发送自己方（植物方或僵尸方）的信息，以此来同步两个客户端</p>
 <p>你不需要处理其中的内容，只需要将信息发送个另一个客户端</p>
 <p>1、植物方，发送植物的信息</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">PLANT:PeaShooter:x,y;Peashooter:x,y;.....</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">PLANT:PeaShooter:x,y;Peashooter:x,y;.....\n</span><br></pre></td></tr></table></figure>
 
 <p>2、僵尸端</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ZOMBIE:NormalZombie:x,y;NormalZombie:x,y;......</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ZOMBIE:NormalZombie:x,y;NormalZombie:x,y;......\n</span><br></pre></td></tr></table></figure>
 
 <h4 id="5、比赛结果"><a href="#5、比赛结果" class="headerlink" title="5、比赛结果"></a>5、比赛结果</h4><p>如果一方获胜，则会向服务器发送；注意，失败方不会向服务器发送任何信息；注意，服务器判定第一次收到发送WIN的客户端是胜利方。如果客户端收到WIN则胜利了，如果客户端收到LOSE则失败。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">WIN;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">WIN;\n</span><br></pre></td></tr></table></figure>
 
 <p>判定那一方胜利后，向胜利的客户端发送</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">WIN;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">WIN;\n</span><br></pre></td></tr></table></figure>
 
 <p>然后服务器向失败的客户端发送</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">LOSE;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">LOSE;\n</span><br></pre></td></tr></table></figure>
 
 <p>这次比赛结束，服务器释放与这两个客户端的连接。</p>
 <h2 id="ISSUE"><a href="#ISSUE" class="headerlink" title="ISSUE"></a>ISSUE</h2><p>1、土豆地雷只能炸死完全重合的多只僵尸，邻近的僵尸不能同时炸死</p>
