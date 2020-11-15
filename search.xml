@@ -677,7 +677,8 @@
 <p>多线程？采用线程池</p>
 <p>NO！采用python的async IO，可以减少很多不必要的麻烦。当然如果你的C++很好，并且可以很好的控制多线程的同步问题以及很好的使用TCP，也可以采用C++。</p>
 <p>python的异步IO可以满足并发要求，利用python课学到的知识即可。</p>
-<h3 id="需求："><a href="#需求：" class="headerlink" title="需求："></a>需求：</h3><h4 id="1、登录："><a href="#1、登录：" class="headerlink" title="1、登录："></a>1、登录：</h4><p>你会收到来自客户端的登录请求 </p>
+<h3 id="需求："><a href="#需求：" class="headerlink" title="需求："></a>需求：</h3><h4 id="1、登录："><a href="#1、登录：" class="headerlink" title="1、登录："></a>1、登录：</h4><p><strong>不允许一个账号多人登录</strong></p>
+<p>你会收到来自客户端的登录请求 </p>
 <p>格式为 </p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">LOGIN;username;password;\n</span><br></pre></td></tr></table></figure>
 
@@ -740,12 +741,14 @@
 <p>然后服务器向失败的客户端发送</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">LOSE;\n</span><br></pre></td></tr></table></figure>
 
+<p>其中一个客户端收到LOSE后，再向服务器发送一个LOSE？</p>
 <p>这次比赛结束，服务器释放与这两个客户端的连接。</p>
 <h2 id="ISSUE"><a href="#ISSUE" class="headerlink" title="ISSUE"></a>ISSUE</h2><p>1、土豆地雷只能炸死完全重合的多只僵尸，邻近的僵尸不能同时炸死</p>
 <p>​    //目前只能炸掉一个僵尸，以后再做调整</p>
 <p>2、土豆地雷的价格为25，每次应该减去25</p>
 <p>3、僵尸掉头动作与前进动作一块执行时，会发生闪烁，是否要删除僵尸死亡动画？</p>
 <p>4、缓存？每当创建一个精灵时，都是从硬盘里读plist，是否应该做成缓存以加快图片绘制速度？</p>
+<p>5、食人花吃僵尸时，僵尸会停顿一下，主要原因是把僵尸从总僵尸数组中删除了，于是僵尸就停止运动了</p>
 ]]></content>
   </entry>
 </search>
