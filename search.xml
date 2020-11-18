@@ -658,7 +658,8 @@
   <entry>
     <title>植物大战僵尸制作说明</title>
     <url>/2020/11/12/%E6%A4%8D%E7%89%A9%E5%A4%A7%E6%88%98%E5%83%B5%E5%B0%B8/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="植物大战僵尸制作说明"><a href="#植物大战僵尸制作说明" class="headerlink" title="植物大战僵尸制作说明"></a>植物大战僵尸制作说明</h1><h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>双人网络对战游戏，一人摆植物，一人摆僵尸。</p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="植物大战僵尸制作说明"><a href="#植物大战僵尸制作说明" class="headerlink" title="植物大战僵尸制作说明"></a>植物大战僵尸制作说明</h1><p><a href="%E6%A4%8D%E7%89%A9%E5%A4%A7%E6%88%98%E5%83%B5%E5%B0%B8/releaseTest.exe" title="植物大战僵尸游戏下载">点击下载</a></p>
+<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>双人网络对战游戏，一人摆植物，一人摆僵尸。</p>
 <h2 id="用户的注册和登录"><a href="#用户的注册和登录" class="headerlink" title="用户的注册和登录"></a>用户的注册和登录</h2><p>要有一张背景图，尺寸1400 * 600像素，设计几个按钮，显示登录，注册</p>
 <p>比如，就像许多软件的登录注册</p>
 <p>用户名输入框</p>
