@@ -181,7 +181,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-18 12:18:58" itemprop="dateModified" datetime="2020-11-18T12:18:58+08:00">2020-11-18</time>
+                <time title="Modified: 2020-11-21 18:52:35" itemprop="dateModified" datetime="2020-11-21T18:52:35+08:00">2020-11-21</time>
               </span>
 
           
@@ -281,6 +281,11 @@
 
 <p>其中一个客户端收到LOSE后，再向服务器发送一个LOSE？</p>
 <p>这次比赛结束，服务器释放与这两个客户端的连接。</p>
+<h4 id="6、TCP心跳包"><a href="#6、TCP心跳包" class="headerlink" title="6、TCP心跳包"></a>6、TCP心跳包</h4><p>客户端每隔一秒向服务器发送一个心跳包，内容为，服务器每隔一段时间也向客户端发送同样的内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HeartBeat;\n</span><br></pre></td></tr></table></figure>
+
+
+
 <h2 id="ISSUE"><a href="#ISSUE" class="headerlink" title="ISSUE"></a>ISSUE</h2><p>1、土豆地雷只能炸死完全重合的多只僵尸，邻近的僵尸不能同时炸死</p>
 <p>​    //目前只能炸掉一个僵尸，以后再做调整</p>
 <p>2、土豆地雷的价格为25，每次应该减去25  <strong>已解决</strong></p>
