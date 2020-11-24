@@ -181,7 +181,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-11-21 18:52:35" itemprop="dateModified" datetime="2020-11-21T18:52:35+08:00">2020-11-21</time>
+                <time title="Modified: 2020-11-24 21:32:45" itemprop="dateModified" datetime="2020-11-24T21:32:45+08:00">2020-11-24</time>
               </span>
 
           
@@ -260,6 +260,13 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MATCHSUCCESS;1;\n</span><br></pre></td></tr></table></figure>
 
 <p>客户端收到后，则自己为僵尸</p>
+<p>2020/11/14</p>
+<p>由于程序切换场景时要加载很多东西，麻烦服务器在匹配好对手后，<strong>延迟3秒</strong>再向客户端发送MATCHSUCCESS信息  ？（是否可以在客户端解决这个问题）</p>
+<p>同步问题，由于从匹配场景切换到对战场景需要加载好几秒中，并且不同电脑加载时间也不一样，为了同步两个客户端的信息，服务器需要在发送过MATCHSUCCESS信息后，<strong>过5秒后</strong>（这段时间留给客户端加载信息），向两个客户端<strong>同时</strong>发送</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">START;\n</span><br></pre></td></tr></table></figure>
+
+
+
 <p>注意，服务器收到两个客户端的匹配请求后，要随机向其中一个客户端发送MATCHSUCCESS;0;向另一个客户端发送MATCHSUCCESS;1;</p>
 <h4 id="4、对战过程"><a href="#4、对战过程" class="headerlink" title="4、对战过程"></a>4、对战过程</h4><p>两个客户端匹配成功后，服务器保持与这两个客户端的连接</p>
 <p>每个客户端每隔0.5秒会向服务器发送自己方（植物方或僵尸方）的信息，以此来同步两个客户端</p>
