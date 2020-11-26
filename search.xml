@@ -693,6 +693,9 @@
 <p>登陆失败（用户名或密码错误） </p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">LOGIN;0;\n</span><br></pre></td></tr></table></figure>
 
+<p>账户已经登录</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">LOGIN;2;\n</span><br></pre></td></tr></table></figure>
+
 
 
 <h4 id="2、注册："><a href="#2、注册：" class="headerlink" title="2、注册："></a>2、注册：</h4><p>你会收到来自客户端的注册请求   </p>
@@ -749,13 +752,14 @@
 <p>然后服务器向失败的客户端发送</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">LOSE;\n</span><br></pre></td></tr></table></figure>
 
-<p>其中一个客户端收到LOSE后，再向服务器发送一个LOSE？</p>
+<p>其中一个客户端收到LOSE后，再向服务器发送一个LOSE</p>
 <p>这次比赛结束，服务器释放与这两个客户端的连接。</p>
 <h4 id="6、TCP心跳包"><a href="#6、TCP心跳包" class="headerlink" title="6、TCP心跳包"></a>6、TCP心跳包</h4><p>客户端每隔一秒向服务器发送一个心跳包，内容为，服务器每隔一段时间也向客户端发送同样的内容</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">HeartBeat;\n</span><br></pre></td></tr></table></figure>
 
-
-
+<h4 id="7、同步方案"><a href="#7、同步方案" class="headerlink" title="7、同步方案"></a>7、同步方案</h4><p>以植物方的为准，植物方决定僵尸何时行走、攻击、掉头、死亡，以及僵尸的位置。</p>
+<p>僵尸方不进行任何计算，只展示僵尸的位置和动作。</p>
+<p>植物方植物死亡时，向僵尸方发送植物死亡的信息。</p>
 <h2 id="ISSUE"><a href="#ISSUE" class="headerlink" title="ISSUE"></a>ISSUE</h2><p>1、土豆地雷只能炸死完全重合的多只僵尸，邻近的僵尸不能同时炸死</p>
 <p>​    //目前只能炸掉一个僵尸，以后再做调整</p>
 <p>2、土豆地雷的价格为25，每次应该减去25  <strong>已解决</strong></p>
