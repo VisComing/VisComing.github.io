@@ -279,8 +279,8 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Python程序设计作业#1</title>
-    <url>/2020/11/10/py5-2018211308-2018211430-%E5%91%A8%E7%91%9E%E5%8F%91/</url>
+    <title>Python程序设计作业#5</title>
+    <url>/2020/11/30/py5-2018211308-2018211430-%E5%91%A8%E7%91%9E%E5%8F%91/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Python程序设计-5作业"><a href="#Python程序设计-5作业" class="headerlink" title="Python程序设计#5作业"></a>Python程序设计#5作业</h1><p>截止时间：2020年11月23日23:59:59</p>
 <h2 id="作业题目"><a href="#作业题目" class="headerlink" title="作业题目"></a>作业题目</h2><p>在作业#4的基础上实现remoteProxy对每个用户进行单独流控</p>
 <p>SQLite3数据库的每个用户的账号信息中增加带宽信息（用户名、密码、带宽）</p>
@@ -664,8 +664,8 @@
 ]]></content>
   </entry>
   <entry>
-    <title>Python程序设计作业#1</title>
-    <url>/2020/11/10/py6-2018211308-2018211430-%E5%91%A8%E7%91%9E%E5%8F%91/</url>
+    <title>Python程序设计作业#6</title>
+    <url>/2020/11/30/py6-2018211308-2018211430-%E5%91%A8%E7%91%9E%E5%8F%91/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Python程序设计-6作业"><a href="#Python程序设计-6作业" class="headerlink" title="Python程序设计#6作业"></a>Python程序设计#6作业</h1><p>截止时间：2020年11月30日23:59:59</p>
 <h2 id="作业题目"><a href="#作业题目" class="headerlink" title="作业题目"></a>作业题目</h2><p>在作业#5的基础上实现localProxy的图形管理界面localGui</p>
 <p>localGui单独一个源文件</p>
