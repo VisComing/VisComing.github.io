@@ -853,4 +853,50 @@
 <h2 id="代码说明"><a href="#代码说明" class="headerlink" title="代码说明"></a>代码说明</h2><p>源代码中不要出现大段的说明注释，所有文字描述在本节中以行号引用说明。</p>
 ]]></content>
   </entry>
+  <entry>
+    <title>Python程序设计作业#8</title>
+    <url>/2020/12/08/py8-2018211308-2018211430-%E5%91%A8%E7%91%9E%E5%8F%91/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Python程序设计-8作业"><a href="#Python程序设计-8作业" class="headerlink" title="Python程序设计#8作业"></a>Python程序设计#8作业</h1><p>截止时间：2020年12月14日23:59:59</p>
+<h2 id="作业题目"><a href="#作业题目" class="headerlink" title="作业题目"></a>作业题目</h2><p>使用venv创建开发环境</p>
+<p>使用命令冻结依赖关系生成 requirements.txt</p>
+<p>测试使用requirements.txt 重新部署在其他环境位置</p>
+<p>将以上内容写成报告写在Markdown文档中提交作业</p>
+<h2 id="报告内容"><a href="#报告内容" class="headerlink" title="报告内容"></a>报告内容</h2><p>本次作业不涉及代码，格式不做要求。</p>
+<p>我的环境为ubuntu 18.04  python3.7</p>
+<p>1、使用venv创建开发环境</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">python3 -m venv myenv</span><br></pre></td></tr></table></figure>
+
+<p>提示要安装python3-venv</p>
+<p>执行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt install python3.7-venv</span><br></pre></td></tr></table></figure>
+
+<p>安装好后虚拟开发环境就搭建好了，然后我随意安装了几个pip包，供接下来的测试使用</p>
+<p>2、使用命令冻结依赖关系生成 requirements.txt</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></table></figure>
+
+<p>可以查看requirements.txt里的内容</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cat requirements.txt</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">aiosqlite&#x3D;&#x3D;0.16.0</span><br><span class="line">certifi&#x3D;&#x3D;2020.12.5</span><br><span class="line">h11&#x3D;&#x3D;0.9.0</span><br><span class="line">httpcore&#x3D;&#x3D;0.11.1</span><br><span class="line">httpx&#x3D;&#x3D;0.15.4</span><br><span class="line">idna&#x3D;&#x3D;2.10</span><br><span class="line">pkg-resources&#x3D;&#x3D;0.0.0</span><br><span class="line">rfc3986&#x3D;&#x3D;1.4.0</span><br><span class="line">sniffio&#x3D;&#x3D;1.2.0</span><br><span class="line">typing-extensions&#x3D;&#x3D;3.7.4.3</span><br><span class="line">websockets&#x3D;&#x3D;8.1</span><br></pre></td></tr></table></figure>
+
+<p>3、在新建一个虚拟环境</p>
+<p>​    首先退出该虚拟环境</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">deactivate</span><br></pre></td></tr></table></figure>
+
+<p>​    然后新建一个虚拟环境</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">python3 -m venv newenv</span><br><span class="line">source newenv&#x2F;bin&#x2F;activate</span><br></pre></td></tr></table></figure>
+
+<p>4、使用requirements.txt 重新部署在其他环境位置</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
+
+<p>执行后发现正在安装许多包</p>
+<p>安装完成后，查看当前安装了哪些包</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pip list</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">aiosqlite (0.16.0)</span><br><span class="line">certifi (2020.12.5)</span><br><span class="line">h11 (0.9.0)</span><br><span class="line">httpcore (0.11.1)</span><br><span class="line">httpx (0.15.4)</span><br><span class="line">idna (2.10)</span><br><span class="line">pip (9.0.1)</span><br><span class="line">pkg-resources (0.0.0)</span><br><span class="line">rfc3986 (1.4.0)</span><br><span class="line">setuptools (39.0.1)</span><br><span class="line">sniffio (1.2.0)</span><br><span class="line">typing-extensions (3.7.4.3)</span><br><span class="line">websockets (8.1)</span><br></pre></td></tr></table></figure>
+
+<p>发现把requirements.txt全部包部署到了新环境中</p>
+<p>测试成功</p>
+]]></content>
+  </entry>
 </search>
