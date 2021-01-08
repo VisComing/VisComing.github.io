@@ -1117,7 +1117,7 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
+    <title>typora行内公式</title>
     <url>/2021/01/08/typora%E8%A1%8C%E5%86%85%E5%85%AC%E5%BC%8F/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>这个是需要先设置一下的</p>
 <p>点击文件-偏好设置-markdown</p>
@@ -1127,14 +1127,14 @@
 ]]></content>
   </entry>
   <entry>
-    <title></title>
+    <title>二维vector</title>
     <url>/2021/01/08/%E4%BA%8C%E7%BB%B4vector/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>vector&lt; vector<int> &gt; v(n，vector<int>(m))；</int></int></p>
 <p>它有n个元素，每个元素都是包含m个int型元素的一维向量</p>
 ]]></content>
   </entry>
   <entry>
-    <title></title>
+    <title>11. 盛最多水的容器</title>
     <url>/2021/01/08/hot-100/11.%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="解法一-暴力"><a href="#解法一-暴力" class="headerlink" title="解法一    暴力"></a>解法一    暴力</h2><p>暴力很简单，只需要遍历每一组$i, j$，然后计算出$(j - i) * min(height[i], height[j])$即可</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; height)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; height.size() - <span class="number">1</span>; i++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; height.size(); j++)</span><br><span class="line">                <span class="keyword">if</span>((j - i) * min(height[i], height[j]) &gt; res)</span><br><span class="line">                    res = (j - i) * min(height[i], height[j]);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
@@ -1144,11 +1144,23 @@
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; height)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>, j = height.size() - <span class="number">1</span>; i &lt; j;)</span><br><span class="line">        &#123;</span><br><span class="line">            res = max(res, (j - i) * min(height[i], height[j]));</span><br><span class="line">            <span class="keyword">if</span>(height[i] &lt; height[j]) i++;</span><br><span class="line">            <span class="keyword">else</span> j--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>HOT-100</tag>
+      </tags>
   </entry>
   <entry>
-    <title></title>
+    <title>10. 正则表达式匹配</title>
     <url>/2021/01/08/hot-100/10.%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本题难度较高，以后再写</p>
 ]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>HOT-100</tag>
+      </tags>
   </entry>
 </search>
