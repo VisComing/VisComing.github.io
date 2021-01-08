@@ -1116,4 +1116,39 @@
         <tag>HOT-100</tag>
       </tags>
   </entry>
+  <entry>
+    <title></title>
+    <url>/2021/01/08/typora%E8%A1%8C%E5%86%85%E5%85%AC%E5%BC%8F/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>这个是需要先设置一下的</p>
+<p>点击文件-偏好设置-markdown</p>
+<p>在内联公式打勾即可</p>
+<p><img src="https://i.loli.net/2021/01/08/ajFDUSG4O2QNKV3.png" alt="image-20210108105517989"></p>
+<p>如果还是不行，重启typora就可以了</p>
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2021/01/08/%E4%BA%8C%E7%BB%B4vector/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>vector&lt; vector<int> &gt; v(n，vector<int>(m))；</int></int></p>
+<p>它有n个元素，每个元素都是包含m个int型元素的一维向量</p>
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2021/01/08/hot-100/11.%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="解法一-暴力"><a href="#解法一-暴力" class="headerlink" title="解法一    暴力"></a>解法一    暴力</h2><p>暴力很简单，只需要遍历每一组$i, j$，然后计算出$(j - i) * min(height[i], height[j])$即可</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; height)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; height.size() - <span class="number">1</span>; i++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; height.size(); j++)</span><br><span class="line">                <span class="keyword">if</span>((j - i) * min(height[i], height[j]) &gt; res)</span><br><span class="line">                    res = (j - i) * min(height[i], height[j]);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="解法二-双指针"><a href="#解法二-双指针" class="headerlink" title="解法二    双指针"></a>解法二    双指针</h2><p>两个指针$i, j$分别指向数组头和尾，比较两个值的大小，如果$i$的值较小，那么把$i$往后移；如果$j$的值较小，那么把$j$往前移。</p>
+<p>为什么这么做呢？假如$i$的值小于$j$的值，如果把$j$往前移，那么$i$和$j$之间的距离就会变小，高度呢？肯定是小于等于$i$的值的，根据计算公式<br>$$<br>(j - i) * min(height[i], height[j])<br>$$<br>该结果肯定会减小。因此将i向后移动，才可能找出最优解。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; height)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>, j = height.size() - <span class="number">1</span>; i &lt; j;)</span><br><span class="line">        &#123;</span><br><span class="line">            res = max(res, (j - i) * min(height[i], height[j]));</span><br><span class="line">            <span class="keyword">if</span>(height[i] &lt; height[j]) i++;</span><br><span class="line">            <span class="keyword">else</span> j--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2021/01/08/hot-100/10.%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本题难度较高，以后再写</p>
+]]></content>
+  </entry>
 </search>
