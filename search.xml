@@ -1355,4 +1355,21 @@
         <tag>HOT-100</tag>
       </tags>
   </entry>
+  <entry>
+    <title>32. 最长有效括号</title>
+    <url>/2021/01/09/hot-100/32.%E6%9C%80%E9%95%BF%E6%9C%89%E6%95%88%E6%8B%AC%E5%8F%B7/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>一个合法的括号序列要满足两个条件</p>
+<blockquote>
+<p>1、左括号数和右括号数相等</p>
+<p>2、任意前缀，左括号数量大于等于右括号数量</p>
+</blockquote>
+<p><strong>本题太难，以后再写</strong></p>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>HOT-100</tag>
+      </tags>
+  </entry>
 </search>
