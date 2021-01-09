@@ -1372,4 +1372,22 @@
         <tag>HOT-100</tag>
       </tags>
   </entry>
+  <entry>
+    <title>33. 搜索旋转排序数组</title>
+    <url>/2021/01/09/hot-100/33.%E6%90%9C%E7%B4%A2%E6%97%8B%E8%BD%AC%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>该题考查二分</p>
+<p>首先我们将数组分成两段，从发生旋转的点将数组分为两段<strong>升序</strong>。</p>
+<p>然后，我们判断出target是在那一段，根据if(target &gt; nums[0])即可判断</p>
+<p>然后就变成了普通的二分搜索。</p>
+<p>书写二分是比较困难的，建议背下来二分模板。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums.empty()) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">int</span> l = <span class="number">0</span>, r = nums.size() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(l &lt; r) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = l + r + <span class="number">1</span> &gt;&gt; <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &gt;= nums[<span class="number">0</span>]) l = mid;</span><br><span class="line">            <span class="keyword">else</span> r = mid - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(target &gt;= nums[<span class="number">0</span>]) l = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span> l = r + <span class="number">1</span>, r = nums.size() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(l &lt; r) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = l + r &gt;&gt; <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &gt;= target) r = mid;</span><br><span class="line">            <span class="keyword">else</span> l = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(target == nums[r]) <span class="keyword">return</span> r;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">-1</span>;        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>HOT-100</tag>
+      </tags>
+  </entry>
 </search>
