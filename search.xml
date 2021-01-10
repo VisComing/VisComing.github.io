@@ -1479,4 +1479,19 @@
         <tag>HOT-100</tag>
       </tags>
   </entry>
+  <entry>
+    <title>56. 合并区间</title>
+    <url>/2021/01/10/hot-100/56.%E5%90%88%E5%B9%B6%E5%8C%BA%E9%97%B4/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>首先按左端点排序。</p>
+<p>比较两个区间，如果第二个区间的左端点小于等于第一个区间的右端点，表明这两个区间可以合并。否则，不可以合并。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">merge</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; a)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; res;</span><br><span class="line">        <span class="keyword">if</span>(a.empty()) <span class="keyword">return</span> res;</span><br><span class="line">        <span class="comment">//vector支持排序</span></span><br><span class="line">        sort(a.begin(), a.end());</span><br><span class="line">        <span class="keyword">int</span> l = a[<span class="number">0</span>][<span class="number">0</span>], r = a[<span class="number">0</span>][<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; a.size(); i++) &#123;</span><br><span class="line">             <span class="keyword">if</span>(a[i][<span class="number">0</span>] &gt; r) &#123;</span><br><span class="line">                 <span class="comment">//不可以合并，那么将区间添加到结果中</span></span><br><span class="line">                res.push_back(&#123;l, r&#125;);</span><br><span class="line">                 <span class="comment">//更新左右端点</span></span><br><span class="line">                l = a[i][<span class="number">0</span>], r= a[i][<span class="number">1</span>];                </span><br><span class="line">             &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                 <span class="comment">//可以合并，左端点不需要改变，更新右端点，注意需要在原来的右端点和新的右端点中取一个最大值。</span></span><br><span class="line">                 r = max(r, a[i][<span class="number">1</span>]);</span><br><span class="line">             &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        res.push_back(&#123;l, r&#125;);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>HOT-100</tag>
+      </tags>
+  </entry>
 </search>
