@@ -1600,20 +1600,34 @@
       </tags>
   </entry>
   <entry>
-    <title>避免使用vector&lt;bool&gt;</title>
+    <title>避免使用vector\&lt;bool&gt;</title>
     <url>/2021/01/12/c++/%E9%81%BF%E5%85%8D%E4%BD%BF%E7%94%A8vectorbool/</url>
-    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>vector<bool>并不是一个stl容器</bool></p>
-<p>vector<bool>里面不是一个byte存储的，而是用一个bit来存储的</bool></p>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>vector&lt;bool&gt;并不是一个stl容器</p>
+<p>vector&lt;bool&gt;里面不是一个byte存储的，而是用一个bit来存储的</p>
 <p>因为c++不能单独给一个bit去操作，因此我们使用[]访问时，获得的并不是true或false的引用，而是一个’proxy reference’</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; t&#123;<span class="literal">true</span>, <span class="literal">false</span>,<span class="literal">true</span>&#125;;</span><br><span class="line"><span class="keyword">bool</span> b = t[<span class="number">1</span>];</span><br><span class="line"><span class="keyword">auto</span> c = t[<span class="number">1</span>];</span><br></pre></td></tr></table></figure>
 
 <p>b是true或者false，因为这里进行了一个强制转换</p>
 <p>而c的值就不是true或者false了</p>
-<p>我们可以用deque<bool>来代替vector<bool>，deque<bool>中的true或false占用的是一个byte，里面保存的是真正的bool值</bool></bool></bool></p>
+<p>我们可以用deque&lt;bool&gt;来代替vector&lt;bool&gt;，deque&lt;bool&gt;中的true或false占用的是一个byte，里面保存的是真正的bool值</p>
 <p>或者bitset，注意，bitset不是stl容器，而是c++标准库的一部分，大小在编译期固定，因此不支持插入和删除元素，不是迭代器，不支持iterator。压缩表示，每个值只占用一比特。如果不在意没有迭代器和动态改变大小，bitset正合适。</p>
 ]]></content>
       <categories>
         <category>c++</category>
       </categories>
+  </entry>
+  <entry>
+    <title>94. 二叉树的中序遍历</title>
+    <url>/2021/01/12/hot-100/94.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>递归非常好写，我们想象一个根节点和它的左右子树，我们先遍历左子树，然后把根节点插入结果数组中，然后遍历右子树就可以了。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res;</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">inorderTraversal</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        dfs(root);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root == <span class="literal">nullptr</span>) <span class="keyword">return</span>;</span><br><span class="line">        dfs(root-&gt;left);</span><br><span class="line">        res.push_back(root-&gt;val);</span><br><span class="line">        dfs(root-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>HOT-100</tag>
+      </tags>
   </entry>
 </search>
