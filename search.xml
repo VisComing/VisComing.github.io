@@ -1600,7 +1600,7 @@
       </tags>
   </entry>
   <entry>
-    <title>避免使用vector\&lt;bool&gt;</title>
+    <title>避免使用vector bool</title>
     <url>/2021/01/12/c++/%E9%81%BF%E5%85%8D%E4%BD%BF%E7%94%A8vectorbool/</url>
     <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>vector&lt;bool&gt;并不是一个stl容器</p>
 <p>vector&lt;bool&gt;里面不是一个byte存储的，而是用一个bit来存储的</p>
