@@ -1599,4 +1599,21 @@
         <tag>HOT-100</tag>
       </tags>
   </entry>
+  <entry>
+    <title>避免使用vector&lt;bool&gt;</title>
+    <url>/2021/01/12/c++/%E9%81%BF%E5%85%8D%E4%BD%BF%E7%94%A8vectorbool/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>vector<bool>并不是一个stl容器</bool></p>
+<p>vector<bool>里面不是一个byte存储的，而是用一个bit来存储的</bool></p>
+<p>因为c++不能单独给一个bit去操作，因此我们使用[]访问时，获得的并不是true或false的引用，而是一个’proxy reference’</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; t&#123;<span class="literal">true</span>, <span class="literal">false</span>,<span class="literal">true</span>&#125;;</span><br><span class="line"><span class="keyword">bool</span> b = t[<span class="number">1</span>];</span><br><span class="line"><span class="keyword">auto</span> c = t[<span class="number">1</span>];</span><br></pre></td></tr></table></figure>
+
+<p>b是true或者false，因为这里进行了一个强制转换</p>
+<p>而c的值就不是true或者false了</p>
+<p>我们可以用deque<bool>来代替vector<bool>，deque<bool>中的true或false占用的是一个byte，里面保存的是真正的bool值</bool></bool></bool></p>
+<p>或者bitset，注意，bitset不是stl容器，而是c++标准库的一部分，大小在编译期固定，因此不支持插入和删除元素，不是迭代器，不支持iterator。压缩表示，每个值只占用一比特。如果不在意没有迭代器和动态改变大小，bitset正合适。</p>
+]]></content>
+      <categories>
+        <category>c++</category>
+      </categories>
+  </entry>
 </search>
