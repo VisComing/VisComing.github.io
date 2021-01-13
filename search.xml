@@ -1754,4 +1754,52 @@
         <tag>HOT-100</tag>
       </tags>
   </entry>
+  <entry>
+    <title>139. 单词拆分</title>
+    <url>/2021/01/13/hot-100/139.%E5%8D%95%E8%AF%8D%E6%8B%86%E5%88%86/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>稍微复杂一点的动态规划问题</p>
+<p>我们用f[i]表示前i个字符是否可以拆分</p>
+<p>如何判断f[i]是否为true？</p>
+<p>我们可以找到f[0…i - 1]中所有可以被拆分的串，那么从找到的那个可拆分串的下一个字符到i，判断这一段字符是否可以拆分。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">wordBreak</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; wordDict)</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; <span class="title">f</span><span class="params">(s.size() + <span class="number">1</span>, <span class="literal">false</span>)</span></span>;</span><br><span class="line">        f[<span class="number">0</span>] = <span class="literal">true</span>;</span><br><span class="line">        <span class="comment">//将wordDict插入哈希表</span></span><br><span class="line">        <span class="function"><span class="built_in">unordered_set</span>&lt;<span class="built_in">string</span>&gt; <span class="title">hash</span><span class="params">(wordDict.begin(), wordDict.end())</span></span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= s.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(f[j] &amp;&amp; hash.count(s.substr(j, i - j))) &#123;</span><br><span class="line">                    f[i] = <span class="literal">true</span>;</span><br><span class="line">                    <span class="keyword">break</span>;    </span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> f[s.size()];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>HOT-100</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>136. 只出现一次的数字</title>
+    <url>/2021/01/13/hot-100/136.%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="异或"><a href="#异或" class="headerlink" title="异或"></a>异或</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">singleNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> x : nums) res ^= x;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a>哈希表</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">singleNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; hash;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> x : nums) hash[x]++;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> x : hash) <span class="keyword">if</span>(x.second == <span class="number">1</span>) <span class="keyword">return</span> x.first;</span><br><span class="line">        <span class="comment">//力扣要求必须返回一个数，其实函数是执行不到这一步的</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>HOT-100</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>141. 环形链表</title>
+    <url>/2021/01/13/hot-100/141.%E7%8E%AF%E5%BD%A2%E9%93%BE%E8%A1%A8/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>很简单的一道题</p>
+<p>一个快指针，每次走两步；一个慢指针，每次走一步。</p>
+<p>如果快慢指针相遇则表明有环。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">hasCycle</span><span class="params">(ListNode *head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">auto</span> slow = head, fast = head;</span><br><span class="line">        <span class="keyword">while</span>(fast &amp;&amp; fast-&gt;next) &#123;            </span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">            fast = fast-&gt;next-&gt;next;</span><br><span class="line">            <span class="keyword">if</span>(slow == fast) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>HOT-100</tag>
+      </tags>
+  </entry>
 </search>
