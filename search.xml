@@ -1820,4 +1820,21 @@
         <tag>HOT-100</tag>
       </tags>
   </entry>
+  <entry>
+    <title>条款03：尽可能使用const</title>
+    <url>/2021/01/13/Effective-C++/%E6%9D%A1%E6%AC%BE03%EF%BC%9A%E5%B0%BD%E5%8F%AF%E8%83%BD%E4%BD%BF%E7%94%A8const/</url>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">char</span> greeting[] = <span class="string">&quot;Hello&quot;</span>;</span><br><span class="line"><span class="keyword">char</span>* p = greeting;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">char</span>* p = greeting;</span><br><span class="line"><span class="keyword">char</span>* <span class="keyword">const</span> p = greeting;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">char</span>* <span class="keyword">const</span> p = greeting;</span><br></pre></td></tr></table></figure>
+
+<p>const出现在*左边，则表明指针指向的东西是常量</p>
+<p>const出现在*右边，则表明指针本身是常量</p>
+<p>可以把const后面的东西看成一个整体，比如const (char* p)，则*p是常量；比如char const * p，*p是常量。</p>
+<p>const char * 和char const *是一样的。</p>
+<p>const  int a 和 int const a同样是一样的。</p>
+<h2 id="const成员函数"><a href="#const成员函数" class="headerlink" title="const成员函数"></a>const成员函数</h2><p>const放在函数参数表后面，表示该函数不能修改成员变量。在类外定义该函数时，也需要加上const</p>
+<p><a href="https://www.cnblogs.com/cthon/p/9178701.html">参考这个博客</a></p>
+]]></content>
+      <categories>
+        <category>Effective-C++</category>
+      </categories>
+  </entry>
 </search>
