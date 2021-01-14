@@ -179,7 +179,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/12/hot-100/105.%E4%BB%8E%E5%89%8D%E5%BA%8F%E4%B8%8E%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97%E6%9E%84%E9%80%A0%E4%BA%8C%E5%8F%89%E6%A0%91/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/12/hot-100/114.%E4%BA%8C%E5%8F%89%E6%A0%91%E5%B1%95%E5%BC%80%E4%B8%BA%E9%93%BE%E8%A1%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -193,7 +193,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/01/12/hot-100/105.%E4%BB%8E%E5%89%8D%E5%BA%8F%E4%B8%8E%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97%E6%9E%84%E9%80%A0%E4%BA%8C%E5%8F%89%E6%A0%91/" class="post-title-link" itemprop="url">105. 从前序与中序遍历序列构造二叉树</a>
+            <a href="/2021/01/12/hot-100/114.%E4%BA%8C%E5%8F%89%E6%A0%91%E5%B1%95%E5%BC%80%E4%B8%BA%E9%93%BE%E8%A1%A8/" class="post-title-link" itemprop="url">114. 二叉树展开为链表</a>
         </h2>
 
         <div class="post-meta">
@@ -204,7 +204,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-01-12 22:20:31 / 修改时间：22:26:29" itemprop="dateCreated datePublished" datetime="2021-01-12T22:20:31+08:00">2021-01-12</time>
+              <time title="创建时间：2021-01-12 23:06:30 / 修改时间：23:18:51" itemprop="dateCreated datePublished" datetime="2021-01-12T23:06:30+08:00">2021-01-12</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -217,7 +217,7 @@
             </span>
 
           
-            <span id="/2021/01/12/hot-100/105.%E4%BB%8E%E5%89%8D%E5%BA%8F%E4%B8%8E%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97%E6%9E%84%E9%80%A0%E4%BA%8C%E5%8F%89%E6%A0%91/" class="post-meta-item leancloud_visitors" data-flag-title="105. 从前序与中序遍历序列构造二叉树" title="阅读次数">
+            <span id="/2021/01/12/hot-100/114.%E4%BA%8C%E5%8F%89%E6%A0%91%E5%B1%95%E5%BC%80%E4%B8%BA%E9%93%BE%E8%A1%A8/" class="post-meta-item leancloud_visitors" data-flag-title="114. 二叉树展开为链表" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -232,8 +232,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/01/12/hot-100/105.%E4%BB%8E%E5%89%8D%E5%BA%8F%E4%B8%8E%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97%E6%9E%84%E9%80%A0%E4%BA%8C%E5%8F%89%E6%A0%91/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/12/hot-100/105.%E4%BB%8E%E5%89%8D%E5%BA%8F%E4%B8%8E%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86%E5%BA%8F%E5%88%97%E6%9E%84%E9%80%A0%E4%BA%8C%E5%8F%89%E6%A0%91/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/01/12/hot-100/114.%E4%BA%8C%E5%8F%89%E6%A0%91%E5%B1%95%E5%BC%80%E4%B8%BA%E9%93%BE%E8%A1%A8/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/12/hot-100/114.%E4%BA%8C%E5%8F%89%E6%A0%91%E5%B1%95%E5%BC%80%E4%B8%BA%E9%93%BE%E8%A1%A8/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -248,12 +248,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>对于前序遍历，第一个点是根节点，接下来的数字是左右两边的子树，那么如何判断左子树的长度到哪呢？</p>
-<p>利用中序遍历，因为没有重复的数字，那么找到根节点的位置，该位置前就是左子树，右边就是右子树，这样就有了左右子树的长度了。</p>
-<p>于是我们就得到了前序遍历的左子树和中序遍历的左子树，又是一个子问题。</p>
-<p>我们可以用递归来解决</p>
-<p>为了快速确定根节点在中序遍历中的位置，我们把中序遍历里面的数字存在一个哈希表中，这样就可以在O(1)的时间里找到根节点的位置了。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; pos;</span><br><span class="line">    <span class="function">TreeNode* <span class="title">buildTree</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; preorder, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; inorder)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span> ; i &lt; inorder.size(); i++) pos[inorder[i]] = i;</span><br><span class="line">        <span class="keyword">return</span> build(preorder, inorder, <span class="number">0</span>, preorder.size() - <span class="number">1</span>, <span class="number">0</span>, inorder.size() - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">TreeNode* <span class="title">build</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; preorder, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; inorder, <span class="keyword">int</span> pl, <span class="keyword">int</span> pr, <span class="keyword">int</span> il, <span class="keyword">int</span> ir)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(pl &gt; pr) <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">auto</span> root = <span class="keyword">new</span> TreeNode(preorder[pl]);</span><br><span class="line">        <span class="keyword">int</span> k = pos[preorder[pl]];</span><br><span class="line">        root-&gt;left = build(preorder, inorder, pl + <span class="number">1</span>, pl + <span class="number">1</span> + k - <span class="number">1</span> - il, il, k - <span class="number">1</span>);</span><br><span class="line">        root-&gt;right = build(preorder, inorder, pl + <span class="number">1</span> + k - <span class="number">1</span> - il + <span class="number">1</span>, pr, k + <span class="number">1</span>, ir);</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+          <p>我们可以这样做，对于一个根节点，将它的左子树的<strong>右链</strong>插入到根节点的右节点中，即把左子树的头节点插在根节点的右节点处，将左子树的右子树的右子树..末尾的下一个元素指向根节点原来的右节点。</p>
+<p><img src="https://i.loli.net/2021/01/12/8J3LvWNsxkREjqg.png" alt="image-20210112230915420"></p>
+<p>​                                                                                                <img src="https://i.loli.net/2021/01/12/5tIVMUqXGgDYz7e.png" alt="image-20210112231356777"></p>
+<p><img src="https://i.loli.net/2021/01/12/ik6vyNJt4ns7xKA.png" alt="image-20210112231641361">        </p>
+<p>代码很好写,注意一定要把左子树清空，root-&gt;left = nullptr;</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">flatten</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(root) &#123;</span><br><span class="line">            <span class="keyword">if</span>(root-&gt;left) &#123;</span><br><span class="line">                <span class="keyword">auto</span> p = root-&gt;left;                </span><br><span class="line">                <span class="keyword">while</span>(p-&gt;right) p = p-&gt;right;</span><br><span class="line">                p-&gt;right = root-&gt;right;</span><br><span class="line">                root-&gt;right = root-&gt;left;</span><br><span class="line">                <span class="comment">//一定要把左子树清空</span></span><br><span class="line">                root-&gt;left = <span class="literal">nullptr</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            root = root-&gt;right;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -273,7 +273,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/79/">79</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/13/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><span class="page-number current">14</span><a class="page-number" href="/page/15/">15</a><span class="space">&hellip;</span><a class="page-number" href="/page/80/">80</a><a class="extend next" rel="next" href="/page/15/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -339,7 +339,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">79</span>
+          <span class="site-state-item-count">80</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
