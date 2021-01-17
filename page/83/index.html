@@ -179,7 +179,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/15/kmp/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/10/picture-test/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -193,7 +193,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/15/kmp/" class="post-title-link" itemprop="url">kmp</a>
+            <a href="/2020/11/10/picture-test/" class="post-title-link" itemprop="url">picture-test</a>
         </h2>
 
         <div class="post-meta">
@@ -202,19 +202,13 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-09-15 18:02:25" itemprop="dateCreated datePublished" datetime="2020-09-15T18:02:25+08:00">2020-09-15</time>
+              <time title="创建时间：2020-11-10 10:07:37 / 修改时间：10:10:51" itemprop="dateCreated datePublished" datetime="2020-11-10T10:07:37+08:00">2020-11-10</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-10 11:23:55" itemprop="dateModified" datetime="2020-11-10T11:23:55+08:00">2020-11-10</time>
-              </span>
 
           
-            <span id="/2020/09/15/kmp/" class="post-meta-item leancloud_visitors" data-flag-title="kmp" title="阅读次数">
+            <span id="/2020/11/10/picture-test/" class="post-meta-item leancloud_visitors" data-flag-title="picture-test" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -229,8 +223,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/15/kmp/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/15/kmp/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/11/10/picture-test/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/10/picture-test/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -245,8 +239,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100010</span>, M = <span class="number">10010</span>;</span><br><span class="line"><span class="keyword">int</span> ne[N];</span><br><span class="line"><span class="keyword">char</span> n[N], p[M];<span class="comment">//n是字符串，p是模式</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//求next过程，字符串下标从1开始</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>, j =<span class="number">0</span>; i &lt;= <span class="keyword">sizeof</span>(p); i ++ ) </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">while</span> (j &amp;&amp; p[i] != p[j + <span class="number">1</span>]) j = ne[j];</span><br><span class="line">    <span class="keyword">if</span>(p[i] == p[j + <span class="number">1</span>]) j ++;</span><br><span class="line">    ne[i] = j;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//匹配过程,字符串下标从1开始</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>, j = <span class="number">0</span>; i &lt;= <span class="keyword">sizeof</span>(n); i ++ )</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">while</span>(j &amp;&amp; s[i] != p[j + <span class="number">1</span>]) j = ne[j];</span><br><span class="line">    <span class="keyword">if</span>(s[i] == p[j + <span class="number">1</span>]) j ++;</span><br><span class="line">    <span class="keyword">if</span>(j == <span class="keyword">sizeof</span>(n))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//匹配成功</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+          <p><img src="/2020/11/10/picture-test/1.png" alt="测试图片"></p>
 
       
     </div>
@@ -265,7 +258,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/82/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/82/">82</a><span class="page-number current">83</span><a class="page-number" href="/page/84/">84</a><span class="space">&hellip;</span><a class="page-number" href="/page/91/">91</a><a class="extend next" rel="next" href="/page/84/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/82/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/82/">82</a><span class="page-number current">83</span><a class="page-number" href="/page/84/">84</a><span class="space">&hellip;</span><a class="page-number" href="/page/93/">93</a><a class="extend next" rel="next" href="/page/84/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -331,7 +324,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">91</span>
+          <span class="site-state-item-count">93</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
