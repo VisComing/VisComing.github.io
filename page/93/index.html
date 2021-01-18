@@ -179,7 +179,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E7%AC%94%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/12/c++%20stl%20%E7%AE%80%E4%BB%8B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -193,7 +193,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">算法笔记笔记</a>
+            <a href="/2020/09/12/c++%20stl%20%E7%AE%80%E4%BB%8B/" class="post-title-link" itemprop="url">C++ STL 简介</a>
         </h2>
 
         <div class="post-meta">
@@ -203,18 +203,18 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-09-12 15:00:16" itemprop="dateCreated datePublished" datetime="2020-09-12T15:00:16+08:00">2020-09-12</time>
+              <time title="创建时间：2020-09-12 16:51:23" itemprop="dateCreated datePublished" datetime="2020-09-12T16:51:23+08:00">2020-09-12</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-10 11:24:36" itemprop="dateModified" datetime="2020-11-10T11:24:36+08:00">2020-11-10</time>
+                <time title="修改时间：2020-11-10 11:18:33" itemprop="dateModified" datetime="2020-11-10T11:18:33+08:00">2020-11-10</time>
               </span>
 
           
-            <span id="/2020/09/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E7%AC%94%E8%AE%B0/" class="post-meta-item leancloud_visitors" data-flag-title="算法笔记笔记" title="阅读次数">
+            <span id="/2020/09/12/c++%20stl%20%E7%AE%80%E4%BB%8B/" class="post-meta-item leancloud_visitors" data-flag-title="C++ STL 简介" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -229,8 +229,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E7%AC%94%E8%AE%B0/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E7%AC%94%E8%AE%B0/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/12/c++%20stl%20%E7%AE%80%E4%BB%8B/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/12/c++%20stl%20%E7%AE%80%E4%BB%8B/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -245,54 +245,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><p>1、用double, 不用 float, double的精度为15-16位， float 的精度为6-7位</p>
-<p>2、c语言用字符数组保存字符串    字符串常量使用双引号标注的字符集合     char str[30] = “wo ai zhong guo”;</p>
-<p>3、尽量不要使用宏定义（#define）定义除了定义常量之外的事情</p>
-<p>4、i ++ 先使用i再将i加一        ++ i 先将i加一再使用i</p>
-<p>5、条件运算符（?   :）三目运算符    A ? B : C     判断A， 如果为真，执行B，如果为假，执行C</p>
-<p>6、int的上限为2的32次方减1            INT_MAX =（1 &lt;&lt; 31）- 1 = 2147483647    左移相当于乘法</p>
-<p>7、^ 运算符 异或 相异为1， 相同为0</p>
-<p>8、连续等号 m = n = 10      赋值m, n均为10</p>
-<p>9、scanf(“%d:%d:%d”, &amp;hour, &amp;minute, &amp;second);                10:27:54    scanf中的双引号内容就是整个输入</p>
-<p>​      scanf(“%d,%lf,%d”, &amp;a, &amp;b, &amp;c);                    输入数据：12,17.2,23</p>
-<p>10、除%c之外，scanf对其他格式符的输入是以空白符（空格、Tab）为结束判断标志的</p>
-<p>​        注意，scanf的%c格式是可以读入空格跟空行的</p>
-<p>​                scanf(“%d%c%s”, &amp;a, &amp;ch, &amp; str);            输入：8 q nihao            结果： a = 8; ch =  ; str = q;</p>
-<p>​        所以，读入字符时，最好用字符串的方式读入，比如读入一个字符，int st[2]; scanf(“%s”, st);//%s遇到空格就会停止读入</p>
-<p>11、%.mf，让浮点数保留m位进行输出</p>
-<p>12、getchar()用来输入单个字符， putchar用来输出单个字符</p>
-<p>13、typedef 给数据类型起一个别名      如 ：typedef long long LL;</p>
-<p>14、常用math函数</p>
-<p>​                fabs(double x)  对double变量取绝对值</p>
-<p>​                floor(double x) 对double变量向下取整            ceil(double x) double变量向上取整</p>
-<p>​                double pow(double a, double b) 计算a的b次方，参数和返回值都是double</p>
-<p>​                double sqrt(double x)  计算x的算术平方根， 参数和返回值均为double</p>
-<p>​                double log(double x) 计算x以自然对数为底的对数</p>
-<p>​                sin(double x)    cos(double x)    tan(double x)  参数和返回值都是double</p>
-<p>15、每个case后，必须加上break，否则执行完该case后，不会break，会继续向下执行，执行下面的case</p>
-<p>16、一维数组初始化 int a[10] = {0}; 注意 int a[10] = {1} 不会将数组全初始化为1！memset(a, 1, sizeof a) 依然不能将数组置为1，memset按字节对内存进行初始化，所以内存里存的其实是0x0101 0101……，也就是16843009。</p>
-<p>17、建议只用memset置0或者-1.memset是按字节赋值</p>
-<p>18、gets用来输入一行字符串，注意识别\n作为输入结束标志</p>
-<p>19、字符数组以\0结尾，开字符数组的时候一定要至少比要存储的字符串长度多1，int数组则不需要多1</p>
-<p>20、如果不是用scanf的%s或者gets输入字符串的，则务必要在字符串后加上\0</p>
-<p>21、strlen, 注意返回类型是无符号整型（unsigned int），strlen(str) &lt; -1可能为真， 无符号数和有符号数比较大小时，会转换为无符号数比较</p>
-<p>22、strcmp(字符串1， 字符串2) 按照字典序比较， 如果等于，返回0，如果大于，返回正整数，如果小于，返回负整数</p>
-<p>23、strcpy(字符数组1， 字符数组2) ，把字符数组2赋给字符数组1</p>
-<p>24、strcat(字符数组1， 字符数组2)，把字符数组2接在字符数组1后面</p>
-<p>25、数组作为函数的参数，int func(int a[], int b[][5] [] [8]), 注意 二维数组的第二维需要填写个数</p>
-<p>26、在函数中对数组修改就相当于对原数组修改</p>
-<p>27、指针是一个unsigned类型的整数</p>
-<p>28、浮点数的比较</p>
-<p>​                const double esp = 1e-8</p>
-<p>​                if(fabs(a - b) &lt; esp)  则可说明两个浮点数相等</p>
-<p>29、const double pi = acos(-1.0)</p>
-<p>30、while(scanf(“%d”, &amp;a) != EOF) 如果没有读到文件末尾，就继续读</p>
-<p>31、while(gets(str) != NULL) 使用gets读取字符串时</p>
-<h2 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h2><p>1、简单模拟：不需要什么算法，题目怎么说，我就怎么做，就好像把题目翻译成了代码语言</p>
-<p>2、闰年：if ((year % 4 == 0 &amp;&amp; year %100 != 0)  || (year % 400 == 0))</p>
-<p>3、product ：乘积</p>
-<h2 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h2><p>​    </p>
-
+          <h1 id="C-STL-简介"><a href="#C-STL-简介" class="headerlink" title="C++ STL 简介"></a>C++ STL 简介</h1><h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/12/c++%20stl%20%E7%AE%80%E4%BB%8B/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -310,7 +271,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/92/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/92/">92</a><span class="page-number current">93</span><a class="page-number" href="/page/94/">94</a><a class="page-number" href="/page/95/">95</a><a class="extend next" rel="next" href="/page/94/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/92/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/92/">92</a><span class="page-number current">93</span><a class="page-number" href="/page/94/">94</a><span class="space">&hellip;</span><a class="page-number" href="/page/96/">96</a><a class="extend next" rel="next" href="/page/94/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -376,7 +337,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">95</span>
+          <span class="site-state-item-count">96</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
