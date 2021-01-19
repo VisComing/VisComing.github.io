@@ -20,20 +20,20 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="本题是一道搜索题 我们首先找到一个起点，然后根据该起点开始搜索。 对于每一个点，共有四个搜索方向，上下左右 题目中要求不能重复搜索一个点，那么其实只有三个搜索方向 为了简化代码，我们把上一步确定的点用一个符号来表示，这样就不会重复搜索它了 上下左右方向的简化，其实上下左右可以用(0,-1)、(-1,0)、(1,0)、(0,1)来表示，为了方便，我们用两个数组分别表示x和y的偏移量，这样可以写在一个">
+  <meta name="description" content="dfs函数找出以root为根节点的左右子树中最深的长度 1234567891011121314151617181920212223&#x2F;** * Definition for a binary tree node. * struct TreeNode &amp;#123; *     int val; *     TreeNode *left; *     TreeNode *right; *     Tre">
 <meta property="og:type" content="article">
-<meta property="og:title" content="79. 单词搜索">
-<meta property="og:url" content="http://yoursite.com/2021/01/11/hot-100/79.%E5%8D%95%E8%AF%8D%E6%90%9C%E7%B4%A2/index.html">
+<meta property="og:title" content="543. 二叉树的直径">
+<meta property="og:url" content="http://yoursite.com/2021/01/19/hot-100/543.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/index.html">
 <meta property="og:site_name" content="周瑞发的网站">
-<meta property="og:description" content="本题是一道搜索题 我们首先找到一个起点，然后根据该起点开始搜索。 对于每一个点，共有四个搜索方向，上下左右 题目中要求不能重复搜索一个点，那么其实只有三个搜索方向 为了简化代码，我们把上一步确定的点用一个符号来表示，这样就不会重复搜索它了 上下左右方向的简化，其实上下左右可以用(0,-1)、(-1,0)、(1,0)、(0,1)来表示，为了方便，我们用两个数组分别表示x和y的偏移量，这样可以写在一个">
+<meta property="og:description" content="dfs函数找出以root为根节点的左右子树中最深的长度 1234567891011121314151617181920212223&#x2F;** * Definition for a binary tree node. * struct TreeNode &amp;#123; *     int val; *     TreeNode *left; *     TreeNode *right; *     Tre">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-01-11T14:45:48.275Z">
-<meta property="article:modified_time" content="2021-01-11T14:54:07.280Z">
+<meta property="article:published_time" content="2021-01-19T15:38:25.828Z">
+<meta property="article:modified_time" content="2021-01-19T15:40:30.892Z">
 <meta property="article:author" content="周瑞发">
 <meta property="article:tag" content="HOT-100">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2021/01/11/hot-100/79.%E5%8D%95%E8%AF%8D%E6%90%9C%E7%B4%A2/">
+<link rel="canonical" href="http://yoursite.com/2021/01/19/hot-100/543.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/">
 
 
 <script id="page-configurations">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>79. 单词搜索 | 周瑞发的网站</title>
+  <title>543. 二叉树的直径 | 周瑞发的网站</title>
   
 
 
@@ -180,12 +180,12 @@
 
           <div class="content post posts-expand">
             
-  3 min. read
+  1 min. read
     
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/11/hot-100/79.%E5%8D%95%E8%AF%8D%E6%90%9C%E7%B4%A2/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/19/hot-100/543.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -198,7 +198,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          79. 单词搜索
+          543. 二叉树的直径
         </h1>
 
         <div class="post-meta">
@@ -209,7 +209,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-01-11 22:45:48 / 修改时间：22:54:07" itemprop="dateCreated datePublished" datetime="2021-01-11T22:45:48+08:00">2021-01-11</time>
+              <time title="创建时间：2021-01-19 23:38:25 / 修改时间：23:40:30" itemprop="dateCreated datePublished" datetime="2021-01-19T23:38:25+08:00">2021-01-19</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -222,7 +222,7 @@
             </span>
 
           
-            <span id="/2021/01/11/hot-100/79.%E5%8D%95%E8%AF%8D%E6%90%9C%E7%B4%A2/" class="post-meta-item leancloud_visitors" data-flag-title="79. 单词搜索" title="阅读次数">
+            <span id="/2021/01/19/hot-100/543.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/" class="post-meta-item leancloud_visitors" data-flag-title="543. 二叉树的直径" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -237,8 +237,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/01/11/hot-100/79.%E5%8D%95%E8%AF%8D%E6%90%9C%E7%B4%A2/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/11/hot-100/79.%E5%8D%95%E8%AF%8D%E6%90%9C%E7%B4%A2/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/01/19/hot-100/543.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/19/hot-100/543.%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E7%9B%B4%E5%BE%84/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -253,13 +253,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>本题是一道搜索题</p>
-<p>我们首先找到一个起点，然后根据该起点开始搜索。</p>
-<p>对于每一个点，共有四个搜索方向，上下左右</p>
-<p>题目中要求不能重复搜索一个点，那么其实只有三个搜索方向</p>
-<p>为了简化代码，我们把上一步确定的点用一个符号来表示，这样就不会重复搜索它了</p>
-<p>上下左右方向的简化，其实上下左右可以用(0,-1)、(-1,0)、(1,0)、(0,1)来表示，为了方便，我们用两个数组分别表示x和y的偏移量，这样可以写在一个循环中，避免了冗余的判断。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">exist</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt;&gt;&amp; board, <span class="built_in">string</span> word)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; board.size(); i++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; board[<span class="number">0</span>].size(); j++)</span><br><span class="line">                <span class="keyword">if</span>(dfs(board, word, <span class="number">0</span>, i, j)) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// (0,-1)、(-1,0)、(1,0)、(0,1)</span></span><br><span class="line">    <span class="keyword">int</span> dx[<span class="number">4</span>] = &#123;<span class="number">-1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>&#125;, dy[<span class="number">4</span>] = &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>&#125;;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">dfs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt;&gt;&amp; board, <span class="built_in">string</span>&amp; word, <span class="keyword">int</span> u, <span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(board[x][y] != word[u]) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(u == word.size() - <span class="number">1</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">char</span> t = board[x][y];</span><br><span class="line">        board[x][y] = <span class="string">&#x27;.&#x27;</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> a = x + dx[i], b = y + dy[i];</span><br><span class="line">            <span class="comment">//注意要判断是否越界，比如x为0的点就没有x - 1</span></span><br><span class="line">            <span class="keyword">if</span>(a &lt; <span class="number">0</span> || a &gt;= board.size() || b &lt; <span class="number">0</span> || b &gt;= board[<span class="number">0</span>].size() || board[a][b] == <span class="string">&#x27;.&#x27;</span>) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">if</span>(dfs(board, word, u + <span class="number">1</span>, a, b)) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//一定要恢复现场</span></span><br><span class="line">        board[x][y] = t;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <p>dfs函数找出以root为根节点的左右子树中最深的长度</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">diameterOfBinaryTree</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        dfs(root);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root == <span class="literal">nullptr</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> left = dfs(root-&gt;left), right = dfs(root-&gt;right);</span><br><span class="line">        ans = max(ans, left + right);</span><br><span class="line">        <span class="keyword">return</span> max(left, right) + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -279,13 +274,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/01/11/hot-100/78.%E5%AD%90%E9%9B%86/" rel="prev" title="78. 子集">
-      <i class="fa fa-chevron-left"></i> 78. 子集
+    <a href="/2021/01/19/hot-100/438.%E6%89%BE%E5%88%B0%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E6%89%80%E6%9C%89%E5%AD%97%E6%AF%8D%E5%BC%82%E4%BD%8D%E8%AF%8D/" rel="prev" title="438. 找到字符串中所有字母异位词">
+      <i class="fa fa-chevron-left"></i> 438. 找到字符串中所有字母异位词
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/01/12/c++/%E9%81%BF%E5%85%8D%E4%BD%BF%E7%94%A8vectorbool/" rel="next" title="避免使用vector bool">
-      避免使用vector bool <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
