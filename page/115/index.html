@@ -179,7 +179,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/12/c++/%E9%81%BF%E5%85%8D%E4%BD%BF%E7%94%A8vectorbool/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/12/hot-100/121.%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -193,7 +193,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/01/12/c++/%E9%81%BF%E5%85%8D%E4%BD%BF%E7%94%A8vectorbool/" class="post-title-link" itemprop="url">避免使用vector bool</a>
+            <a href="/2021/01/12/hot-100/121.%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA/" class="post-title-link" itemprop="url">121. 买卖股票的最佳时机</a>
         </h2>
 
         <div class="post-meta">
@@ -204,7 +204,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-01-12 11:51:43 / 修改时间：15:11:15" itemprop="dateCreated datePublished" datetime="2021-01-12T11:51:43+08:00">2021-01-12</time>
+              <time title="创建时间：2021-01-12 23:26:28 / 修改时间：23:28:38" itemprop="dateCreated datePublished" datetime="2021-01-12T23:26:28+08:00">2021-01-12</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -212,12 +212,12 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/c/" itemprop="url" rel="index"><span itemprop="name">c++</span></a>
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
                 </span>
             </span>
 
           
-            <span id="/2021/01/12/c++/%E9%81%BF%E5%85%8D%E4%BD%BF%E7%94%A8vectorbool/" class="post-meta-item leancloud_visitors" data-flag-title="避免使用vector bool" title="阅读次数">
+            <span id="/2021/01/12/hot-100/121.%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA/" class="post-meta-item leancloud_visitors" data-flag-title="121. 买卖股票的最佳时机" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -232,8 +232,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/01/12/c++/%E9%81%BF%E5%85%8D%E4%BD%BF%E7%94%A8vectorbool/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/12/c++/%E9%81%BF%E5%85%8D%E4%BD%BF%E7%94%A8vectorbool/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/01/12/hot-100/121.%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/12/hot-100/121.%E4%B9%B0%E5%8D%96%E8%82%A1%E7%A5%A8%E7%9A%84%E6%9C%80%E4%BD%B3%E6%97%B6%E6%9C%BA/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -248,15 +248,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>vector&lt;bool&gt;并不是一个stl容器</p>
-<p>vector&lt;bool&gt;里面不是一个byte存储的，而是用一个bit来存储的</p>
-<p>因为c++不能单独给一个bit去操作，因此我们使用[]访问时，获得的并不是true或false的引用，而是一个’proxy reference’</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; t&#123;<span class="literal">true</span>, <span class="literal">false</span>,<span class="literal">true</span>&#125;;</span><br><span class="line"><span class="keyword">bool</span> b = t[<span class="number">1</span>];</span><br><span class="line"><span class="keyword">auto</span> c = t[<span class="number">1</span>];</span><br></pre></td></tr></table></figure>
+          <p>这是一道非常简单的动态规划</p>
+<p>前i天的最大价格 = max(前i - 1天的最大价格，当前的价格 - 前i - 1天的最小价格)</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxProfit</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; prices)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> minp = INT_MAX;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> x : prices) &#123;</span><br><span class="line">            res = max(res, x - minp);</span><br><span class="line">            minp = min(minp, x);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<p>b是true或者false，因为这里进行了一个强制转换</p>
-<p>而c的值就不是true或者false了</p>
-<p>我们可以用deque&lt;bool&gt;来代替vector&lt;bool&gt;，deque&lt;bool&gt;中的true或false占用的是一个byte，里面保存的是真正的bool值</p>
-<p>或者bitset，注意，bitset不是stl容器，而是c++标准库的一部分，大小在编译期固定，因此不支持插入和删除元素，不是迭代器，不支持iterator。压缩表示，每个值只占用一比特。如果不在意没有迭代器和动态改变大小，bitset正合适。</p>
 
       
     </div>
@@ -275,7 +270,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/114/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/114/">114</a><span class="page-number current">115</span><a class="page-number" href="/page/116/">116</a><span class="space">&hellip;</span><a class="page-number" href="/page/173/">173</a><a class="extend next" rel="next" href="/page/116/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/114/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/114/">114</a><span class="page-number current">115</span><a class="page-number" href="/page/116/">116</a><span class="space">&hellip;</span><a class="page-number" href="/page/182/">182</a><a class="extend next" rel="next" href="/page/116/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -341,7 +336,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">173</span>
+          <span class="site-state-item-count">182</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
