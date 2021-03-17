@@ -179,7 +179,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/11/hot-100/79.%E5%8D%95%E8%AF%8D%E6%90%9C%E7%B4%A2/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/13/algolia/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -193,7 +193,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/01/11/hot-100/79.%E5%8D%95%E8%AF%8D%E6%90%9C%E7%B4%A2/" class="post-title-link" itemprop="url">79. 单词搜索</a>
+            <a href="/2021/01/13/algolia/" class="post-title-link" itemprop="url">本地上传到algolia</a>
         </h2>
 
         <div class="post-meta">
@@ -204,20 +204,11 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-01-11 22:45:48 / 修改时间：22:54:07" itemprop="dateCreated datePublished" datetime="2021-01-11T22:45:48+08:00">2021-01-11</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
-                </span>
+              <time title="创建时间：2021-01-13 23:35:38 / 修改时间：23:37:53" itemprop="dateCreated datePublished" datetime="2021-01-13T23:35:38+08:00">2021-01-13</time>
             </span>
 
           
-            <span id="/2021/01/11/hot-100/79.%E5%8D%95%E8%AF%8D%E6%90%9C%E7%B4%A2/" class="post-meta-item leancloud_visitors" data-flag-title="79. 单词搜索" title="阅读次数">
+            <span id="/2021/01/13/algolia/" class="post-meta-item leancloud_visitors" data-flag-title="本地上传到algolia" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -232,8 +223,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/01/11/hot-100/79.%E5%8D%95%E8%AF%8D%E6%90%9C%E7%B4%A2/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/11/hot-100/79.%E5%8D%95%E8%AF%8D%E6%90%9C%E7%B4%A2/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/01/13/algolia/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/13/algolia/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -248,14 +239,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>本题是一道搜索题</p>
-<p>我们首先找到一个起点，然后根据该起点开始搜索。</p>
-<p>对于每一个点，共有四个搜索方向，上下左右</p>
-<p>题目中要求不能重复搜索一个点，那么其实只有三个搜索方向</p>
-<p>为了简化代码，我们把上一步确定的点用一个符号来表示，这样就不会重复搜索它了</p>
-<p>上下左右方向的简化，其实上下左右可以用(0,-1)、(-1,0)、(1,0)、(0,1)来表示，为了方便，我们用两个数组分别表示x和y的偏移量，这样可以写在一个循环中，避免了冗余的判断。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">exist</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt;&gt;&amp; board, <span class="built_in">string</span> word)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; board.size(); i++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; board[<span class="number">0</span>].size(); j++)</span><br><span class="line">                <span class="keyword">if</span>(dfs(board, word, <span class="number">0</span>, i, j)) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// (0,-1)、(-1,0)、(1,0)、(0,1)</span></span><br><span class="line">    <span class="keyword">int</span> dx[<span class="number">4</span>] = &#123;<span class="number">-1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>&#125;, dy[<span class="number">4</span>] = &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>&#125;;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">dfs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt;&gt;&amp; board, <span class="built_in">string</span>&amp; word, <span class="keyword">int</span> u, <span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(board[x][y] != word[u]) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(u == word.size() - <span class="number">1</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">char</span> t = board[x][y];</span><br><span class="line">        board[x][y] = <span class="string">&#x27;.&#x27;</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> a = x + dx[i], b = y + dy[i];</span><br><span class="line">            <span class="comment">//注意要判断是否越界，比如x为0的点就没有x - 1</span></span><br><span class="line">            <span class="keyword">if</span>(a &lt; <span class="number">0</span> || a &gt;= board.size() || b &lt; <span class="number">0</span> || b &gt;= board[<span class="number">0</span>].size() || board[a][b] == <span class="string">&#x27;.&#x27;</span>) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">if</span>(dfs(board, word, u + <span class="number">1</span>, a, b)) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//一定要恢复现场</span></span><br><span class="line">        board[x][y] = t;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
+          <p>hexo clean?</p>
+<p>set HEXO_ALGOLIA_INDEXING_KEY=</p>
+<p>后面这个key要是admin key，可以upload</p>
+<p>search key只能搜索</p>
 
       
     </div>
@@ -274,7 +261,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/93/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/93/">93</a><span class="page-number current">94</span><a class="page-number" href="/page/95/">95</a><span class="space">&hellip;</span><a class="page-number" href="/page/151/">151</a><a class="extend next" rel="next" href="/page/95/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/93/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/93/">93</a><span class="page-number current">94</span><a class="page-number" href="/page/95/">95</a><span class="space">&hellip;</span><a class="page-number" href="/page/167/">167</a><a class="extend next" rel="next" href="/page/95/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -340,14 +327,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">151</span>
+          <span class="site-state-item-count">167</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
