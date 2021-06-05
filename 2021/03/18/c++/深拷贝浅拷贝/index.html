@@ -243,7 +243,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>简而言之，浅拷贝拷贝指针变量的值，深拷贝拷贝指针所指向的内存空间</p>
+        <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>简而言之，浅拷贝拷贝指针变量的值，深拷贝拷贝指针所指向的内存空间</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">foo</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    foo() &#123;</span><br><span class="line">		p = <span class="keyword">new</span> <span class="keyword">int</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    ~foo() &#123;</span><br><span class="line">        <span class="keyword">delete</span> p;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> *p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">foo <span class="title">bar</span><span class="params">(foo&amp; r)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    foo a;</span><br><span class="line">    foo b = bar(a);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>上述代码有问题吗？</p>
@@ -347,7 +347,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">212</span>
+          <span class="site-state-item-count">213</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

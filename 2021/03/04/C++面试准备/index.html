@@ -251,7 +251,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="1、内存溢出和内存泄漏的区别"><a href="#1、内存溢出和内存泄漏的区别" class="headerlink" title="1、内存溢出和内存泄漏的区别"></a>1、内存溢出和内存泄漏的区别</h3><p>内存溢出 out of memory，就是内存不够用了。程序在申请内存时，没有足够的内存空间供其使用，</p>
+        <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="1、内存溢出和内存泄漏的区别"><a href="#1、内存溢出和内存泄漏的区别" class="headerlink" title="1、内存溢出和内存泄漏的区别"></a>1、内存溢出和内存泄漏的区别</h3><p>内存溢出 out of memory，就是内存不够用了。程序在申请内存时，没有足够的内存空间供其使用，</p>
 <p>内存泄漏是一件严重的问题，当你申请了一块内存，在使用完后却没有释放它，可能是你忘记delete了，或者你没有保存空间的地址。导致操作系统不会回收，你也无法使用的局面。内存泄漏有时难以察觉，记得老师上课讲过例子，当时他们团队开发的项目运行几个星期就死机了，得重启一次，大概率是碰到了内存泄漏。然后内存泄漏又难以调试，不知道哪里出了问题，这也是c++的难点之一，程序员需要自己管理内存，但很容易出现问题。所以c++11推出了智能指针，用来减少内存泄漏的问题。</p>
 <p>我在做项目时也遇到过一次内存泄露的问题。当时是使用sqlite，调用了sqlite3_get_table函数，该函数用来获得查询的内容。后来发现内存每分钟都在增加，我知道是内存泄漏但不知道在哪，找了很长时间。后来才知道原来在sqlite3_get_table函数内部使用malloc分配空间了，我需要调用sqlite3_free_table()才能释放掉这块内存。现在也有检查内存泄漏的工具，方便程序员调试。</p>
 <p>一但内存泄漏到一定程度，系统内存就小到无法执行程序了，导致内存溢出，程序崩溃。</p>
@@ -659,7 +659,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">212</span>
+          <span class="site-state-item-count">213</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
