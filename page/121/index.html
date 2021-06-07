@@ -179,7 +179,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/19/hot-100/494.%E7%9B%AE%E6%A0%87%E5%92%8C/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/19/hot-100/739.%E6%AF%8F%E6%97%A5%E6%B8%A9%E5%BA%A6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -193,7 +193,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/01/19/hot-100/494.%E7%9B%AE%E6%A0%87%E5%92%8C/" class="post-title-link" itemprop="url">287. 寻找重复数</a>
+            <a href="/2021/01/19/hot-100/739.%E6%AF%8F%E6%97%A5%E6%B8%A9%E5%BA%A6/" class="post-title-link" itemprop="url">739. 每日温度</a>
         </h2>
 
         <div class="post-meta">
@@ -204,7 +204,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-01-19 10:51:44 / 修改时间：12:21:40" itemprop="dateCreated datePublished" datetime="2021-01-19T10:51:44+08:00">2021-01-19</time>
+              <time title="创建时间：2021-01-19 12:46:51 / 修改时间：13:03:35" itemprop="dateCreated datePublished" datetime="2021-01-19T12:46:51+08:00">2021-01-19</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -217,7 +217,7 @@
             </span>
 
           
-            <span id="/2021/01/19/hot-100/494.%E7%9B%AE%E6%A0%87%E5%92%8C/" class="post-meta-item leancloud_visitors" data-flag-title="287. 寻找重复数" title="阅读次数">
+            <span id="/2021/01/19/hot-100/739.%E6%AF%8F%E6%97%A5%E6%B8%A9%E5%BA%A6/" class="post-meta-item leancloud_visitors" data-flag-title="739. 每日温度" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -232,8 +232,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/01/19/hot-100/494.%E7%9B%AE%E6%A0%87%E5%92%8C/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/19/hot-100/494.%E7%9B%AE%E6%A0%87%E5%92%8C/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/01/19/hot-100/739.%E6%AF%8F%E6%97%A5%E6%B8%A9%E5%BA%A6/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/19/hot-100/739.%E6%AF%8F%E6%97%A5%E6%B8%A9%E5%BA%A6/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -248,8 +248,39 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>dfs</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">findTargetSumWays</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> S)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> dfs(nums, S, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> S, <span class="keyword">int</span> u, <span class="keyword">int</span> ans)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(u == nums.size())&#123;</span><br><span class="line">            <span class="keyword">if</span>(ans == S) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dfs(nums, S, u + <span class="number">1</span>, ans + nums[u]) + dfs(nums, S, u + <span class="number">1</span>, ans - nums[u]);        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+          <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>单调栈</p>
+<p>栈里面保存下标</p>
+<p>遍历数组，如果数字大于栈顶，那么表明该数字是栈顶元素的下一个最大值</p>
+<p>那么弹出栈顶，然后将栈顶下标的下一个大的数字存入结果数组中</p>
+<p>然后再次判断栈顶是否小于该元素</p>
+<p>直到不小于，将该元素入栈</p>
+<p>单调栈，栈中的元素的单调的，这里，元素是单调递增的</p>
+<p>[73, 74, 75, 71, 69, 72, 76, 73]</p>
+<p>首先73入栈</p>
+<p>然后看74，发现74大于栈顶73，表明73的下一个大的元素是74，因此将它们两个的下标差填入结果数组中（注意栈中保存的是元素的下标）</p>
+<p>res[0] = 1</p>
+<p>stk:74</p>
+<p>然后看75，发现75大于栈顶，那么弹出栈顶，并把栈顶对应的下标与75的下标比较，填入结果数组</p>
+<p>res[1] = 1</p>
+<p>stk: 75</p>
+<p>看71，71小于栈顶，直接入栈</p>
+<p>stk: 75, 71</p>
+<p>看69，直接入栈</p>
+<p>stk: 75, 71, 69</p>
+<p>看72，72大于栈顶，栈顶出栈，并置res数组</p>
+<p>res[4] = 1</p>
+<p>72依然大于栈顶，栈顶71出栈，并置71对应的结果数组</p>
+<p>res[3] = 72的下标减去71的下标 = 2</p>
+<p>72小于栈顶75，入栈</p>
+<p>stk: 75, 72</p>
+<p>看76，大于栈顶72，弹出栈顶</p>
+<p>res[5] = 1</p>
+<p>依旧大于75</p>
+<p>res[2] = 4</p>
+<p>stk: 76</p>
+<p>看73，73小于栈顶，直接入栈</p>
+<p>res[0] = 1, res[1] = 1, res[2] = 4, res[3] = 2, res[4] = 1, res[5] = 1, res[6] = 0, res[7] = 0</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">dailyTemperatures</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; T)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; stk;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">res</span><span class="params">(T.size())</span></span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; T.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">while</span>(!stk.empty() &amp;&amp; T[i] &gt; T[stk.top()]) &#123;</span><br><span class="line">                <span class="keyword">int</span> j = stk.top();</span><br><span class="line">                stk.pop();</span><br><span class="line">                res[j] = i - j;</span><br><span class="line">            &#125;</span><br><span class="line">            stk.push(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -269,7 +300,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/120/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/120/">120</a><span class="page-number current">121</span><a class="page-number" href="/page/122/">122</a><span class="space">&hellip;</span><a class="page-number" href="/page/218/">218</a><a class="extend next" rel="next" href="/page/122/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/120/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/120/">120</a><span class="page-number current">121</span><a class="page-number" href="/page/122/">122</a><span class="space">&hellip;</span><a class="page-number" href="/page/219/">219</a><a class="extend next" rel="next" href="/page/122/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -335,14 +366,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">218</span>
+          <span class="site-state-item-count">219</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
