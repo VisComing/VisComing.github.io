@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+  </script>
+
+  <meta name="description" content="思路有三种水果，每个小朋友至少有一个水果，最多有每种一个水果，即三个。 所以，对于一个小朋友，一共有七种选法，{0,0,1}, {0,1,0}, {1,0,0}, {0,1,1}, {1,0,1}, {1,1,0}, {1,1,1} 现在一个小朋友有七个选法，这七种选法最多有128种组合。 可以用二进制来表示，假设一个7位的二进制数，0表示不选，1表示选。如1001000，表示第一个和第四个选，其">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AcWing 3646. 分水果">
+<meta property="og:url" content="http://yoursite.com/2021/06/08/AcWing%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/AcWing3646.%E5%88%86%E6%B0%B4%E6%9E%9C/index.html">
+<meta property="og:site_name" content="周瑞发的网站">
+<meta property="og:description" content="思路有三种水果，每个小朋友至少有一个水果，最多有每种一个水果，即三个。 所以，对于一个小朋友，一共有七种选法，{0,0,1}, {0,1,0}, {1,0,0}, {0,1,1}, {1,0,1}, {1,1,0}, {1,1,1} 现在一个小朋友有七个选法，这七种选法最多有128种组合。 可以用二进制来表示，假设一个7位的二进制数，0表示不选，1表示选。如1001000，表示第一个和第四个选，其">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/1A50E8AF45A0C56C0291ED60E9D631CF.jpg">
+<meta property="article:published_time" content="2021-06-08T11:12:03.000Z">
+<meta property="article:modified_time" content="2021-06-08T11:58:35.194Z">
+<meta property="article:author" content="周瑞发">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/1A50E8AF45A0C56C0291ED60E9D631CF.jpg">
+
+<link rel="canonical" href="http://yoursite.com/2021/06/08/AcWing%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/AcWing3646.%E5%88%86%E6%B0%B4%E6%9E%9C/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>AcWing 3646. 分水果 | 周瑞发的网站</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">周瑞发的网站</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">欢迎访问</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+  3 min. read
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/06/08/AcWing%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/AcWing3646.%E5%88%86%E6%B0%B4%E6%9E%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="周瑞发">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="周瑞发的网站">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          AcWing 3646. 分水果
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-06-08 19:12:03 / 修改时间：19:58:35" itemprop="dateCreated datePublished" datetime="2021-06-08T19:12:03+08:00">2021-06-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AcWing/" itemprop="url" rel="index"><span itemprop="name">AcWing</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/06/08/AcWing%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/AcWing3646.%E5%88%86%E6%B0%B4%E6%9E%9C/" class="post-meta-item leancloud_visitors" data-flag-title="AcWing 3646. 分水果" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/06/08/AcWing%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/AcWing3646.%E5%88%86%E6%B0%B4%E6%9E%9C/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/06/08/AcWing%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/AcWing3646.%E5%88%86%E6%B0%B4%E6%9E%9C/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>有三种水果，每个小朋友至少有一个水果，最多有每种一个水果，即三个。</p>
+<p>所以，对于一个小朋友，一共有七种选法，{0,0,1}, {0,1,0}, {1,0,0}, {0,1,1}, {1,0,1}, {1,1,0}, {1,1,1}</p>
+<p>现在一个小朋友有七个选法，这七种选法最多有128种组合。</p>
+<p>可以用二进制来表示，假设一个7位的二进制数，0表示不选，1表示选。如1001000，表示第一个和第四个选，其他不选。</p>
+<p>那么从0 ~ 1 &lt;&lt; 7，就表示了所有的选法。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> x[<span class="number">7</span>][<span class="number">3</span>] = &#123;&#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>&#125;, &#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>&#125;, &#123;<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>&#125;, &#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>&#125;, &#123;<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>&#125;, &#123;<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>&#125;, &#123;<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>&#125;&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> T;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;T);</span><br><span class="line">    <span class="keyword">while</span>(T--) &#123;</span><br><span class="line">        <span class="keyword">int</span> a, b, c;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>, &amp;a, &amp;b, &amp;c);</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">      	<span class="comment">//遍历每一种选法</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1</span> &lt;&lt; <span class="number">7</span>; i++) &#123;</span><br><span class="line">          	<span class="comment">//比如1001000</span></span><br><span class="line">            <span class="keyword">int</span> ta = <span class="number">0</span>, tb = <span class="number">0</span>, tc = <span class="number">0</span>, cnt = <span class="number">0</span>;</span><br><span class="line">          	<span class="comment">//判断选了哪种选法，第一位和第四位为1，说明选择了&#123;0,0,1&#125;和&#123;0,1,1&#125;</span></span><br><span class="line">          	<span class="comment">//cnt表示该二进制中有多少个1，即有多少个小朋友</span></span><br><span class="line">          	<span class="comment">//ta,tbtc记录每种水果的总数量，最后判断是否合法。</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">7</span>; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span>((i &gt;&gt; j &amp; <span class="number">1</span>) == <span class="number">1</span>) &#123;</span><br><span class="line">                    cnt++;</span><br><span class="line">                    ta += x[j][<span class="number">0</span>];</span><br><span class="line">                    tb += x[j][<span class="number">1</span>];</span><br><span class="line">                    tc += x[j][<span class="number">2</span>];</span><br><span class="line">                    </span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(ta &lt;= a &amp;&amp; tb &lt;= b &amp;&amp; tc &lt;= c) res = max(res, cnt);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, res);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/1A50E8AF45A0C56C0291ED60E9D631CF.jpg" alt="1A50E8AF45A0C56C0291ED60E9D631CF"></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/06/08/%E7%99%BE%E5%BA%A6c++GoodCoder%E8%AE%A4%E8%AF%81/" rel="prev" title="百度cppGoodCoder认证">
+      <i class="fa fa-chevron-left"></i> 百度cppGoodCoder认证
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-number">1.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">2.</span> <span class="nav-text">代码</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">周瑞发</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">222</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">周瑞发</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'Ytq8BzsrCa111NhWVN9J8rHG-gzGzoHsz',
+      appKey     : 'XPYBCP4RPAeMshHIS2bbs9tb',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
