@@ -179,7 +179,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/06/08/AcWing%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/AcWing3646.%E5%88%86%E6%B0%B4%E6%9E%9C/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/06/08/AcWing%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/AcWing3636.%E6%95%B0%E7%BB%84%E5%BB%B6%E4%BC%B8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -193,7 +193,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/06/08/AcWing%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/AcWing3646.%E5%88%86%E6%B0%B4%E6%9E%9C/" class="post-title-link" itemprop="url">AcWing 3646. 分水果</a>
+            <a href="/2021/06/08/AcWing%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/AcWing3636.%E6%95%B0%E7%BB%84%E5%BB%B6%E4%BC%B8/" class="post-title-link" itemprop="url">AcWing 3636. 数组延伸</a>
         </h2>
 
         <div class="post-meta">
@@ -204,7 +204,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-06-08 19:12:03 / 修改时间：19:58:35" itemprop="dateCreated datePublished" datetime="2021-06-08T19:12:03+08:00">2021-06-08</time>
+              <time title="创建时间：2021-06-08 20:36:03 / 修改时间：20:38:41" itemprop="dateCreated datePublished" datetime="2021-06-08T20:36:03+08:00">2021-06-08</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -217,7 +217,7 @@
             </span>
 
           
-            <span id="/2021/06/08/AcWing%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/AcWing3646.%E5%88%86%E6%B0%B4%E6%9E%9C/" class="post-meta-item leancloud_visitors" data-flag-title="AcWing 3646. 分水果" title="阅读次数">
+            <span id="/2021/06/08/AcWing%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/AcWing3636.%E6%95%B0%E7%BB%84%E5%BB%B6%E4%BC%B8/" class="post-meta-item leancloud_visitors" data-flag-title="AcWing 3636. 数组延伸" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -232,8 +232,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/06/08/AcWing%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/AcWing3646.%E5%88%86%E6%B0%B4%E6%9E%9C/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/06/08/AcWing%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/AcWing3646.%E5%88%86%E6%B0%B4%E6%9E%9C/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/06/08/AcWing%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/AcWing3636.%E6%95%B0%E7%BB%84%E5%BB%B6%E4%BC%B8/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/06/08/AcWing%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/AcWing3636.%E6%95%B0%E7%BB%84%E5%BB%B6%E4%BC%B8/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -248,14 +248,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>有三种水果，每个小朋友至少有一个水果，最多有每种一个水果，即三个。</p>
-<p>所以，对于一个小朋友，一共有七种选法，{0,0,1}, {0,1,0}, {1,0,0}, {0,1,1}, {1,0,1}, {1,1,0}, {1,1,1}</p>
-<p>现在一个小朋友有七个选法，这七种选法最多有128种组合。</p>
-<p>可以用二进制来表示，假设一个7位的二进制数，0表示不选，1表示选。如1001000，表示第一个和第四个选，其他不选。</p>
-<p>那么从0 ~ 1 &lt;&lt; 7，就表示了所有的选法。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> x[<span class="number">7</span>][<span class="number">3</span>] = &#123;&#123;<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>&#125;, &#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>&#125;, &#123;<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>&#125;, &#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>&#125;, &#123;<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>&#125;, &#123;<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>&#125;, &#123;<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>&#125;&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> T;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;T);</span><br><span class="line">    <span class="keyword">while</span>(T--) &#123;</span><br><span class="line">        <span class="keyword">int</span> a, b, c;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>, &amp;a, &amp;b, &amp;c);</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">      	<span class="comment">//遍历每一种选法</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">1</span> &lt;&lt; <span class="number">7</span>; i++) &#123;</span><br><span class="line">          	<span class="comment">//比如1001000</span></span><br><span class="line">            <span class="keyword">int</span> ta = <span class="number">0</span>, tb = <span class="number">0</span>, tc = <span class="number">0</span>, cnt = <span class="number">0</span>;</span><br><span class="line">          	<span class="comment">//判断选了哪种选法，第一位和第四位为1，说明选择了&#123;0,0,1&#125;和&#123;0,1,1&#125;</span></span><br><span class="line">          	<span class="comment">//cnt表示该二进制中有多少个1，即有多少个小朋友</span></span><br><span class="line">          	<span class="comment">//ta,tbtc记录每种水果的总数量，最后判断是否合法。</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">7</span>; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span>((i &gt;&gt; j &amp; <span class="number">1</span>) == <span class="number">1</span>) &#123;</span><br><span class="line">                    cnt++;</span><br><span class="line">                    ta += x[j][<span class="number">0</span>];</span><br><span class="line">                    tb += x[j][<span class="number">1</span>];</span><br><span class="line">                    tc += x[j][<span class="number">2</span>];</span><br><span class="line">                    </span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(ta &lt;= a &amp;&amp; tb &lt;= b &amp;&amp; tc &lt;= c) res = max(res, cnt);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, res);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>一个数组，延伸之后得到另外一个数组，注意这两个数组的和是一样的。</p>
+<p>新得到的数组也可以继续延伸。</p>
+<p>延伸到什么时候呢？比如一个数字8，除数是2，那么可以变成4，2，1.</p>
+<p>所以在一个数组中，找出最小可以被除次数的那个数。最小被除的次数就是拓展的次数。</p>
+<p>拓展了n次，那么结果为数组和*(n + 1)</p>
+<p>注意还要加上不能延伸数字之前的那个数组的和。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> LL;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100010</span>;</span><br><span class="line"><span class="keyword">int</span> q[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> T;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;T);</span><br><span class="line">    <span class="keyword">while</span>(T--) &#123;</span><br><span class="line">        <span class="keyword">int</span> n, m;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n, &amp;m);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;q[i]);</span><br><span class="line">        <span class="keyword">int</span> cnt = N;</span><br><span class="line">        LL sum = <span class="number">0</span>, psum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="comment">//sum表示该数组的总和</span></span><br><span class="line">            sum += q[i];</span><br><span class="line">            <span class="keyword">int</span> c = <span class="number">0</span>;</span><br><span class="line">            <span class="comment">//c表示该数能被除多少次</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = q[i]; j % m == <span class="number">0</span>; j /= m) &#123;</span><br><span class="line">                c++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(c &lt; cnt) &#123;</span><br><span class="line">                cnt = c;</span><br><span class="line">                <span class="comment">//sum表示从0到i数字的总和，psum表示0到i - 1的总和</span></span><br><span class="line">                psum = sum - q[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>, sum * (cnt + <span class="number">1</span>) + psum);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/1A50E8AF45A0C56C0291ED60E9D631CF.jpg" alt="1A50E8AF45A0C56C0291ED60E9D631CF"></p>
+<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/63FC0D523BE45F3B5E7CFE4C844F7F30.jpg" alt="63FC0D523BE45F3B5E7CFE4C844F7F30"></p>
 
       
     </div>
@@ -274,7 +275,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/223/">223</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/224/">224</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -340,7 +341,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">223</span>
+          <span class="site-state-item-count">224</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
