@@ -202,10 +202,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-06-07 11:32:03 / 修改时间：12:00:19" itemprop="dateCreated datePublished" datetime="2021-06-07T11:32:03+08:00">2021-06-07</time>
+              <time title="创建时间：2021-06-07 11:32:03" itemprop="dateCreated datePublished" datetime="2021-06-07T11:32:03+08:00">2021-06-07</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-06-08 23:23:11" itemprop="dateModified" datetime="2021-06-08T23:23:11+08:00">2021-06-08</time>
+              </span>
 
           
             <span id="/2021/06/07/%E5%A4%A7%E6%95%B0%E6%8D%AE%E5%AE%9E%E9%AA%8C/Hadoop%20%E7%9A%84%E5%AE%89%E8%A3%85%E3%80%81%E5%90%AF%E5%8A%A8%E4%B8%8E%E4%BD%9C%E4%B8%9A%E6%8F%90%E4%BA%A4/" class="post-meta-item leancloud_visitors" data-flag-title="Hadoop 的安装、启动与作业提交" title="阅读次数">
@@ -262,14 +268,16 @@
 <p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210607115314308.png" alt="image-20210607115314308"></p>
 <p>首先，把bd这个域名对应到127.0.1.1的ip上。</p>
 <p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210607114856077.png" alt="image-20210607114856077"></p>
-<p>重要的一点来了，如果我们是在vm虚拟机中执行的这个bd就对应127.0.1.1</p>
-<p>但是如果在服务器上也这么配置，那么我们就无法在本机访问hadoop的web界面了。</p>
-<p>这个192ip是怎么来的呢？</p>
-<p>首先，它<strong>不是</strong>服务器的公网ip，而是服务器的内网ip！</p>
+<p><del>重要的一点来了，如果我们是在vm虚拟机中执行的这个bd就对应127.0.1.1</del></p>
+<p><del>但是如果在服务器上也这么配置，那么我们就无法在本机访问hadoop的web界面了。</del></p>
+<p><del>这个192ip是怎么来的呢？</del></p>
+<p><del>首先，它<strong>不是</strong>服务器的公网ip，而是服务器的内网ip！</del></p>
 <p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210607115100996.png" alt="image-20210607115100996"></p>
-<p>我不知道为什么这么配，但这样确实可以。如果有知道原理的小伙伴可以在评论区留言。</p>
+<p><del>我不知道为什么这么配，但这样确实可以。如果有知道原理的小伙伴可以在评论区留言。</del></p>
+<p>==<strong>不要把hadoop暴露在公网ip！！！！！</strong>==</p>
+<p><strong>==我的服务器就是因为暴露了hadoop webui 的50070端口，导致服务器中挖矿病毒，只能重装系统，之前配好的环境得再来一遍！！！==</strong></p>
 <p>在执行hadoop启动命令时，服务器会执行ssh bd，也就是连接自己。由于我们没有配置免密登录（刚才配置的是本机连接服务器的免密登录），需要多次输入密码，所以可以配置一下免密登录。</p>
-<p>这个<code>ssh-copy-id bd</code>还是这个<code>ssh-copy-id moon@bd</code>，我记不清了，可以试一试。</p>
+<p>这个<del><code>ssh-copy-id bd</code>还是这个</del><code>ssh-copy-id moon@bd</code><del>，我记不清了，可以试一试。</del></p>
 <h2 id="安装Hadoop"><a href="#安装Hadoop" class="headerlink" title="安装Hadoop"></a>安装Hadoop</h2><p>首先在自己<strong>本机</strong>上下载Hadoop(用老师要求的版本)，<a href>地址</a></p>
 <p>下载好后，可以用ftp/sftp将文件发送到服务器上。</p>
 <p>注意端口，防火墙可能没有开启ftp的21端口，需要在华为云控制台的安全组里面添加一条规则。接下来的步骤中还要开启50070等端口，操作是一样的。</p>
