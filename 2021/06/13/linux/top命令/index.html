@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+  </script>
+
+  <meta name="description" content="top命令top命令是Linux下常用的性能分析工具，能够实时显示系统中各个进程的资源占用状况。top是一个动态显示过程,即可以通过用户按键来不断刷新当前状态。  第一行 17:34:21：系统当前时间  4 days, 4:22：系统开机到现在运行了多长时间  1 user：当前一名用户在线  load average: 0.13, 0.03, 0.01： 系统1分钟、5分钟、15分钟的CPU负">
+<meta property="og:type" content="article">
+<meta property="og:title" content="top命令">
+<meta property="og:url" content="http://yoursite.com/2021/06/13/linux/top%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:site_name" content="周瑞发的网站">
+<meta property="og:description" content="top命令top命令是Linux下常用的性能分析工具，能够实时显示系统中各个进程的资源占用状况。top是一个动态显示过程,即可以通过用户按键来不断刷新当前状态。  第一行 17:34:21：系统当前时间  4 days, 4:22：系统开机到现在运行了多长时间  1 user：当前一名用户在线  load average: 0.13, 0.03, 0.01： 系统1分钟、5分钟、15分钟的CPU负">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210613173447570.png">
+<meta property="article:published_time" content="2021-06-13T09:33:03.000Z">
+<meta property="article:modified_time" content="2021-06-13T10:01:15.056Z">
+<meta property="article:author" content="周瑞发">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210613173447570.png">
+
+<link rel="canonical" href="http://yoursite.com/2021/06/13/linux/top%E5%91%BD%E4%BB%A4/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>top命令 | 周瑞发的网站</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">周瑞发的网站</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">欢迎访问</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+  5 min. read
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/06/13/linux/top%E5%91%BD%E4%BB%A4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="周瑞发">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="周瑞发的网站">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          top命令
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-06-13 17:33:03 / 修改时间：18:01:15" itemprop="dateCreated datePublished" datetime="2021-06-13T17:33:03+08:00">2021-06-13</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2021/06/13/linux/top%E5%91%BD%E4%BB%A4/" class="post-meta-item leancloud_visitors" data-flag-title="top命令" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/06/13/linux/top%E5%91%BD%E4%BB%A4/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/06/13/linux/top%E5%91%BD%E4%BB%A4/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="top命令"><a href="#top命令" class="headerlink" title="top命令"></a>top命令</h1><p>top命令是Linux下常用的性能分析工具，能够实时显示系统中各个进程的资源占用状况。top是一个动态显示过程,即可以通过用户按键来不断刷新当前状态。</p>
+<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210613173447570.png" alt="image-20210613173447570"></p>
+<h2 id="第一行"><a href="#第一行" class="headerlink" title="第一行"></a>第一行</h2><ul>
+<li><p>17:34:21：系统当前时间</p>
+</li>
+<li><p>4 days, 4:22：系统开机到现在运行了多长时间</p>
+</li>
+<li><p>1 user：当前一名用户在线</p>
+</li>
+<li><p>load average: 0.13, 0.03, 0.01： 系统1分钟、5分钟、15分钟的CPU负载信息</p>
+</li>
+</ul>
+<h2 id="第二行"><a href="#第二行" class="headerlink" title="第二行"></a>第二行</h2><ul>
+<li>Tasks：任务</li>
+<li>81 total：当前总共有81个进程</li>
+<li>1 running：1个进程正在运行</li>
+<li>51 sleeping：51个进程正在睡眠</li>
+<li>0 stopped：停止进程数</li>
+<li>0 zombie：僵死进程数</li>
+</ul>
+<h2 id="第三行"><a href="#第三行" class="headerlink" title="第三行"></a>第三行</h2><ul>
+<li>%Cpu(s)：表示这一行显示CPU总体信息</li>
+<li>0.7 us：用户态进程占用CPU时间百分比</li>
+<li>0.3 sy：内核占用CPU时间百分比</li>
+<li>0.0 ni：改变过优先级的进程占用CPU的百分比</li>
+<li>99.0 id：空闲CPU时间百分比</li>
+<li>0.0 wa：等待I/O的CPU时间百分比</li>
+<li>0.0 hi：CPU硬中断时间百分比</li>
+<li>0.0 si：CPU软中断时间百分比</li>
+<li>注：这里显示数据是所有cpu的平均值，如果想看每一个cpu的处理情况，按1即可；折叠，再次按1；</li>
+</ul>
+<h2 id="第四行"><a href="#第四行" class="headerlink" title="第四行"></a>第四行</h2><ul>
+<li>KiB Mem：这一行表示内存信息  <code>1KiB = 1024Byte</code></li>
+<li>1957504 total：物理内存总量</li>
+<li>591728 free：空闲的物理内存量</li>
+<li>511676 used：使用的物理内存量</li>
+<li>854100 buff/cache：用作内核缓存的物理内存量</li>
+</ul>
+<h2 id="第五行"><a href="#第五行" class="headerlink" title="第五行"></a>第五行</h2><ul>
+<li>KiB Swap：交换空间</li>
+<li>0 total：交换区总量</li>
+<li>0 free：空闲的交换区量</li>
+<li>0 used：使用的交换区量</li>
+</ul>
+<h2 id="接下来就是进程信息"><a href="#接下来就是进程信息" class="headerlink" title="接下来就是进程信息"></a>接下来就是进程信息</h2><ul>
+<li>PID：进程的ID</li>
+<li>USER：进程所有者</li>
+<li>PR：进程的优先级别，越小越优先被执行</li>
+<li>NI：</li>
+<li>VIRT：进程占用的虚拟内存</li>
+<li>RES：进程占用的物理内存</li>
+<li>SHR：进程使用的共享内存</li>
+<li>S：进程的状态。S表示休眠，R表示正在运行，Z表示僵死状态，N表示该进程优先值为负数</li>
+<li>%CPU：进程占用CPU的使用率</li>
+<li>%MEM：进程使用的物理内存和总内存的百分比</li>
+<li>TIME+：该进程启动后占用的总的CPU时间，即占用CPU使用时间的累加值。</li>
+<li>COMMAND：进程启动命令名称</li>
+</ul>
+<h2 id="top常用交互命令"><a href="#top常用交互命令" class="headerlink" title="top常用交互命令"></a>top常用交互命令</h2><ul>
+<li>P：按%CPU使用率排行</li>
+<li>T：按MITE+排行</li>
+<li>M：按%MEM排行</li>
+<li>q：退出top命令</li>
+<li>&lt;Space&gt;：立即刷新</li>
+<li>1：对于多核cpu，按1可以监控每个逻辑CPU的状况；</li>
+<li>top -c：可以显示出完整的COMMAND程序命令</li>
+<li>top -p pid：显示指定的进程信息</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/06/13/IPv6%E6%A6%82%E8%BF%B0/" rel="prev" title="IPv6概述">
+      <i class="fa fa-chevron-left"></i> IPv6概述
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#top%E5%91%BD%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">top命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E8%A1%8C"><span class="nav-number">1.1.</span> <span class="nav-text">第一行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E8%A1%8C"><span class="nav-number">1.2.</span> <span class="nav-text">第二行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E8%A1%8C"><span class="nav-number">1.3.</span> <span class="nav-text">第三行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E8%A1%8C"><span class="nav-number">1.4.</span> <span class="nav-text">第四行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E8%A1%8C"><span class="nav-number">1.5.</span> <span class="nav-text">第五行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A5%E4%B8%8B%E6%9D%A5%E5%B0%B1%E6%98%AF%E8%BF%9B%E7%A8%8B%E4%BF%A1%E6%81%AF"><span class="nav-number">1.6.</span> <span class="nav-text">接下来就是进程信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#top%E5%B8%B8%E7%94%A8%E4%BA%A4%E4%BA%92%E5%91%BD%E4%BB%A4"><span class="nav-number">1.7.</span> <span class="nav-text">top常用交互命令</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">周瑞发</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">227</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">周瑞发</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'Ytq8BzsrCa111NhWVN9J8rHG-gzGzoHsz',
+      appKey     : 'XPYBCP4RPAeMshHIS2bbs9tb',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
