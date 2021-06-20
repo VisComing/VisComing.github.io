@@ -179,7 +179,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/03/09/%E5%88%B7%E9%9D%A2%E7%BB%8F/1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/03/09/%E5%88%B7%E9%9D%A2%E7%BB%8F/2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -193,7 +193,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/03/09/%E5%88%B7%E9%9D%A2%E7%BB%8F/1/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2021/03/09/%E5%88%B7%E9%9D%A2%E7%BB%8F/2/" class="post-title-link" itemprop="url">未命名</a>
         </h2>
 
         <div class="post-meta">
@@ -203,18 +203,18 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-03-09 11:08:47" itemprop="dateCreated datePublished" datetime="2021-03-09T11:08:47+08:00">2021-03-09</time>
+              <time title="创建时间：2021-03-09 14:01:07" itemprop="dateCreated datePublished" datetime="2021-03-09T14:01:07+08:00">2021-03-09</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-10 14:36:42" itemprop="dateModified" datetime="2021-03-10T14:36:42+08:00">2021-03-10</time>
+                <time title="修改时间：2021-03-10 11:07:37" itemprop="dateModified" datetime="2021-03-10T11:07:37+08:00">2021-03-10</time>
               </span>
 
           
-            <span id="/2021/03/09/%E5%88%B7%E9%9D%A2%E7%BB%8F/1/" class="post-meta-item leancloud_visitors" data-flag-title="" title="阅读次数">
+            <span id="/2021/03/09/%E5%88%B7%E9%9D%A2%E7%BB%8F/2/" class="post-meta-item leancloud_visitors" data-flag-title="" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -229,8 +229,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/03/09/%E5%88%B7%E9%9D%A2%E7%BB%8F/1/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/03/09/%E5%88%B7%E9%9D%A2%E7%BB%8F/1/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/03/09/%E5%88%B7%E9%9D%A2%E7%BB%8F/2/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/03/09/%E5%88%B7%E9%9D%A2%E7%BB%8F/2/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -245,141 +245,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="1、扑克牌洗牌"><a href="#1、扑克牌洗牌" class="headerlink" title="1、扑克牌洗牌"></a>1、扑克牌洗牌</h3><p>可以抽象理解为等到一个M以内的所有自然数的随机顺序数组</p>
-<p>什么才是好的洗牌算法呢？通常要保证概率相等。即洗牌之后，能够保证每一个数出现在所有位置的概率是相等的</p>
-<p>1、算法一</p>
-<p>​    随机抽出一张牌</p>
-<p>​    检查这种牌是否被抽取过，如果已经抽取过，则重新抽取，直到找到没有被抽取的牌</p>
-<p>​    重复上述过程，直到所有的牌都被抽取到</p>
-<p>两种实现：每次随机抽取后，将抽取的牌拿出来，则此时剩余的牌为N - 1，这种算法避免了重复抽取。但是每抽一次牌后，需要将该牌从数组中删除。</p>
-<p>每次随机抽取后，将抽取的符合要求的牌做好标记，但并不删除。与上种做法相比，省去了删除的操作，但增加了额外的存储标志的空间，同时也导致会抽取已经被标记的牌，需要重新抽取</p>
-<p>这种算法的时间空间复杂度都比较高</p>
-<p>2、算法二</p>
-<p>每次随机抽取两张牌交换，交换一定次数后结束</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">shuffle</span><span class="params">(<span class="keyword">int</span> q[], <span class="keyword">int</span> len)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> suff_time = len;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; suff_time; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> a = rand() % len;</span><br><span class="line">        <span class="keyword">int</span> b = rand() % len;</span><br><span class="line">        <span class="keyword">int</span> t = q[a];</span><br><span class="line">        q[a] = q[b];</span><br><span class="line">        q[b] = t;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这是一种常见的洗牌算法。但是如何确定一个合适的交换次数？</p>
-<p>假设交换了m次，则某张牌始终没有被交换的概率为 ((n - 2) / n) ^ m</p>
-<p>我们希望其概率小于某个值，就可以求出交换的次数了</p>
-<p>3、算法三</p>
-<p>每次随机选取一个数，然后将该数与数组中最后（最前）的数交换；然后缩小选取数组的范围，去掉最后的元素，即之前随机抽取出的数。重复上面的过程，直至剩余元素为1.</p>
-<p>将被随机抽到的数放在数组最后面。</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">shuffle</span><span class="params">(<span class="keyword">int</span> q[], <span class="keyword">int</span> len)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>, j = len;</span><br><span class="line">    <span class="keyword">while</span>(j--) &#123;</span><br><span class="line">        <span class="keyword">int</span> t = rand() % (j + <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">int</span> temp = q[t];</span><br><span class="line">        q[t] = q[j];</span><br><span class="line">        q[j] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="2、回文数"><a href="#2、回文数" class="headerlink" title="2、回文数"></a>2、回文数</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">    <span class="keyword">int</span> k = n, r = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(k) &#123;</span><br><span class="line">        r = r * <span class="number">10</span> + (k % <span class="number">10</span>);</span><br><span class="line">        k /= <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(r == n) <span class="built_in">printf</span>(<span class="string">&quot;YES&quot;</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">&quot;NO&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="3、atoi"><a href="#3、atoi" class="headerlink" title="3、atoi"></a>3、atoi</h3><p>//使用long long</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;climits&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">string</span> str;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; str;</span><br><span class="line">    <span class="keyword">int</span> pos = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(str[pos] == <span class="string">&#x27; &#x27;</span> || str[pos] == <span class="string">&#x27;\t&#x27;</span>) pos++;</span><br><span class="line">    <span class="comment">//pos指向的不是空格</span></span><br><span class="line">    <span class="keyword">int</span> minus = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(str[pos] == <span class="string">&#x27;-&#x27;</span>) minus = <span class="number">-1</span>, pos++;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(str[pos] == <span class="string">&#x27;+&#x27;</span>) pos++;</span><br><span class="line">    <span class="keyword">long</span> <span class="keyword">long</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(str[pos] &lt;= <span class="string">&#x27;9&#x27;</span> &amp;&amp; str[pos] &gt;= <span class="string">&#x27;0&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">int</span> x = str[pos] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        res = res * <span class="number">10</span> + x;</span><br><span class="line">        <span class="keyword">if</span>(minus &gt; <span class="number">0</span> &amp;&amp; res &gt; INT_MAX) <span class="built_in">cout</span> &lt;&lt; INT_MAX, <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(minus &lt; <span class="number">0</span> &amp;&amp; -res &lt; INT_MIN) <span class="built_in">cout</span> &lt;&lt; INT_MIN, <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        pos++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; res;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>//不使用long long</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;climits&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">string</span> str;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; str;</span><br><span class="line">    <span class="keyword">int</span> pos = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(str[pos] == <span class="string">&#x27; &#x27;</span> || str[pos] == <span class="string">&#x27;\t&#x27;</span>) pos++;</span><br><span class="line">    <span class="keyword">int</span> minus = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(str[pos] == <span class="string">&#x27;-&#x27;</span>) pos++, minus = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(str[pos] == <span class="string">&#x27;+&#x27;</span>) pos++;</span><br><span class="line">    <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(str[pos] &lt;= <span class="string">&#x27;9&#x27;</span> &amp;&amp; str[pos] &gt;= <span class="string">&#x27;0&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">int</span> x = str[pos] - <span class="string">&#x27;0&#x27;</span>;</span><br><span class="line">        <span class="keyword">if</span>(minus &gt; <span class="number">0</span> &amp;&amp; res &gt; (INT_MAX - x) / <span class="number">10</span>) <span class="keyword">return</span> INT_MAX;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(minus &lt; <span class="number">0</span> &amp;&amp; -res &lt; (INT_MAX + x) / <span class="number">10</span>) <span class="keyword">return</span> INT_MIN;</span><br><span class="line">        <span class="keyword">if</span>(-res * <span class="number">10</span> - x == INT_MIN) <span class="keyword">return</span> INT_MIN; </span><br><span class="line">        res = res * <span class="number">10</span> + x;</span><br><span class="line">        pos++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res * minus;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="4、现有1000瓶药，其中有一瓶毒药，喝了之后1小时后才产生效果，现在你有10只老鼠和1个小时的时间，请问怎么找出毒药？"><a href="#4、现有1000瓶药，其中有一瓶毒药，喝了之后1小时后才产生效果，现在你有10只老鼠和1个小时的时间，请问怎么找出毒药？" class="headerlink" title="4、现有1000瓶药，其中有一瓶毒药，喝了之后1小时后才产生效果，现在你有10只老鼠和1个小时的时间，请问怎么找出毒药？"></a>4、现有1000瓶药，其中有一瓶毒药，喝了之后1小时后才产生效果，现在你有10只老鼠和1个小时的时间，请问怎么找出毒药？</h3><p>首先老鼠要立马把所有药喝完，一小时后肯定有老鼠死亡，要根据死亡老鼠的编号来唯一确定药瓶编号</p>
-<p>对药瓶编号 利用其二进制 1表示让该位的老鼠喝</p>
-<p>比如5号药瓶 101  让第0只老鼠和第2只老鼠喝</p>
-<p>就可以根据死亡的老鼠，查看老鼠的编号，也就是二进制的哪一位为1</p>
-<p>得出第0位和第2位为1，也就是5号药瓶</p>
-<h3 id="5、利用rand-5-实现rand-7"><a href="#5、利用rand-5-实现rand-7" class="headerlink" title="5、利用rand 5 实现rand 7"></a>5、利用rand 5 实现rand 7</h3><p>对于任意的randn（），都可以利用 randn() * n + randn()来扩展随机数范围</p>
-<p>比如rand5  可能生成 0,1,2,3,4</p>
-<p>rand5() * 5 可能生成 0,5,10,15,20</p>
-<p>那么rand5() * 5 + 5可能生成 0,1,2,3,4,5,6,7,8,9,…,24</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">rand7</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = INT_MAX;</span><br><span class="line">    <span class="keyword">while</span>(res &gt; <span class="number">6</span>) &#123;</span><br><span class="line">        res = rand5() * <span class="number">5</span> + rand5();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>但是这样出现6以下的概率比较小，浪费资源</p>
-<p>rand25() % 7可以吗？不行，会导致概率不均匀，模7为0的有 0，7，14，21        模7为4的有 4， 11， 18；</p>
-<p>所以应该根据rand25()生成rand21()</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">rand7</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> res = INT_MAX;</span><br><span class="line">    <span class="keyword">while</span>(res &gt; <span class="number">20</span>) &#123;</span><br><span class="line">        res = rand5() * <span class="number">5</span> + rand5();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res % <span class="number">7</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>使用rand7() 实现rand5()</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">rand5</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> res = INT_MAX;</span><br><span class="line">	<span class="keyword">while</span>(res &gt; <span class="number">4</span>) &#123;</span><br><span class="line">		res = rand7();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="6、C-编译过程"><a href="#6、C-编译过程" class="headerlink" title="6、C++编译过程"></a>6、C++编译过程</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//hello.c</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;Hello World!&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>1、预处理</p>
-<p>gcc -E hello.c -o hello.i</p>
-<p>将所有#include头文件以及宏定义替换成真正的内容</p>
-<p>hello.c –&gt; hello.i</p>
-<p>生成的.i文件体积会大很多，预处理之后的程序还是文本</p>
-<p>2、编译</p>
-<p>这里的编译不是把预处理文件转到二进制文件的全部过程</p>
-<p>而是将经过预处理之后的程序转换成特定汇编代码的过程</p>
-<p>gcc -S hello.i -o hello.s</p>
-<p>3、汇编</p>
-<p>汇编过程将上一步的汇编代码转换成机器码，产生目标文件，是二进制格式</p>
-<p>gcc汇编过程通过调用as来完成</p>
-<p>as hello.s -o hello.o</p>
-<p>等价于 gcc -c hello.s -o hello.o</p>
-<p>这一步会为每一个源文件产生一个目标文件（.o文件）</p>
-<p>4、链接</p>
-<p>链接过程将多个目标文件以及所需的库文件（.so等）链接成最终的可执行目标文件</p>
-<p>ld hello.o  +  其他目标文件   -o hello.out</p>
-<p>链接可以执行与编译时；也可以执行于加载时；也可以执行于运行时</p>
-<h3 id="7、动态链接库"><a href="#7、动态链接库" class="headerlink" title="7、动态链接库"></a>7、动态链接库</h3><p>静态库和所有的软件一样，需要定期维护和更新。如果程序员想用一个库的最新版本，那么他们必须了解到该库的更新情况，然后显示地将他们的程序与新的库重新连接</p>
-<p>另一个问题是几乎所有的C程序都会使用到printf这种标准io函数。在运行时，这些函数的代码会被复制到每个运行进程的文本段。如果有很多的进程，，这会对系统资源造成浪费。</p>
-<p>共享库，在运行时，可以加载到任意的存储器地址，并在存储器中和一个程序连接起来。</p>
-<p>是为了实现代码的重用，它们都是一些独立的文件</p>
-<p>在unix系统中通常使用.so后缀来表示，微软的操作系统中大量使用了共享库，称为DLL（动态链接库）</p>
-<h3 id="8、强弱符号"><a href="#8、强弱符号" class="headerlink" title="8、强弱符号"></a>8、强弱符号</h3><p>函数和已初始化的全局变量是强符号，未初始化的全局变量是弱符号。</p>
-<p>对于多处定义的符号</p>
-<p>规则1、不允许有多个强符号</p>
-<p>规则2、如果有一个强符号和多个弱符号，那么选择强符号</p>
-<p>规则3、如果有多个弱符号，那么从这些弱符号中任意选择一个</p>
-<p>规则2和规则3的应用会造成一些不易察觉的运行时错误。</p>
-<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210310113804418.png" alt="image-20210310113804418"></p>
-<p>double是8个字节，int是4个字节</p>
-<p>由于bar.c中x是弱符号，所以其第6行其实是修改foo.c中的x</p>
-<p>将用负数的双精度浮点表示覆盖存储器中x和y的位置！这是非常难以察觉的错误，尤其是因为它是默默发生的，编译系统不会给出任何警告</p>
-<h3 id="9、虚函数实现机制"><a href="#9、虚函数实现机制" class="headerlink" title="9、虚函数实现机制"></a>9、虚函数实现机制</h3><p>虚函数带来的好处是：可以定义一个基类的指针，指向一个派生类，当通过基类的指针调用函数时，可以在运行时决定该调用函数</p>
-<p>对于一个空类,它的大小为1个字节，因为空类也可以实例化</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span>&#123;</span></span><br><span class="line">    </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>添加一个整形变量</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>此时大小为4个字节</p>
-<p>再添加一个函数</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">p</span><span class="params">()</span> </span>&#123;&#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>此时大小依然为4个字节</p>
-<p>当拥有一个虚函数</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">    <span class="function">vitual <span class="keyword">void</span> <span class="title">fasdf</span><span class="params">()</span> </span>&#123;&#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>此时大小就变成8个字节了</p>
-<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210310121756488.png" alt="image-20210310121756488"></p>
-<p>多了一个变量_vfptr，也就是虚函数表指针</p>
-<p>再看[0]元素，其类型为void*，指向Base::p函数的地址</p>
-<p>如果再添加一个虚函数呢</p>
-<p>大小依然是8</p>
-<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210310122216848.png" alt="image-20210310122216848"></p>
-<p>注意到虚函数表多了一个元素</p>
-<p>_vfptr只是一个指针，指向虚函数表（是一个数组）</p>
-<p>并且，该数组没有包含到类定义内部</p>
-<p>我们实例化两个类</p>
-<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210310122502215.png" alt="image-20210310122502215"></p>
-<p>会发现它们的_vptr指向同一个虚函数表</p>
-<p>同一个类的不同实例共用一份虚函数表，它们都通过一个虚函数指针指向该虚函数表</p>
-<p>接下俩谈单继承的情况</p>
-<p>本身不存在虚函数</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span>&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="keyword">int</span> a;</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">vfunc1</span><span class="params">()</span> </span>&#123;&#125;;</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">vfunc2</span><span class="params">()</span> </span>&#123;&#125;;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derivel</span> :</span> <span class="keyword">public</span> Base &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="keyword">int</span> d1;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	Base a, b;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="keyword">sizeof</span>(a);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210310122922356.png" alt="image-20210310122922356"></p>
-<p>前面的部分完全就是Base的内容</p>
-<p>派生类重写基类的虚函数</p>
-<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210310123412350.png" alt="image-20210310123412350"></p>
-<p>派生类重写了基类的第一个虚函数，所以图中高亮地方变成了Derivel::vfunc1();</p>
-<p>所以不管是Derivel的指针，还是指向Derivel的Base指针，都会调用Derivel::vfunc1()；</p>
-<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210310123620098.png" alt="image-20210310123620098"></p>
-<p>派生类新定义一个虚函数</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span>&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="keyword">int</span> a;</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">vfunc1</span><span class="params">()</span> </span>&#123;&#125;;</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">vfunc2</span><span class="params">()</span> </span>&#123;&#125;;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derivel</span> :</span> <span class="keyword">public</span> Base &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	<span class="keyword">int</span> d1;</span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">vfunc3</span><span class="params">()</span> </span>&#123;&#125;;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	Derivel d;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="keyword">sizeof</span>(d);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210310124031327.png"></p>
-<p>竟然没有</p>
-<p>实际上派生类Derivel的虚函数表被加在基类虚函数表的后面</p>
-<p>由于Base只知道自己的两个虚函数索引[0][1], 所以就算在后面加上了[2], Base根本不知情, 不会对她造成任何影响.</p>
-<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210310124223478.png" alt="image-20210310124223478"></p>
-
+          <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="1、C-内存分布，为什么栈比堆快"><a href="#1、C-内存分布，为什么栈比堆快" class="headerlink" title="1、C++内存分布，为什么栈比堆快"></a>1、C++内存分布，为什么栈比堆快</h3><p>栈区</p>
+<p>堆区</p>
+<p>全局/静态区</p>
+<p>文字常量区</p>
+<p>程序代码区</p>
+<p>1、堆中频繁调用malloc/free，会产生内存碎片，降低程序效率；栈由于其后进先出的特点，不会产生内存碎片</p>
+<p>2、计算机底层对栈提供了一系列支持：分配专门的寄存器存储栈的地址，压栈和入栈由专门的指令。而堆是由c/c++函数库提供的，机制复杂，需要一系列分配内存，合并内存和释放内存的操作，效率较低</p>
+<p>3、由于栈后进先出的特性，对栈数据的定位较快，而堆分配是随机的，定位较慢。</p>
+<h3 id="2、C-和C的区别"><a href="#2、C-和C的区别" class="headerlink" title="2、C++和C的区别"></a>2、C++和C的区别</h3><p>C++面向对象，C面向过程</p>
+<p>最大的区别在于它们解决问题的思想不一样</p>
+<p>C的主要特点是函数，是通过main函数来调用各个子函数。程序运行的顺序由程序员事先定好的</p>
+<p>C++的主要特点是类，由类驱动程序运行。</p>
+<p>C主要用于嵌入式领域，与硬件打交道</p>
+<p>C++可以用于应用层开发、用户界面开发等领域</p>
+<p>C++实际上由四部分组成：兼容C语言的部分 | 面向对象的部分 | 泛型编程，模板 | stl</p>
+<h3 id="3、TCP三次握手"><a href="#3、TCP三次握手" class="headerlink" title="3、TCP三次握手"></a>3、TCP三次握手</h3><p>1、客户端发送连接请求报文段，不携带应用层数据。SYN（同步位）= 1， seq = x（随机）</p>
+<p>2、服务端为该TCP连接分配缓存和变量，并向客户端返回确认报文段，允许连接，不携带应用层数据</p>
+<p>SYN = 1, ack = x + 1, seq = y;</p>
+<p>3、客户端为该TCP分配缓存和变量，并向服务端返回确认的确认，可以携带数据</p>
+<p>SYN = 0，ack = y + 1, seq = x + 1</p>
+<h3 id="4、判断一个点是否在矩形内"><a href="#4、判断一个点是否在矩形内" class="headerlink" title="4、判断一个点是否在矩形内"></a>4、判断一个点是否在矩形内</h3><h3 id="5、为什么用栈"><a href="#5、为什么用栈" class="headerlink" title="5、为什么用栈"></a>5、为什么用栈</h3><p>函数调用用栈来实现</p>
+<p>栈模拟的是嵌套关系</p>
+<p>包括函数的调用，括号匹配</p>
+<p>一切具备嵌套性质的东西，用栈来做是很自然的</p>
+<h3 id="6、回文字符串"><a href="#6、回文字符串" class="headerlink" title="6、回文字符串"></a>6、回文字符串</h3>
       
     </div>
 
@@ -397,7 +287,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/107/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/107/">107</a><span class="page-number current">108</span><a class="page-number" href="/page/109/">109</a><span class="space">&hellip;</span><a class="page-number" href="/page/231/">231</a><a class="extend next" rel="next" href="/page/109/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/107/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/107/">107</a><span class="page-number current">108</span><a class="page-number" href="/page/109/">109</a><span class="space">&hellip;</span><a class="page-number" href="/page/232/">232</a><a class="extend next" rel="next" href="/page/109/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -463,7 +353,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">231</span>
+          <span class="site-state-item-count">232</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

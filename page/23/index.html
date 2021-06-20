@@ -179,7 +179,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/03/23/%E5%88%B7%E9%9D%A2%E7%BB%8F/6/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/03/24/c++/%E5%AD%97%E8%8A%82%E5%AF%B9%E9%BD%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -193,7 +193,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/03/23/%E5%88%B7%E9%9D%A2%E7%BB%8F/6/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2021/03/24/c++/%E5%AD%97%E8%8A%82%E5%AF%B9%E9%BD%90/" class="post-title-link" itemprop="url">字节对齐</a>
         </h2>
 
         <div class="post-meta">
@@ -204,11 +204,11 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-03-23 20:52:58 / 修改时间：21:14:22" itemprop="dateCreated datePublished" datetime="2021-03-23T20:52:58+08:00">2021-03-23</time>
+              <time title="创建时间：2021-03-24 17:15:46 / 修改时间：17:22:54" itemprop="dateCreated datePublished" datetime="2021-03-24T17:15:46+08:00">2021-03-24</time>
             </span>
 
           
-            <span id="/2021/03/23/%E5%88%B7%E9%9D%A2%E7%BB%8F/6/" class="post-meta-item leancloud_visitors" data-flag-title="" title="阅读次数">
+            <span id="/2021/03/24/c++/%E5%AD%97%E8%8A%82%E5%AF%B9%E9%BD%90/" class="post-meta-item leancloud_visitors" data-flag-title="字节对齐" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -223,8 +223,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/03/23/%E5%88%B7%E9%9D%A2%E7%BB%8F/6/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/03/23/%E5%88%B7%E9%9D%A2%E7%BB%8F/6/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/03/24/c++/%E5%AD%97%E8%8A%82%E5%AF%B9%E9%BD%90/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/03/24/c++/%E5%AD%97%E8%8A%82%E5%AF%B9%E9%BD%90/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -239,15 +239,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>​    </p>
-<h3 id="1、C-和java的区别"><a href="#1、C-和java的区别" class="headerlink" title="1、C++和java的区别"></a>1、C++和java的区别</h3><p>Java语言不需要程序对内存进行分配和回收，有垃圾回收机制，c++需要程序员自己管理内存</p>
-<p>c++只用到编译器，java用编译器和解释器</p>
-<p>Java是纯面向对象的语言，c++依然存在面向过程的部分</p>
-<p>Java执行速度较慢</p>
-<p>c++优点是速度快，灵活，面向底层；缺点是开发周期长，不易维护。</p>
-<p>Java优点是开发周期短，容易维护，移植性好；缺点是速度较慢，面向底层的东西不太适应。</p>
-<p>主要是看需求吧</p>
-<h3 id="map底层"><a href="#map底层" class="headerlink" title="map底层"></a>map底层</h3><p>map底层使用红黑树实现的</p>
+          <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>有效对齐值 是 #pragma pack() 和 最长数据类型中较小的一个</p>
+<p>结构体的第一个成员的偏移量为0，以后每个成员相对于结构体首地址的偏移量是该成员大小和有效对齐值中较小那个的整数倍</p>
+<p>结构体的总大小是 有效对齐值 的整数倍</p>
+<p>简化了处理器和内存系统之间接口的硬件设计，提高了效率</p>
+<p>比如一个double型，如果我们把所有的double类型数据的地址对齐成8的倍数，那么就可以用一个内存操作来读或者写值了</p>
+<p>否则，可能需要执行两次内存访问，因为对象可能被分放在两个8字节的内存块中。</p>
+<p>无论数据是否对齐，都能正常工作，不过，还是建议对齐数据以提高内存系统的性能</p>
 
       
     </div>
@@ -266,7 +264,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/22/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><span class="page-number current">23</span><a class="page-number" href="/page/24/">24</a><span class="space">&hellip;</span><a class="page-number" href="/page/231/">231</a><a class="extend next" rel="next" href="/page/24/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/22/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/22/">22</a><span class="page-number current">23</span><a class="page-number" href="/page/24/">24</a><span class="space">&hellip;</span><a class="page-number" href="/page/232/">232</a><a class="extend next" rel="next" href="/page/24/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -332,7 +330,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">231</span>
+          <span class="site-state-item-count">232</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
