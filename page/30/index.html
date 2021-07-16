@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"zhouruifa.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+    var CONFIG = {"hostname":"zhouruifa.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"3NGUE881LI","apiKey":"226809de1e28342bfee8f817b2b71f19","indexName":"hexoSearch","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
   <meta property="og:type" content="website">
@@ -140,21 +140,18 @@
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
+  <div class="search-input-container"></div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
-  </div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
 </div>
 
+      
     </div>
   </div>
 
@@ -179,7 +176,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2021/03/24/c++/%E5%AD%97%E8%8A%82%E5%AF%B9%E9%BD%90/">
+    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2021/03/27/%E9%9D%A2%E8%AF%95/3.27%E7%99%BE%E5%BA%A6%E4%B8%80%E9%9D%A2%E4%BA%8C%E9%9D%A2%E4%B8%89%E9%9D%A2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -193,7 +190,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/03/24/c++/%E5%AD%97%E8%8A%82%E5%AF%B9%E9%BD%90/" class="post-title-link" itemprop="url">字节对齐</a>
+            <a href="/2021/03/27/%E9%9D%A2%E8%AF%95/3.27%E7%99%BE%E5%BA%A6%E4%B8%80%E9%9D%A2%E4%BA%8C%E9%9D%A2%E4%B8%89%E9%9D%A2/" class="post-title-link" itemprop="url">3.27百度一面二面三面</a>
         </h2>
 
         <div class="post-meta">
@@ -202,13 +199,19 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-03-24 17:15:46 / 修改时间：17:22:54" itemprop="dateCreated datePublished" datetime="2021-03-24T17:15:46+08:00">2021-03-24</time>
+              <time title="创建时间：2021-03-27 21:13:43" itemprop="dateCreated datePublished" datetime="2021-03-27T21:13:43+08:00">2021-03-27</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-28 19:33:44" itemprop="dateModified" datetime="2021-03-28T19:33:44+08:00">2021-03-28</time>
+              </span>
 
           
-            <span id="/2021/03/24/c++/%E5%AD%97%E8%8A%82%E5%AF%B9%E9%BD%90/" class="post-meta-item leancloud_visitors" data-flag-title="字节对齐" title="阅读次数">
+            <span id="/2021/03/27/%E9%9D%A2%E8%AF%95/3.27%E7%99%BE%E5%BA%A6%E4%B8%80%E9%9D%A2%E4%BA%8C%E9%9D%A2%E4%B8%89%E9%9D%A2/" class="post-meta-item leancloud_visitors" data-flag-title="3.27百度一面二面三面" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -223,8 +226,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/03/24/c++/%E5%AD%97%E8%8A%82%E5%AF%B9%E9%BD%90/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/03/24/c++/%E5%AD%97%E8%8A%82%E5%AF%B9%E9%BD%90/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/03/27/%E9%9D%A2%E8%AF%95/3.27%E7%99%BE%E5%BA%A6%E4%B8%80%E9%9D%A2%E4%BA%8C%E9%9D%A2%E4%B8%89%E9%9D%A2/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/03/27/%E9%9D%A2%E8%AF%95/3.27%E7%99%BE%E5%BA%A6%E4%B8%80%E9%9D%A2%E4%BA%8C%E9%9D%A2%E4%B8%89%E9%9D%A2/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -239,13 +242,35 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>有效对齐值 是 #pragma pack() 和 最长数据类型中较小的一个</p>
-<p>结构体的第一个成员的偏移量为0，以后每个成员相对于结构体首地址的偏移量是该成员大小和有效对齐值中较小那个的整数倍</p>
-<p>结构体的总大小是 有效对齐值 的整数倍</p>
-<p>简化了处理器和内存系统之间接口的硬件设计，提高了效率</p>
-<p>比如一个double型，如果我们把所有的double类型数据的地址对齐成8的倍数，那么就可以用一个内存操作来读或者写值了</p>
-<p>否则，可能需要执行两次内存访问，因为对象可能被分放在两个8字节的内存块中。</p>
-<p>无论数据是否对齐，都能正常工作，不过，还是建议对齐数据以提高内存系统的性能</p>
+          <h1 id="大体情况"><a href="#大体情况" class="headerlink" title="大体情况"></a>大体情况</h1><p>11点开始一面，大约45分钟；12点二面，大约40分钟；一点多三面，大概50分钟。问的内容比较基础，算法题也比较简单。</p>
+<h1 id="一面"><a href="#一面" class="headerlink" title="一面"></a>一面</h1><p>1、自我介绍</p>
+<p>2、介绍项目</p>
+<p>3、线程同步</p>
+<p>4、信号量，如何解决生产者消费者问题</p>
+<p>5、socket TCP 协议</p>
+<p>6、c++11新特性</p>
+<p>7、右值引用</p>
+<p>8、移动构造函数 如何实现</p>
+<p>9、算法 从一个有序数组中，找到某一个数的下标，用二分即可</p>
+<p>10、如果有多个重复的值，如何把左右边界二分出来</p>
+<h1 id="二面"><a href="#二面" class="headerlink" title="二面"></a>二面</h1><p>1、算法题，实现strcpy函数</p>
+<p>2、算法题，实现string类的拷贝构造函数</p>
+<p>3、string类中字符串是如何保存的，和字符数组有何区别</p>
+<p>4、vector扩容原理</p>
+<p>5、为什么new或malloc一块内存速度慢，在堆上分配内存为什么要比栈上慢</p>
+<p>6、map和unordered_map区别</p>
+<p>7、TCP三次握手，四次挥手</p>
+<p>8、为什么是三次握手，不是两次握手、四次握手或更多次握手</p>
+<p>9、算法题，<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/fu-za-lian-biao-de-fu-zhi-lcof/">复杂链表的复制</a></p>
+<h1 id="三面"><a href="#三面" class="headerlink" title="三面"></a>三面</h1><p>1、自我介绍</p>
+<p>2、你感到最委屈的一件事</p>
+<p>3、你接下来有什么学习路线</p>
+<p>4、你认为你的优点和缺点是什么</p>
+<p>5、你近一年有没有学习使用什么新技术</p>
+<p>6、你近一年最大的压力是哪件事，是如何解决的</p>
+<p>7、给你一个新技术，你在多长时间能够掌握</p>
+<p>8、对百度的看法</p>
+<p>还有一些忘了</p>
 
       
     </div>
@@ -264,7 +289,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/29/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><span class="page-number current">30</span><a class="page-number" href="/page/31/">31</a><span class="space">&hellip;</span><a class="page-number" href="/page/238/">238</a><a class="extend next" rel="next" href="/page/31/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/29/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/29/">29</a><span class="page-number current">30</span><a class="page-number" href="/page/31/">31</a><span class="space">&hellip;</span><a class="page-number" href="/page/239/">239</a><a class="extend next" rel="next" href="/page/31/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -330,7 +355,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">238</span>
+          <span class="site-state-item-count">239</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -414,7 +439,10 @@
 
 
   
-<script src="/js/local-search.js"></script>
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
+<script src="/js/algolia-search.js"></script>
+
 
 
 

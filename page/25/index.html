@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"zhouruifa.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+    var CONFIG = {"hostname":"zhouruifa.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"3NGUE881LI","apiKey":"226809de1e28342bfee8f817b2b71f19","indexName":"hexoSearch","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
   <meta property="og:type" content="website">
@@ -140,21 +140,18 @@
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
+  <div class="search-input-container"></div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
-  </div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
 </div>
 
+      
     </div>
   </div>
 
@@ -179,7 +176,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2021/06/07/linux/adduser/">
+    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2021/06/07/%E5%AE%89%E8%A3%85pyenv/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -193,7 +190,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/06/07/linux/adduser/" class="post-title-link" itemprop="url">adduser与useradd</a>
+            <a href="/2021/06/07/%E5%AE%89%E8%A3%85pyenv/" class="post-title-link" itemprop="url">安装pyenv</a>
         </h2>
 
         <div class="post-meta">
@@ -204,20 +201,11 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-06-07 10:02:03 / 修改时间：13:14:14" itemprop="dateCreated datePublished" datetime="2021-06-07T10:02:03+08:00">2021-06-07</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-                </span>
+              <time title="创建时间：2021-06-07 10:02:03 / 修改时间：10:59:29" itemprop="dateCreated datePublished" datetime="2021-06-07T10:02:03+08:00">2021-06-07</time>
             </span>
 
           
-            <span id="/2021/06/07/linux/adduser/" class="post-meta-item leancloud_visitors" data-flag-title="adduser与useradd" title="阅读次数">
+            <span id="/2021/06/07/%E5%AE%89%E8%A3%85pyenv/" class="post-meta-item leancloud_visitors" data-flag-title="安装pyenv" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -232,8 +220,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/06/07/linux/adduser/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/06/07/linux/adduser/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/06/07/%E5%AE%89%E8%A3%85pyenv/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/06/07/%E5%AE%89%E8%A3%85pyenv/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -248,15 +236,30 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><code>useradd</code>是一个linux命令，它提供了很多参数。</p>
-<p><code>adduser</code>是一个perl脚本，在使用的时候会出现类似人机交互的界面，提供选项让用户填写和选择。</p>
-<p>CentOS下useradd和adduser是没有区别的</p>
-<p>两者都会在home下自动创建目录，没有设置免密，需要使用passwd修改密码</p>
-<p>不同之处主要体现在Ubuntu上</p>
-<p>在使用<code>useradd</code>时，如果后面不加任何选项，那么默认创建的用户是“三无”用户</p>
-<p>即无家目录，无密码，无系统shell</p>
-<p>使用adduser时，系统将会提示输入创建用户所需的各种信息，只要跟着系统提示就可以完成用户的创建。</p>
-<p>所以，<strong>adduser</strong>适合的对象更偏向于初学者；而<strong>useradd</strong>适合的人群是有一定经验的，用户可以通过命令加参数的方式快速创建出用户，避免了<strong>adduser</strong>的繁琐。</p>
+          <link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>1、首先安装构建python需要的工具<a target="_blank" rel="noopener" href="https://github.com/pyenv/pyenv/wiki#suggested-build-environment">官网教程</a></p>
+<p>对于Ubuntu，执行下列命令（注意，命令可能会过时，以官网为准）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update; sudo apt-get install make build-essential libssl-dev zlib1g-dev \</span><br><span class="line">libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \</span><br><span class="line">libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev</span><br></pre></td></tr></table></figure>
+
+<p>2、clone pyenv的代码库，clone到~/.pyenv</p>
+<p><code> git clone https://github.com/pyenv/pyenv.git ~/.pyenv</code></p>
+<p>如果无法访问github，那么可以使用镜像</p>
+<p><code> git clone https://github.com.cnpmjs.org/pyenv/pyenv.git ~/.pyenv</code></p>
+<p>3、将pyenv添加到环境变量</p>
+<p>刚才克隆的pyenv代码库其中已经包含了编译好的pyenv文件了，在<code>~/.pyenv/bin/</code>中，我们只需要将其加入环境变量中就可以了。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/pyenv/pyenv#basic-github-checkout">参考官网</a></p>
+<p>对于Ubuntu来说</p>
+<p>在<code>~/.profile</code>文件的最上面加入</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PYENV_ROOT=<span class="string">&quot;<span class="variable">$HOME</span>/.pyenv&quot;</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="string">&quot;<span class="variable">$PYENV_ROOT</span>/bin:<span class="variable">$PATH</span>&quot;</span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">&quot;<span class="subst">$(pyenv init --path)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>加好之后执行<code>source ~/.profile</code>或者重启终端</p>
+<p>4、此时已经安装好了pyenv，在命令行中输入<code>pyenv</code>应该可以看见以下输出</p>
+<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210607105417677.png" alt="image-20210607105417677"></p>
+<p>5、下载python</p>
+<p>如果直接用pyenv的命令安装python，它是从python官网下载python包的，比较慢。我们可以先从镜像下载好放到<code>~/.pyenv/cache</code>中，然后再执行<code>pyenv install 3.x.x</code>，pyenv会先在cache中查找相应的安装包，如果找到了就直接安装。</p>
+<p><code>v=3.7.3;wget https://npm.taobao.org/mirrors/python/$v/Python-$v.tar.xz -P ~/.pyenv/cache/;pyenv install $v</code></p>
+<p>v表示python版本号，然后从淘宝源上下载放进<code>~/.pyenv/cache</code>中，然后安装。</p>
+<p>6、安装好后，执行<code>pyenv global 3.x.x</code>就可以让安装好的python全局生效了。</p>
+<p>文章中的内容可能会过时，请以pyenv<a target="_blank" rel="noopener" href="https://github.com/pyenv/pyenv">官网</a>为准！</p>
 
       
     </div>
@@ -275,7 +278,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/24/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><span class="page-number current">25</span><a class="page-number" href="/page/26/">26</a><span class="space">&hellip;</span><a class="page-number" href="/page/238/">238</a><a class="extend next" rel="next" href="/page/26/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/24/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/24/">24</a><span class="page-number current">25</span><a class="page-number" href="/page/26/">26</a><span class="space">&hellip;</span><a class="page-number" href="/page/239/">239</a><a class="extend next" rel="next" href="/page/26/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -341,7 +344,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">238</span>
+          <span class="site-state-item-count">239</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -425,7 +428,10 @@
 
 
   
-<script src="/js/local-search.js"></script>
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
+<script src="/js/algolia-search.js"></script>
+
 
 
 

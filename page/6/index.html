@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"zhouruifa.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+    var CONFIG = {"hostname":"zhouruifa.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"3NGUE881LI","apiKey":"226809de1e28342bfee8f817b2b71f19","indexName":"hexoSearch","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
   <meta property="og:type" content="website">
@@ -140,21 +140,18 @@
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
-  <div class="search-input-container">
-    <input autocomplete="off" autocapitalize="off"
-           placeholder="搜索..." spellcheck="false"
-           type="search" class="search-input">
-  </div>
+  <div class="search-input-container"></div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div id="search-result">
-  <div id="no-result">
-    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
-  </div>
+<div class="algolia-results">
+  <div id="algolia-stats"></div>
+  <div id="algolia-hits"></div>
+  <div id="algolia-pagination" class="algolia-pagination"></div>
 </div>
 
+      
     </div>
   </div>
 
@@ -179,7 +176,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2021/06/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/">
+    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2021/07/05/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -193,7 +190,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/06/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" class="post-title-link" itemprop="url">计算机系统结构期末复习</a>
+            <a href="/2021/07/05/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%80/" class="post-title-link" itemprop="url">数据结构一</a>
         </h2>
 
         <div class="post-meta">
@@ -202,19 +199,22 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2021-06-24 20:43:17" itemprop="dateCreated datePublished" datetime="2021-06-24T20:43:17+08:00">2021-06-24</time>
+              <time title="创建时间：2021-07-05 09:22:03 / 修改时间：16:03:48" itemprop="dateCreated datePublished" datetime="2021-07-05T09:22:03+08:00">2021-07-05</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-06-25 01:29:07" itemprop="dateModified" datetime="2021-06-25T01:29:07+08:00">2021-06-25</time>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
               </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE/" itemprop="url" rel="index"><span itemprop="name">算法基础课</span></a>
+                </span>
+            </span>
 
           
-            <span id="/2021/06/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" class="post-meta-item leancloud_visitors" data-flag-title="计算机系统结构期末复习" title="阅读次数">
+            <span id="/2021/07/05/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%80/" class="post-meta-item leancloud_visitors" data-flag-title="数据结构一" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -229,8 +229,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/06/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/06/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/07/05/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%80/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/07/05/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80%E8%AF%BE/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%80/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -245,142 +245,40 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="互连网络"><a href="#互连网络" class="headerlink" title="互连网络"></a>互连网络</h2><h3 id="互连网络三要素"><a href="#互连网络三要素" class="headerlink" title="互连网络三要素"></a>互连网络三要素</h3><p>开关元件、互连结构、控制方式</p>
-<h3 id="互连网络描述"><a href="#互连网络描述" class="headerlink" title="互连网络描述"></a>互连网络描述</h3><p>函数表示法：x表示输入，f(x)表示输出，即在互连函数的作用下，输入端x连接到输出端f(x)</p>
-<p>图形表示法：用图形表示输入端与输出端一一对应关系</p>
-<p>循环表示法：如(0 1)(3 5)(2 4)</p>
-<h3 id="基本互连函数"><a href="#基本互连函数" class="headerlink" title="基本互连函数"></a>基本互连函数</h3><h4 id="恒等函数"><a href="#恒等函数" class="headerlink" title="恒等函数"></a>恒等函数</h4><p>I(xn-1xn-2…x1x0) = xn-1xn-2…x1x0 </p>
-<h4 id="交换函数"><a href="#交换函数" class="headerlink" title="交换函数"></a>交换函数</h4><p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210624233258867.png" alt="image-20210624233258867"></p>
-<p>实现二进制编码中第k位互反的输入端与输出端之间的连接</p>
-<p>N为节点个数，共有n = logN种互连函数</p>
-<p>Cube0(x2x1x0) = x2x1(x0的反)</p>
-<h4 id="均匀洗牌函数"><a href="#均匀洗牌函数" class="headerlink" title="均匀洗牌函数"></a>均匀洗牌函数</h4><p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210624233333817.png" alt="image-20210624233333817"></p>
-<p>也称为混洗函数</p>
-<p>即把输入端的二进制编号循环左移一位</p>
-<p>假设N=8</p>
-<p>σ(x2x1x0)＝x1x0x2</p>
-<h4 id="逆均匀洗牌函数"><a href="#逆均匀洗牌函数" class="headerlink" title="逆均匀洗牌函数"></a>逆均匀洗牌函数</h4><p>将输入端的二进制编号循环右移一位</p>
-<h4 id="蝶式函数"><a href="#蝶式函数" class="headerlink" title="蝶式函数"></a>蝶式函数</h4><p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210624233345982.png" alt="image-20210624233345982"></p>
-<p>把输入端的二进制编号的最高位与最低位互换位置，便得到了输出端的编号</p>
-<p>均匀洗牌，蝶式函数不能单独实现任意结点间互连。它们与交换函数多级组合是构成复杂多级网络的基础</p>
-<h4 id="反位序函数"><a href="#反位序函数" class="headerlink" title="反位序函数"></a>反位序函数</h4><p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210624233355148.png" alt="image-20210624233355148"></p>
-<p>将输入端的二进制编号的位序颠倒过来，即为输出端的编号</p>
-<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210624205756586.png" alt="image-20210624205756586"></p>
-<h4 id="移数函数"><a href="#移数函数" class="headerlink" title="移数函数"></a>移数函数</h4><p>将各输入端都错开一定的位置后连接到输出端</p>
-<p>α(x)= （x±k）mod N     1≤x≤N-1，1≤k≤N-1 </p>
-<h4 id="PM2I函数"><a href="#PM2I函数" class="headerlink" title="PM2I函数"></a>PM2I函数</h4><p>加减2的i次方函数</p>
-<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210624210410084.png" alt="image-20210624210410084"></p>
-<h4 id="Omega网络"><a href="#Omega网络" class="headerlink" title="Omega网络"></a>Omega网络</h4><p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210624233530773.png" alt="image-20210624233530773"></p>
-<h3 id="评估互连网络性能的两个基本指标"><a href="#评估互连网络性能的两个基本指标" class="headerlink" title="评估互连网络性能的两个基本指标"></a>评估互连网络性能的两个基本指标</h3><p>时延和带宽</p>
-<h3 id="优化寻径以最小通道流量和最小通信时延为目标"><a href="#优化寻径以最小通道流量和最小通信时延为目标" class="headerlink" title="优化寻径以最小通道流量和最小通信时延为目标"></a>优化寻径以最小<strong>通道流量</strong>和最小<strong>通信时延</strong>为目标</h3><h3 id="互连网络结构参数"><a href="#互连网络结构参数" class="headerlink" title="互连网络结构参数"></a>互连网络结构参数</h3><p>网络规模N：结点的个数</p>
-<p>结点度d：进入结点的边数交入度，从结点出来的边数叫出度</p>
-<p>结点距离：两个结点之间从一个结点到另一个结点跨越边数最少的距离</p>
-<p>网络直径D：网络中任意两个结点之间距离的最大值</p>
-<p>等分宽度b：把由N个结点构成的网络切成结点数相同(N/2)的两半，在任何切法中，沿切口边数的最小值</p>
-<p>对称性：从<strong>任何结点</strong>看到的拓扑结构都是相同的网络称为对称网络</p>
-<h3 id="互连网络可以分为两大类"><a href="#互连网络可以分为两大类" class="headerlink" title="互连网络可以分为两大类"></a>互连网络可以分为两大类</h3><p>静态互连网络：各节点之间有固定的连接通路，且在运行中不能改变的网络</p>
-<p>动态互联网络：由交换开关构成、可按运行程序的要求动态地改变连接状态的网络</p>
-<h3 id="典型的静态互连网络"><a href="#典型的静态互连网络" class="headerlink" title="典型的静态互连网络"></a>典型的静态互连网络</h3><h4 id="线性阵列"><a href="#线性阵列" class="headerlink" title="线性阵列"></a>线性阵列</h4><p>一种一维的线性网络，其中N个节点用N-1个链路连成一行</p>
-<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210624212636352.png" alt="image-20210624212636352"></p>
-<h4 id="环"><a href="#环" class="headerlink" title="环"></a>环</h4><p>一个圆圈</p>
-<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210624213218360.png" alt="image-20210624213218360"></p>
-<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210624213448324.png" alt="image-20210624213448324"></p>
-<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210624213458246.png" alt="image-20210624213458246"></p>
-<h4 id="循环移数网络"><a href="#循环移数网络" class="headerlink" title="循环移数网络"></a>循环移数网络</h4><p>环上的每个结点到所有与其距离为2的整数幂的结点都有一条链路</p>
-<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210624213620188.png" alt="image-20210624213620188"></p>
-<p>n=4，结点度=2*n-1=7，直径为n/2</p>
-<h4 id="树形和星形"><a href="#树形和星形" class="headerlink" title="树形和星形"></a>树形和星形</h4><p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210624214019931.png" alt="image-20210624214019931"></p>
-<h4 id="超立方体-大于3的"><a href="#超立方体-大于3的" class="headerlink" title="超立方体 大于3的"></a>超立方体 大于3的</h4><p>n-立方体由2的n次方个结点构成。直径为n，结点度为n，规模是2的n次方，对称</p>
-<p>带环超立方体</p>
-<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210624214340584.png" alt="image-20210624214340584"></p>
-<h3 id="动态互连网络"><a href="#动态互连网络" class="headerlink" title="动态互连网络"></a>动态互连网络</h3><p>主要有总线网络、多级网络、交叉开关网络</p>
-<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210624214557831.png" alt="image-20210624214557831"></p>
-<h3 id="互连网络消息传递方式"><a href="#互连网络消息传递方式" class="headerlink" title="互连网络消息传递方式"></a>互连网络消息传递方式</h3><p>线路交换、存储转发、虚拟直通、虫孔方式</p>
-<p>多计算机网络中单播、选播、广播、会议四种通信模式，分别对应一对一、一对多、一对全体、多对多四种通信情况</p>
-<h3 id="各种多级互连网络的区别在于所用开关模块、控制方式和级间互连模式的不同"><a href="#各种多级互连网络的区别在于所用开关模块、控制方式和级间互连模式的不同" class="headerlink" title="各种多级互连网络的区别在于所用开关模块、控制方式和级间互连模式的不同"></a>各种多级互连网络的区别在于所用开关模块、控制方式和级间互连模式的不同</h3><h3 id="一个n×n的交叉开关网络，可以无阻塞地实现n-种置换。"><a href="#一个n×n的交叉开关网络，可以无阻塞地实现n-种置换。" class="headerlink" title="一个n×n的交叉开关网络，可以无阻塞地实现n!种置换。"></a>一个n×n的交叉开关网络，可以无阻塞地实现n!种置换。</h3><h3 id="一个n×n的交叉开关网络，需要n的2次方套交叉点开关及大量连线"><a href="#一个n×n的交叉开关网络，需要n的2次方套交叉点开关及大量连线" class="headerlink" title="一个n×n的交叉开关网络，需要n的2次方套交叉点开关及大量连线"></a>一个n×n的交叉开关网络，需要n的2次方套交叉点开关及大量连线</h3><p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210624215229972.png" alt="image-20210624215229972"></p>
-<h2 id="多处理机"><a href="#多处理机" class="headerlink" title="多处理机"></a>多处理机</h2><p>MIMD：多指令流多数据流</p>
-<h3 id="根据存储器组织结构，把现有的MIMD分成两类"><a href="#根据存储器组织结构，把现有的MIMD分成两类" class="headerlink" title="根据存储器组织结构，把现有的MIMD分成两类"></a>根据存储器组织结构，把现有的MIMD分成两类</h3><p>对称式共享存储器多处理机</p>
-<p>分布式共享存储器多处理机</p>
-<h3 id="Cache一致性协议"><a href="#Cache一致性协议" class="headerlink" title="Cache一致性协议"></a>Cache一致性协议</h3><p>关键：跟踪记录共享数据块的状态</p>
-<p>两类协议：目录式协议、监听式协议</p>
-<h3 id="两种方法解决Cache一致性问题"><a href="#两种方法解决Cache一致性问题" class="headerlink" title="两种方法解决Cache一致性问题"></a>两种方法解决Cache一致性问题</h3><p>写作废、写更新</p>
-<h3 id="目录的三类结构"><a href="#目录的三类结构" class="headerlink" title="目录的三类结构"></a>目录的三类结构</h3><p>全映像目录</p>
-<p>有限映像目录</p>
-<p>链式目录</p>
-<h2 id="阵列处理机"><a href="#阵列处理机" class="headerlink" title="阵列处理机"></a>阵列处理机</h2><p>分布式存储器阵列机</p>
-<p>共享式存储器阵列机</p>
-<h3 id="阵列处理机特点"><a href="#阵列处理机特点" class="headerlink" title="阵列处理机特点"></a>阵列处理机特点</h3><p>阵列机是以单指令流多数据流方式工作的。通过设置多个相同的处理单元来开发并行性</p>
-<p>利用并行性中的同时性。所有处理单元同时对不同的数据进行相同的操作</p>
-<p>以某一类算法为背景的专用计算机</p>
-<h3 id="SIMD计算机与向量计算机的相同与不同"><a href="#SIMD计算机与向量计算机的相同与不同" class="headerlink" title="SIMD计算机与向量计算机的相同与不同"></a>SIMD计算机与向量计算机的相同与不同</h3><p>相同：两种计算机都能对大量数据进行向量处理，特别适用于高速数值计算。</p>
-<p>不同点：SIMD计算机获得高处理速度是主要原因是采用资源重复的并行措施，多个处理单元并行工作；向量处理机依靠的是多功能流水线部件时间重叠提高速度；另一区别是SIMD计算机有它的互连网络。</p>
-<h3 id="SIMD计算机的分布式存储器与共享存储器的异同"><a href="#SIMD计算机的分布式存储器与共享存储器的异同" class="headerlink" title="SIMD计算机的分布式存储器与共享存储器的异同"></a>SIMD计算机的分布式存储器与共享存储器的异同</h3><p>相同：都存在互连网络</p>
-<p>不同：在共享内存中，共享的多体并行存储器通过对准网络与多个处理单元相连</p>
-<p>在分布式内存中，每个处理单元有自己的本地存储器，处理单元之间的数据通过数据寻径网络完成。</p>
-<h2 id="第一章-基础知识"><a href="#第一章-基础知识" class="headerlink" title="第一章 基础知识"></a>第一章 基础知识</h2><p>计算机是有软件、硬件、固件组成的复杂系统，按语言划分为多级层次结构</p>
-<h3 id="计算机系统结构的定义"><a href="#计算机系统结构的定义" class="headerlink" title="计算机系统结构的定义"></a>计算机系统结构的定义</h3><p>计算机系统结构是传统机器语言程序员所看到的计算机的属性，即概念性结构和功能特性</p>
-<p>计算机系统的实质：确定计算机系统中软硬件的界面，界面之上是软件实现的功能，界面之下是软件和硬件实现的功能</p>
-<p>计算机组成（组织）是计算机系统结构的逻辑实现</p>
-<p>计算机实现是计算机组成的物理实现</p>
-<h3 id="计算机体系结构、组织、实现的区别举例"><a href="#计算机体系结构、组织、实现的区别举例" class="headerlink" title="计算机体系结构、组织、实现的区别举例"></a>计算机体系结构、组织、实现的区别举例</h3><p>机器指令集的确定 –属于计算机体系结构</p>
-<p>指令实现方式 –属于计算机组织</p>
-<p>实现指令集中所有指令功能的具体电路、器件的设计、装配技术 –计算机实现</p>
-<h3 id="计算机系统结构分类"><a href="#计算机系统结构分类" class="headerlink" title="计算机系统结构分类"></a>计算机系统结构分类</h3><p>Flynn分类法：按照指令流和数据流的组织方式分类</p>
-<p>Handler分类法：根据计算机并行度和流水线分类</p>
-<p>冯氏分类法：用最大并行度对计算机分类</p>
-<h2 id="流水线"><a href="#流水线" class="headerlink" title="流水线"></a>流水线</h2><h3 id="通过时间和排空时间"><a href="#通过时间和排空时间" class="headerlink" title="通过时间和排空时间"></a>通过时间和排空时间</h3><p>通过时间：从第一个任务进入流水线到流出结果所需的时间，又称装入时间。</p>
-<p>排空时间：最后一个任务从进入流水线到流出结果所需的时间</p>
-<h3 id="流水线的分类"><a href="#流水线的分类" class="headerlink" title="流水线的分类"></a>流水线的分类</h3><p>部件级流水线、指令级流水线、系统级流水线</p>
-<p>单功能流水线：只能完成一种固定功能</p>
-<p>多功能流水线：流水线的各段可以进行不同的连接</p>
-<h3 id="乱序流水线"><a href="#乱序流水线" class="headerlink" title="乱序流水线"></a>乱序流水线</h3><p>流水线输出端任务流出的顺序与输入端任务流入的顺序不同</p>
-<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210625010043541.png" alt="image-20210625010043541"></p>
-<h3 id="流水线相关"><a href="#流水线相关" class="headerlink" title="流水线相关"></a>流水线相关</h3><ul>
-<li><p>数据相关：真数据相关。</p>
-</li>
-<li><p>名相关</p>
-<ul>
-<li>反相关：指令i读的寄存器名=指令j写的寄存器名</li>
-<li>输出相关：指令i写的寄存器名=指令j写的寄存器名</li>
-<li>名相关可以通过寄存器换名来消除</li>
-</ul>
-</li>
-<li><p>控制相关</p>
-<ul>
-<li>分支指令引起的相关</li>
-</ul>
-</li>
-</ul>
-<h3 id="流水线冲突"><a href="#流水线冲突" class="headerlink" title="流水线冲突"></a>流水线冲突</h3><ul>
-<li>结构冲突：硬件资源不满足指令重叠执行的要求</li>
-<li>数据冲突：指令在流水线中重叠执行时，需要用到前面指令执行的结果二发生的冲突</li>
-<li>控制相关：分支指令和其他会改变PC值的指令引起的冲突</li>
-</ul>
-<h3 id="数据冲突解决方案"><a href="#数据冲突解决方案" class="headerlink" title="数据冲突解决方案"></a>数据冲突解决方案</h3><ul>
-<li>定向技术</li>
-<li>停顿</li>
-<li>编译器解决<ul>
-<li>预测分支失败</li>
-<li>预测分支成功</li>
-<li>延迟分支</li>
-</ul>
-</li>
-</ul>
-<h3 id="流水线的效率"><a href="#流水线的效率" class="headerlink" title="流水线的效率"></a>流水线的效率</h3><p>流水线中的设备实际使用时间与整个运行时间的比值</p>
-<p>e = n / (n + k - 1)</p>
-<h2 id="向量处理机"><a href="#向量处理机" class="headerlink" title="向量处理机"></a>向量处理机</h2><p>两种典型的结构</p>
-<ul>
-<li>存储器-存储器型：纵向方式采用</li>
-<li>寄存器-寄存器型：分组方式采用</li>
-</ul>
-<h2 id="指令级并行"><a href="#指令级并行" class="headerlink" title="指令级并行"></a>指令级并行</h2><p>指令之间存在的一种固有的并行性</p>
-<h3 id="动态分支预测"><a href="#动态分支预测" class="headerlink" title="动态分支预测"></a>动态分支预测</h3><p>采用分支历史表（BHT）</p>
-<p>采用分支目标缓冲器（BTB）</p>
-<p>基于硬件的前瞻执行</p>
-<p>一个时钟周期内流水线流出的指令数称为流水线并行度</p>
-<h3 id="超流水线"><a href="#超流水线" class="headerlink" title="超流水线"></a>超流水线</h3><p>将每个流水段进一步细分，这样在一个时钟周期内能够分时流出多条指令</p>
-<h3 id="超长指令字的生成由编译器来完成"><a href="#超长指令字的生成由编译器来完成" class="headerlink" title="超长指令字的生成由编译器来完成"></a>超长指令字的生成由编译器来完成</h3><p>I类指令包括所有的load和store指令</p>
-<p>R类指令包括ALU指令</p>
+          <h1 id="数据结构一"><a href="#数据结构一" class="headerlink" title="数据结构一"></a>数据结构一</h1><p><strong>yxcyyds</strong></p>
+<h2 id="单链表"><a href="#单链表" class="headerlink" title="单链表"></a>单链表</h2><p><code>head</code>指向头节点，头节点就是第一个真正的点</p>
+<p><code>e[i]</code>表示结点i的值</p>
+<p><code>ne[i]</code>表示结点i的next指针是哪一个下标</p>
+<p><code>idx</code>表示当前可以用的最新的一个点的下标</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100010</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> head;</span><br><span class="line"><span class="keyword">int</span> e[N], ne[N];</span><br><span class="line"><span class="keyword">int</span> idx;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    head = <span class="number">-1</span>;</span><br><span class="line">    idx = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//头插法</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add_to_head</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    e[idx] = x;</span><br><span class="line">    ne[idx] = head;</span><br><span class="line">    head = idx;</span><br><span class="line">    idx++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//将x插入到下标为k的后面</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> k, <span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    e[idx] = x;</span><br><span class="line">    ne[idx] = ne[k];</span><br><span class="line">    ne[k] = idx;</span><br><span class="line">    idx++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//将下标为k后面的点删掉</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">remove</span><span class="params">(<span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">    ne[k] = ne[ne[k]];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> T;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; T;</span><br><span class="line">    init();</span><br><span class="line">    <span class="keyword">while</span>(T--) &#123;</span><br><span class="line">        <span class="keyword">char</span> t;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; t;</span><br><span class="line">        <span class="keyword">if</span>(t == <span class="string">&#x27;H&#x27;</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> a;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; a;</span><br><span class="line">            add_to_head(a);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(t == <span class="string">&#x27;D&#x27;</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> a;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; a;</span><br><span class="line">            <span class="comment">//删除头结点时特判一下，head就是头节点的下标，头节点是真正的头结点</span></span><br><span class="line">            <span class="keyword">if</span>(a == <span class="number">0</span>) &#123;</span><br><span class="line">                head = ne[head];</span><br><span class="line">            &#125;</span><br><span class="line">            remove(a - <span class="number">1</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(t == <span class="string">&#x27;I&#x27;</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> a, b;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; a &gt;&gt; b;</span><br><span class="line">            add(a - <span class="number">1</span>, b);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = head; i != <span class="number">-1</span>; i = ne[i]) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, e[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="双链表"><a href="#双链表" class="headerlink" title="双链表"></a>双链表</h2><p><code>l[i]</code>表示结点i左边的结点下标，<code>r[i]</code>表示结点i右边结点的下标</p>
+<p>0表示头结点，1表示尾结点，这里的头尾结点并不是一个指针了，而是一个结点。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100010</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> head;</span><br><span class="line"><span class="keyword">int</span> e[N], l[N], r[N];</span><br><span class="line"><span class="keyword">int</span> idx;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    r[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    l[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">    idx = <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//插到k的右边</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> k, <span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    e[idx] = x;</span><br><span class="line">    r[idx] = r[k];</span><br><span class="line">    l[idx] = k;</span><br><span class="line">    l[r[k]] = idx;</span><br><span class="line">    r[k] = idx;</span><br><span class="line">    idx ++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">remove</span><span class="params">(<span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">    r[l[k]] = r[k];</span><br><span class="line">    l[r[k]] = l[k];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    init();</span><br><span class="line">    <span class="keyword">int</span> T;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; T;</span><br><span class="line">    <span class="keyword">while</span>(T--) &#123;</span><br><span class="line">        <span class="built_in">string</span> op;</span><br><span class="line">        <span class="keyword">int</span> k, x;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; op;</span><br><span class="line">        <span class="keyword">if</span>(op == <span class="string">&quot;L&quot;</span>) &#123;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; x;</span><br><span class="line">            add(<span class="number">0</span>, x);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(op == <span class="string">&quot;R&quot;</span>) &#123;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; x;</span><br><span class="line">            add(l[<span class="number">1</span>], x);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(op == <span class="string">&quot;D&quot;</span>) &#123;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; k;</span><br><span class="line">            <span class="comment">//注意idx从2开始</span></span><br><span class="line">            remove(k + <span class="number">1</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(op == <span class="string">&quot;IL&quot;</span>) &#123;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; k &gt;&gt; x;</span><br><span class="line">            add(l[k + <span class="number">1</span>], x);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; k &gt;&gt; x;</span><br><span class="line">            add(k + <span class="number">1</span>, x);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = r[<span class="number">0</span>]; i != <span class="number">1</span>; i = r[i]) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, e[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="模拟栈"><a href="#模拟栈" class="headerlink" title="模拟栈"></a>模拟栈</h2><p>很简单</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100010</span>;</span><br><span class="line"><span class="keyword">int</span> stk[N], tt;<span class="comment">//tt表示栈顶下标</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> T;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; T;</span><br><span class="line">    <span class="keyword">while</span>(T--) &#123;</span><br><span class="line">        <span class="built_in">string</span> op;</span><br><span class="line">        <span class="keyword">int</span> x;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; op;</span><br><span class="line">        <span class="keyword">if</span>(op == <span class="string">&quot;push&quot;</span>) &#123;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; x;</span><br><span class="line">            stk[++tt] = x;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(op == <span class="string">&quot;query&quot;</span>) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, stk[tt]);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(op == <span class="string">&quot;pop&quot;</span>) &#123;</span><br><span class="line">            tt--;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(tt &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;NO\n&quot;</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;YES\n&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="模拟队列"><a href="#模拟队列" class="headerlink" title="模拟队列"></a>模拟队列</h2><p>在队尾插入元素，在队头弹出元素</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100010</span>;</span><br><span class="line"><span class="comment">//hh表示队头，tt表示队尾</span></span><br><span class="line"><span class="comment">//在队尾插入元素，在队头弹出元素</span></span><br><span class="line"><span class="keyword">int</span> q[N], hh, tt = <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> T;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; T;</span><br><span class="line">    <span class="built_in">string</span> op;</span><br><span class="line">    <span class="keyword">int</span> x;</span><br><span class="line">    <span class="keyword">while</span>(T--) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; op;</span><br><span class="line">        <span class="keyword">if</span>(op == <span class="string">&quot;push&quot;</span>) &#123;</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; x;</span><br><span class="line">            q[++tt] = x;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(op == <span class="string">&quot;pop&quot;</span>) &#123;</span><br><span class="line">            hh++;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span>(op == <span class="string">&quot;query&quot;</span>) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, q[hh]);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(hh &lt;= tt) &#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;NO\n&quot;</span>);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">&quot;YES\n&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="单调栈"><a href="#单调栈" class="headerlink" title="单调栈"></a>单调栈</h2><p>求一下这个序列当中的每一个数，左边离它最近的且比它小的数在什么地方/右边离它最近/比它小/大</p>
+<p><strong>离它最近的</strong></p>
+<p>题目：给定一个长度为 N 的整数数列，输出每个数左边第一个比它小的数，如果不存在则输出 −1。</p>
+<p>我们用一个栈，保存所有已经遍历过的数字。最开始栈是空的。假设现在遍历到第i个数，需要找到左边最近的小于i的数。那么我们可以从栈顶开始遍历，从右向左依次遍历栈，直到找到第一个小于i的数。</p>
+<p>在此过程中，栈中有的数字不可能作为结果</p>
+<p>假设栈中<code>a3 &gt;= a5</code>，那么a3不可能作为结果输出，应为a5在a3的邮编，并且a5小于等于a3，如果能选a3，那么就一定能选a5。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">10010</span>;</span><br><span class="line"><span class="keyword">int</span> stk[N], tt;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> x;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;x);</span><br><span class="line">        <span class="comment">//每个元素最多只有进栈一次，出栈一次，所以时间复杂度是O(n)</span></span><br><span class="line">        <span class="keyword">while</span>(tt &amp;&amp; stk[tt] &gt;= x) tt--;</span><br><span class="line">        <span class="keyword">if</span>(tt) <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, stk[tt]);</span><br><span class="line">        <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">&quot;-1 &quot;</span>);</span><br><span class="line">        stk[++tt] = x;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="单调队列"><a href="#单调队列" class="headerlink" title="单调队列"></a>单调队列</h2><p>最经典应用：求滑动窗口最大值和最小值</p>
+<p>滑动窗口用队列来维护</p>
+<p>最开始滑动窗口为空</p>
+<p>暴力做法：直接遍历一下队列里的所有元素，时间复杂度是O(k * n)</p>
+<p>如何优化：队列里面某些元素永远都不可能使用到</p>
+<p>现在我们想找最小值，如果队列里面后面的值（新在队尾添加的）小于前面的值，那么前面的值永远不可能被选到</p>
+<p>队列里存的不是指。是下标</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1000010</span>;</span><br><span class="line"><span class="keyword">int</span> a[N], q[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n, k;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n, &amp;k);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;a[i]);</span><br><span class="line">    <span class="comment">//找出滑动窗口最小值</span></span><br><span class="line">    <span class="keyword">int</span> hh = <span class="number">0</span>, tt = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="comment">//判断队头是否已经划出窗口，只会移动一次，不需要用while</span></span><br><span class="line">        <span class="keyword">if</span>(hh &lt;= tt &amp;&amp; i - k + <span class="number">1</span> &gt; q[hh]) hh++;</span><br><span class="line">        <span class="keyword">while</span>(hh &lt;= tt &amp;&amp; a[i] &lt;= a[q[tt]]) tt--;</span><br><span class="line">        q[++tt] = i;<span class="comment">//需要先把元素加进去</span></span><br><span class="line">        <span class="keyword">if</span>(i &gt;= k - <span class="number">1</span>) <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, a[q[hh]]);</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//找出滑动窗口最大值</span></span><br><span class="line">    hh = <span class="number">0</span>, tt = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="comment">//判断队头是否已经划出窗口</span></span><br><span class="line">        <span class="keyword">if</span>(hh &lt;= tt &amp;&amp; i - k + <span class="number">1</span> &gt; q[hh]) hh++;</span><br><span class="line">        <span class="keyword">while</span>(hh &lt;= tt &amp;&amp; a[i] &gt;= a[q[tt]]) tt--;</span><br><span class="line">        q[++tt] = i;</span><br><span class="line">        <span class="keyword">if</span>(i &gt;= k - <span class="number">1</span>) <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, a[q[hh]]);</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -399,7 +297,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/238/">238</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/239/">239</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -465,7 +363,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">238</span>
+          <span class="site-state-item-count">239</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -549,7 +447,10 @@
 
 
   
-<script src="/js/local-search.js"></script>
+<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
+<script src="/js/algolia-search.js"></script>
+
 
 
 
