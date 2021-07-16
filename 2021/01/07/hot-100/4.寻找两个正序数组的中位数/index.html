@@ -253,7 +253,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="解法一-暴力解法"><a href="#解法一-暴力解法" class="headerlink" title="解法一    暴力解法"></a>解法一    暴力解法</h2><p>这种解法非常好想，根据题意就能想出来。我们可以合并数组，然后找出这个新数组的中位数。如何合并呢？我们可以借鉴归并排序的合并，时间复杂度为O(n)，然后找出中位数即可。（如果长度为偶数找出中间两个数的平均值）</p>
+        <h2 id="解法一-暴力解法"><a href="#解法一-暴力解法" class="headerlink" title="解法一    暴力解法"></a>解法一    暴力解法</h2><p>这种解法非常好想，根据题意就能想出来。我们可以合并数组，然后找出这个新数组的中位数。如何合并呢？我们可以借鉴归并排序的合并，时间复杂度为O(n)，然后找出中位数即可。（如果长度为偶数找出中间两个数的平均值）</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums1, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums2)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; nums3;</span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; nums1.size() &amp;&amp; j &lt; nums2.size())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(nums1[i] &lt;= nums2[j]) nums3.push_back(nums1[i++]);</span><br><span class="line">            <span class="keyword">else</span> nums3.push_back(nums2[j++]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; nums1.size()) nums3.push_back(nums1[i++]);</span><br><span class="line">        <span class="keyword">while</span>(j &lt; nums2.size()) nums3.push_back(nums2[j++]);</span><br><span class="line">        <span class="keyword">int</span> k = nums3.size() / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span>(nums3.size() % <span class="number">2</span> == <span class="number">0</span>) <span class="keyword">return</span> (nums3[k] + nums3[k - <span class="number">1</span>]) / <span class="number">2.0</span>;</span><br><span class="line">        <span class="keyword">return</span> nums3[k];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <p>但是题目中要求的复杂度为O(log (m+n))，看来我们还需要想出更好的解法。</p>
@@ -361,14 +361,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">235</span>
+          <span class="site-state-item-count">238</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">

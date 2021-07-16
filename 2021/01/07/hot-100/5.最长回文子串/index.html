@@ -253,7 +253,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="解法一-暴力"><a href="#解法一-暴力" class="headerlink" title="解法一    暴力"></a>解法一    暴力</h2><p>本题一开始觉得还挺难的，因为要遍历所有子串，然后判断子串是不是回文串。这样暴力做法也是可以的，找出所有子串，然后再判断是不是回文串，复杂度为O(n^3)</p>
+        <h2 id="解法一-暴力"><a href="#解法一-暴力" class="headerlink" title="解法一    暴力"></a>解法一    暴力</h2><p>本题一开始觉得还挺难的，因为要遍历所有子串，然后判断子串是不是回文串。这样暴力做法也是可以的，找出所有子串，然后再判断是不是回文串，复杂度为O(n^3)</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(<span class="built_in">string</span> &amp; s, <span class="keyword">int</span> i , <span class="keyword">int</span> j)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(i &lt; j)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(s[i] != s[j]) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            i++;</span><br><span class="line">            j--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">longestPalindrome</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">string</span> res;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.size(); i++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i; j &lt; s.size(); j++)</span><br><span class="line">                <span class="keyword">if</span>(res.size() &lt; j - i + <span class="number">1</span> &amp;&amp; isPalindrome(s, i, j) )</span><br><span class="line">                   res =  s.substr(i, j - i + <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <h2 id="解法二-中心扩散"><a href="#解法二-中心扩散" class="headerlink" title="解法二    中心扩散"></a>解法二    中心扩散</h2><p>仔细想想，我们如何判断一个字串是不是回文串的。回文串有两种类型，长度为奇数和长度为偶数的串。我们遍历每一个字符，并且把该字符当做回文串的中心，然后向两边拓展，找到最长的回文串。</p>
@@ -358,14 +358,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">235</span>
+          <span class="site-state-item-count">238</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">

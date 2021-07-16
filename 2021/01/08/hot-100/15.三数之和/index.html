@@ -253,7 +253,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="解法-双指针"><a href="#解法-双指针" class="headerlink" title="解法 双指针"></a>解法 双指针</h3><p>首先我们对数组排序。</p>
+        <h3 id="解法-双指针"><a href="#解法-双指针" class="headerlink" title="解法 双指针"></a>解法 双指针</h3><p>首先我们对数组排序。</p>
 <p>因为要找三数之和，用$i,j,k$来表示，用$i$表示第一个数，我们对$j, k$用双指针算法。</p>
 <p>令$i &lt; j &lt; k$，固定好$i$，使$j$指向$i$的后一项，$k$指向最后一个数。如果$nums[i] + nums[j] + nums[k] &gt; 0$，说明$k$指向的数字比较大，将$k$左移；如果小于0，那么需要将$j$右移。</p>
 <p>如何去除重复的三元组呢？</p>
@@ -360,14 +360,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">235</span>
+          <span class="site-state-item-count">238</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">

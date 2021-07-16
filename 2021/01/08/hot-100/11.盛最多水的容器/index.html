@@ -253,7 +253,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="解法一-暴力"><a href="#解法一-暴力" class="headerlink" title="解法一    暴力"></a>解法一    暴力</h2><p>暴力很简单，只需要遍历每一组$i, j$，然后计算出$(j - i) * min(height[i], height[j])$即可</p>
+        <h2 id="解法一-暴力"><a href="#解法一-暴力" class="headerlink" title="解法一    暴力"></a>解法一    暴力</h2><p>暴力很简单，只需要遍历每一组$i, j$，然后计算出$(j - i) * min(height[i], height[j])$即可</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">maxArea</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; height)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; height.size() - <span class="number">1</span>; i++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; height.size(); j++)</span><br><span class="line">                <span class="keyword">if</span>((j - i) * min(height[i], height[j]) &gt; res)</span><br><span class="line">                    res = (j - i) * min(height[i], height[j]);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <h2 id="解法二-双指针"><a href="#解法二-双指针" class="headerlink" title="解法二    双指针"></a>解法二    双指针</h2><p>两个指针$i, j$分别指向数组头和尾，比较两个值的大小，如果$i$的值较小，那么把$i$往后移；如果$j$的值较小，那么把$j$往前移。</p>
@@ -358,14 +358,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">235</span>
+          <span class="site-state-item-count">238</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
