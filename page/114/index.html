@@ -176,7 +176,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2021/03/12/%E5%88%B7%E9%9D%A2%E7%BB%8F/4/">
+    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2021/03/13/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AF%95/C++%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -190,7 +190,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/03/12/%E5%88%B7%E9%9D%A2%E7%BB%8F/4/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2021/03/13/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AF%95/C++%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/" class="post-title-link" itemprop="url">C++优先队列</a>
         </h2>
 
         <div class="post-meta">
@@ -201,11 +201,11 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-03-12 10:55:53 / 修改时间：13:51:08" itemprop="dateCreated datePublished" datetime="2021-03-12T10:55:53+08:00">2021-03-12</time>
+              <time title="创建时间：2021-03-13 20:15:02 / 修改时间：20:33:49" itemprop="dateCreated datePublished" datetime="2021-03-13T20:15:02+08:00">2021-03-13</time>
             </span>
 
           
-            <span id="/2021/03/12/%E5%88%B7%E9%9D%A2%E7%BB%8F/4/" class="post-meta-item leancloud_visitors" data-flag-title="" title="阅读次数">
+            <span id="/2021/03/13/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AF%95/C++%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/" class="post-meta-item leancloud_visitors" data-flag-title="C++优先队列" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -220,8 +220,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/03/12/%E5%88%B7%E9%9D%A2%E7%BB%8F/4/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/03/12/%E5%88%B7%E9%9D%A2%E7%BB%8F/4/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/03/13/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AF%95/C++%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/03/13/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AF%95/C++%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -236,64 +236,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="1、面向对象"><a href="#1、面向对象" class="headerlink" title="1、面向对象"></a>1、面向对象</h3><h3 id="2、多态是什么"><a href="#2、多态是什么" class="headerlink" title="2、多态是什么"></a>2、多态是什么</h3><p>多种形态，同一个接口，有不同的实现方式。</p>
-<p>当一个基类指针指向不同的派生类时，调用同样的函数会有不同的效果，这就是多态。</p>
-<p>多态又分为编译时多态和运行时多态</p>
-<p>编译时多态：比如重载</p>
-<p>运行时多态：比如重写</p>
-<h3 id="3、确定使用哪种顺序容器"><a href="#3、确定使用哪种顺序容器" class="headerlink" title="3、确定使用哪种顺序容器"></a>3、确定使用哪种顺序容器</h3><p>通常，使用vector是最好的选择，除非你有更好的理由</p>
-<p>如果你的程序有很多小的元素，且空间的额外开销很重要，则不要使用list或forward_list。</p>
-<p>list(双向链表) forward_list(单向链表)</p>
-<p>list与vector相比，它允许快速的插入和删除，但是随机访问却比较慢</p>
-<h3 id="4、vector和list的区别"><a href="#4、vector和list的区别" class="headerlink" title="4、vector和list的区别"></a>4、vector和list的区别</h3><p>vector和数组类似，拥有一段连续的内存空间，并且起始地址不变</p>
-<p>因此可以高性能的进行随机存取，时间复杂度为O(1)</p>
-<p>但是因为内存是连续的，想要进行插入和删除操作时，会造成内存块的拷贝，时间复杂度为O(n)</p>
-<p>另外，当数组中内存空间不足时，会重新申请一块内存空间并进行内存拷贝。</p>
-<p>list是由双向链表实现的，因此内存空间是不连续的</p>
-<p>只能通过指针访问数据，所以list的随机存取效率低，时间复杂度为O(n)</p>
-<p>由于链表的特点，插入删除效率高</p>
-<h3 id="5、vector底层实现"><a href="#5、vector底层实现" class="headerlink" title="5、vector底层实现"></a>5、vector底层实现</h3><p>vector类似动态数组，当存储的数据达到容量时，就会重新分配内存</p>
-<p>capaticy()操作告诉我们容器在不扩张内存空间的情况下可以容纳多少个元素</p>
-<p>reserve()操作允许我们通知容器它应该准备好保存多少个元素，只有当需求的空间大于当前vector的空间，调用reserve才会有操作。</p>
-<p>向一个vector,string,deque插入元素会使所有指向容器的迭代器、引用和指针失效</p>
-<p>resize()用于扩容</p>
-<p>2被扩容时，下一次扩容的内存总是比之前释放过的内存之和都大，即之前释放过的内存在之后的扩容中都不能被使用</p>
-<p>1.5被扩容时，扩容到一定次数后，就可能利用之前分配的内存了。</p>
-<h3 id="6、socket通信流程"><a href="#6、socket通信流程" class="headerlink" title="6、socket通信流程"></a>6、socket通信流程</h3><p>以TCP为例</p>
-<p>客户端：</p>
-<p>int socket(int af, int type, int protocol) 创建套接字，指明ipv4/ipv6，以及数据传输协议（TCP/UDP）</p>
-<p>int connect(int sock, struct sockaddr * serv_addr, socklen_t addrlen)与服务器连接，填写服务器的ip和端口号</p>
-<p>连接建立好后，使用read和write（windows下使用send和recv）</p>
-<p>服务端：</p>
-<p>创建套接字</p>
-<p>bind()，服务端用bind()函数将套接字与特定ip地址和端口绑定起来，只有这样，流经该ip地址和端口的数据才能交给套接字处理；</p>
-<p>对于服务端程序，使用bind绑定套接字后，还需要使用listen函数让套接字进入被动监听状态</p>
-<p>int listen(int sock, int backlog)</p>
-<p>所谓被动监听，是指当没有客户端请求时，套接字处于睡眠状态，当只有接收到客户端请求时，套接字才会被唤醒来相应请求</p>
-<h4 id="请求队列"><a href="#请求队列" class="headerlink" title="请求队列"></a>请求队列</h4><p>当套接字正在处理客户端请求时，如果如果有新的请求过来，套接字是没法处理的，只能把它放进缓冲区，待当前请求处理完毕后，再从缓冲区读出出来处理。如果不断有新的请求进来，它们就按照先后顺序在缓冲区排队，直到缓冲区满。这个缓冲区，就称为请求队列</p>
-<p>缓冲区的长度可以通过listen函数的backlog参数指定</p>
-<p>注意listen只是让套接字处于监听状态，并没有接收请求。接受请求需要使用accept函数</p>
-<p>accept函数返回一个<strong>新的套接字</strong>来和客户端通信，</p>
-<p>int accept(int sock, struct sockaddr * addr, socklen_t *addrlen)</p>
-<p>参数addr中保存了客户端的ip地址和端口号</p>
-<p>listen函数只是让套接字进入被动监听状态，并没有真正接收客户端请求，listen后面的代码继续执行，直到遇到accept，accept会阻塞程序执行，直到有新的请求到来。</p>
-<p>int shutdown(int sock, int howto);</p>
-<p>sock为需要断开的套接字，howto为断开方式</p>
-<p>断开输入流/断开输出流/同时断开io流，相当于分两次调用shutdown（），一次断开输入流，一次断开输出流。</p>
-<p>close()与shutdown()区别</p>
-<p>shutdown用来关闭连接，而不是套接字，不管调用多少次shutdown，套接字依然存在，直到调用close将套接字从内存中清除</p>
-<p>调用close关闭套接字时，或者调用shutdown关闭输出流时，都会向对方发送FIN包，FIN包表明数据传输完毕，计算机收到FIN包就知道不会再有数据传送过来了</p>
-<p>调用close时，不管输出缓冲区是否还有数据，立刻发送FIN包，因为close会关闭套接字，以后就不可能收发数据了。</p>
-<p>而调用shutdown，会等到输出缓冲区数据发送完毕后，再发送FIN包。</p>
-<h3 id="7、同步和异步的区别"><a href="#7、同步和异步的区别" class="headerlink" title="7、同步和异步的区别"></a>7、同步和异步的区别</h3><p>同步：按照任务的顺序执行任务，前一个任务没有执行结束，下一个任务不会执行，要等待上一个任务执行结束</p>
-<p>异步：是指同一时间内可以做多事</p>
-<p>同步按顺序执行，异步无序执行</p>
-<p>比如一个程序正在等待我输入，那么此时CPU空闲，该线程就阻塞了。而程序完全可以去干其他事，直到我输入完成，再来处理。</p>
-<p>异步IO，协程</p>
-<h3 id="8、IO模型"><a href="#8、IO模型" class="headerlink" title="8、IO模型"></a>8、IO模型</h3><h4 id="同步阻塞IO"><a href="#同步阻塞IO" class="headerlink" title="同步阻塞IO"></a>同步阻塞IO</h4><p>用户进程进行系统调用，进程阻塞，内核开始了IO的第一个阶段，准备数据到缓冲区中，当数据准备完毕后，将数据从内核缓冲区复制到用户进程的内存中，此时进程接触阻塞状态重新运行。</p>
-<p>同步阻塞IO是在IO执行的两个阶段都被阻塞了。</p>
-<h4 id="同步非阻塞IO"><a href="#同步非阻塞IO" class="headerlink" title="同步非阻塞IO"></a>同步非阻塞IO</h4><p>用户进程只有在第二个阶段被阻塞了，第一个阶段（数据复制）没有阻塞，但是在第一个阶段中，用户进程需要忙等，不停的询问内核，数据是否准备好了</p>
-<h4 id="多路复用IO"><a href="#多路复用IO" class="headerlink" title="多路复用IO"></a>多路复用IO</h4>
+          <p>需要包含头文件#include &lt;queue&gt;</p>
+<p>优先队列具有队列的所有特性，只是在队列基本操作上加了一个内部的排序，本质上是一个堆</p>
+<p>top 访问队头元素</p>
+<p>empty 判断队列是否为空</p>
+<p>size 返回队列中元素个数</p>
+<p>push 在<strong>队尾</strong>插入元素并排序</p>
+<p>emplace 原地构造一个元素并插入队列</p>
+<p>（类似insert，res.insert(“你好”)，会调用一次构造函数，一次拷贝构造函数，一次析构函数，用来释放临时对象。而emplace只需要调用一次构造函数就行了）</p>
+<p>pop 弹出<strong>队头</strong>元素</p>
+<p>priority_queue&lt;int&gt; p 默认是 大根堆</p>
+<p>priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt;&gt; p小根堆</p>
+
       
     </div>
 
@@ -311,7 +265,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/113/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/113/">113</a><span class="page-number current">114</span><a class="page-number" href="/page/115/">115</a><span class="space">&hellip;</span><a class="page-number" href="/page/239/">239</a><a class="extend next" rel="next" href="/page/115/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/113/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/113/">113</a><span class="page-number current">114</span><a class="page-number" href="/page/115/">115</a><span class="space">&hellip;</span><a class="page-number" href="/page/241/">241</a><a class="extend next" rel="next" href="/page/115/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -377,14 +331,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">239</span>
+          <span class="site-state-item-count">241</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
