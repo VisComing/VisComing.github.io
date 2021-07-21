@@ -176,7 +176,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2021/01/17/hot-100/322.%E9%9B%B6%E9%92%B1%E5%85%91%E6%8D%A2/">
+    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2021/01/18/hot-100/347.%E5%89%8DK%E4%B8%AA%E9%AB%98%E9%A2%91%E5%85%83%E7%B4%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -190,7 +190,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/01/17/hot-100/322.%E9%9B%B6%E9%92%B1%E5%85%91%E6%8D%A2/" class="post-title-link" itemprop="url">322. 零钱兑换</a>
+            <a href="/2021/01/18/hot-100/347.%E5%89%8DK%E4%B8%AA%E9%AB%98%E9%A2%91%E5%85%83%E7%B4%A0/" class="post-title-link" itemprop="url">347. 前 K 个高频元素</a>
         </h2>
 
         <div class="post-meta">
@@ -201,7 +201,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-01-17 20:22:22 / 修改时间：20:23:56" itemprop="dateCreated datePublished" datetime="2021-01-17T20:22:22+08:00">2021-01-17</time>
+              <time title="创建时间：2021-01-18 09:30:42 / 修改时间：09:33:47" itemprop="dateCreated datePublished" datetime="2021-01-18T09:30:42+08:00">2021-01-18</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -214,7 +214,7 @@
             </span>
 
           
-            <span id="/2021/01/17/hot-100/322.%E9%9B%B6%E9%92%B1%E5%85%91%E6%8D%A2/" class="post-meta-item leancloud_visitors" data-flag-title="322. 零钱兑换" title="阅读次数">
+            <span id="/2021/01/18/hot-100/347.%E5%89%8DK%E4%B8%AA%E9%AB%98%E9%A2%91%E5%85%83%E7%B4%A0/" class="post-meta-item leancloud_visitors" data-flag-title="347. 前 K 个高频元素" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -229,8 +229,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/01/17/hot-100/322.%E9%9B%B6%E9%92%B1%E5%85%91%E6%8D%A2/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/17/hot-100/322.%E9%9B%B6%E9%92%B1%E5%85%91%E6%8D%A2/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/01/18/hot-100/347.%E5%89%8DK%E4%B8%AA%E9%AB%98%E9%A2%91%E5%85%83%E7%B4%A0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/18/hot-100/347.%E5%89%8DK%E4%B8%AA%E9%AB%98%E9%A2%91%E5%85%83%E7%B4%A0/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -245,8 +245,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>完全背包问题，有时间我会总结一下背包问题</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">coinChange</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; coins, <span class="keyword">int</span> amount)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//注意不能初始化为INT_MAX，因为可能执行到+1导致爆int</span></span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">f</span><span class="params">(amount + <span class="number">1</span>, <span class="number">1e7</span>)</span></span>;</span><br><span class="line">        f[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; coins.size(); i++) </span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = coins[i]; j &lt;= amount; j++)</span><br><span class="line">                f[j] = min(f[j], f[j - coins[i]] + <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span>(f[amount] == <span class="number">1e7</span>) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">return</span> f[amount];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+          <p>利用哈希表和大根堆</p>
+<p>首先遍历数组，传入哈希表中，哈希表中保存了每个数和它们的个数。</p>
+<p>然后按照个数的多少，将它们传入大根堆中</p>
+<p>取出大根堆的前k个元素即可</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">topKFrequent</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; hash;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> x : nums) hash[x]++;</span><br><span class="line">        <span class="built_in">priority_queue</span>&lt;<span class="built_in">pair</span>&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; heap;</span><br><span class="line">        <span class="comment">//默认是大根堆，注意，传入的时候将x.second放在前面，因为堆排序时会按照pair的first元素来排。</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> x : hash) heap.push(&#123;x.second, x.first&#125;);</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res;</span><br><span class="line">        <span class="keyword">while</span>(k--) &#123;</span><br><span class="line">            res.push_back(heap.top().second);</span><br><span class="line">            heap.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -266,7 +269,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/152/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/152/">152</a><span class="page-number current">153</span><a class="page-number" href="/page/154/">154</a><span class="space">&hellip;</span><a class="page-number" href="/page/243/">243</a><a class="extend next" rel="next" href="/page/154/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/152/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/152/">152</a><span class="page-number current">153</span><a class="page-number" href="/page/154/">154</a><span class="space">&hellip;</span><a class="page-number" href="/page/245/">245</a><a class="extend next" rel="next" href="/page/154/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -332,7 +335,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">243</span>
+          <span class="site-state-item-count">245</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
