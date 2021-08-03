@@ -176,7 +176,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2021/01/18/hot-100/448.%E6%89%BE%E5%88%B0%E6%89%80%E6%9C%89%E6%95%B0%E7%BB%84%E4%B8%AD%E6%B6%88%E5%A4%B1%E7%9A%84%E6%95%B0%E5%AD%97/">
+    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2021/01/18/hot-100/617.%E5%90%88%E5%B9%B6%E4%BA%8C%E5%8F%89%E6%A0%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -190,7 +190,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/01/18/hot-100/448.%E6%89%BE%E5%88%B0%E6%89%80%E6%9C%89%E6%95%B0%E7%BB%84%E4%B8%AD%E6%B6%88%E5%A4%B1%E7%9A%84%E6%95%B0%E5%AD%97/" class="post-title-link" itemprop="url">448. 找到所有数组中消失的数字</a>
+            <a href="/2021/01/18/hot-100/617.%E5%90%88%E5%B9%B6%E4%BA%8C%E5%8F%89%E6%A0%91/" class="post-title-link" itemprop="url">617. 合并二叉树</a>
         </h2>
 
         <div class="post-meta">
@@ -201,7 +201,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-01-18 11:27:44 / 修改时间：11:32:55" itemprop="dateCreated datePublished" datetime="2021-01-18T11:27:44+08:00">2021-01-18</time>
+              <time title="创建时间：2021-01-18 20:22:08 / 修改时间：20:25:14" itemprop="dateCreated datePublished" datetime="2021-01-18T20:22:08+08:00">2021-01-18</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -214,7 +214,7 @@
             </span>
 
           
-            <span id="/2021/01/18/hot-100/448.%E6%89%BE%E5%88%B0%E6%89%80%E6%9C%89%E6%95%B0%E7%BB%84%E4%B8%AD%E6%B6%88%E5%A4%B1%E7%9A%84%E6%95%B0%E5%AD%97/" class="post-meta-item leancloud_visitors" data-flag-title="448. 找到所有数组中消失的数字" title="阅读次数">
+            <span id="/2021/01/18/hot-100/617.%E5%90%88%E5%B9%B6%E4%BA%8C%E5%8F%89%E6%A0%91/" class="post-meta-item leancloud_visitors" data-flag-title="617. 合并二叉树" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -229,8 +229,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/01/18/hot-100/448.%E6%89%BE%E5%88%B0%E6%89%80%E6%9C%89%E6%95%B0%E7%BB%84%E4%B8%AD%E6%B6%88%E5%A4%B1%E7%9A%84%E6%95%B0%E5%AD%97/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/18/hot-100/448.%E6%89%BE%E5%88%B0%E6%89%80%E6%9C%89%E6%95%B0%E7%BB%84%E4%B8%AD%E6%B6%88%E5%A4%B1%E7%9A%84%E6%95%B0%E5%AD%97/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/01/18/hot-100/617.%E5%90%88%E5%B9%B6%E4%BA%8C%E5%8F%89%E6%A0%91/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/18/hot-100/617.%E5%90%88%E5%B9%B6%E4%BA%8C%E5%8F%89%E6%A0%91/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -245,13 +245,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>用一个新的数组标记数是否出现过，非常简单。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">findDisappearedNumbers</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">t</span><span class="params">(nums.size())</span></span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> x : nums) t[x - <span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); i++) </span><br><span class="line">            <span class="keyword">if</span>(t[i] == <span class="number">0</span>) res.push_back(i + <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>但这样空间复杂度是O(n)</p>
-<p>怎么样能不用额外空间呢？一定是在原数组上修改</p>
-<p>我们把遍历到的数字对应的位置上的数字标记成负数，这样下来，我们就知道哪个数字被标记过了。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">findDisappearedNumbers</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> x : nums) &#123;</span><br><span class="line">            x = <span class="built_in">abs</span>(x);</span><br><span class="line">            <span class="keyword">if</span>(nums[x - <span class="number">1</span>] &gt; <span class="number">0</span>)</span><br><span class="line">                nums[x - <span class="number">1</span>] *= <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; res;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); i++) </span><br><span class="line">            <span class="keyword">if</span>(nums[i] &gt; <span class="number">0</span>)</span><br><span class="line">                res.push_back(i + <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+          <p>递归</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * struct TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode *left;</span></span><br><span class="line"><span class="comment"> *     TreeNode *right;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">mergeTrees</span><span class="params">(TreeNode* t1, TreeNode* t2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> dfs(t1, t2);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">TreeNode* <span class="title">dfs</span><span class="params">(TreeNode* t1, TreeNode* t2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!t1 &amp;&amp; !t2) <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">if</span>(t1 &amp;&amp; t2) t1-&gt;val += t2-&gt;val;</span><br><span class="line">        <span class="comment">//如果t1为空，那么交换t1、t2，因为我要把t2加到t1上，这样我们就不需要再new一个新节点了</span></span><br><span class="line">        <span class="keyword">if</span>(!t1) swap(t1, t2);</span><br><span class="line">        t1-&gt;left = dfs(t1-&gt;left, t2 ? t2-&gt;left : t2);</span><br><span class="line">        t1-&gt;right = dfs(t1-&gt;right, t2 ? t2-&gt;right : t2);</span><br><span class="line">        <span class="keyword">return</span> t1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -271,7 +266,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/152/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/152/">152</a><span class="page-number current">153</span><a class="page-number" href="/page/154/">154</a><span class="space">&hellip;</span><a class="page-number" href="/page/246/">246</a><a class="extend next" rel="next" href="/page/154/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/152/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/152/">152</a><span class="page-number current">153</span><a class="page-number" href="/page/154/">154</a><span class="space">&hellip;</span><a class="page-number" href="/page/248/">248</a><a class="extend next" rel="next" href="/page/154/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -337,7 +332,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">246</span>
+          <span class="site-state-item-count">248</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
