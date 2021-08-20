@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"zhouruifa.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"3NGUE881LI","apiKey":"226809de1e28342bfee8f817b2b71f19","indexName":"hexoSearch","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+    var CONFIG = {"hostname":"zhouruifa.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"3NGUE881LI","apiKey":"226809de1e28342bfee8f817b2b71f19","indexName":"hexoSearch","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
   <meta property="og:type" content="website">
@@ -140,18 +140,21 @@
   <span class="search-icon">
     <i class="fa fa-search"></i>
   </span>
-  <div class="search-input-container"></div>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
   <span class="popup-btn-close">
     <i class="fa fa-times-circle"></i>
   </span>
 </div>
-<div class="algolia-results">
-  <div id="algolia-stats"></div>
-  <div id="algolia-hits"></div>
-  <div id="algolia-pagination" class="algolia-pagination"></div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
 </div>
 
-      
     </div>
   </div>
 
@@ -176,7 +179,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2021/06/22/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%A4%8D%E4%B9%A0/">
+    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2021/06/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -190,7 +193,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/06/22/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%A4%8D%E4%B9%A0/" class="post-title-link" itemprop="url">软件工程期末复习</a>
+            <a href="/2021/06/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" class="post-title-link" itemprop="url">计算机系统结构期末复习</a>
         </h2>
 
         <div class="post-meta">
@@ -199,13 +202,19 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-06-22 15:55:39 / 修改时间：23:59:54" itemprop="dateCreated datePublished" datetime="2021-06-22T15:55:39+08:00">2021-06-22</time>
+              <time title="创建时间：2021-06-24 20:43:17" itemprop="dateCreated datePublished" datetime="2021-06-24T20:43:17+08:00">2021-06-24</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-06-25 01:29:07" itemprop="dateModified" datetime="2021-06-25T01:29:07+08:00">2021-06-25</time>
+              </span>
 
           
-            <span id="/2021/06/22/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%A4%8D%E4%B9%A0/" class="post-meta-item leancloud_visitors" data-flag-title="软件工程期末复习" title="阅读次数">
+            <span id="/2021/06/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" class="post-meta-item leancloud_visitors" data-flag-title="计算机系统结构期末复习" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -220,8 +229,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/06/22/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%A4%8D%E4%B9%A0/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/06/22/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%A4%8D%E4%B9%A0/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/06/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/06/24/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -236,126 +245,142 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="软件项目管理过程"><a href="#软件项目管理过程" class="headerlink" title="软件项目管理过程"></a>软件项目管理过程</h2><p>启动软件项目</p>
-<p>制定项目计划</p>
-<p>项目计划的执行</p>
-<p>项目的控制（监督、跟踪和控制活动）</p>
-<p>项目结束</p>
-<h2 id="白盒测试中路径覆盖加上条件-判定组合逻辑覆盖不可以解决所有判定结构的问题"><a href="#白盒测试中路径覆盖加上条件-判定组合逻辑覆盖不可以解决所有判定结构的问题" class="headerlink" title="白盒测试中路径覆盖加上条件-判定组合逻辑覆盖不可以解决所有判定结构的问题"></a>白盒测试中路径覆盖加上条件-判定组合逻辑覆盖不可以解决所有判定结构的问题</h2><h2 id="对于需求不明确的软件项目且需要使用面向对象方法，采用UP模型或者喷泉模型"><a href="#对于需求不明确的软件项目且需要使用面向对象方法，采用UP模型或者喷泉模型" class="headerlink" title="对于需求不明确的软件项目且需要使用面向对象方法，采用UP模型或者喷泉模型"></a>对于需求不明确的软件项目且需要使用面向对象方法，采用UP模型或者喷泉模型</h2><h2 id="数据流图元素"><a href="#数据流图元素" class="headerlink" title="数据流图元素"></a>数据流图元素</h2><p>加工</p>
-<p>数据流</p>
-<p>数据存储</p>
-<p>外部实体</p>
-<p>数据流图是封闭的，父图与子图之间的输入输出的数据是一致的</p>
-<h2 id="迪米特法则的应用是面向对象的软件设计原则"><a href="#迪米特法则的应用是面向对象的软件设计原则" class="headerlink" title="迪米特法则的应用是面向对象的软件设计原则"></a>迪米特法则的应用是面向对象的软件设计原则</h2><h2 id="依赖倒置原则"><a href="#依赖倒置原则" class="headerlink" title="依赖倒置原则"></a>依赖倒置原则</h2><p>高层模块不应该依赖于低层模块，低层模块应该依赖于高层模块</p>
-<p>抽象不应依赖于细节，细节应依赖于抽象</p>
-<h2 id="黑盒测试因果图的目的是减少测试用例数目"><a href="#黑盒测试因果图的目的是减少测试用例数目" class="headerlink" title="黑盒测试因果图的目的是减少测试用例数目"></a>黑盒测试因果图的目的是减少测试用例数目</h2><h2 id="改正性维护属于救火式维护"><a href="#改正性维护属于救火式维护" class="headerlink" title="改正性维护属于救火式维护"></a>改正性维护属于救火式维护</h2><h2 id="软件生命周期"><a href="#软件生命周期" class="headerlink" title="软件生命周期"></a>软件生命周期</h2><p>制定计划</p>
-<p>需求分析及定义</p>
-<p>软件设计</p>
-<p>程序编写</p>
-<p>软件测试</p>
-<p>运行/维护</p>
-<h2 id="面向对象设计常用的5层软件分层结构"><a href="#面向对象设计常用的5层软件分层结构" class="headerlink" title="面向对象设计常用的5层软件分层结构"></a>面向对象设计常用的5层软件分层结构</h2><p>界面层，控制器层，业务逻辑层，持久化层，系统层</p>
-<p>好处：增加软件的健壮性，易于扩展和维护；增加软件的可移植性</p>
-<h2 id="数据流分为变化型数据流和事务型数据流"><a href="#数据流分为变化型数据流和事务型数据流" class="headerlink" title="数据流分为变化型数据流和事务型数据流"></a>数据流分为变化型数据流和事务型数据流</h2><h2 id="用例"><a href="#用例" class="headerlink" title="用例"></a>用例</h2><p>用例是描述参与者如何使用系统来达到目标的一组成功场景和失败场景的集合</p>
-<p>好处：</p>
-<p>用例将系统的特性和功能放到面向用户目标的语境中去考虑，从而能使识别出来的功能是真正为用户提供价值的功能；</p>
-<p>用例描述功能的方式是让用户写出多种使用系统的场景，和用户日常工作序列一致，使得交流更简单有效。</p>
-<h2 id="UML类之间的关系"><a href="#UML类之间的关系" class="headerlink" title="UML类之间的关系"></a>UML类之间的关系</h2><p><strong>依赖关系</strong>：非常弱的关系，人类依赖食物，人类的类图用一条虚线 箭头执行食物类图</p>
-<p><strong>关联关系</strong>：长期的合作关系，实线，可以是双向的，也可以是单向的</p>
-<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210622162655520.png" alt="image-20210622162655520"></p>
-<p><strong>聚合关系</strong>：实线，空心菱形</p>
-<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210622162820282.png" alt="image-20210622162820282"></p>
-<p>部分可以脱离整体</p>
-<p><strong>组合关系</strong>：实线，实心菱形</p>
-<p>部分不可以脱离整体</p>
-<p><strong>继承关系</strong>：</p>
-<h2 id="用例之间的关系"><a href="#用例之间的关系" class="headerlink" title="用例之间的关系"></a>用例之间的关系</h2><p>包含关系</p>
-<p>扩展关系：由于某种原因，不能修改基用例</p>
-<p>继承关系</p>
-<h2 id="操作契约后置条件"><a href="#操作契约后置条件" class="headerlink" title="操作契约后置条件"></a>操作契约后置条件</h2><p>对象的创建和删除，对象之间的关联创建或者消除，对象属性值修改</p>
-<p>操作契约不是必须的</p>
-<h2 id="面向对象需求分析"><a href="#面向对象需求分析" class="headerlink" title="面向对象需求分析"></a>面向对象需求分析</h2><p>四大活动</p>
+          <link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="互连网络"><a href="#互连网络" class="headerlink" title="互连网络"></a>互连网络</h2><h3 id="互连网络三要素"><a href="#互连网络三要素" class="headerlink" title="互连网络三要素"></a>互连网络三要素</h3><p>开关元件、互连结构、控制方式</p>
+<h3 id="互连网络描述"><a href="#互连网络描述" class="headerlink" title="互连网络描述"></a>互连网络描述</h3><p>函数表示法：x表示输入，f(x)表示输出，即在互连函数的作用下，输入端x连接到输出端f(x)</p>
+<p>图形表示法：用图形表示输入端与输出端一一对应关系</p>
+<p>循环表示法：如(0 1)(3 5)(2 4)</p>
+<h3 id="基本互连函数"><a href="#基本互连函数" class="headerlink" title="基本互连函数"></a>基本互连函数</h3><h4 id="恒等函数"><a href="#恒等函数" class="headerlink" title="恒等函数"></a>恒等函数</h4><p>I(xn-1xn-2…x1x0) = xn-1xn-2…x1x0 </p>
+<h4 id="交换函数"><a href="#交换函数" class="headerlink" title="交换函数"></a>交换函数</h4><p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210624233258867.png" alt="image-20210624233258867"></p>
+<p>实现二进制编码中第k位互反的输入端与输出端之间的连接</p>
+<p>N为节点个数，共有n = logN种互连函数</p>
+<p>Cube0(x2x1x0) = x2x1(x0的反)</p>
+<h4 id="均匀洗牌函数"><a href="#均匀洗牌函数" class="headerlink" title="均匀洗牌函数"></a>均匀洗牌函数</h4><p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210624233333817.png" alt="image-20210624233333817"></p>
+<p>也称为混洗函数</p>
+<p>即把输入端的二进制编号循环左移一位</p>
+<p>假设N=8</p>
+<p>σ(x2x1x0)＝x1x0x2</p>
+<h4 id="逆均匀洗牌函数"><a href="#逆均匀洗牌函数" class="headerlink" title="逆均匀洗牌函数"></a>逆均匀洗牌函数</h4><p>将输入端的二进制编号循环右移一位</p>
+<h4 id="蝶式函数"><a href="#蝶式函数" class="headerlink" title="蝶式函数"></a>蝶式函数</h4><p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210624233345982.png" alt="image-20210624233345982"></p>
+<p>把输入端的二进制编号的最高位与最低位互换位置，便得到了输出端的编号</p>
+<p>均匀洗牌，蝶式函数不能单独实现任意结点间互连。它们与交换函数多级组合是构成复杂多级网络的基础</p>
+<h4 id="反位序函数"><a href="#反位序函数" class="headerlink" title="反位序函数"></a>反位序函数</h4><p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210624233355148.png" alt="image-20210624233355148"></p>
+<p>将输入端的二进制编号的位序颠倒过来，即为输出端的编号</p>
+<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210624205756586.png" alt="image-20210624205756586"></p>
+<h4 id="移数函数"><a href="#移数函数" class="headerlink" title="移数函数"></a>移数函数</h4><p>将各输入端都错开一定的位置后连接到输出端</p>
+<p>α(x)= （x±k）mod N     1≤x≤N-1，1≤k≤N-1 </p>
+<h4 id="PM2I函数"><a href="#PM2I函数" class="headerlink" title="PM2I函数"></a>PM2I函数</h4><p>加减2的i次方函数</p>
+<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210624210410084.png" alt="image-20210624210410084"></p>
+<h4 id="Omega网络"><a href="#Omega网络" class="headerlink" title="Omega网络"></a>Omega网络</h4><p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210624233530773.png" alt="image-20210624233530773"></p>
+<h3 id="评估互连网络性能的两个基本指标"><a href="#评估互连网络性能的两个基本指标" class="headerlink" title="评估互连网络性能的两个基本指标"></a>评估互连网络性能的两个基本指标</h3><p>时延和带宽</p>
+<h3 id="优化寻径以最小通道流量和最小通信时延为目标"><a href="#优化寻径以最小通道流量和最小通信时延为目标" class="headerlink" title="优化寻径以最小通道流量和最小通信时延为目标"></a>优化寻径以最小<strong>通道流量</strong>和最小<strong>通信时延</strong>为目标</h3><h3 id="互连网络结构参数"><a href="#互连网络结构参数" class="headerlink" title="互连网络结构参数"></a>互连网络结构参数</h3><p>网络规模N：结点的个数</p>
+<p>结点度d：进入结点的边数交入度，从结点出来的边数叫出度</p>
+<p>结点距离：两个结点之间从一个结点到另一个结点跨越边数最少的距离</p>
+<p>网络直径D：网络中任意两个结点之间距离的最大值</p>
+<p>等分宽度b：把由N个结点构成的网络切成结点数相同(N/2)的两半，在任何切法中，沿切口边数的最小值</p>
+<p>对称性：从<strong>任何结点</strong>看到的拓扑结构都是相同的网络称为对称网络</p>
+<h3 id="互连网络可以分为两大类"><a href="#互连网络可以分为两大类" class="headerlink" title="互连网络可以分为两大类"></a>互连网络可以分为两大类</h3><p>静态互连网络：各节点之间有固定的连接通路，且在运行中不能改变的网络</p>
+<p>动态互联网络：由交换开关构成、可按运行程序的要求动态地改变连接状态的网络</p>
+<h3 id="典型的静态互连网络"><a href="#典型的静态互连网络" class="headerlink" title="典型的静态互连网络"></a>典型的静态互连网络</h3><h4 id="线性阵列"><a href="#线性阵列" class="headerlink" title="线性阵列"></a>线性阵列</h4><p>一种一维的线性网络，其中N个节点用N-1个链路连成一行</p>
+<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210624212636352.png" alt="image-20210624212636352"></p>
+<h4 id="环"><a href="#环" class="headerlink" title="环"></a>环</h4><p>一个圆圈</p>
+<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210624213218360.png" alt="image-20210624213218360"></p>
+<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210624213448324.png" alt="image-20210624213448324"></p>
+<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210624213458246.png" alt="image-20210624213458246"></p>
+<h4 id="循环移数网络"><a href="#循环移数网络" class="headerlink" title="循环移数网络"></a>循环移数网络</h4><p>环上的每个结点到所有与其距离为2的整数幂的结点都有一条链路</p>
+<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210624213620188.png" alt="image-20210624213620188"></p>
+<p>n=4，结点度=2*n-1=7，直径为n/2</p>
+<h4 id="树形和星形"><a href="#树形和星形" class="headerlink" title="树形和星形"></a>树形和星形</h4><p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210624214019931.png" alt="image-20210624214019931"></p>
+<h4 id="超立方体-大于3的"><a href="#超立方体-大于3的" class="headerlink" title="超立方体 大于3的"></a>超立方体 大于3的</h4><p>n-立方体由2的n次方个结点构成。直径为n，结点度为n，规模是2的n次方，对称</p>
+<p>带环超立方体</p>
+<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210624214340584.png" alt="image-20210624214340584"></p>
+<h3 id="动态互连网络"><a href="#动态互连网络" class="headerlink" title="动态互连网络"></a>动态互连网络</h3><p>主要有总线网络、多级网络、交叉开关网络</p>
+<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210624214557831.png" alt="image-20210624214557831"></p>
+<h3 id="互连网络消息传递方式"><a href="#互连网络消息传递方式" class="headerlink" title="互连网络消息传递方式"></a>互连网络消息传递方式</h3><p>线路交换、存储转发、虚拟直通、虫孔方式</p>
+<p>多计算机网络中单播、选播、广播、会议四种通信模式，分别对应一对一、一对多、一对全体、多对多四种通信情况</p>
+<h3 id="各种多级互连网络的区别在于所用开关模块、控制方式和级间互连模式的不同"><a href="#各种多级互连网络的区别在于所用开关模块、控制方式和级间互连模式的不同" class="headerlink" title="各种多级互连网络的区别在于所用开关模块、控制方式和级间互连模式的不同"></a>各种多级互连网络的区别在于所用开关模块、控制方式和级间互连模式的不同</h3><h3 id="一个n×n的交叉开关网络，可以无阻塞地实现n-种置换。"><a href="#一个n×n的交叉开关网络，可以无阻塞地实现n-种置换。" class="headerlink" title="一个n×n的交叉开关网络，可以无阻塞地实现n!种置换。"></a>一个n×n的交叉开关网络，可以无阻塞地实现n!种置换。</h3><h3 id="一个n×n的交叉开关网络，需要n的2次方套交叉点开关及大量连线"><a href="#一个n×n的交叉开关网络，需要n的2次方套交叉点开关及大量连线" class="headerlink" title="一个n×n的交叉开关网络，需要n的2次方套交叉点开关及大量连线"></a>一个n×n的交叉开关网络，需要n的2次方套交叉点开关及大量连线</h3><p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210624215229972.png" alt="image-20210624215229972"></p>
+<h2 id="多处理机"><a href="#多处理机" class="headerlink" title="多处理机"></a>多处理机</h2><p>MIMD：多指令流多数据流</p>
+<h3 id="根据存储器组织结构，把现有的MIMD分成两类"><a href="#根据存储器组织结构，把现有的MIMD分成两类" class="headerlink" title="根据存储器组织结构，把现有的MIMD分成两类"></a>根据存储器组织结构，把现有的MIMD分成两类</h3><p>对称式共享存储器多处理机</p>
+<p>分布式共享存储器多处理机</p>
+<h3 id="Cache一致性协议"><a href="#Cache一致性协议" class="headerlink" title="Cache一致性协议"></a>Cache一致性协议</h3><p>关键：跟踪记录共享数据块的状态</p>
+<p>两类协议：目录式协议、监听式协议</p>
+<h3 id="两种方法解决Cache一致性问题"><a href="#两种方法解决Cache一致性问题" class="headerlink" title="两种方法解决Cache一致性问题"></a>两种方法解决Cache一致性问题</h3><p>写作废、写更新</p>
+<h3 id="目录的三类结构"><a href="#目录的三类结构" class="headerlink" title="目录的三类结构"></a>目录的三类结构</h3><p>全映像目录</p>
+<p>有限映像目录</p>
+<p>链式目录</p>
+<h2 id="阵列处理机"><a href="#阵列处理机" class="headerlink" title="阵列处理机"></a>阵列处理机</h2><p>分布式存储器阵列机</p>
+<p>共享式存储器阵列机</p>
+<h3 id="阵列处理机特点"><a href="#阵列处理机特点" class="headerlink" title="阵列处理机特点"></a>阵列处理机特点</h3><p>阵列机是以单指令流多数据流方式工作的。通过设置多个相同的处理单元来开发并行性</p>
+<p>利用并行性中的同时性。所有处理单元同时对不同的数据进行相同的操作</p>
+<p>以某一类算法为背景的专用计算机</p>
+<h3 id="SIMD计算机与向量计算机的相同与不同"><a href="#SIMD计算机与向量计算机的相同与不同" class="headerlink" title="SIMD计算机与向量计算机的相同与不同"></a>SIMD计算机与向量计算机的相同与不同</h3><p>相同：两种计算机都能对大量数据进行向量处理，特别适用于高速数值计算。</p>
+<p>不同点：SIMD计算机获得高处理速度是主要原因是采用资源重复的并行措施，多个处理单元并行工作；向量处理机依靠的是多功能流水线部件时间重叠提高速度；另一区别是SIMD计算机有它的互连网络。</p>
+<h3 id="SIMD计算机的分布式存储器与共享存储器的异同"><a href="#SIMD计算机的分布式存储器与共享存储器的异同" class="headerlink" title="SIMD计算机的分布式存储器与共享存储器的异同"></a>SIMD计算机的分布式存储器与共享存储器的异同</h3><p>相同：都存在互连网络</p>
+<p>不同：在共享内存中，共享的多体并行存储器通过对准网络与多个处理单元相连</p>
+<p>在分布式内存中，每个处理单元有自己的本地存储器，处理单元之间的数据通过数据寻径网络完成。</p>
+<h2 id="第一章-基础知识"><a href="#第一章-基础知识" class="headerlink" title="第一章 基础知识"></a>第一章 基础知识</h2><p>计算机是有软件、硬件、固件组成的复杂系统，按语言划分为多级层次结构</p>
+<h3 id="计算机系统结构的定义"><a href="#计算机系统结构的定义" class="headerlink" title="计算机系统结构的定义"></a>计算机系统结构的定义</h3><p>计算机系统结构是传统机器语言程序员所看到的计算机的属性，即概念性结构和功能特性</p>
+<p>计算机系统的实质：确定计算机系统中软硬件的界面，界面之上是软件实现的功能，界面之下是软件和硬件实现的功能</p>
+<p>计算机组成（组织）是计算机系统结构的逻辑实现</p>
+<p>计算机实现是计算机组成的物理实现</p>
+<h3 id="计算机体系结构、组织、实现的区别举例"><a href="#计算机体系结构、组织、实现的区别举例" class="headerlink" title="计算机体系结构、组织、实现的区别举例"></a>计算机体系结构、组织、实现的区别举例</h3><p>机器指令集的确定 –属于计算机体系结构</p>
+<p>指令实现方式 –属于计算机组织</p>
+<p>实现指令集中所有指令功能的具体电路、器件的设计、装配技术 –计算机实现</p>
+<h3 id="计算机系统结构分类"><a href="#计算机系统结构分类" class="headerlink" title="计算机系统结构分类"></a>计算机系统结构分类</h3><p>Flynn分类法：按照指令流和数据流的组织方式分类</p>
+<p>Handler分类法：根据计算机并行度和流水线分类</p>
+<p>冯氏分类法：用最大并行度对计算机分类</p>
+<h2 id="流水线"><a href="#流水线" class="headerlink" title="流水线"></a>流水线</h2><h3 id="通过时间和排空时间"><a href="#通过时间和排空时间" class="headerlink" title="通过时间和排空时间"></a>通过时间和排空时间</h3><p>通过时间：从第一个任务进入流水线到流出结果所需的时间，又称装入时间。</p>
+<p>排空时间：最后一个任务从进入流水线到流出结果所需的时间</p>
+<h3 id="流水线的分类"><a href="#流水线的分类" class="headerlink" title="流水线的分类"></a>流水线的分类</h3><p>部件级流水线、指令级流水线、系统级流水线</p>
+<p>单功能流水线：只能完成一种固定功能</p>
+<p>多功能流水线：流水线的各段可以进行不同的连接</p>
+<h3 id="乱序流水线"><a href="#乱序流水线" class="headerlink" title="乱序流水线"></a>乱序流水线</h3><p>流水线输出端任务流出的顺序与输入端任务流入的顺序不同</p>
+<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210625010043541.png" alt="image-20210625010043541"></p>
+<h3 id="流水线相关"><a href="#流水线相关" class="headerlink" title="流水线相关"></a>流水线相关</h3><ul>
+<li><p>数据相关：真数据相关。</p>
+</li>
+<li><p>名相关</p>
 <ul>
-<li>用例建模</li>
-<li>创建领域模型</li>
-<li>绘制系统顺序图</li>
-<li>创建系统操作契约</li>
-</ul>
-<p>两大模型</p>
-<ul>
-<li>用例模型<ul>
-<li>用例图</li>
-<li>用例说明</li>
-<li>系统顺序图：UML顺序图</li>
-<li>操作契约</li>
+<li>反相关：指令i读的寄存器名=指令j写的寄存器名</li>
+<li>输出相关：指令i写的寄存器名=指令j写的寄存器名</li>
+<li>名相关可以通过寄存器换名来消除</li>
 </ul>
 </li>
-<li>领域模型<ul>
-<li>业务背景：概念类和概念类之间的关系构成的类图(重点)</li>
-<li>业务流程：由UML活动图表示</li>
+<li><p>控制相关</p>
+<ul>
+<li>分支指令引起的相关</li>
 </ul>
 </li>
 </ul>
-<p>面向对象分析产生的所有模型最终会记录在软件需求规格说明书中</p>
-<h2 id="控制器"><a href="#控制器" class="headerlink" title="控制器"></a>控制器</h2><p>控制器并不处理具体的任务细节，它只是将任务进行分解并分发给其他层次进行处理，同时，协调其他层次 </p>
-<h2 id="面向对象设计原则"><a href="#面向对象设计原则" class="headerlink" title="面向对象设计原则"></a>面向对象设计原则</h2><ul>
-<li>单一职责原则：就一个类而言，应当仅有一个引起它变化的原因</li>
-<li> 开闭原则：软件实体应该是可以扩展、但是不可以修改的</li>
-<li>里氏替换原则：子类应当可以替换父类，并且可以出现在父类出现的任何地方</li>
-<li>依赖倒置原则：高层模块不应该依赖于低层模块，二者都应该依赖于抽象；抽象不应该依赖于细节，细节应该依赖抽象</li>
-<li>接口隔离原则(lsp)：采用多个与特定客户类有关的接口比采用一个通用的涵盖多个业务方法的接口要好</li>
-<li>组合/聚合复用原则：</li>
-<li>迪米特法则：一个对象应该尽可能少的了解其他对象，信息隐藏原则的应用</li>
+<h3 id="流水线冲突"><a href="#流水线冲突" class="headerlink" title="流水线冲突"></a>流水线冲突</h3><ul>
+<li>结构冲突：硬件资源不满足指令重叠执行的要求</li>
+<li>数据冲突：指令在流水线中重叠执行时，需要用到前面指令执行的结果二发生的冲突</li>
+<li>控制相关：分支指令和其他会改变PC值的指令引起的冲突</li>
 </ul>
-<h2 id="GRASP模式"><a href="#GRASP模式" class="headerlink" title="GRASP模式"></a>GRASP模式</h2><p>对象职责分配模式</p>
-<ul>
-<li>信息专家模式</li>
-<li>创建者模式：体现了低耦合的设计思想， 是对迪米特法则的具体应用</li>
-<li>控制器模式<ul>
-<li>外观控制器：它代表整个系统，用于接受所有用户系统事件，通常以系统名字进行命名</li>
-<li>用例控制器：它与每一个用例相对应，用于处理一个用例中所有事件，通常以用例名字进行命名</li>
+<h3 id="数据冲突解决方案"><a href="#数据冲突解决方案" class="headerlink" title="数据冲突解决方案"></a>数据冲突解决方案</h3><ul>
+<li>定向技术</li>
+<li>停顿</li>
+<li>编译器解决<ul>
+<li>预测分支失败</li>
+<li>预测分支成功</li>
+<li>延迟分支</li>
 </ul>
 </li>
 </ul>
-<h2 id="SSD"><a href="#SSD" class="headerlink" title="SSD"></a>SSD</h2><p>系统顺序图</p>
-<h2 id="瀑布模型只适合于需求明确的模型"><a href="#瀑布模型只适合于需求明确的模型" class="headerlink" title="瀑布模型只适合于需求明确的模型"></a>瀑布模型只适合于需求明确的模型</h2><h2 id="极限编程与UP模型也是基于瀑布模型演化而来"><a href="#极限编程与UP模型也是基于瀑布模型演化而来" class="headerlink" title="极限编程与UP模型也是基于瀑布模型演化而来"></a>极限编程与UP模型也是基于瀑布模型演化而来</h2><h2 id="软件测试基本类型"><a href="#软件测试基本类型" class="headerlink" title="软件测试基本类型"></a>软件测试基本类型</h2><p>单元测试</p>
-<p>集成测试</p>
-<p>确认测试</p>
-<p>系统测试</p>
-<p>验收测试</p>
-<h2 id="软件危机"><a href="#软件危机" class="headerlink" title="软件危机"></a>软件危机</h2><p>指由于落后的软件生产方式无法满足迅速增长的计算机软件需求，从而导致软件开发与维护过程中出现一系列严重问题的现象</p>
-<h2 id="对于需求不明确的软件项目且需要使用面向对象方法，哪种软件生命周期模型最合适"><a href="#对于需求不明确的软件项目且需要使用面向对象方法，哪种软件生命周期模型最合适" class="headerlink" title="对于需求不明确的软件项目且需要使用面向对象方法，哪种软件生命周期模型最合适"></a>对于需求不明确的软件项目且需要使用面向对象方法，哪种软件生命周期模型最合适</h2><p>UP模型或喷泉模型</p>
-<h2 id="需求分析的基本任务"><a href="#需求分析的基本任务" class="headerlink" title="需求分析的基本任务"></a>需求分析的基本任务</h2><p>是准确定义新系统的目标，为了满足用户需求，回答系统必须”做什么“的问题并编制需求规格说明书</p>
-<h2 id="模块的内聚性"><a href="#模块的内聚性" class="headerlink" title="模块的内聚性"></a>模块的内聚性</h2><p>内聚性逐渐变高</p>
-<p>巧合内聚、逻辑内聚、时间内聚、过程内聚、通信内聚、信息内聚、功能内聚</p>
-<h2 id="模块的耦合性"><a href="#模块的耦合性" class="headerlink" title="模块的耦合性"></a>模块的耦合性</h2><p>耦合性逐渐降低</p>
-<p>内容耦合、公共耦合、外部耦合、控制耦合、标记耦合、数据耦合、非直接耦合</p>
-<h2 id="面向对象设计方法"><a href="#面向对象设计方法" class="headerlink" title="面向对象设计方法"></a>面向对象设计方法</h2><p>是基于UML，将软件需求分析阶段获得的用例模型和领域模型的内容运用一系列软件设计原则转换成软件设计阶段的动态结构和静态结构</p>
-<h2 id="数据流分为两种"><a href="#数据流分为两种" class="headerlink" title="数据流分为两种"></a>数据流分为两种</h2><p>变换型和事务型</p>
-<h2 id="面向对象设计"><a href="#面向对象设计" class="headerlink" title="面向对象设计"></a>面向对象设计</h2><p>包含三方面的工作</p>
+<h3 id="流水线的效率"><a href="#流水线的效率" class="headerlink" title="流水线的效率"></a>流水线的效率</h3><p>流水线中的设备实际使用时间与整个运行时间的比值</p>
+<p>e = n / (n + k - 1)</p>
+<h2 id="向量处理机"><a href="#向量处理机" class="headerlink" title="向量处理机"></a>向量处理机</h2><p>两种典型的结构</p>
 <ul>
-<li>软件体系结构设计</li>
-<li>用例实现方案设计</li>
-<li>用户界面设计</li>
+<li>存储器-存储器型：纵向方式采用</li>
+<li>寄存器-寄存器型：分组方式采用</li>
 </ul>
-<h2 id="什么是模块耦合性"><a href="#什么是模块耦合性" class="headerlink" title="什么是模块耦合性"></a>什么是模块耦合性</h2><p>模块之间相对独立性的度量</p>
-<p>降低耦合性的方法：</p>
-<ul>
-<li>模块间多传递数据信息，尽量减少和避免传递控制信息</li>
-<li>降低模块接口的复杂性</li>
-<li>减少接口信息传递数量</li>
-<li>传递信息的结构应该尽量简单</li>
-</ul>
-<h2 id="静态动态UML"><a href="#静态动态UML" class="headerlink" title="静态动态UML"></a>静态动态UML</h2><p>静态：类图、对象图、构架图、部署图</p>
-<p>动态：顺序图、协作图、状态图、活动图</p>
-<h2 id="操作契约"><a href="#操作契约" class="headerlink" title="操作契约"></a>操作契约</h2><p>系统事件</p>
-<p>交叉引用：用例</p>
-<p>前置条件</p>
-<p>后置条件</p>
-<h2 id="RUP是融合了喷泉模型和增量模型的一种综合生命周期模型"><a href="#RUP是融合了喷泉模型和增量模型的一种综合生命周期模型" class="headerlink" title="RUP是融合了喷泉模型和增量模型的一种综合生命周期模型"></a><em>RUP</em>是融合了<em>喷泉模型</em>和增量<em>模型</em>的一种综合生命周期<em>模型</em></h2><h2 id="VW适合需求稳定的，瀑布模型"><a href="#VW适合需求稳定的，瀑布模型" class="headerlink" title="VW适合需求稳定的，瀑布模型"></a>VW适合需求稳定的，瀑布模型</h2><h2 id="软件详细设计是"><a href="#软件详细设计是" class="headerlink" title="软件详细设计是"></a>软件详细设计是</h2><p>确定每个模块内的算法额数据组织</p>
-<p>概要设计：外部接口、功能</p>
-<h2 id="测试步骤"><a href="#测试步骤" class="headerlink" title="测试步骤"></a>测试步骤</h2><p>单元测试、集成测试、确认测试、系统测试、验收测试</p>
-<p>编程实现、设计、       需求分析</p>
+<h2 id="指令级并行"><a href="#指令级并行" class="headerlink" title="指令级并行"></a>指令级并行</h2><p>指令之间存在的一种固有的并行性</p>
+<h3 id="动态分支预测"><a href="#动态分支预测" class="headerlink" title="动态分支预测"></a>动态分支预测</h3><p>采用分支历史表（BHT）</p>
+<p>采用分支目标缓冲器（BTB）</p>
+<p>基于硬件的前瞻执行</p>
+<p>一个时钟周期内流水线流出的指令数称为流水线并行度</p>
+<h3 id="超流水线"><a href="#超流水线" class="headerlink" title="超流水线"></a>超流水线</h3><p>将每个流水段进一步细分，这样在一个时钟周期内能够分时流出多条指令</p>
+<h3 id="超长指令字的生成由编译器来完成"><a href="#超长指令字的生成由编译器来完成" class="headerlink" title="超长指令字的生成由编译器来完成"></a>超长指令字的生成由编译器来完成</h3><p>I类指令包括所有的load和store指令</p>
+<p>R类指令包括ALU指令</p>
 
       
     </div>
@@ -374,7 +399,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/17/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><span class="page-number current">18</span><a class="page-number" href="/page/19/">19</a><span class="space">&hellip;</span><a class="page-number" href="/page/248/">248</a><a class="extend next" rel="next" href="/page/19/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/17/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/17/">17</a><span class="page-number current">18</span><a class="page-number" href="/page/19/">19</a><span class="space">&hellip;</span><a class="page-number" href="/page/249/">249</a><a class="extend next" rel="next" href="/page/19/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -440,7 +465,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">248</span>
+          <span class="site-state-item-count">249</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -524,10 +549,7 @@
 
 
   
-<script src="//cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
-<script src="//cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script>
-<script src="/js/algolia-search.js"></script>
-
+<script src="/js/local-search.js"></script>
 
 
 
