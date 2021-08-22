@@ -179,7 +179,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2021/06/08/%E7%99%BE%E5%BA%A6c++GoodCoder%E8%AE%A4%E8%AF%81/">
+    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2021/06/22/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%A4%8D%E4%B9%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -193,7 +193,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/06/08/%E7%99%BE%E5%BA%A6c++GoodCoder%E8%AE%A4%E8%AF%81/" class="post-title-link" itemprop="url">百度cppGoodCoder认证</a>
+            <a href="/2021/06/22/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%A4%8D%E4%B9%A0/" class="post-title-link" itemprop="url">软件工程期末复习</a>
         </h2>
 
         <div class="post-meta">
@@ -204,11 +204,11 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-06-08 16:34:03 / 修改时间：18:14:58" itemprop="dateCreated datePublished" datetime="2021-06-08T16:34:03+08:00">2021-06-08</time>
+              <time title="创建时间：2021-06-22 15:55:39 / 修改时间：23:59:54" itemprop="dateCreated datePublished" datetime="2021-06-22T15:55:39+08:00">2021-06-22</time>
             </span>
 
           
-            <span id="/2021/06/08/%E7%99%BE%E5%BA%A6c++GoodCoder%E8%AE%A4%E8%AF%81/" class="post-meta-item leancloud_visitors" data-flag-title="百度cppGoodCoder认证" title="阅读次数">
+            <span id="/2021/06/22/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%A4%8D%E4%B9%A0/" class="post-meta-item leancloud_visitors" data-flag-title="软件工程期末复习" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -223,8 +223,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/06/08/%E7%99%BE%E5%BA%A6c++GoodCoder%E8%AE%A4%E8%AF%81/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/06/08/%E7%99%BE%E5%BA%A6c++GoodCoder%E8%AE%A4%E8%AF%81/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/06/22/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%A4%8D%E4%B9%A0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/06/22/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%A4%8D%E4%B9%A0/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -239,35 +239,126 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="【用C-C-实现】寻找两个有序数组的中位数"><a href="#【用C-C-实现】寻找两个有序数组的中位数" class="headerlink" title="【用C/C++实现】寻找两个有序数组的中位数"></a>【用C/C++实现】寻找两个有序数组的中位数</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定两个大小为 m 和 n 的有序数组 nums1 和 nums2。<br>请你找出这两个有序数组的中位数，并且要求算法的时间复杂度为<code> O(log(m + n))</code>。<br>你可以假设 nums1 和 nums2 不会同时为空。</p>
-<p>示例 1:<br>nums1 = [1, 3]<br>nums2 = [2]<br>则中位数是 2.0<br> 示例 2:<br>nums1 = [1, 2]<br>nums2 = [3, 4]<br>则中位数是 (2 + 3)/2 = 2.5</p>
-<h2 id="设计思路"><a href="#设计思路" class="headerlink" title="设计思路"></a>设计思路</h2><h3 id="思路一-暴力"><a href="#思路一-暴力" class="headerlink" title="思路一 暴力"></a>思路一 暴力</h3><p>最好想的做法是：首先直接将一个数组拼接到另一个数组后面，然后sort一遍，再找出中位数。但是复杂度为O((n+m)log((n+m)))，不符合题目要求。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100010</span>;</span><br><span class="line"><span class="keyword">int</span> p[N], q[N];</span><br><span class="line"><span class="keyword">int</span> s[<span class="number">2</span> * N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> n, m;<span class="comment">//n, m分别为两个数组的长度</span></span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n, &amp;m);</span><br><span class="line">  <span class="comment">//读入两个数组</span></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;p[i]);</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;q[i]);</span><br><span class="line">  <span class="comment">//合并两个数组</span></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) s[i] = p[i];</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) s[i + n] = q[i];</span><br><span class="line">  <span class="comment">//排序合并后的数组</span></span><br><span class="line">  sort(s, s + m + n);</span><br><span class="line">  <span class="keyword">int</span> k = (m + n) / <span class="number">2</span>;</span><br><span class="line">  <span class="keyword">if</span>((m + n) % <span class="number">2</span> == <span class="number">0</span>) <span class="built_in">printf</span>(<span class="string">&quot;%f&quot;</span>, s[k] + s[k - <span class="number">1</span>]) / <span class="number">2.0</span>); </span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;%f&quot;</span>, s[k]);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>时间复杂度：O((n + m)log(n + m))</p>
-<h3 id="思路二-归并排序思想"><a href="#思路二-归并排序思想" class="headerlink" title="思路二 归并排序思想"></a>思路二 归并排序思想</h3><p>刚才合并时我们是直接把一个数组放在另一个数组后面，有没有更好的合并方法呢？我们可以借鉴归并排序的合并，这样我们就可以在O(n+m)的时间复杂度内把两个有序数组合并成一个有序数组了。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">10010</span>;</span><br><span class="line"><span class="keyword">int</span> p[N], q[N];</span><br><span class="line"><span class="keyword">int</span> s[<span class="number">2</span> * N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> n, m;<span class="comment">//n, m分别为两个数组的长度</span></span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n, &amp;m);</span><br><span class="line">  <span class="comment">//读入两个数组</span></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;p[i]);</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;q[i]);</span><br><span class="line">  <span class="comment">//利用归并排序思想合并两个数组</span></span><br><span class="line">  i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">int</span> k = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">while</span>(i &lt; n &amp;&amp; j &lt; m) &#123;</span><br><span class="line">    <span class="keyword">if</span>(p[i] &lt;= q[j]) s[k++] = p[i++];</span><br><span class="line">    <span class="keyword">else</span> s[k++] = q[j++];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">while</span>(i &lt; n) s[k++] = p[i++];</span><br><span class="line">  <span class="keyword">while</span>(j &lt; n) s[k++] = q[j++];</span><br><span class="line">  <span class="keyword">if</span>(k % <span class="number">2</span> == <span class="number">0</span>) <span class="built_in">printf</span>(<span class="string">&quot;%f&quot;</span>, (s[k] + s[k - <span class="number">1</span>]) / <span class="number">2.0</span>);</span><br><span class="line">  <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">&quot;%f&quot;</span>, s[k]);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>时间复杂度：O(n + m)</p>
-<h3 id="思路三-递归"><a href="#思路三-递归" class="headerlink" title="思路三 递归"></a>思路三 递归</h3><p>中位数在哪呢？是不是数组从小到大排列后第(n + m) / 2个数。</p>
-<p>假设我们要找第k个数，怎么找呢？我们可以分别在两个数组（数组为A和B）中找到第k / 2个数（暂时不考虑k的奇偶问题），所以现在就有了三种情况。</p>
-<h4 id="1、A-k-2-lt-B-k-2"><a href="#1、A-k-2-lt-B-k-2" class="headerlink" title="1、A[k / 2] &lt; B[k / 2]"></a>1、A[k / 2] &lt; B[k / 2]</h4><p>此时，小于等于A[k / 2]的个数有多少个呢？</p>
-<p>在A数组里面，显然第k/2个数以及之前的数都是小于等于A[k / 2]的，即有k / 2个</p>
-<p>在B数组里面，由于B数组的第k / 2个数的值严格大于A[k / 2]，所以B数组中小于等于A[k / 2]的数的个数就小于k / 2个</p>
-<p>总的来说，小于等于A[k / 2]的数的个数小于k。</p>
-<p>也就是说，A数组的前k / 2个数，不可能是我们要找的第k个数</p>
-<h4 id="2、A-k-2-gt-B-k-2"><a href="#2、A-k-2-gt-B-k-2" class="headerlink" title="2、A[k / 2] &gt; B[k / 2]"></a>2、A[k / 2] &gt; B[k / 2]</h4><p>同理可得，B数组的前k / 2个数不可能有第k个数。</p>
-<h4 id="3、A-k-2-B-k-2"><a href="#3、A-k-2-B-k-2" class="headerlink" title="3、A[k / 2] == B[k / 2]"></a>3、A[k / 2] == B[k / 2]</h4><p>说明A[k / 2]和B[k / 2]恰好就是第k个元素</p>
-<p>每次比较完之后，一定能删掉k / 2个元素，然后就变成了一个递归的子问题。</p>
-<p>每次k都会除以2，k最多减到1（当k==1时，直接就能得出结果），所以最多递归log(k)次，也就是log((m + n) / 2)，即log(m + n)</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">10010</span>;</span><br><span class="line"><span class="keyword">int</span> p[N], q[N];</span><br><span class="line"><span class="keyword">int</span> s[<span class="number">2</span> * N];</span><br><span class="line"><span class="comment">/** findKthNumber：找到两个数组的第k个数</span></span><br><span class="line"><span class="comment"> * @param p:第一个数组p</span></span><br><span class="line"><span class="comment"> * @param i:p数组的起始位置</span></span><br><span class="line"><span class="comment"> * @param q:第二个数组q</span></span><br><span class="line"><span class="comment"> * @param j:q数组的其实位置</span></span><br><span class="line"><span class="comment"> * @param k:要找到第k个数，k从1开始</span></span><br><span class="line"><span class="comment"> * @param n:数组p的长度</span></span><br><span class="line"><span class="comment"> * @param m:数组q的长度</span></span><br><span class="line"><span class="comment"> * @return int: 第k个数的值</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">findKthNumber</span><span class="params">(<span class="keyword">int</span> p[], <span class="keyword">int</span> i, <span class="keyword">int</span> q[], <span class="keyword">int</span> j, <span class="keyword">int</span> k, <span class="keyword">int</span> n, <span class="keyword">int</span> m)</span> </span>&#123;</span><br><span class="line">    <span class="comment">//如果p的长度大于q的长度，交换一下</span></span><br><span class="line">    <span class="keyword">if</span> (n - i &gt; m - j) <span class="keyword">return</span> findKthNumber(q, j, p, i, k, n, m);</span><br><span class="line">    <span class="comment">//处理边界</span></span><br><span class="line">    <span class="keyword">if</span> (n == i) <span class="keyword">return</span> q[j + k - <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">if</span> (k == <span class="number">1</span>) <span class="keyword">return</span> min(p[i], q[j]);</span><br><span class="line">    <span class="keyword">int</span> si = min(i + k / <span class="number">2</span>, n), sj = j + k / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span> (p[si - <span class="number">1</span>] &gt; q[sj - <span class="number">1</span>]) &#123;</span><br><span class="line">      <span class="keyword">return</span> findKthNumber(p, i, q, j + k / <span class="number">2</span>, k - k / <span class="number">2</span>, n, m);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> findKthNumber(p, si, q, j, k - (si - i), n, m);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> n, m;<span class="comment">//n, m分别为两个数组的长度</span></span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n, &amp;m);</span><br><span class="line">  <span class="comment">//读入两个数组</span></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;p[i]);</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i++) <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;q[i]);</span><br><span class="line">  <span class="keyword">if</span>((n + m) % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">int</span> left = findKthNumber(p, <span class="number">0</span>, q, <span class="number">0</span>, (m + n) / <span class="number">2</span>, n, m);</span><br><span class="line">    <span class="keyword">int</span> right = findKthNumber(p, <span class="number">0</span>, q, <span class="number">0</span>, (m + n) / <span class="number">2</span> + <span class="number">1</span>, n, m);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%f&quot;</span>, (left + right) / <span class="number">2.0</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%f&quot;</span>, findKthNumber(p, <span class="number">0</span>, q, <span class="number">0</span>, (m + n) / <span class="number">2</span> + <span class="number">1</span>, n, m));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>时间复杂度：O(log(m + n))</p>
-<h2 id="基本使用说明"><a href="#基本使用说明" class="headerlink" title="基本使用说明"></a>基本使用说明</h2><p>输入</p>
-<p>第一行为两个整数，表示两个数组的长度</p>
-<p>第二、三行为两个数组</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">4 5</span><br><span class="line">1 4 6 9</span><br><span class="line">8 9 2 7 8</span><br></pre></td></tr></table></figure>
-
+          <link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="软件项目管理过程"><a href="#软件项目管理过程" class="headerlink" title="软件项目管理过程"></a>软件项目管理过程</h2><p>启动软件项目</p>
+<p>制定项目计划</p>
+<p>项目计划的执行</p>
+<p>项目的控制（监督、跟踪和控制活动）</p>
+<p>项目结束</p>
+<h2 id="白盒测试中路径覆盖加上条件-判定组合逻辑覆盖不可以解决所有判定结构的问题"><a href="#白盒测试中路径覆盖加上条件-判定组合逻辑覆盖不可以解决所有判定结构的问题" class="headerlink" title="白盒测试中路径覆盖加上条件-判定组合逻辑覆盖不可以解决所有判定结构的问题"></a>白盒测试中路径覆盖加上条件-判定组合逻辑覆盖不可以解决所有判定结构的问题</h2><h2 id="对于需求不明确的软件项目且需要使用面向对象方法，采用UP模型或者喷泉模型"><a href="#对于需求不明确的软件项目且需要使用面向对象方法，采用UP模型或者喷泉模型" class="headerlink" title="对于需求不明确的软件项目且需要使用面向对象方法，采用UP模型或者喷泉模型"></a>对于需求不明确的软件项目且需要使用面向对象方法，采用UP模型或者喷泉模型</h2><h2 id="数据流图元素"><a href="#数据流图元素" class="headerlink" title="数据流图元素"></a>数据流图元素</h2><p>加工</p>
+<p>数据流</p>
+<p>数据存储</p>
+<p>外部实体</p>
+<p>数据流图是封闭的，父图与子图之间的输入输出的数据是一致的</p>
+<h2 id="迪米特法则的应用是面向对象的软件设计原则"><a href="#迪米特法则的应用是面向对象的软件设计原则" class="headerlink" title="迪米特法则的应用是面向对象的软件设计原则"></a>迪米特法则的应用是面向对象的软件设计原则</h2><h2 id="依赖倒置原则"><a href="#依赖倒置原则" class="headerlink" title="依赖倒置原则"></a>依赖倒置原则</h2><p>高层模块不应该依赖于低层模块，低层模块应该依赖于高层模块</p>
+<p>抽象不应依赖于细节，细节应依赖于抽象</p>
+<h2 id="黑盒测试因果图的目的是减少测试用例数目"><a href="#黑盒测试因果图的目的是减少测试用例数目" class="headerlink" title="黑盒测试因果图的目的是减少测试用例数目"></a>黑盒测试因果图的目的是减少测试用例数目</h2><h2 id="改正性维护属于救火式维护"><a href="#改正性维护属于救火式维护" class="headerlink" title="改正性维护属于救火式维护"></a>改正性维护属于救火式维护</h2><h2 id="软件生命周期"><a href="#软件生命周期" class="headerlink" title="软件生命周期"></a>软件生命周期</h2><p>制定计划</p>
+<p>需求分析及定义</p>
+<p>软件设计</p>
+<p>程序编写</p>
+<p>软件测试</p>
+<p>运行/维护</p>
+<h2 id="面向对象设计常用的5层软件分层结构"><a href="#面向对象设计常用的5层软件分层结构" class="headerlink" title="面向对象设计常用的5层软件分层结构"></a>面向对象设计常用的5层软件分层结构</h2><p>界面层，控制器层，业务逻辑层，持久化层，系统层</p>
+<p>好处：增加软件的健壮性，易于扩展和维护；增加软件的可移植性</p>
+<h2 id="数据流分为变化型数据流和事务型数据流"><a href="#数据流分为变化型数据流和事务型数据流" class="headerlink" title="数据流分为变化型数据流和事务型数据流"></a>数据流分为变化型数据流和事务型数据流</h2><h2 id="用例"><a href="#用例" class="headerlink" title="用例"></a>用例</h2><p>用例是描述参与者如何使用系统来达到目标的一组成功场景和失败场景的集合</p>
+<p>好处：</p>
+<p>用例将系统的特性和功能放到面向用户目标的语境中去考虑，从而能使识别出来的功能是真正为用户提供价值的功能；</p>
+<p>用例描述功能的方式是让用户写出多种使用系统的场景，和用户日常工作序列一致，使得交流更简单有效。</p>
+<h2 id="UML类之间的关系"><a href="#UML类之间的关系" class="headerlink" title="UML类之间的关系"></a>UML类之间的关系</h2><p><strong>依赖关系</strong>：非常弱的关系，人类依赖食物，人类的类图用一条虚线 箭头执行食物类图</p>
+<p><strong>关联关系</strong>：长期的合作关系，实线，可以是双向的，也可以是单向的</p>
+<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210622162655520.png" alt="image-20210622162655520"></p>
+<p><strong>聚合关系</strong>：实线，空心菱形</p>
+<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210622162820282.png" alt="image-20210622162820282"></p>
+<p>部分可以脱离整体</p>
+<p><strong>组合关系</strong>：实线，实心菱形</p>
+<p>部分不可以脱离整体</p>
+<p><strong>继承关系</strong>：</p>
+<h2 id="用例之间的关系"><a href="#用例之间的关系" class="headerlink" title="用例之间的关系"></a>用例之间的关系</h2><p>包含关系</p>
+<p>扩展关系：由于某种原因，不能修改基用例</p>
+<p>继承关系</p>
+<h2 id="操作契约后置条件"><a href="#操作契约后置条件" class="headerlink" title="操作契约后置条件"></a>操作契约后置条件</h2><p>对象的创建和删除，对象之间的关联创建或者消除，对象属性值修改</p>
+<p>操作契约不是必须的</p>
+<h2 id="面向对象需求分析"><a href="#面向对象需求分析" class="headerlink" title="面向对象需求分析"></a>面向对象需求分析</h2><p>四大活动</p>
+<ul>
+<li>用例建模</li>
+<li>创建领域模型</li>
+<li>绘制系统顺序图</li>
+<li>创建系统操作契约</li>
+</ul>
+<p>两大模型</p>
+<ul>
+<li>用例模型<ul>
+<li>用例图</li>
+<li>用例说明</li>
+<li>系统顺序图：UML顺序图</li>
+<li>操作契约</li>
+</ul>
+</li>
+<li>领域模型<ul>
+<li>业务背景：概念类和概念类之间的关系构成的类图(重点)</li>
+<li>业务流程：由UML活动图表示</li>
+</ul>
+</li>
+</ul>
+<p>面向对象分析产生的所有模型最终会记录在软件需求规格说明书中</p>
+<h2 id="控制器"><a href="#控制器" class="headerlink" title="控制器"></a>控制器</h2><p>控制器并不处理具体的任务细节，它只是将任务进行分解并分发给其他层次进行处理，同时，协调其他层次 </p>
+<h2 id="面向对象设计原则"><a href="#面向对象设计原则" class="headerlink" title="面向对象设计原则"></a>面向对象设计原则</h2><ul>
+<li>单一职责原则：就一个类而言，应当仅有一个引起它变化的原因</li>
+<li> 开闭原则：软件实体应该是可以扩展、但是不可以修改的</li>
+<li>里氏替换原则：子类应当可以替换父类，并且可以出现在父类出现的任何地方</li>
+<li>依赖倒置原则：高层模块不应该依赖于低层模块，二者都应该依赖于抽象；抽象不应该依赖于细节，细节应该依赖抽象</li>
+<li>接口隔离原则(lsp)：采用多个与特定客户类有关的接口比采用一个通用的涵盖多个业务方法的接口要好</li>
+<li>组合/聚合复用原则：</li>
+<li>迪米特法则：一个对象应该尽可能少的了解其他对象，信息隐藏原则的应用</li>
+</ul>
+<h2 id="GRASP模式"><a href="#GRASP模式" class="headerlink" title="GRASP模式"></a>GRASP模式</h2><p>对象职责分配模式</p>
+<ul>
+<li>信息专家模式</li>
+<li>创建者模式：体现了低耦合的设计思想， 是对迪米特法则的具体应用</li>
+<li>控制器模式<ul>
+<li>外观控制器：它代表整个系统，用于接受所有用户系统事件，通常以系统名字进行命名</li>
+<li>用例控制器：它与每一个用例相对应，用于处理一个用例中所有事件，通常以用例名字进行命名</li>
+</ul>
+</li>
+</ul>
+<h2 id="SSD"><a href="#SSD" class="headerlink" title="SSD"></a>SSD</h2><p>系统顺序图</p>
+<h2 id="瀑布模型只适合于需求明确的模型"><a href="#瀑布模型只适合于需求明确的模型" class="headerlink" title="瀑布模型只适合于需求明确的模型"></a>瀑布模型只适合于需求明确的模型</h2><h2 id="极限编程与UP模型也是基于瀑布模型演化而来"><a href="#极限编程与UP模型也是基于瀑布模型演化而来" class="headerlink" title="极限编程与UP模型也是基于瀑布模型演化而来"></a>极限编程与UP模型也是基于瀑布模型演化而来</h2><h2 id="软件测试基本类型"><a href="#软件测试基本类型" class="headerlink" title="软件测试基本类型"></a>软件测试基本类型</h2><p>单元测试</p>
+<p>集成测试</p>
+<p>确认测试</p>
+<p>系统测试</p>
+<p>验收测试</p>
+<h2 id="软件危机"><a href="#软件危机" class="headerlink" title="软件危机"></a>软件危机</h2><p>指由于落后的软件生产方式无法满足迅速增长的计算机软件需求，从而导致软件开发与维护过程中出现一系列严重问题的现象</p>
+<h2 id="对于需求不明确的软件项目且需要使用面向对象方法，哪种软件生命周期模型最合适"><a href="#对于需求不明确的软件项目且需要使用面向对象方法，哪种软件生命周期模型最合适" class="headerlink" title="对于需求不明确的软件项目且需要使用面向对象方法，哪种软件生命周期模型最合适"></a>对于需求不明确的软件项目且需要使用面向对象方法，哪种软件生命周期模型最合适</h2><p>UP模型或喷泉模型</p>
+<h2 id="需求分析的基本任务"><a href="#需求分析的基本任务" class="headerlink" title="需求分析的基本任务"></a>需求分析的基本任务</h2><p>是准确定义新系统的目标，为了满足用户需求，回答系统必须”做什么“的问题并编制需求规格说明书</p>
+<h2 id="模块的内聚性"><a href="#模块的内聚性" class="headerlink" title="模块的内聚性"></a>模块的内聚性</h2><p>内聚性逐渐变高</p>
+<p>巧合内聚、逻辑内聚、时间内聚、过程内聚、通信内聚、信息内聚、功能内聚</p>
+<h2 id="模块的耦合性"><a href="#模块的耦合性" class="headerlink" title="模块的耦合性"></a>模块的耦合性</h2><p>耦合性逐渐降低</p>
+<p>内容耦合、公共耦合、外部耦合、控制耦合、标记耦合、数据耦合、非直接耦合</p>
+<h2 id="面向对象设计方法"><a href="#面向对象设计方法" class="headerlink" title="面向对象设计方法"></a>面向对象设计方法</h2><p>是基于UML，将软件需求分析阶段获得的用例模型和领域模型的内容运用一系列软件设计原则转换成软件设计阶段的动态结构和静态结构</p>
+<h2 id="数据流分为两种"><a href="#数据流分为两种" class="headerlink" title="数据流分为两种"></a>数据流分为两种</h2><p>变换型和事务型</p>
+<h2 id="面向对象设计"><a href="#面向对象设计" class="headerlink" title="面向对象设计"></a>面向对象设计</h2><p>包含三方面的工作</p>
+<ul>
+<li>软件体系结构设计</li>
+<li>用例实现方案设计</li>
+<li>用户界面设计</li>
+</ul>
+<h2 id="什么是模块耦合性"><a href="#什么是模块耦合性" class="headerlink" title="什么是模块耦合性"></a>什么是模块耦合性</h2><p>模块之间相对独立性的度量</p>
+<p>降低耦合性的方法：</p>
+<ul>
+<li>模块间多传递数据信息，尽量减少和避免传递控制信息</li>
+<li>降低模块接口的复杂性</li>
+<li>减少接口信息传递数量</li>
+<li>传递信息的结构应该尽量简单</li>
+</ul>
+<h2 id="静态动态UML"><a href="#静态动态UML" class="headerlink" title="静态动态UML"></a>静态动态UML</h2><p>静态：类图、对象图、构架图、部署图</p>
+<p>动态：顺序图、协作图、状态图、活动图</p>
+<h2 id="操作契约"><a href="#操作契约" class="headerlink" title="操作契约"></a>操作契约</h2><p>系统事件</p>
+<p>交叉引用：用例</p>
+<p>前置条件</p>
+<p>后置条件</p>
+<h2 id="RUP是融合了喷泉模型和增量模型的一种综合生命周期模型"><a href="#RUP是融合了喷泉模型和增量模型的一种综合生命周期模型" class="headerlink" title="RUP是融合了喷泉模型和增量模型的一种综合生命周期模型"></a><em>RUP</em>是融合了<em>喷泉模型</em>和增量<em>模型</em>的一种综合生命周期<em>模型</em></h2><h2 id="VW适合需求稳定的，瀑布模型"><a href="#VW适合需求稳定的，瀑布模型" class="headerlink" title="VW适合需求稳定的，瀑布模型"></a>VW适合需求稳定的，瀑布模型</h2><h2 id="软件详细设计是"><a href="#软件详细设计是" class="headerlink" title="软件详细设计是"></a>软件详细设计是</h2><p>确定每个模块内的算法额数据组织</p>
+<p>概要设计：外部接口、功能</p>
+<h2 id="测试步骤"><a href="#测试步骤" class="headerlink" title="测试步骤"></a>测试步骤</h2><p>单元测试、集成测试、确认测试、系统测试、验收测试</p>
+<p>编程实现、设计、       需求分析</p>
 
       
     </div>
@@ -286,7 +377,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/30/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><span class="page-number current">31</span><a class="page-number" href="/page/32/">32</a><span class="space">&hellip;</span><a class="page-number" href="/page/249/">249</a><a class="extend next" rel="next" href="/page/32/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/30/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/30/">30</a><span class="page-number current">31</span><a class="page-number" href="/page/32/">32</a><span class="space">&hellip;</span><a class="page-number" href="/page/253/">253</a><a class="extend next" rel="next" href="/page/32/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -352,14 +443,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">249</span>
+          <span class="site-state-item-count">253</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">

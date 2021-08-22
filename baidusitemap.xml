@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://zhouruifa.top/2021/08/21/linux/more%E5%92%8Cless/</loc>
+    <lastmod>2021-08-21</lastmod>
+  </url>
+  <url>
+    <loc>http://zhouruifa.top/2021/08/21/linux/head%E5%92%8Ctail/</loc>
+    <lastmod>2021-08-21</lastmod>
+  </url>
+  <url>
+    <loc>http://zhouruifa.top/2021/08/21/missing-semester/1.shell/</loc>
+    <lastmod>2021-08-21</lastmod>
+  </url>
+  <url>
+    <loc>http://zhouruifa.top/2021/08/20/%E9%AB%98%E6%95%B0/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E5%BC%BA%E5%8C%96%E8%A7%86%E9%A2%91/</loc>
+    <lastmod>2021-08-20</lastmod>
+  </url>
+  <url>
     <loc>http://zhouruifa.top/2021/08/20/linux/tee%E5%91%BD%E4%BB%A4/</loc>
     <lastmod>2021-08-20</lastmod>
   </url>
@@ -905,31 +921,31 @@
     <lastmod>2021-01-01</lastmod>
   </url>
   <url>
-    <loc>http://zhouruifa.top/2020/12/28/py9-2018211308-2018211430-%E5%91%A8%E7%91%9E%E5%8F%91/</loc>
+    <loc>http://zhouruifa.top/2021/07/16/python%E4%BD%9C%E4%B8%9A/py9-2018211308-2018211430-%E5%91%A8%E7%91%9E%E5%8F%91/</loc>
     <lastmod>2020-12-28</lastmod>
   </url>
   <url>
-    <loc>http://zhouruifa.top/2020/12/08/py8-2018211308-2018211430-%E5%91%A8%E7%91%9E%E5%8F%91/</loc>
+    <loc>http://zhouruifa.top/2021/07/16/python%E4%BD%9C%E4%B8%9A/py8-2018211308-2018211430-%E5%91%A8%E7%91%9E%E5%8F%91/</loc>
     <lastmod>2020-12-08</lastmod>
   </url>
   <url>
-    <loc>http://zhouruifa.top/2020/12/07/py7-2018211308-2018211430-%E5%91%A8%E7%91%9E%E5%8F%91/</loc>
+    <loc>http://zhouruifa.top/2021/07/16/python%E4%BD%9C%E4%B8%9A/py7-2018211308-2018211430-%E5%91%A8%E7%91%9E%E5%8F%91/</loc>
     <lastmod>2020-12-08</lastmod>
   </url>
   <url>
-    <loc>http://zhouruifa.top/2020/11/10/py2-2018211308-2018211430-%E5%91%A8%E7%91%9E%E5%8F%91/</loc>
+    <loc>http://zhouruifa.top/2021/07/16/python%E4%BD%9C%E4%B8%9A/py2-2018211308-2018211430-%E5%91%A8%E7%91%9E%E5%8F%91/</loc>
     <lastmod>2020-11-30</lastmod>
   </url>
   <url>
-    <loc>http://zhouruifa.top/2020/11/30/py6-2018211308-2018211430-%E5%91%A8%E7%91%9E%E5%8F%91/</loc>
+    <loc>http://zhouruifa.top/2021/07/16/python%E4%BD%9C%E4%B8%9A/py6-2018211308-2018211430-%E5%91%A8%E7%91%9E%E5%8F%91/</loc>
     <lastmod>2020-11-30</lastmod>
   </url>
   <url>
-    <loc>http://zhouruifa.top/2020/11/30/py5-2018211308-2018211430-%E5%91%A8%E7%91%9E%E5%8F%91/</loc>
+    <loc>http://zhouruifa.top/2021/07/16/python%E4%BD%9C%E4%B8%9A/py5-2018211308-2018211430-%E5%91%A8%E7%91%9E%E5%8F%91/</loc>
     <lastmod>2020-11-30</lastmod>
   </url>
   <url>
-    <loc>http://zhouruifa.top/2020/11/18/py4-2018211308-2018211430-%E5%91%A8%E7%91%9E%E5%8F%91/</loc>
+    <loc>http://zhouruifa.top/2021/07/16/python%E4%BD%9C%E4%B8%9A/py4-2018211308-2018211430-%E5%91%A8%E7%91%9E%E5%8F%91/</loc>
     <lastmod>2020-11-18</lastmod>
   </url>
   <url>
@@ -977,11 +993,11 @@
     <lastmod>2020-11-10</lastmod>
   </url>
   <url>
-    <loc>http://zhouruifa.top/2020/11/10/py3-2018211308-2018211430-%E5%91%A8%E7%91%9E%E5%8F%91/</loc>
+    <loc>http://zhouruifa.top/2021/07/16/python%E4%BD%9C%E4%B8%9A/py3-2018211308-2018211430-%E5%91%A8%E7%91%9E%E5%8F%91/</loc>
     <lastmod>2020-11-10</lastmod>
   </url>
   <url>
-    <loc>http://zhouruifa.top/2020/11/10/py1-2018211308-2018211430-%E5%91%A8%E7%91%9E%E5%8F%91/</loc>
+    <loc>http://zhouruifa.top/2020/11/10/python%E4%BD%9C%E4%B8%9A/py1-2018211308-2018211430-%E5%91%A8%E7%91%9E%E5%8F%91/</loc>
     <lastmod>2020-11-10</lastmod>
   </url>
   <url>

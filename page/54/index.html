@@ -179,7 +179,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2021/03/19/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87Offer56-I.%E6%95%B0%E7%BB%84%E4%B8%AD%E6%95%B0%E5%AD%97%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0/">
+    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2021/03/24/c++/%E5%AD%97%E8%8A%82%E5%AF%B9%E9%BD%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -193,7 +193,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/03/19/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87Offer56-I.%E6%95%B0%E7%BB%84%E4%B8%AD%E6%95%B0%E5%AD%97%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0/" class="post-title-link" itemprop="url">剑指 Offer 56 - I. 数组中数字出现的次数</a>
+            <a href="/2021/03/24/c++/%E5%AD%97%E8%8A%82%E5%AF%B9%E9%BD%90/" class="post-title-link" itemprop="url">字节对齐</a>
         </h2>
 
         <div class="post-meta">
@@ -204,20 +204,11 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-03-19 09:44:35 / 修改时间：09:51:58" itemprop="dateCreated datePublished" datetime="2021-03-19T09:44:35+08:00">2021-03-19</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%89%91%E6%8C%87Offer/" itemprop="url" rel="index"><span itemprop="name">剑指Offer</span></a>
-                </span>
+              <time title="创建时间：2021-03-24 17:15:46 / 修改时间：17:22:54" itemprop="dateCreated datePublished" datetime="2021-03-24T17:15:46+08:00">2021-03-24</time>
             </span>
 
           
-            <span id="/2021/03/19/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87Offer56-I.%E6%95%B0%E7%BB%84%E4%B8%AD%E6%95%B0%E5%AD%97%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0/" class="post-meta-item leancloud_visitors" data-flag-title="剑指 Offer 56 - I. 数组中数字出现的次数" title="阅读次数">
+            <span id="/2021/03/24/c++/%E5%AD%97%E8%8A%82%E5%AF%B9%E9%BD%90/" class="post-meta-item leancloud_visitors" data-flag-title="字节对齐" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -232,8 +223,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/03/19/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87Offer56-I.%E6%95%B0%E7%BB%84%E4%B8%AD%E6%95%B0%E5%AD%97%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/03/19/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87Offer56-I.%E6%95%B0%E7%BB%84%E4%B8%AD%E6%95%B0%E5%AD%97%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/03/24/c++/%E5%AD%97%E8%8A%82%E5%AF%B9%E9%BD%90/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/03/24/c++/%E5%AD%97%E8%8A%82%E5%AF%B9%E9%BD%90/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -248,17 +239,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>先说一些性质</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">已知 A ^ B = C</span><br><span class="line">则  B ^ A = C</span><br><span class="line">    C ^ A = B</span><br><span class="line">    C ^ B = A</span><br><span class="line">    A ^ A = <span class="number">0</span></span><br></pre></td></tr></table></figure>
-
-<p>先把所有值异或一遍，就可以得到两个不相同值的异或结果，比如 a, b</p>
-<p>有了a ^ b之后，如何找出a, b呢？我们直到，异或运算不是可逆的，我们无法从结果中退出原来的数字</p>
-<p>但是原来的数字在数组中啊，我们可以将数组分为两部分，一部分包含a， 另一部分包含b</p>
-<p>我们可以找到异或结果中为1的一位，这表明a和b在该位上不相同，我们可以据此将数组分开。</p>
-<p>相同的数字一定会被分到同一个部分</p>
-<p>因此，最终结果就是，第一部分包含a和成对的数字，将它们异或之后就可以得到a。另一部分则包含b和成对的数字</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">singleNumbers</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//sum为不相同的两个数字的异或结果</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> x : nums) sum ^= x;        </span><br><span class="line">        <span class="keyword">int</span> k = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//找到不相同数字中的不同的一位</span></span><br><span class="line">        <span class="keyword">while</span>(!(sum &gt;&gt; k &amp; <span class="number">1</span>)) k++;        </span><br><span class="line">        <span class="keyword">int</span> first = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//将数组分为两部分，异或结果即为其中一个数字</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> x : nums) &#123;</span><br><span class="line">            <span class="keyword">if</span>(x &gt;&gt; k &amp; <span class="number">1</span>) first ^= x;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//A ^ B = C，则C ^ A = B</span></span><br><span class="line">        <span class="keyword">return</span> &#123;first, sum ^ first&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
+          <p>有效对齐值 是 #pragma pack() 和 最长数据类型中较小的一个</p>
+<p>结构体的第一个成员的偏移量为0，以后每个成员相对于结构体首地址的偏移量是该成员大小和有效对齐值中较小那个的整数倍</p>
+<p>结构体的总大小是 有效对齐值 的整数倍</p>
+<p>简化了处理器和内存系统之间接口的硬件设计，提高了效率</p>
+<p>比如一个double型，如果我们把所有的double类型数据的地址对齐成8的倍数，那么就可以用一个内存操作来读或者写值了</p>
+<p>否则，可能需要执行两次内存访问，因为对象可能被分放在两个8字节的内存块中。</p>
+<p>无论数据是否对齐，都能正常工作，不过，还是建议对齐数据以提高内存系统的性能</p>
 
       
     </div>
@@ -277,7 +264,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/53/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/53/">53</a><span class="page-number current">54</span><a class="page-number" href="/page/55/">55</a><span class="space">&hellip;</span><a class="page-number" href="/page/249/">249</a><a class="extend next" rel="next" href="/page/55/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/53/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/53/">53</a><span class="page-number current">54</span><a class="page-number" href="/page/55/">55</a><span class="space">&hellip;</span><a class="page-number" href="/page/253/">253</a><a class="extend next" rel="next" href="/page/55/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -343,14 +330,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">249</span>
+          <span class="site-state-item-count">253</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
