@@ -179,7 +179,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2021/06/14/linux/tmux/">
+    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2021/06/14/vim/vim4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -193,7 +193,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/06/14/linux/tmux/" class="post-title-link" itemprop="url">tmux</a>
+            <a href="/2021/06/14/vim/vim4/" class="post-title-link" itemprop="url">vim基础教程4</a>
         </h2>
 
         <div class="post-meta">
@@ -202,22 +202,19 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-06-14 10:23:03 / 修改时间：20:53:36" itemprop="dateCreated datePublished" datetime="2021-06-14T10:23:03+08:00">2021-06-14</time>
+              <time title="创建时间：2021-06-14 11:03:03" itemprop="dateCreated datePublished" datetime="2021-06-14T11:03:03+08:00">2021-06-14</time>
             </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
                 </span>
-            </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-23 23:32:34" itemprop="dateModified" datetime="2021-07-23T23:32:34+08:00">2021-07-23</time>
+              </span>
 
           
-            <span id="/2021/06/14/linux/tmux/" class="post-meta-item leancloud_visitors" data-flag-title="tmux" title="阅读次数">
+            <span id="/2021/06/14/vim/vim4/" class="post-meta-item leancloud_visitors" data-flag-title="vim基础教程4" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -232,8 +229,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/06/14/linux/tmux/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/06/14/linux/tmux/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/06/14/vim/vim4/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/06/14/vim/vim4/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -248,43 +245,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Tmux终端复用器"><a href="#Tmux终端复用器" class="headerlink" title="Tmux终端复用器"></a>Tmux终端复用器</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>session：在普行通ssh登录时，与计算机进行临时的交互，称为一次会话。会话有一个很重要的特点是，窗口与其中运行的进程是连在一起的。打开窗口，会话开始；关闭窗口，会话结束，会话内部的进程也会结束，不管有没有运行完。Tmux就是会话与窗口的”解绑”工具，将它们彻底分离。所以只要创建了一个session，这个会话就会一直存在，不论你是否断开了连接，直到你手动关闭该会话。</p>
-<p>window：一个会话里可以有多个窗口</p>
-<p>pane：窗格，一个窗口可以分出多个窗格</p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p><code>tmux</code>：就会进入一个新的tmux会话，名字为数字</p>
-<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210614103344217.png" alt="image-20210614103344217"></p>
-<p><code>tmux new -s session-name</code>创建一个带有名字的会话</p>
-<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210614103444842.png" alt="image-20210614103444842"></p>
-<p>Tmux的所有快捷键都以<code>ctrl + b</code>为前缀</p>
-<p><code>ctrl + b + d</code>从当前会话中分离</p>
-<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210614103605439.png" alt="image-20210614103605439"></p>
-<p><code>tmux ls</code>查看当前有哪些会话</p>
-<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210614103636983.png" alt="image-20210614103636983"></p>
-<p><code>tmux attach-session -t session-name</code>重新进入某一个已分离的会话</p>
-<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210614103749723.png" alt="image-20210614103749723"></p>
-<p><code>tmux kill-session -t session-name</code>杀死某一个session</p>
-<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210614104303353.png" alt="image-20210614104303353"></p>
-<p><code>tmux switch -t session-name</code>切换会话</p>
-<p><code>ctrl + b + d</code>分离当前会话</p>
-<p><code>ctrl + b + s</code>列出所有会话</p>
-<p><code>ctrl + b + $</code>重命名当前会话</p>
-<p><code>ctrl + b + c</code>创建一个新窗口</p>
-<p><code>ctrl + b + p</code>切换到上一个窗口</p>
-<p><code>ctrl + b + n</code>切换到下一个窗口</p>
-<p><code>ctrl + b + w</code>窗口列表，可以选择一个</p>
-<p><code>ctrl + b + 0</code>切换到窗口0</p>
-<p><code>ctrl + b + %</code>把当前窗格分成左右两个</p>
-<p><code>ctrl + b + &quot;</code>把当前窗格分成上下两个</p>
-<p><code>ctrl + b + o</code>切换到下一个窗格</p>
-<p><code>ctrl + b + ;</code>在两个窗格之间切换</p>
-<p><code>ctrl + b + x</code>关闭当前窗格</p>
-<p><code>ctrl + b + &lt;上下左右方向键&gt;</code>可以切换到上下左右的窗格</p>
-<p><code>ctrl + b + ctrl + &lt;上下左右方向键&gt;</code>调整当前窗格大小</p>
-<p><code>ctrl + b + z</code>将当前窗格全屏显示，再次使用将恢复</p>
-<p><code>ctrl + b &#123;</code>将当前窗格与上一个窗格交换位置</p>
-<p><code>ctrl + b + &#125;</code>将当期窗格与下一个窗格交换位置</p>
-<h3 id="鼠标滚轮"><a href="#鼠标滚轮" class="headerlink" title="鼠标滚轮"></a>鼠标滚轮</h3><p><code>ctrl + b + :setw -g mouse on</code></p>
-<p>Mac:按住fn，然后用鼠标选择</p>
+          <p>1、gg调到最上面，G调到最下面</p>
+<p>2、100或100G调到第100行</p>
+<p>3、12j向下跳12行，12k向上跳12行</p>
+<p>（hjkl，wb）</p>
+<p>那么12h就是向左12个字母了。</p>
+<p>4、{跳到上一个空行 }跳到下一个空行</p>
+<p>5、ctrl u / d向上/下跳半页</p>
+<p>6、diw删除一个单词，如果光标在单词中间</p>
+<p>ciw删除一个单词，同时进入插入模式</p>
+<p>yiw复制中间的单词</p>
 
       
     </div>
@@ -303,7 +273,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/33/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/33/">33</a><span class="page-number current">34</span><a class="page-number" href="/page/35/">35</a><span class="space">&hellip;</span><a class="page-number" href="/page/253/">253</a><a class="extend next" rel="next" href="/page/35/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/33/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/33/">33</a><span class="page-number current">34</span><a class="page-number" href="/page/35/">35</a><span class="space">&hellip;</span><a class="page-number" href="/page/254/">254</a><a class="extend next" rel="next" href="/page/35/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -369,7 +339,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">253</span>
+          <span class="site-state-item-count">254</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
