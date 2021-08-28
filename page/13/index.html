@@ -179,7 +179,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2021/07/19/vscode%E7%BD%91%E9%A1%B5%E7%89%88/">
+    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2021/07/20/v2ray/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -193,7 +193,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/07/19/vscode%E7%BD%91%E9%A1%B5%E7%89%88/" class="post-title-link" itemprop="url">网页版vscode</a>
+            <a href="/2021/07/20/v2ray/" class="post-title-link" itemprop="url">v2ray tls websocket nginx</a>
         </h2>
 
         <div class="post-meta">
@@ -202,13 +202,19 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-07-19 23:24:23 / 修改时间：23:26:02" itemprop="dateCreated datePublished" datetime="2021-07-19T23:24:23+08:00">2021-07-19</time>
+              <time title="创建时间：2021-07-20 11:15:54" itemprop="dateCreated datePublished" datetime="2021-07-20T11:15:54+08:00">2021-07-20</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-21 18:11:18" itemprop="dateModified" datetime="2021-07-21T18:11:18+08:00">2021-07-21</time>
+              </span>
 
           
-            <span id="/2021/07/19/vscode%E7%BD%91%E9%A1%B5%E7%89%88/" class="post-meta-item leancloud_visitors" data-flag-title="网页版vscode" title="阅读次数">
+            <span id="/2021/07/20/v2ray/" class="post-meta-item leancloud_visitors" data-flag-title="v2ray tls websocket nginx" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -223,8 +229,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/07/19/vscode%E7%BD%91%E9%A1%B5%E7%89%88/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/07/19/vscode%E7%BD%91%E9%A1%B5%E7%89%88/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/07/20/v2ray/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/07/20/v2ray/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -239,9 +245,34 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><code>https://github.com/cdr/code-server/releases/</code></p>
-<p><code>proxychains4 wget https://github.com/cdr/code-server/releases/download/v3.11.0/code-server-3.11.0-linux-amd64.tar.gz</code></p>
-<p><code>tar -zxvf code-server-3.11.0-linux-amd64.tar.gz</code></p>
+          <p>安装v2ray</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -L https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;v2fly&#x2F;fhs-install-v2ray&#x2F;master&#x2F;install-release.sh)</span><br></pre></td></tr></table></figure>
+
+<p>配置文件的位置在<code>/usr/local/etc/v2ray/config.json</code></p>
+<p>v2ray配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;inbounds&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;port&quot;: 331,</span><br><span class="line">      &quot;listen&quot;:&quot;127.0.0.1&quot;,</span><br><span class="line">      &quot;protocol&quot;: &quot;vmess&quot;,</span><br><span class="line">      &quot;settings&quot;: &#123;</span><br><span class="line">        &quot;clients&quot;: [</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;id&quot;: &quot;daa5ac6a-c6...5fa9&quot;,</span><br><span class="line">            &quot;alterId&quot;: 64</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;streamSettings&quot;: &#123;</span><br><span class="line">        &quot;network&quot;: &quot;ws&quot;,</span><br><span class="line">        &quot;wsSettings&quot;: &#123;</span><br><span class="line">        &quot;path&quot;: &quot;&#x2F;v2ray&quot;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  &quot;outbounds&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;protocol&quot;: &quot;freedom&quot;,</span><br><span class="line">      &quot;settings&quot;: &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>启动v2ray：<code>systemctl start v2ray</code></p>
+<p>开机自启：<code>systemctl enable v2ray</code></p>
+<p>状态：<code> systemctl status v2ray</code></p>
+<p>安装nginx<code>apt install nginx</code></p>
+<p>nginx配置</p>
+<p>在<code>/etc/nginx/conf.d/</code>文件夹中创建文件<code>v2ray.conf</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 443 ssl;</span><br><span class="line"></span><br><span class="line">  ssl_certificate       &#x2F;root&#x2F;.myWebsiteCert&#x2F;zhouruifa.xyz&#x2F;cert.pem;</span><br><span class="line">  ssl_certificate_key   &#x2F;root&#x2F;.myWebsiteCert&#x2F;zhouruifa.xyz&#x2F;key.pem;</span><br><span class="line">  ssl_session_timeout 1d;</span><br><span class="line">  ssl_session_cache shared:MozSSL:10m;</span><br><span class="line">  ssl_session_tickets off;</span><br><span class="line"></span><br><span class="line">  ssl_protocols         TLSv1 TLSv1.1 TLSv1.2;</span><br><span class="line">  ssl_ciphers           ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;</span><br><span class="line">  ssl_prefer_server_ciphers on;</span><br><span class="line"></span><br><span class="line">  server_name           zhouruifa.xyz;</span><br><span class="line">  location &#x2F;v2ray &#123; # 与 V2Ray 配置中的 path 保持一致</span><br><span class="line">    if ($http_upgrade !&#x3D; &quot;websocket&quot;) &#123; # WebSocket协商失败时返回404</span><br><span class="line">        return 404;</span><br><span class="line">    &#125;</span><br><span class="line">    proxy_redirect off;</span><br><span class="line">    proxy_pass http:&#x2F;&#x2F;127.0.0.1:331;</span><br><span class="line">    proxy_http_version 1.1;</span><br><span class="line">    proxy_set_header Upgrade $http_upgrade;</span><br><span class="line">    proxy_set_header Connection &quot;upgrade&quot;;</span><br><span class="line">    proxy_set_header Host $host;</span><br><span class="line">    # Show real IP in v2ray access.log</span><br><span class="line">    proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>重启nginx：<code>systemctl restart nginx</code></p>
+<p>nginx reload：<code>nginx -s reload</code></p>
+<p>客户端配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;inbounds&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;port&quot;: 1080,</span><br><span class="line">      &quot;listen&quot;: &quot;127.0.0.1&quot;,</span><br><span class="line">      &quot;protocol&quot;: &quot;socks&quot;,</span><br><span class="line">      &quot;sniffing&quot;: &#123;</span><br><span class="line">        &quot;enabled&quot;: true,</span><br><span class="line">        &quot;destOverride&quot;: [&quot;http&quot;, &quot;tls&quot;]</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;settings&quot;: &#123;</span><br><span class="line">        &quot;auth&quot;: &quot;noauth&quot;,</span><br><span class="line">        &quot;udp&quot;: false</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  &quot;outbounds&quot;: [</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;protocol&quot;: &quot;vmess&quot;,</span><br><span class="line">      &quot;settings&quot;: &#123;</span><br><span class="line">        &quot;vnext&quot;: [</span><br><span class="line">          &#123;</span><br><span class="line">            &quot;address&quot;: &quot;zhouruifa.xyz&quot;,</span><br><span class="line">            &quot;port&quot;: 443,</span><br><span class="line">            &quot;users&quot;: [</span><br><span class="line">              &#123;</span><br><span class="line">                &quot;id&quot;: &quot;daa5ac6...9d065fa9&quot;,</span><br><span class="line">                &quot;alterId&quot;: 64</span><br><span class="line">              &#125;</span><br><span class="line">            ]</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;,</span><br><span class="line">      &quot;streamSettings&quot;: &#123;</span><br><span class="line">        &quot;network&quot;: &quot;ws&quot;,</span><br><span class="line">        &quot;security&quot;: &quot;tls&quot;,</span><br><span class="line">        &quot;wsSettings&quot;: &#123;</span><br><span class="line">          &quot;path&quot;: &quot;&#x2F;v2ray&quot;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>CMD中如何使用？</p>
+<p>CMD中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set http_proxy&#x3D;socks5:&#x2F;&#x2F;127.0.0.1:1080</span><br><span class="line">set https_proxy&#x3D;socks5:&#x2F;&#x2F;127.0.0.1:1080</span><br></pre></td></tr></table></figure>
+
+<p>在Powershell中，以后再说，和CMD是不一样的</p>
+<p>v2ray疑问？</p>
+<p>在v2rayN的设置中的代理协议是socks5，端口号是10808</p>
+<p>当v2rayN开启了系统代理，v2rayN设置了系统代理，是http代理，端口是10809</p>
 
       
     </div>
@@ -260,7 +291,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/12/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/256/">256</a><a class="extend next" rel="next" href="/page/14/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/12/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><span class="page-number current">13</span><a class="page-number" href="/page/14/">14</a><span class="space">&hellip;</span><a class="page-number" href="/page/257/">257</a><a class="extend next" rel="next" href="/page/14/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -326,7 +357,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">256</span>
+          <span class="site-state-item-count">257</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

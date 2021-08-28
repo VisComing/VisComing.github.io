@@ -179,7 +179,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2021/03/17/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87Offer11.%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97/">
+    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2021/03/17/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87Offer12.%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -193,7 +193,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/03/17/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87Offer11.%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97/" class="post-title-link" itemprop="url">剑指 Offer 11. 旋转数组的最小数字</a>
+            <a href="/2021/03/17/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87Offer12.%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84/" class="post-title-link" itemprop="url">剑指 Offer 12. 矩阵中的路径</a>
         </h2>
 
         <div class="post-meta">
@@ -204,7 +204,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-03-17 12:01:10 / 修改时间：12:05:03" itemprop="dateCreated datePublished" datetime="2021-03-17T12:01:10+08:00">2021-03-17</time>
+              <time title="创建时间：2021-03-17 13:25:59 / 修改时间：13:29:32" itemprop="dateCreated datePublished" datetime="2021-03-17T13:25:59+08:00">2021-03-17</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -217,7 +217,7 @@
             </span>
 
           
-            <span id="/2021/03/17/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87Offer11.%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97/" class="post-meta-item leancloud_visitors" data-flag-title="剑指 Offer 11. 旋转数组的最小数字" title="阅读次数">
+            <span id="/2021/03/17/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87Offer12.%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84/" class="post-meta-item leancloud_visitors" data-flag-title="剑指 Offer 12. 矩阵中的路径" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -232,8 +232,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/03/17/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87Offer11.%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/03/17/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87Offer11.%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/03/17/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87Offer12.%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/03/17/%E5%89%91%E6%8C%87offer/%E5%89%91%E6%8C%87Offer12.%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -248,10 +248,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>用二分来做，麻烦的是有重复的元素</p>
-<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210317120257458.png" alt="image-20210317120257458"></p>
-<p>要去掉后半部分与number[0]重复的元素，这样，小于number[0]的就属与后半部分，大于等于number[0]的属于前半部分。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minArray</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; numbers)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = numbers.size() - <span class="number">1</span>;</span><br><span class="line">        <span class="comment">//从数组尾部移除与number[0]相等的元素。</span></span><br><span class="line">        <span class="keyword">while</span>(n &gt; <span class="number">0</span> &amp;&amp; numbers[<span class="number">0</span>] == numbers[n]) n--;</span><br><span class="line">        <span class="comment">//如果是单调上升，数组没有发生旋转，那么直接返回number[0]。</span></span><br><span class="line">        <span class="keyword">if</span>(numbers[n] &gt;= numbers[<span class="number">0</span>]) <span class="keyword">return</span> numbers[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> l = <span class="number">0</span>, r = n;</span><br><span class="line">        <span class="comment">//开始二分</span></span><br><span class="line">        <span class="keyword">while</span>(l &lt; r) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = l + r &gt;&gt; <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(numbers[mid] &gt;= numbers[<span class="number">0</span>]) l = mid + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> r = mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> numbers[r];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+          <p>注意写法，首先遍历每一个点，作为遍历起点；使用dx、dy数组，保存四个方向；将board[x][y]置为’.’，表明已经访问过了；然后遍历四个方向，如果返回true，则返回true，如果都不返回true，则在最后返回false。最后要将board[x][y]恢复</p>
+<p>一定注意写法。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">exist</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt;&gt;&amp; board, <span class="built_in">string</span> word)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = board.size(), m = board[<span class="number">0</span>].size();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; m; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(dfs(board, i, j, word, <span class="number">0</span>)) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> dx[<span class="number">4</span>] = &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>&#125;, dy[<span class="number">4</span>] = &#123;<span class="number">1</span>, <span class="number">0</span>, <span class="number">-1</span>, <span class="number">0</span>&#125;;</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">dfs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">char</span>&gt;&gt;&amp; board, <span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="built_in">string</span>&amp; word, <span class="keyword">int</span> u)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(word[u] != board[x][y]) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(u == word.size() - <span class="number">1</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">auto</span> t = board[x][y];</span><br><span class="line">        board[x][y] = <span class="string">&#x27;.&#x27;</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> a = x + dx[i], b = y + dy[i];</span><br><span class="line">            <span class="keyword">if</span>(a &gt;= <span class="number">0</span> &amp;&amp; a &lt; board.size() &amp;&amp; b &gt;= <span class="number">0</span> &amp;&amp; b &lt; board[<span class="number">0</span>].size() &amp;&amp; board[a][b] != <span class="string">&#x27;.&#x27;</span>) </span><br><span class="line">                <span class="keyword">if</span>(dfs(board, a, b, word, u + <span class="number">1</span>)) </span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        board[x][y] = t;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -271,7 +270,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/104/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/104/">104</a><span class="page-number current">105</span><a class="page-number" href="/page/106/">106</a><span class="space">&hellip;</span><a class="page-number" href="/page/256/">256</a><a class="extend next" rel="next" href="/page/106/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/104/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/104/">104</a><span class="page-number current">105</span><a class="page-number" href="/page/106/">106</a><span class="space">&hellip;</span><a class="page-number" href="/page/257/">257</a><a class="extend next" rel="next" href="/page/106/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -337,7 +336,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">256</span>
+          <span class="site-state-item-count">257</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

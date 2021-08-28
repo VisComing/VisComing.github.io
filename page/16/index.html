@@ -179,7 +179,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2021/07/18/linux/wsl%E4%BB%A3%E7%90%86/">
+    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2021/07/19/acme%E7%94%9F%E6%88%90ssl/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -193,7 +193,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/07/18/linux/wsl%E4%BB%A3%E7%90%86/" class="post-title-link" itemprop="url">wsl1设置代理</a>
+            <a href="/2021/07/19/acme%E7%94%9F%E6%88%90ssl/" class="post-title-link" itemprop="url">acme生成ssl证书</a>
         </h2>
 
         <div class="post-meta">
@@ -204,20 +204,11 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-07-18 10:33:22 / 修改时间：10:42:34" itemprop="dateCreated datePublished" datetime="2021-07-18T10:33:22+08:00">2021-07-18</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-                </span>
+              <time title="创建时间：2021-07-19 10:44:14 / 修改时间：20:06:23" itemprop="dateCreated datePublished" datetime="2021-07-19T10:44:14+08:00">2021-07-19</time>
             </span>
 
           
-            <span id="/2021/07/18/linux/wsl%E4%BB%A3%E7%90%86/" class="post-meta-item leancloud_visitors" data-flag-title="wsl1设置代理" title="阅读次数">
+            <span id="/2021/07/19/acme%E7%94%9F%E6%88%90ssl/" class="post-meta-item leancloud_visitors" data-flag-title="acme生成ssl证书" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -232,8 +223,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/07/18/linux/wsl%E4%BB%A3%E7%90%86/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/07/18/linux/wsl%E4%BB%A3%E7%90%86/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/07/19/acme%E7%94%9F%E6%88%90ssl/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/07/19/acme%E7%94%9F%E6%88%90ssl/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -248,16 +239,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>wsl1设置代理非常简单。</p>
-<p>判断wsl版本</p>
-<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210718103353953.png" alt="image-20210718103353953"></p>
-<p>然后在wsl中设置</p>
-<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210718103417467.png" alt="image-20210718103417467"></p>
-<p>就可以啦</p>
-<p>注意，ping google.com是ping不通的</p>
-<blockquote>
-<p>Ping是ICMP协议，不是TCP/UDP协议，Ping不走，也无法走代理。</p>
-</blockquote>
+          <p><a target="_blank" rel="noopener" href="https://github.com/acmesh-official/acme.sh/wiki/%E8%AF%B4%E6%98%8E">安装acme.sh</a></p>
+<p>设置代理<code>export http_proxy=&quot;http://127.0.0.1:8123/&quot; export https_proxy=&quot;http://127.0.0.1:8123/&quot;</code></p>
+<p>安装<code>curl  https://get.acme.sh | sh -s email=zhouruifa888@gmail.com</code></p>
+<p><code>source ~/.bashrc</code></p>
+<p><strong>安装好之后退出梯子</strong></p>
+<p>以dns方式验证域名所有权</p>
+<p><code>acme.sh  --issue  --dns   -d  example.zhouruifa.top  --yes-I-know-dns-manual-mode-enough-go-ahead-please</code></p>
+<p>然后到阿里云域名管理后台添加一条txt记录</p>
+<p>然后执行</p>
+<p><code>acme.sh  --renew    -d  example.zhouruifa.top  --yes-I-know-dns-manual-mode-enough-go-ahead-please</code></p>
+<p>然后copy证书到其他的地方，先创建好文件夹</p>
+<p><code>acme.sh --install-cert -d example.com  --key-file       /home/ruifa/.myWebsiteCert/example.zhouruifa.top/key.pem   --fullchain-file /home/ruifa/.myWebsiteCert/example.zhouruifa.top/cert.pem  --reloadcmd     &quot;sudo service nginx force-reload&quot;</code></p>
+<p><code>sudo nginx -s reload</code>reload 命令会重新加载配置文件，而nginx服务不会中断，服务启动，文件即加载成功。</p>
 
       
     </div>
@@ -276,7 +270,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/15/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><span class="space">&hellip;</span><a class="page-number" href="/page/256/">256</a><a class="extend next" rel="next" href="/page/17/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/15/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/15/">15</a><span class="page-number current">16</span><a class="page-number" href="/page/17/">17</a><span class="space">&hellip;</span><a class="page-number" href="/page/257/">257</a><a class="extend next" rel="next" href="/page/17/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -342,7 +336,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">256</span>
+          <span class="site-state-item-count">257</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
