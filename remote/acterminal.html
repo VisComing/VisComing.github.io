@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zhouruifa.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"3NGUE881LI","apiKey":"226809de1e28342bfee8f817b2b71f19","indexName":"hexoSearch","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+  </script>
+
+  <meta name="description" content="通过内网穿透以及ssh公私钥登录ACterminal需要准备的东西 acterminal 一台有公网ip的服务器 本机windows&#x2F;linux&#x2F;mac操作系统的电脑 一定的网络基础知识配置frp内网穿透 文档：https:&#x2F;&#x2F;gofrp.org&#x2F;docs&#x2F;examples&#x2F;ssh&#x2F; 下载frp：https:&#x2F;&#x2F;github.com&#x2F;fatedier&#x2F;frp&#x2F;releases&#x2F;tag&#x2F;v0.37.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="通过内网穿透以及ssh公私钥登录ACterminal">
+<meta property="og:url" content="http://zhouruifa.top/remote/acterminal.html">
+<meta property="og:site_name" content="周瑞发的网站">
+<meta property="og:description" content="通过内网穿透以及ssh公私钥登录ACterminal需要准备的东西 acterminal 一台有公网ip的服务器 本机windows&#x2F;linux&#x2F;mac操作系统的电脑 一定的网络基础知识配置frp内网穿透 文档：https:&#x2F;&#x2F;gofrp.org&#x2F;docs&#x2F;examples&#x2F;ssh&#x2F; 下载frp：https:&#x2F;&#x2F;github.com&#x2F;fatedier&#x2F;frp&#x2F;releases&#x2F;tag&#x2F;v0.37.">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-08-22T15:03:54.000Z">
+<meta property="article:modified_time" content="2021-09-02T15:00:49.298Z">
+<meta property="article:author" content="周瑞发">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://zhouruifa.top/remote/acterminal">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>通过内网穿透以及ssh公私钥登录ACterminal | 周瑞发的网站
+</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">周瑞发的网站</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">欢迎访问</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+  
+  
+
+          <div class="content page posts-expand">
+            
+
+    
+    
+    
+    <div class="post-block" lang="zh-CN">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">通过内网穿透以及ssh公私钥登录ACterminal
+</h1>
+
+<div class="post-meta">
+  
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <h1 id="通过内网穿透以及ssh公私钥登录ACterminal"><a href="#通过内网穿透以及ssh公私钥登录ACterminal" class="headerlink" title="通过内网穿透以及ssh公私钥登录ACterminal"></a>通过内网穿透以及ssh公私钥登录ACterminal</h1><h2 id="需要准备的东西"><a href="#需要准备的东西" class="headerlink" title="需要准备的东西"></a>需要准备的东西</h2><ul>
+<li>acterminal</li>
+<li>一台有公网ip的服务器</li>
+<li>本机windows/linux/mac操作系统的电脑</li>
+<li>一定的网络基础知识<h2 id="配置frp内网穿透"><a href="#配置frp内网穿透" class="headerlink" title="配置frp内网穿透"></a>配置frp内网穿透</h2></li>
+<li>文档：<a target="_blank" rel="noopener" href="https://gofrp.org/docs/examples/ssh/">https://gofrp.org/docs/examples/ssh/</a></li>
+<li>下载frp：<a target="_blank" rel="noopener" href="https://github.com/fatedier/frp/releases/tag/v0.37.1">https://github.com/fatedier/frp/releases/tag/v0.37.1</a></li>
+<li>如果下载慢的话可以从我这下载 <code>wget https://file.zhouruifa.top/frp_0.37.1_linux_amd64.tar.gz</code></li>
+<li>根据自已系统选择就可以了，如果是64位linux系统，选择frp_0.37.1_linux_amd64.tar.gz</li>
+<li>下载好后解压 <code>tar -zxvf frp_0.37.1_linux_amd64.tar.gz</code></li>
+<li>进入frp目录，里面有frpc和frps两个可执行文件。frpc用在客户端上，frps用在服务端上。</li>
+<li>在你的公网服务器上配置frps：保持默认即可</li>
+<li>在acterminal中配置frpc：和文档中的保持一致即可。</li>
+<li>注意，你的公网服务器需要开放相应的端口才可以使用。默认情况下需要开放6000和7000端口</li>
+<li>至此，frp就配置好了<h2 id="frp守护进程"><a href="#frp守护进程" class="headerlink" title="frp守护进程"></a>frp守护进程</h2></li>
+<li>如果你在终端里执行任意一个命令，命令还没有执行完时你就关闭了终端，那么正在执行的程序也会被关掉。为了使程序一直运行，使用nohup可以忽略终端关闭时发送的SIGHUP信号，使用&amp;可以使程序后台运行。</li>
+<li>也可以采用tmux，tmux在服务器上单独开了一个server，你离开tmux时里面的程序依然会继续运行。</li>
+<li>在acterminal上执行<code>nohup ./frpc &amp;</code></li>
+<li>在公网服务器上执行<code>nohup ./frps &amp;</code></li>
+<li>或者采用tmux<ul>
+<li>acterminal中输入<code>tmux</code>，进入tumx。输入<code>./frpc</code>。然后按ctrl + a(默认是ctrl + b，y总配置过之后采用了ctrl + a)，松手再按d，退出tmux，此时<code>frpc</code>进程并不会结束</li>
+<li>公网服务器同理，如果没有安装需要先安装tmux<h2 id="连接acterminal"><a href="#连接acterminal" class="headerlink" title="连接acterminal"></a>连接acterminal</h2></li>
+</ul>
+</li>
+<li>根据文档，<code>ssh -oPort=6000 acs@公网ip</code>来连接acterminal</li>
+<li>但此时会提示你输入密码，可是我们不知道密码，那么采用公私钥的方式进行登录<h2 id="ssh免密登录"><a href="#ssh免密登录" class="headerlink" title="ssh免密登录"></a>ssh免密登录</h2></li>
+<li>参考：<a href="https://zhouruifa.top/2021/07/22/linux/ssh%E5%85%8D%E5%AF%86/">https://zhouruifa.top/2021/07/22/linux/ssh%E5%85%8D%E5%AF%86/</a><h2 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h2></li>
+<li>不要使用acterminal做一些耗费资源的事情，会使其他人变得卡顿</li>
+<li>如果有问题可以及时回帖，最好自己先百度一下</li>
+<li>本篇涉及的知识仅有frp和ssh免密登录两块，不算复杂。遇到问题先百度/谷歌~</li>
+</ul>
+
+      </div>
+      
+      
+      
+    </div>
+    
+
+    
+    
+    
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E4%BB%A5%E5%8F%8Assh%E5%85%AC%E7%A7%81%E9%92%A5%E7%99%BB%E5%BD%95ACterminal"><span class="nav-number">1.</span> <span class="nav-text">通过内网穿透以及ssh公私钥登录ACterminal</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9C%80%E8%A6%81%E5%87%86%E5%A4%87%E7%9A%84%E4%B8%9C%E8%A5%BF"><span class="nav-number">1.1.</span> <span class="nav-text">需要准备的东西</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEfrp%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F"><span class="nav-number">1.2.</span> <span class="nav-text">配置frp内网穿透</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#frp%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B"><span class="nav-number">1.3.</span> <span class="nav-text">frp守护进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9E%E6%8E%A5acterminal"><span class="nav-number">1.4.</span> <span class="nav-text">连接acterminal</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ssh%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95"><span class="nav-number">1.5.</span> <span class="nav-text">ssh免密登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E6%9D%9F"><span class="nav-number">1.6.</span> <span class="nav-text">结束</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">周瑞发</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">260</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">周瑞发</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'Ytq8BzsrCa111NhWVN9J8rHG-gzGzoHsz',
+      appKey     : 'XPYBCP4RPAeMshHIS2bbs9tb',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

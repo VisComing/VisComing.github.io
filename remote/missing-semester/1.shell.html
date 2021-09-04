@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zhouruifa.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"3NGUE881LI","apiKey":"226809de1e28342bfee8f817b2b71f19","indexName":"hexoSearch","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+  </script>
+
+  <meta name="description" content="众所周知，计算机擅长做重复的事情，但是我们经常忘记这一点也适用于我们使用计算机的方式，而不仅仅是利用计算机程序去帮我们求解问题。在从事与计算机相关的工作时，我们有很多触手可及的工具可以帮助我们更高效的解决问题。  bash $表示我不是root用户，#表示我是root用户 echoecho hello 用空格分隔参数 echo hello\ world $PATH指明了程序搜索的路径，$PATH">
+<meta property="og:type" content="website">
+<meta property="og:title" content="课程概况与shell">
+<meta property="og:url" content="http://zhouruifa.top/remote/missing-semester/1.shell.html">
+<meta property="og:site_name" content="周瑞发的网站">
+<meta property="og:description" content="众所周知，计算机擅长做重复的事情，但是我们经常忘记这一点也适用于我们使用计算机的方式，而不仅仅是利用计算机程序去帮我们求解问题。在从事与计算机相关的工作时，我们有很多触手可及的工具可以帮助我们更高效的解决问题。  bash $表示我不是root用户，#表示我是root用户 echoecho hello 用空格分隔参数 echo hello\ world $PATH指明了程序搜索的路径，$PATH">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210821102000156.png">
+<meta property="og:image" content="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210821103356129.png">
+<meta property="article:published_time" content="2021-08-21T02:14:34.000Z">
+<meta property="article:modified_time" content="2021-09-02T15:00:54.942Z">
+<meta property="article:author" content="周瑞发">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210821102000156.png">
+
+<link rel="canonical" href="http://zhouruifa.top/remote/missing-semester/1.shell">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : false,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>课程概况与shell | 周瑞发的网站
+</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">周瑞发的网站</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">欢迎访问</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+  
+  
+
+          <div class="content page posts-expand">
+            
+
+    
+    
+    
+    <div class="post-block" lang="zh-CN">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">课程概况与shell
+</h1>
+
+<div class="post-meta">
+  
+  <ul class="breadcrumb">
+          
+            <li><a href="/remote/">REMOTE</a></li>
+            <li><a href="/remote/missing-semester/">MISSING-SEMESTER</a></li>
+            <li>1.SHELL</li>
+          
+  </ul>
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <blockquote>
+<p>众所周知，计算机擅长做重复的事情，但是我们经常忘记这一点也适用于我们使用计算机的方式，而不仅仅是利用计算机程序去帮我们求解问题。在从事与计算机相关的工作时，我们有很多触手可及的工具可以帮助我们更高效的解决问题。</p>
+</blockquote>
+<h2 id="bash"><a href="#bash" class="headerlink" title="bash"></a>bash</h2><p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210821102000156.png" alt="image-20210821102000156"></p>
+<p>$表示我不是root用户，#表示我是root用户</p>
+<h2 id="echo"><a href="#echo" class="headerlink" title="echo"></a>echo</h2><p><code>echo hello</code></p>
+<p>用空格分隔参数</p>
+<p><code>echo hello\ world</code></p>
+<h2 id="PATH"><a href="#PATH" class="headerlink" title="$PATH"></a>$PATH</h2><p>指明了程序搜索的路径，$PATH用：分隔</p>
+<p>可以使用<code>which</code>搜索可执行文件的位置</p>
+<p>大多数命令接收标记(flag)和选项(option，需要跟值)</p>
+<p>不需要值的称为标记，需要值的称为选项</p>
+<h2 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h2><p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210821103356129.png" alt="image-20210821103356129"></p>
+<p>第一个字母：d表示目录，-表示普通文件</p>
+<p>第一组：own权限</p>
+<p>第二组：组权限</p>
+<p>第三组：其他人的权限，既不是owner也不是group</p>
+<p>对文件：读写执行，好理解</p>
+<p>对目录：读：可以看目录里面有什么文件</p>
+<p>​    写：可以remove，create，重命名目录里面的文件。</p>
+<p>如果你有文件的写权限，但是没有文件所在目录的写权限，那你可以修改文件的内容，但是无法删除文件，无法重命名文件。</p>
+<p>目录的执行权限：是否可以进入该目录</p>
+<h2 id="在程序间创建连接"><a href="#在程序间创建连接" class="headerlink" title="在程序间创建连接"></a>在程序间创建连接</h2><p>&lt; file</p>
+<p>&gt; file</p>
+<p>分别将程序的输入和输出重定向到文件</p>
+<p>&gt;&gt; 追加</p>
+<p>使用管道（ <em>pipes</em> ），我们能够更好的利用文件重定向。 <code>|</code> 操作符允许我们将一个程序的输出和另外一个程序的输入连接起来</p>
+<p><code>sudo echo 3 &gt; brightness</code></p>
+<p>得到了错误</p>
+<p>关于 shell，有件事我们必须要知道。<code>|</code>、<code>&gt;</code>、和 <code>&lt;</code> 是通过 shell 执行的，而不是被各个程序单独执行。 <code>echo</code> 等程序并不知道 <code>|</code> 的存在，它们只知道从自己的输入输出流中进行读写。 对于上面这种情况， <em>shell</em> (权限为您的当前用户) 在设置 <code>sudo echo</code> 前尝试打开 brightness 文件并写入，但是系统拒绝了 shell 的操作因为此时 shell 不是根用户。</p>
+
+      </div>
+      
+      
+      
+    </div>
+    
+  <ul class="breadcrumb">
+          
+            <li><a href="/remote/">REMOTE</a></li>
+            <li><a href="/remote/missing-semester/">MISSING-SEMESTER</a></li>
+            <li>1.SHELL</li>
+          
+  </ul>
+
+    
+    
+    
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#bash"><span class="nav-number">1.</span> <span class="nav-text">bash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#echo"><span class="nav-number">2.</span> <span class="nav-text">echo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PATH"><span class="nav-number">3.</span> <span class="nav-text">$PATH</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9D%83%E9%99%90"><span class="nav-number">4.</span> <span class="nav-text">权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9C%A8%E7%A8%8B%E5%BA%8F%E9%97%B4%E5%88%9B%E5%BB%BA%E8%BF%9E%E6%8E%A5"><span class="nav-number">5.</span> <span class="nav-text">在程序间创建连接</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">周瑞发</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">260</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">周瑞发</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'Ytq8BzsrCa111NhWVN9J8rHG-gzGzoHsz',
+      appKey     : 'XPYBCP4RPAeMshHIS2bbs9tb',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

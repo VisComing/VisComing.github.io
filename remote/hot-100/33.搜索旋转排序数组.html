@@ -20,19 +20,20 @@
     var CONFIG = {"hostname":"zhouruifa.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"3NGUE881LI","apiKey":"226809de1e28342bfee8f817b2b71f19","indexName":"hexoSearch","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
   </script>
 
-  <meta name="description" content="LTE路测 每次重启务必禁用驱动程序强制签名，按照老师给的教程来 安装手机驱动避雷 那个老师的教程是错的 手机连接电脑，然后你调出来那个选择USB功能的菜单，选择安装驱动 电脑上会提示autorun的电脑，运行安装一下 手机输入那串数字和装驱动是没关系的（装驱动前先禁用驱动程序强制签名） 驱动装好后，手机输入那串数字,我觉得像是手机打开USB调试类似的功能 驱动装好后你可以拔下手机在插上，手机再输">
-<meta property="og:type" content="article">
-<meta property="og:title" content="周瑞发的网站">
-<meta property="og:url" content="http://zhouruifa.top/2021/09/02/LTE%E8%B7%AF%E6%B5%8B/index.html">
+  <meta name="description" content="该题考查二分 首先我们将数组分成两段，从发生旋转的点将数组分为两段升序。 然后，我们判断出target是在那一段，根据if(target &gt; nums[0])即可判断 然后就变成了普通的二分搜索。 书写二分是比较困难的，建议背下来二分模板。 123456789101112131415161718192021class Solution &amp;#123;public:    int search(">
+<meta property="og:type" content="website">
+<meta property="og:title" content="33. 搜索旋转排序数组">
+<meta property="og:url" content="http://zhouruifa.top/remote/hot-100/33.%E6%90%9C%E7%B4%A2%E6%97%8B%E8%BD%AC%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84.html">
 <meta property="og:site_name" content="周瑞发的网站">
-<meta property="og:description" content="LTE路测 每次重启务必禁用驱动程序强制签名，按照老师给的教程来 安装手机驱动避雷 那个老师的教程是错的 手机连接电脑，然后你调出来那个选择USB功能的菜单，选择安装驱动 电脑上会提示autorun的电脑，运行安装一下 手机输入那串数字和装驱动是没关系的（装驱动前先禁用驱动程序强制签名） 驱动装好后，手机输入那串数字,我觉得像是手机打开USB调试类似的功能 驱动装好后你可以拔下手机在插上，手机再输">
+<meta property="og:description" content="该题考查二分 首先我们将数组分成两段，从发生旋转的点将数组分为两段升序。 然后，我们判断出target是在那一段，根据if(target &gt; nums[0])即可判断 然后就变成了普通的二分搜索。 书写二分是比较困难的，建议背下来二分模板。 123456789101112131415161718192021class Solution &amp;#123;public:    int search(">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-09-02T10:48:16.838Z">
-<meta property="article:modified_time" content="2021-09-02T11:02:30.724Z">
+<meta property="article:published_time" content="2021-09-04T15:55:47.472Z">
+<meta property="article:modified_time" content="2021-09-02T15:00:49.351Z">
 <meta property="article:author" content="周瑞发">
+<meta property="article:tag" content="HOT-100">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://zhouruifa.top/2021/09/02/LTE%E8%B7%AF%E6%B5%8B/">
+<link rel="canonical" href="http://zhouruifa.top/remote/hot-100/33.%E6%90%9C%E7%B4%A2%E6%97%8B%E8%BD%AC%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84">
 
 
 <script id="page-configurations">
@@ -40,12 +41,13 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : true,
+    isPost : false,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title> | 周瑞发的网站</title>
+  <title>33. 搜索旋转排序数组 | 周瑞发的网站
+</title>
   
 
 
@@ -176,128 +178,66 @@
       <div class="main-inner">
         <div class="content-wrap">
           
+  
+  
 
-          <div class="content post posts-expand">
+          <div class="content page posts-expand">
             
-  4 min. read
+
     
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2021/09/02/LTE%E8%B7%AF%E6%B5%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="周瑞发">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="周瑞发的网站">
-    </span>
+    
+    
+    <div class="post-block" lang="zh-CN">
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
+
+<h1 class="post-title" itemprop="name headline">33. 搜索旋转排序数组
+</h1>
+
+<div class="post-meta">
+  
+  <ul class="breadcrumb">
           
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-09-02 18:48:16 / 修改时间：19:02:30" itemprop="dateCreated datePublished" datetime="2021-09-02T18:48:16+08:00">2021-09-02</time>
-            </span>
-
+            <li><a href="/remote/">REMOTE</a></li>
+            <li><a href="/remote/hot-100/">HOT-100</a></li>
+            <li>33.搜索旋转排序数组</li>
           
-            <span id="/2021/09/02/LTE%E8%B7%AF%E6%B5%8B/" class="post-meta-item leancloud_visitors" data-flag-title="" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/09/02/LTE%E8%B7%AF%E6%B5%8B/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/09/02/LTE%E8%B7%AF%E6%B5%8B/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
+  </ul>
 
-        </div>
-      </header>
+</div>
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+</header>
 
       
-        <h2 id="LTE路测"><a href="#LTE路测" class="headerlink" title="LTE路测"></a>LTE路测</h2><ul>
-<li>每次重启务必<strong>禁用驱动程序强制签名</strong>，按照老师给的教程来</li>
-<li>安装手机驱动避雷<ul>
-<li>那个老师的教程是错的</li>
-<li>手机连接电脑，然后你调出来那个选择USB功能的菜单，选择安装驱动</li>
-<li>电脑上会提示autorun的电脑，运行安装一下</li>
-<li>手机输入那串数字和装驱动是没关系的（装驱动前先禁用驱动程序强制签名）</li>
-<li>驱动装好后，手机输入那串数字,我觉得像是手机打开USB调试类似的功能</li>
-<li>驱动装好后你可以拔下手机在插上，手机再输入数字，应该也可以看到驱动。</li>
-<li>如果设备管理器没有显示，想想自己是否禁用驱动程序强制签名了（每次重启都会重置，所以每次重启都要用老师教程里的重启方式）</li>
-<li>如果设备管理器还是没有显示，那么卸载掉这个驱动，然后安装老师给的文件夹里面的那个<strong>手机驱动</strong>，再试试。</li>
-<li>注意，装驱动和输代码是两件事，先装好驱动（手机连上电脑点autorun或者用老师给的那个手机驱动安装驱动）</li>
-<li>驱动装好后连接手机输入那串数字。</li>
-<li>注意，每次重启都要禁用驱动程序强制签名</li>
-</ul>
-</li>
-<li>插入加密狗<ul>
-<li>插入加密狗可能依然打不开那个软件，电脑重启一次就好了（务必使用老师给的教程里面的重启方式）</li>
-</ul>
-</li>
-<li>手机加密狗GPS都插好了，打开软件，然后自动检测，如果提示配置未完全成功，看这个（<a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/417ad91b0d22590102020740be1e650e53eacf02.html?fixfr=kVJ7nTaO7%252BLBE55QMskknw%253D%253D&amp;fr=income1-wk_sea_vip-search%EF%BC%89%E5%A6%82%E6%9E%9C%E8%A7%A3%E5%86%B3%E4%B8%8D%E4%BA%86%EF%BC%8C%E9%82%A3%E6%88%91%E4%B9%9F%E6%B2%A1%E6%9C%89%E5%8A%9E%E6%B3%95%E4%BA%86">https://wenku.baidu.com/view/417ad91b0d22590102020740be1e650e53eacf02.html?fixfr=kVJ7nTaO7%252BLBE55QMskknw%253D%253D&amp;fr=income1-wk_sea_vip-search）如果解决不了，那我也没有办法了</a></li>
-<li>无法显示地图怎么办，在外面空旷的地方待两分钟，如果还是没有，我也没有办法了</li>
-<li>注意，采集数据的时候<strong>不要绕圈</strong></li>
-<li>总结：<ul>
-<li>软件很坑，非常恶心，8个组只有三个组采集成功了，去他妈的。</li>
-</ul>
-</li>
-</ul>
+      
+      
+      <div class="post-body">
+          <p>该题考查二分</p>
+<p>首先我们将数组分成两段，从发生旋转的点将数组分为两段<strong>升序</strong>。</p>
+<p>然后，我们判断出target是在那一段，根据if(target &gt; nums[0])即可判断</p>
+<p>然后就变成了普通的二分搜索。</p>
+<p>书写二分是比较困难的，建议背下来二分模板。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">search</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> target)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums.empty()) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">int</span> l = <span class="number">0</span>, r = nums.size() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(l &lt; r) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = l + r + <span class="number">1</span> &gt;&gt; <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &gt;= nums[<span class="number">0</span>]) l = mid;</span><br><span class="line">            <span class="keyword">else</span> r = mid - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(target &gt;= nums[<span class="number">0</span>]) l = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span> l = r + <span class="number">1</span>, r = nums.size() - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(l &lt; r) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = l + r &gt;&gt; <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(nums[mid] &gt;= target) r = mid;</span><br><span class="line">            <span class="keyword">else</span> l = mid + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(target == nums[r]) <span class="keyword">return</span> r;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">-1</span>;        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
+<p>使用大于等于还是小于等于，对于本题，由于数字不重复，所以都可以。</p>
+<p>对于二分出…33333…左边和右边的3，就需要区分大于等于和小于等于了。</p>
+
+      </div>
+      
+      
+      
     </div>
+    
+  <ul class="breadcrumb">
+          
+            <li><a href="/remote/">REMOTE</a></li>
+            <li><a href="/remote/hot-100/">HOT-100</a></li>
+            <li>33.搜索旋转排序数组</li>
+          
+  </ul>
 
     
     
     
-
-      <footer class="post-footer">
-
-        
-
-
-        
-    <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2021/08/28/linux/git/" rel="prev" title="git知识点">
-      <i class="fa fa-chevron-left"></i> git知识点
-    </a></div>
-      <div class="post-nav-item"></div>
-    </div>
-      </footer>
-    
-  </article>
-  
-  
-  
-
 
 
           </div>
@@ -349,7 +289,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#LTE%E8%B7%AF%E6%B5%8B"><span class="nav-number">1.</span> <span class="nav-text">LTE路测</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -363,14 +302,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">259</span>
+          <span class="site-state-item-count">260</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">15</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
