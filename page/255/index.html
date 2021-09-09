@@ -179,7 +179,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2020/09/13/shell/">
+    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2020/09/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -193,7 +193,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/13/shell/" class="post-title-link" itemprop="url">常用shell命令</a>
+            <a href="/2020/09/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="post-title-link" itemprop="url">计算机基础知识</a>
         </h2>
 
         <div class="post-meta">
@@ -203,18 +203,18 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-09-13 10:28:58" itemprop="dateCreated datePublished" datetime="2020-09-13T10:28:58+08:00">2020-09-13</time>
+              <time title="创建时间：2020-09-15 14:54:38" itemprop="dateCreated datePublished" datetime="2020-09-15T14:54:38+08:00">2020-09-15</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-10 11:24:51" itemprop="dateModified" datetime="2020-11-10T11:24:51+08:00">2020-11-10</time>
+                <time title="修改时间：2020-11-10 11:24:10" itemprop="dateModified" datetime="2020-11-10T11:24:10+08:00">2020-11-10</time>
               </span>
 
           
-            <span id="/2020/09/13/shell/" class="post-meta-item leancloud_visitors" data-flag-title="常用shell命令" title="阅读次数">
+            <span id="/2020/09/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" class="post-meta-item leancloud_visitors" data-flag-title="计算机基础知识" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -229,8 +229,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/13/shell/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/13/shell/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -245,90 +245,36 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="date"><a href="#date" class="headerlink" title="date"></a>date</h2><p>会显示当前的时间</p>
-<h2 id="echo"><a href="#echo" class="headerlink" title="echo"></a>echo</h2><p>回显，</p>
-<p><code>$echo hello</code></p>
-<p><code>hello</code></p>
-<p>如果想要显示多个单词怎么办呢</p>
-<p><code>$echo “hello wordl”</code></p>
-<p>用引号即可</p>
-<p><code>$echo hello\ world</code></p>
-<h3 id="echo-PATH"><a href="#echo-PATH" class="headerlink" title="echo $PATH"></a>echo $PATH</h3><p>显示出命令执行的路径。shell是一个编程环境，就像python一样。那么shell在执行echo或者date程序时，它就要找到程序的位置，就会询问环境变量，包含在$PATH中</p>
-<h3 id="which-echo"><a href="#which-echo" class="headerlink" title="which echo"></a>which echo</h3><p>显示执行echo命令的路径</p>
-<h2 id="pwd"><a href="#pwd" class="headerlink" title="pwd"></a>pwd</h2><p>print working directory打印当前工作路径</p>
-<h2 id="cd"><a href="#cd" class="headerlink" title="cd"></a>cd</h2><p>change directory 改变工作路径</p>
-<h3 id><a href="#" class="headerlink" title="."></a>.</h3><p>当前路径</p>
-<h3 id="-1"><a href="#-1" class="headerlink" title=".."></a>..</h3><p>当前路径的父目录</p>
-<p>绝对路径，相对路径</p>
-<h3 id="-2"><a href="#-2" class="headerlink" title="~"></a>~</h3><p>回到用户目录</p>
-<h3 id="-3"><a href="#-3" class="headerlink" title="-"></a>-</h3><p>回到上一个路径</p>
-<h2 id="ls"><a href="#ls" class="headerlink" title="ls"></a>ls</h2><h3 id="ls-l"><a href="#ls-l" class="headerlink" title="ls -l"></a>ls -l</h3><p>drwxr-xr-x</p>
-<p>第一个字母如果是d，表示是一个目录，如果是-，表示是一个文件</p>
-<p>第一个字母表示文件类型</p>
-<p>d:目录</p>
-<p>-:普通文件</p>
-<p>l:符号链接文件</p>
-<p>b:块设备</p>
-<p>c:字符设备</p>
-<p>p:命令管道文件</p>
-<p>s:套接字文件</p>
-<p>接下来是三组，每组有三个字母</p>
-<p>r:read读权限    w:write写权限    x:excute执行权限</p>
-<p>也可以用数字表示r=4,w=2,x=1，把每一组的rwx对应的数字加起来，上面的即为755</p>
-<p>第一组表示文件拥有者权限，第二组表示同组用户权限，最后一组表示其他用户权限（不包括root）</p>
-<p>对于目录来说，为了进入目录，你需要有执行权限，为了列出目录的内容，你需要有读权限</p>
-<h2 id="mv"><a href="#mv" class="headerlink" title="mv"></a>mv</h2><p>将一个文件从一个路径移动并重命名到另一个路径下</p>
-<h2 id="cp"><a href="#cp" class="headerlink" title="cp"></a>cp</h2><p>将一个文件从一个路径拷贝并重命名到另一个路径下</p>
-<h2 id="rm"><a href="#rm" class="headerlink" title="rm"></a>rm</h2><p>移除一个文件</p>
-<p>rm只能移除当个文件，如果你想移除目录，加上-r递归移除</p>
-<h2 id="rmdir"><a href="#rmdir" class="headerlink" title="rmdir"></a>rmdir</h2><p>移除一个空目录</p>
-<h2 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir"></a>mkdir</h2><p>创建一个目录，如果目录已存在，则会报错</p>
-<p>如果想创建一个有空格的目录怎么办</p>
-<p><code>$mkdir hello world</code></p>
-<p>这样会创建两个目录</p>
-<p><code>mkdir &quot;hello world&quot;</code></p>
-<p>这样就可以了</p>
-<h2 id="man"><a href="#man" class="headerlink" title="man"></a>man</h2><p>查看某个命令的手册，按q退出</p>
-<p><code>$man ls</code></p>
-<h2 id="ctrl-L"><a href="#ctrl-L" class="headerlink" title="ctrl L"></a>ctrl L</h2><p>清空控制台</p>
-<h2 id="cat"><a href="#cat" class="headerlink" title="cat"></a>cat</h2><p>打印文件的内容</p>
-<h3 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h3><p><code>$echo hello &gt; hello.txt</code></p>
-<p>echo本来会将其输出写入到标准输出，默认情况下就是终端；使用&gt;将其输出重定向到hello.tex文件中，如果hello.txt文件不存在，则会新建一个hello.txt；如果存在hello.txt则会覆盖里面原有的内容。</p>
-<p>使用&gt;&gt;将输出以追加方式重定向到hello.txt中</p>
-<p>也有输入重定向</p>
-<p><code>$cat &lt; hello.txt</code></p>
-<p>将cat的输入重定向到hello.txt,输出为</p>
-<p><code>hello</code></p>
-<p><code>$cat &lt; hello.txt &gt; hello2.txt</code></p>
-<p>将hello.txt中的内容拷贝到hello2.txt中</p>
-<p>cat对重定向的过程一无所知</p>
-<h2 id="-4"><a href="#-4" class="headerlink" title="|"></a>|</h2><p>管道，将|左边的输出作为右边的输入</p>
-<p><code>$ls -l /</code></p>
-<p>会输出/目录下的详细信息，如果我只想要最后一行信息怎么办呢</p>
-<p><code>$tail -n1</code></p>
-<p>可以输出最后一行</p>
-<p><code>$ls -l / | tail -n1</code></p>
-<p>左边的输出作为右边的输入，则会输出最后一行</p>
-<p>ls和tail对彼此的存在毫不知情</p>
-<h2 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h2><p>用于查找文件中符合条件的字符串，如果发现某文件含有指定的字符，则会把含有字符的这一行打印出来；如果不指定任何文件名称，或者给予的文件名是-，则grep命令会从标准输入设备读取数据</p>
-<p><code>$curl --head www.baidu.com</code></p>
-<p><img src="/2020/09/13/shell/Users\dell\AppData\Roaming\Typora\typora-user-images\image-20200913150417575.png" alt="image-20200913150417575"></p>
-<p><code>curl --head www.baidu.com | grep -i content-length</code></p>
-<p><img src="/2020/09/13/shell/Users\dell\AppData\Roaming\Typora\typora-user-images\image-20200913150514334.png" alt="image-20200913150514334"></p>
-<h2 id="tee"><a href="#tee" class="headerlink" title="tee"></a>tee</h2><p>从标准输入设备读取数据，将其内容输出到标准输出设备，同时保存到文件，</p>
-<h2 id="chmod"><a href="#chmod" class="headerlink" title="chmod"></a>chmod</h2><p>change mode,修改用户对文件的权限</p>
-<p>只有文件所有者和root用户可以修改权限</p>
-<p>chmod mode file</p>
-<p>mode：</p>
-<p>[ugoa] [+-=] [rwx]</p>
-<p>u表示该文件拥有者，g表示与该文件的拥有者属于同一个群组的用户，o表示其他用户，a表示所有用户</p>
-<p>+表示增加权限，-表示取消权限，=表示唯一设定权限</p>
-<p>r表示可读取，w表示可写入，x表示可执行</p>
-<p><code>chomd u+x foo.bar</code></p>
-<p><code>chmod ug+w, o-w foo.bar</code></p>
-<p>此外chmod也可以用数字来表示权限</p>
-<p><code>chmod 777 foo.bar</code></p>
-
+          <p>字：计算机一次存取、加工、传送的数据长度称为字</p>
+<p>字长：计算机每个字所包含的位数称为字长</p>
+<h2 id="ROM"><a href="#ROM" class="headerlink" title="ROM"></a>ROM</h2><p>掩膜只读存储器（Mask ROM）：掉电后依然存在，可靠性高。缺点是信息只能一次写入（在制造的过程中），不灵活</p>
+<p>可编程只读存储器（PROM）：允许用户通过专用的色号被一次性写入自己所需要的东西，一般只可编程一次</p>
+<p>可编程可擦除只读存储器（EPROM）：可读可写，用紫外线或脉冲电流先将原有的信息擦除，然后重新写入</p>
+<p>电可擦除可编程只读存储器（EEPROM）：随时可以写入而无需擦除原先内容</p>
+<p>快擦除读写存储器（Flash）：闪存，广泛用于制作各种移动存储器，如U盘以及存储卡</p>
+<p>严格意义上：机械硬盘不属于ROM</p>
+<p>固态硬盘和U盘属于ROM</p>
+<h2 id="RAM"><a href="#RAM" class="headerlink" title="RAM"></a>RAM</h2><p>SRAM：静态随机存储器，利用双稳态触发器来存储信息，即使信息被读出后，它仍保持其原状态而不需要再生（非破坏性读出）。SRAM存取速度快，但是集成度低，功耗大，价格昂贵（价格是DRAM的几十倍），一般用来组成高速缓冲存储器。</p>
+<p>DRAM：动态随机存储器是利用存储元电路中的栅极电容上的电荷来存储信息的，电容上的电荷一般只能维持1-2ms，即使电源不断电，信息也会自动消失，因此每隔一段时间需要刷新。</p>
+<p>打开任务管理器即可看到L1、L2、L3缓存</p>
+<h2 id="机械硬盘"><a href="#机械硬盘" class="headerlink" title="机械硬盘"></a>机械硬盘</h2><p>HDD，数据通过离磁性表面很近的磁头由电磁流来改变极性的方式被写入到磁盘上</p>
+<p>接口：一种是IDE，一种是SATA，现在大多数都是SATA</p>
+<p>固态硬盘接口：市面上销售的大多是m.2接口和sata接口</p>
+<h2 id="BIOS"><a href="#BIOS" class="headerlink" title="BIOS"></a>BIOS</h2><p>基本输入输出系统，预安装在个人电脑的主板上，是个人电脑启动时加载的第一个软件。现在，BIOS的作用是初始化和测试<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%A1%AC%E9%AB%94">硬件</a>组件，以及从大容量存储设备（如硬盘）加载<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%95%9F%E5%8B%95%E7%A8%8B%E5%BC%8F">引导程序</a>，并由<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%95%9F%E5%8B%95%E7%A8%8B%E5%BC%8F">引导程序</a>加载操作系统。现在BIOS大多存储在flash芯片上。</p>
+<p>以前BIOS存储在CMOS中，没电信息就会丢失。</p>
+<p>CMOS中存储的内容掉电就会丢失，主板上通常有一块电池给CMOS供电。电脑关机后，过段时间再开机，发现时间依然是正确的，这就是这快电池在为时钟模块供电</p>
+<h2 id="大端法-小端法"><a href="#大端法-小端法" class="headerlink" title="大端法/小端法"></a>大端法/小端法</h2><p>假设一个int型变量x的地址为0x100,那么x的4个字节将被存储在内存的0x100,0x101,0x102,0x103的位置。</p>
+<p>字节序即为多字节对象在内存中的字节顺序</p>
+<p>大端法：</p>
+<p>最高有效字节在最前面的方式称为大端法，假设x的值为0x12345678。对于大端法的机器来说</p>
+<p>0x100:12    0x101:34    0x102:56    0x103:78</p>
+<p>小端法：</p>
+<p>0x100:78    0x101:56    0x102:34    0x103:12</p>
+<h2 id="括弧匹配"><a href="#括弧匹配" class="headerlink" title="括弧匹配"></a>括弧匹配</h2><p>1、任意前缀中，左括号数量大于右括号数量</p>
+<p>2、左右括号数量相等</p>
+<h2 id="KMP"><a href="#KMP" class="headerlink" title="KMP"></a>KMP</h2><p>next[i] :在str[1~i]中，前缀和后缀相等的最长子串的长度</p>
+<h2 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h2><p>1s可以算10的7次方到10的8次方次</p>
+<h2 id="电脑开机过程"><a href="#电脑开机过程" class="headerlink" title="电脑开机过程"></a>电脑开机过程</h2>
       
     </div>
 
@@ -346,7 +292,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/254/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/254/">254</a><span class="page-number current">255</span><a class="page-number" href="/page/256/">256</a><span class="space">&hellip;</span><a class="page-number" href="/page/260/">260</a><a class="extend next" rel="next" href="/page/256/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/254/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/254/">254</a><span class="page-number current">255</span><a class="page-number" href="/page/256/">256</a><span class="space">&hellip;</span><a class="page-number" href="/page/262/">262</a><a class="extend next" rel="next" href="/page/256/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -412,14 +358,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">260</span>
+          <span class="site-state-item-count">262</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
