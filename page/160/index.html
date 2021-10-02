@@ -179,7 +179,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2021/01/22/%E9%98%BF%E9%87%8C%E4%BA%91%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5github/">
+    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2021/01/22/pyenv%E6%8D%A2%E6%BA%90/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -193,7 +193,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/01/22/%E9%98%BF%E9%87%8C%E4%BA%91%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5github/" class="post-title-link" itemprop="url">阿里云无法连接github</a>
+            <a href="/2021/01/22/pyenv%E6%8D%A2%E6%BA%90/" class="post-title-link" itemprop="url">pyenv换源加速下载</a>
         </h2>
 
         <div class="post-meta">
@@ -204,11 +204,11 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-01-22 11:13:39 / 修改时间：12:46:59" itemprop="dateCreated datePublished" datetime="2021-01-22T11:13:39+08:00">2021-01-22</time>
+              <time title="创建时间：2021-01-22 11:45:47 / 修改时间：11:51:00" itemprop="dateCreated datePublished" datetime="2021-01-22T11:45:47+08:00">2021-01-22</time>
             </span>
 
           
-            <span id="/2021/01/22/%E9%98%BF%E9%87%8C%E4%BA%91%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5github/" class="post-meta-item leancloud_visitors" data-flag-title="阿里云无法连接github" title="阅读次数">
+            <span id="/2021/01/22/pyenv%E6%8D%A2%E6%BA%90/" class="post-meta-item leancloud_visitors" data-flag-title="pyenv换源加速下载" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -223,8 +223,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/01/22/%E9%98%BF%E9%87%8C%E4%BA%91%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5github/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/22/%E9%98%BF%E9%87%8C%E4%BA%91%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5github/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/01/22/pyenv%E6%8D%A2%E6%BA%90/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/22/pyenv%E6%8D%A2%E6%BA%90/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -239,12 +239,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>无法连接raw.github…等网站，提示443.</p>
-<p>原因是dns污染，去<a target="_blank" rel="noopener" href="https://www.ipaddress.com/">网站</a>查找你访问不了域名的ip，将ip和域名添加到你的hosts中，这样访问网站时就会优先访问本机hosts中的dns</p>
-<p>ubuntu修改hosts</p>
-<p><code>vim /etc/hosts</code></p>
-<p>将ip,域名添加进去即可</p>
-<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210122111849673.png" alt="image-20210122111849673"></p>
+          <p>安装好pyenv后执行<code>pyenv install 3.7.3</code>会发现是从python官方源下载的很慢</p>
+<p>因此我们需要换源</p>
+<p>首先从国内源下载好，放进~/.pyenv/cache中</p>
+<p>如果没有cache这个文件夹就新建一个<code>mkdir ~/.pyenv/cache</code></p>
+<p>然后执行<code>pyenv install 3.7.3</code>就可以不用下载，直接用我们下载好的进行安装了</p>
+<p>可以直接用以下命令</p>
+<p><code>v=3.7.3;wget https://npm.taobao.org/mirrors/python/$v/Python-$v.tar.xz -P ~/.pyenv/cache/;pyenv install $v</code></p>
+<p>修改v = 版本号，即可安装相应的版本</p>
+<p>v是一个变量</p>
+<p>然后从国内淘宝源下载对应的版本并放入<code>~/.pyenv/cache</code>后，</p>
+<p>执行pyenv install 3.7.3</p>
 
       
     </div>
@@ -263,7 +268,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/159/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/159/">159</a><span class="page-number current">160</span><a class="page-number" href="/page/161/">161</a><span class="space">&hellip;</span><a class="page-number" href="/page/262/">262</a><a class="extend next" rel="next" href="/page/161/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/159/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/159/">159</a><span class="page-number current">160</span><a class="page-number" href="/page/161/">161</a><span class="space">&hellip;</span><a class="page-number" href="/page/263/">263</a><a class="extend next" rel="next" href="/page/161/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -329,7 +334,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">262</span>
+          <span class="site-state-item-count">263</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

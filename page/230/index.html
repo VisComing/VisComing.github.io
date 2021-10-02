@@ -179,7 +179,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2021/01/08/hot-100/22.%E6%8B%AC%E5%8F%B7%E7%94%9F%E6%88%90/">
+    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2021/01/09/hot-100/23.%E5%90%88%E5%B9%B6K%E4%B8%AA%E5%8D%87%E5%BA%8F%E9%93%BE%E8%A1%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -193,7 +193,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/01/08/hot-100/22.%E6%8B%AC%E5%8F%B7%E7%94%9F%E6%88%90/" class="post-title-link" itemprop="url">22. 括号生成</a>
+            <a href="/2021/01/09/hot-100/23.%E5%90%88%E5%B9%B6K%E4%B8%AA%E5%8D%87%E5%BA%8F%E9%93%BE%E8%A1%A8/" class="post-title-link" itemprop="url">23. 合并K个升序链表</a>
         </h2>
 
         <div class="post-meta">
@@ -204,7 +204,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-01-08 22:56:31 / 修改时间：23:03:47" itemprop="dateCreated datePublished" datetime="2021-01-08T22:56:31+08:00">2021-01-08</time>
+              <time title="创建时间：2021-01-09 12:42:24 / 修改时间：12:49:59" itemprop="dateCreated datePublished" datetime="2021-01-09T12:42:24+08:00">2021-01-09</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -217,7 +217,7 @@
             </span>
 
           
-            <span id="/2021/01/08/hot-100/22.%E6%8B%AC%E5%8F%B7%E7%94%9F%E6%88%90/" class="post-meta-item leancloud_visitors" data-flag-title="22. 括号生成" title="阅读次数">
+            <span id="/2021/01/09/hot-100/23.%E5%90%88%E5%B9%B6K%E4%B8%AA%E5%8D%87%E5%BA%8F%E9%93%BE%E8%A1%A8/" class="post-meta-item leancloud_visitors" data-flag-title="23. 合并K个升序链表" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -232,8 +232,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/01/08/hot-100/22.%E6%8B%AC%E5%8F%B7%E7%94%9F%E6%88%90/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/08/hot-100/22.%E6%8B%AC%E5%8F%B7%E7%94%9F%E6%88%90/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/01/09/hot-100/23.%E5%90%88%E5%B9%B6K%E4%B8%AA%E5%8D%87%E5%BA%8F%E9%93%BE%E8%A1%A8/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/09/hot-100/23.%E5%90%88%E5%B9%B6K%E4%B8%AA%E5%8D%87%E5%BA%8F%E9%93%BE%E8%A1%A8/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -248,9 +248,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>本题较为简单</p>
-<p>如何判断一个括号序列是否合法呢？首先，对于任一前缀，左括号的数量都要大于等于右括号的数量；其次，左右括号数量相等。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; res;</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; <span class="title">generateParenthesis</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        dfs(<span class="number">0</span>, <span class="number">0</span>, <span class="string">&quot;&quot;</span>, n);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//表示左括号数量，右括号数量，路径，括号总对数</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r , <span class="built_in">string</span> path, <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(l == r &amp;&amp; r == n) res.push_back(path);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(l &lt; n) dfs(l + <span class="number">1</span>, r, path + <span class="string">&#x27;(&#x27;</span>, n);</span><br><span class="line">            <span class="keyword">if</span>(r &lt; l &amp;&amp; r &lt; n) dfs(l, r + <span class="number">1</span>, path + <span class="string">&#x27;)&#x27;</span>, n);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+          <p>对于这k个链表，找到这k个节点中最小的一个节点，插入到我们的结果链表中，然后把被选中链表的头节点向后移动一位。</p>
+<p>我们可以用堆来维护k个节点中最小的节点。</p>
+<p>首先将这k个链表头节点插入最小堆中，然后取出堆顶，把堆顶节点插入到我们的结果链表，然后将刚取出节点的下一个节点插入堆中，直到堆为空为止。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode() : val(0), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(nullptr) &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x, ListNode *next) : val(x), next(next) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">cmp</span> &#123;</span></span><br><span class="line">        <span class="function"><span class="keyword">bool</span> <span class="title">operator</span> <span class="params">()</span> <span class="params">(ListNode* a, ListNode* b)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> a-&gt;val &gt; b-&gt;val;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeKLists</span><span class="params">(<span class="built_in">vector</span>&lt;ListNode*&gt;&amp; lists)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">auto</span> dummy = <span class="keyword">new</span> ListNode(<span class="number">-1</span>);</span><br><span class="line">        <span class="keyword">auto</span> cur = dummy;</span><br><span class="line">        <span class="comment">//注意比较函数，需要重载()</span></span><br><span class="line">        <span class="built_in">priority_queue</span>&lt;ListNode*, <span class="built_in">vector</span>&lt;ListNode*&gt;, cmp&gt; heap;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> x : lists) <span class="keyword">if</span>(x) heap.push(x);</span><br><span class="line">        <span class="keyword">while</span>(heap.size())</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">auto</span> t = heap.top();</span><br><span class="line">            heap.pop();</span><br><span class="line">            cur = cur-&gt;next = t;</span><br><span class="line">            <span class="keyword">if</span>(t-&gt;next) heap.push(t-&gt;next);  </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dummy-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -270,7 +271,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/229/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/229/">229</a><span class="page-number current">230</span><a class="page-number" href="/page/231/">231</a><span class="space">&hellip;</span><a class="page-number" href="/page/262/">262</a><a class="extend next" rel="next" href="/page/231/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/229/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/229/">229</a><span class="page-number current">230</span><a class="page-number" href="/page/231/">231</a><span class="space">&hellip;</span><a class="page-number" href="/page/263/">263</a><a class="extend next" rel="next" href="/page/231/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -336,7 +337,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">262</span>
+          <span class="site-state-item-count">263</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
