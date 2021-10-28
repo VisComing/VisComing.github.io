@@ -179,7 +179,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2021/03/14/%E5%8A%9B%E6%89%A3/69.x%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9/">
+    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2021/03/14/%E5%8A%9B%E6%89%A3/46.%E5%85%A8%E6%8E%92%E5%88%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -193,7 +193,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/03/14/%E5%8A%9B%E6%89%A3/69.x%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9/" class="post-title-link" itemprop="url">69. x 的平方根</a>
+            <a href="/2021/03/14/%E5%8A%9B%E6%89%A3/46.%E5%85%A8%E6%8E%92%E5%88%97/" class="post-title-link" itemprop="url">46. 全排列</a>
         </h2>
 
         <div class="post-meta">
@@ -204,7 +204,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2021-03-14 23:29:39 / 修改时间：23:30:46" itemprop="dateCreated datePublished" datetime="2021-03-14T23:29:39+08:00">2021-03-14</time>
+              <time title="创建时间：2021-03-14 23:44:18 / 修改时间：23:46:22" itemprop="dateCreated datePublished" datetime="2021-03-14T23:44:18+08:00">2021-03-14</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -217,7 +217,7 @@
             </span>
 
           
-            <span id="/2021/03/14/%E5%8A%9B%E6%89%A3/69.x%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9/" class="post-meta-item leancloud_visitors" data-flag-title="69. x 的平方根" title="阅读次数">
+            <span id="/2021/03/14/%E5%8A%9B%E6%89%A3/46.%E5%85%A8%E6%8E%92%E5%88%97/" class="post-meta-item leancloud_visitors" data-flag-title="46. 全排列" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -232,8 +232,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/03/14/%E5%8A%9B%E6%89%A3/69.x%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/03/14/%E5%8A%9B%E6%89%A3/69.x%E7%9A%84%E5%B9%B3%E6%96%B9%E6%A0%B9/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/03/14/%E5%8A%9B%E6%89%A3/46.%E5%85%A8%E6%8E%92%E5%88%97/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/03/14/%E5%8A%9B%E6%89%A3/46.%E5%85%A8%E6%8E%92%E5%88%97/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -248,8 +248,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>二分，注意不要用mid * mid &lt;= x,会爆int，用 mid &lt;= x / mid;</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">mySqrt</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> l = <span class="number">0</span>, r = x / <span class="number">2</span> + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(l &lt; r) &#123;</span><br><span class="line">            <span class="keyword">int</span> mid = l + r + <span class="number">1</span> &gt;&gt; <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(mid &lt;= x / mid) l = mid;</span><br><span class="line">            <span class="keyword">else</span> r = mid - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+          <p>a注意 st数组要初始化长度，path最开始传参传个{}</p>
+<p>其实可以定义成类成员变量，就可以不用传递了。</p>
+<p>vector&lt;int&gt; path</p>
+<p>构造函数中，初始化大小 path = vector&lt;int&gt;(nums.size());</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:    </span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">permute</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; res;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt; <span class="title">st</span><span class="params">(nums.size())</span></span>;</span><br><span class="line">        dfs(nums, <span class="number">0</span>, res, &#123;&#125;, st);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> u, <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; res, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; path, <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt;&amp; st)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(u == nums.size()) res.push_back(path);</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); i++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(!st[i]) &#123;</span><br><span class="line">                    st[i] = <span class="literal">true</span>;</span><br><span class="line">                    path.push_back(nums[i]);</span><br><span class="line">                    dfs(nums, u + <span class="number">1</span>, res, path, st);</span><br><span class="line">                    st[i] = <span class="literal">false</span>;</span><br><span class="line">                    path.pop_back();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -269,7 +272,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/125/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/125/">125</a><span class="page-number current">126</span><a class="page-number" href="/page/127/">127</a><span class="space">&hellip;</span><a class="page-number" href="/page/263/">263</a><a class="extend next" rel="next" href="/page/127/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/125/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/125/">125</a><span class="page-number current">126</span><a class="page-number" href="/page/127/">127</a><span class="space">&hellip;</span><a class="page-number" href="/page/264/">264</a><a class="extend next" rel="next" href="/page/127/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -335,7 +338,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">263</span>
+          <span class="site-state-item-count">264</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
