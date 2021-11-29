@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zhouruifa.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"3NGUE881LI","apiKey":"226809de1e28342bfee8f817b2b71f19","indexName":"hexoSearch","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+  </script>
+
+  <meta name="description" content="SRv6 流量工程验证实验   姓名 学号 贡献度 分工    周瑞发 2018211430 0.25 组长，负责环境搭建及ping操作过程解析   熊俊豪 2018211428 0.25 负责构建网络拓扑结构图   黄义然 2018211419 0.25 负责调研并阐述SRv6的原理细节   范镐铭 2018211423 0.25 负责解释各脚本配置语句含义   调研并阐述SRv6的原理细节SR">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SRv6 流量工程验证实验">
+<meta property="og:url" content="http://zhouruifa.top/2021/11/29/SRV6/index.html">
+<meta property="og:site_name" content="周瑞发的网站">
+<meta property="og:description" content="SRv6 流量工程验证实验   姓名 学号 贡献度 分工    周瑞发 2018211430 0.25 组长，负责环境搭建及ping操作过程解析   熊俊豪 2018211428 0.25 负责构建网络拓扑结构图   黄义然 2018211419 0.25 负责调研并阐述SRv6的原理细节   范镐铭 2018211423 0.25 负责解释各脚本配置语句含义   调研并阐述SRv6的原理细节SR">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20211128230218971.png">
+<meta property="og:image" content="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20211128230231572.png">
+<meta property="og:image" content="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/%E7%BD%91%E7%BB%9C%E6%8B%93%E6%89%91%E5%9B%BE.png">
+<meta property="og:image" content="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/12124.png">
+<meta property="og:image" content="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20211128214323032.png">
+<meta property="og:image" content="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20211128215323083.png">
+<meta property="og:image" content="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20211128214444156.png">
+<meta property="og:image" content="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20211128214729308.png">
+<meta property="og:image" content="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20211128220250614.png">
+<meta property="og:image" content="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20211128223938948.png">
+<meta property="og:image" content="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20211128224701492.png">
+<meta property="og:image" content="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/qq.png">
+<meta property="og:image" content="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20211128225829919.png">
+<meta property="article:published_time" content="2021-11-29T03:10:14.000Z">
+<meta property="article:modified_time" content="2021-11-29T03:10:42.849Z">
+<meta property="article:author" content="周瑞发">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20211128230218971.png">
+
+<link rel="canonical" href="http://zhouruifa.top/2021/11/29/SRV6/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>SRv6 流量工程验证实验 | 周瑞发的网站</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">周瑞发的网站</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">欢迎访问</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+  13 min. read
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2021/11/29/SRV6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="周瑞发">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="周瑞发的网站">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          SRv6 流量工程验证实验
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-11-29 11:10:14 / 修改时间：11:10:42" itemprop="dateCreated datePublished" datetime="2021-11-29T11:10:14+08:00">2021-11-29</time>
+            </span>
+
+          
+            <span id="/2021/11/29/SRV6/" class="post-meta-item leancloud_visitors" data-flag-title="SRv6 流量工程验证实验" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/11/29/SRV6/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/11/29/SRV6/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="SRv6-流量工程验证实验"><a href="#SRv6-流量工程验证实验" class="headerlink" title="SRv6 流量工程验证实验"></a>SRv6 流量工程验证实验</h1><table>
+<thead>
+<tr>
+<th>姓名</th>
+<th>学号</th>
+<th>贡献度</th>
+<th>分工</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>周瑞发</td>
+<td>2018211430</td>
+<td>0.25</td>
+<td>组长，负责环境搭建及ping操作过程解析</td>
+</tr>
+<tr>
+<td>熊俊豪</td>
+<td>2018211428</td>
+<td>0.25</td>
+<td>负责构建网络拓扑结构图</td>
+</tr>
+<tr>
+<td>黄义然</td>
+<td>2018211419</td>
+<td>0.25</td>
+<td>负责调研并阐述SRv6的原理细节</td>
+</tr>
+<tr>
+<td>范镐铭</td>
+<td>2018211423</td>
+<td>0.25</td>
+<td>负责解释各脚本配置语句含义</td>
+</tr>
+</tbody></table>
+<h2 id="调研并阐述SRv6的原理细节"><a href="#调研并阐述SRv6的原理细节" class="headerlink" title="调研并阐述SRv6的原理细节"></a>调研并阐述SRv6的原理细节</h2><h3 id="SRv6是如何与IPv6结合的"><a href="#SRv6是如何与IPv6结合的" class="headerlink" title="SRv6是如何与IPv6结合的"></a>SRv6是如何与IPv6结合的</h3><p>SDN技术将网络层数据平面和控制平面分离。在控制平面上，使用SR对网络进行控制；在数据平面上，使用IPv6协议进行数据的转发，从而实现了SR与IPv6的结合。</p>
+<p>IPv6报文头支持扩展，因此可通过扩展报文头的方式在报文头中增加SRv6的控制信息，从而实现了SR与IPv6的结合。 </p>
+<h3 id="SRv6相关的数据结构"><a href="#SRv6相关的数据结构" class="headerlink" title="SRv6相关的数据结构"></a>SRv6相关的数据结构</h3><h4 id="SR-Header"><a href="#SR-Header" class="headerlink" title="SR Header"></a>SR Header</h4><p>为了在IPv6报文中实现SRv6转发，引入了一个SRv6扩展头（Routing Type为4），叫Segment Routing Header（SRH），用于进行Segment的编程组合形成SRv6路径。</p>
+<p>下图为SRv6的报文格式。绿色部分-IPv6报文头；黄色部分-SRH；蓝色部分-报文内容。</p>
+<p>  <img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20211128230218971.png" alt="image-20211128230218971">                             </p>
+<p>IPv6 Next Header字段取值为43，表示后接的是IPv6路由扩展头。Routing Type = 4，表明这是SRH的路由扩展头，这个扩展头里字段解释如下：</p>
+<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20211128230231572.png" alt="image-20211128230231572"> </p>
+<p>Segment List中包含n个Segment，其中包含网络节点的信息，从而指定了一条SR路径。Segments Left（SL）的初始值为n，在转发过程中，每到达一个网络节点，Segments Left的值减1。</p>
+<h4 id="Segment-ID"><a href="#Segment-ID" class="headerlink" title="Segment ID"></a>Segment ID</h4><p>上图中的Segment List由多个Segment组成。</p>
+<p>标识SRv6 Segment的ID被称为SRv6 SID。SRv6 SID是一个128bit的值，由Locator、Function和Arguments三部分组成。</p>
+<p>Locator（位置标识）：网络中分配给一个网络节点的标识，可以用于路由和转发数据包。Locator有两个重要的属性，可路由和聚合。在SRv6 SID中Locator是一个可变长的部分，用于适配不同规模的网络。</p>
+<p>Function（功能）：设备分配给本地转发指令的一个ID值，该值可用于表达需要设备执行的转发动作，相当于计算机指令的操作码。在SRv6网络编程中，不同的转发行为由不同的功能ID来表达。一定程度上功能ID和MPLS标签类似，用于标识VPN转发实例等。</p>
+<p>Args（变量）：转发指令在执行的时候所需要的参数，这些参数可能包含流，服务或任何其他相关的可变信息。 </p>
+<h3 id="SRv6如何对流量进行控制"><a href="#SRv6如何对流量进行控制" class="headerlink" title="SRv6如何对流量进行控制"></a>SRv6如何对流量进行控制</h3><h4 id="指令集"><a href="#指令集" class="headerlink" title="指令集"></a>指令集</h4><p>每个SID与一个指令绑定，告知节点在处理SID时需要执行的动作（转发、封装、解封装）</p>
+<h4 id="SRv6转发过程"><a href="#SRv6转发过程" class="headerlink" title="SRv6转发过程"></a>SRv6转发过程</h4><p>源节点：为IP报文封装IPv6报文头和SRH，然后进行转发。其中，执行H指令动作，将SRv6路径信息封装在SRH中，指定路径中各节点的SID，并将下一节点的SID拷贝到IPv6报文头的目的地址字段。</p>
+<p>EndPoint节点：收到报文后，根据IPv6报文头中的目的地址查找本地SID表（每个SRv6节点维护一张本地SID表），若命中，则执行相应的End指令动作；然后令SL的值减1，并将SL所指示的SID拷贝到IPv6报文头的目的地址字段，并向下一跳转发。</p>
+<h2 id="给出步骤2中脚本构建的网络拓扑结构的示意图"><a href="#给出步骤2中脚本构建的网络拓扑结构的示意图" class="headerlink" title="给出步骤2中脚本构建的网络拓扑结构的示意图"></a>给出步骤2中脚本构建的网络拓扑结构的示意图</h2><p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/%E7%BD%91%E7%BB%9C%E6%8B%93%E6%89%91%E5%9B%BE.png" alt="网络拓扑图"></p>
+<h2 id="解释步骤3中各脚本中包含的配置语句的含义"><a href="#解释步骤3中各脚本中包含的配置语句的含义" class="headerlink" title="解释步骤3中各脚本中包含的配置语句的含义"></a>解释步骤3中各脚本中包含的配置语句的含义</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1.sudo python topo.py</span><br></pre></td></tr></table></figure>
+
+<p>首先启动实验拓扑</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2.ip -6 route add 2001:4b::&#x2F;64 encap seg6 mode encap segs fc00:3::bb,fc00:4::bb dev r1-eth2</span><br></pre></td></tr></table></figure>
+
+<p>在R1路由器上配置T.Encaps操作(SRv6流量工程)，将去往2001:4b::/64的数据包，封装入SRv6，并配置SRH包含的Segment列表为(逆序排列)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3.ip -6 route add fc00:1::bb&#x2F;128 encap seg6local action End.DX6 nh6 :: dev r1-eth2</span><br></pre></td></tr></table></figure>
+
+<p>同时在R1上配置针对回程数据包的End.DX6操作，让去往主机a的数据包在R1做IPv6的解封装，解出IPv4数据包后发送给主机a</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4. ip -6 route add fc00:3::bb&#x2F;128 encap seg6local action End dev r3-eth2</span><br></pre></td></tr></table></figure>
+
+<p>在R3路由器上配置End操作，以让R3在收到R1发来的数据包时，Segment Left减1，并更新IPv6 目的地址为当前Segment Left指定的Segment</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">5. ip -6 route add fc00:4::bb&#x2F;128 encap seg6local action End.DX6 nh6 :: dev r4-eth2</span><br></pre></td></tr></table></figure>
+
+<p>最后在R4路由器上配置End.DX6操作，以让R4收到数据包之后能够做IPv6解封装，并转发给指定地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">6. ip -6 route add 2001:1a::&#x2F;64 encap seg6 mode encap segs fc00:1::bb dev r4-eth2</span><br></pre></td></tr></table></figure>
+
+<p>相应地在R4上配置T.Encaps操作，对Ping回程IPv4数据包进行封装</p>
+<h2 id="解释步骤4中-ping6-操作的流量过程"><a href="#解释步骤4中-ping6-操作的流量过程" class="headerlink" title="解释步骤4中 ping6 操作的流量过程"></a>解释步骤4中 ping6 操作的流量过程</h2><h3 id="ping请求路径"><a href="#ping请求路径" class="headerlink" title="ping请求路径"></a>ping请求路径</h3><p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/12124.png" alt="12124"></p>
+<p>执行ping6后，首先会执行ND协议来获得目的IP地址的MAC地址，如下图所示</p>
+<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20211128214323032.png" alt="image-20211128214323032"></p>
+<p>获取目的MAC地址后，就会构造ICMPv6报文了，下图为主机a构造的原始的ICMPv6包，仅有一个IPv6首部。</p>
+<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20211128215323083.png" alt="image-20211128215323083"></p>
+<p>经过R1路由器时，由于R1路由器配置了SRv6，所以会将该普通的IPv6报文封装成SRv6报文，添加SRv6首部</p>
+<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20211128214444156.png" alt="image-20211128214444156">可以看到加了IPv6首部，其中首部类型是4(Segment Routing)，里面有两个Segment[<code>fc00:4::bb</code>, <code>fc00:3::bb</code>]，注意到Segments Left为1，所以该首部里面的目的地址就是<code>fc00:3::bb</code></p>
+<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20211128214729308.png" alt="image-20211128214729308"></p>
+<p>由于R2路由器没有配置SRv6，所以R2会根据IPv6报头中的目的地址进行转发，不会对IPv6的报头做出修改。</p>
+<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20211128220250614.png" alt="image-20211128220250614"></p>
+<p>在R3，R3路由器根据Segment执行End操作，将Segment Left减1，并根据Segment列表更新IPv6的目的地址，将数据包转发至下一跳R4。下图为从R3从eth3发出的包，同时也是R4从eht2接收到的包</p>
+<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20211128223938948.png" alt="image-20211128223938948"></p>
+<p>R4上收到R3发来的数据包，由于Segment Left已经被R3 更新为0，R4会根据策略执行End.DX4操作，去掉IPv6外层报头，变成了一个普通的IPv6包，转发到指定的b主机。下图为R4从下面接口发出的包，同时也是主机b接收到的包。</p>
+<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20211128224701492.png" alt="image-20211128224701492"></p>
+<h3 id="ping响应路径"><a href="#ping响应路径" class="headerlink" title="ping响应路径"></a>ping响应路径</h3><p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/qq.png" alt="qq"></p>
+<p>下面的包是主机b构造的包经由路由器R4转发后的包</p>
+<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20211128225829919.png" alt="image-20211128225829919"></p>
+<p>可以看到目的地址是<code>fc00:1::b</code></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本实验的实验环境容易搭建，实验原理需要查找一些资料才能够理解。通过开始的调研和最后抓包分析，我们对SRv6的大致原理有了一定的了解。实验进行较为顺利，没有遇到太大的麻烦，遇到的一些小问题也能通过查找资料很快的解决。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/11/29/%E9%9D%A2%E8%AF%95/%E5%AD%97%E8%8A%82%E8%B7%B3%E5%8A%A8%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87/" rel="prev" title="字节跳动面试准备">
+      <i class="fa fa-chevron-left"></i> 字节跳动面试准备
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SRv6-%E6%B5%81%E9%87%8F%E5%B7%A5%E7%A8%8B%E9%AA%8C%E8%AF%81%E5%AE%9E%E9%AA%8C"><span class="nav-number">1.</span> <span class="nav-text">SRv6 流量工程验证实验</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%83%E7%A0%94%E5%B9%B6%E9%98%90%E8%BF%B0SRv6%E7%9A%84%E5%8E%9F%E7%90%86%E7%BB%86%E8%8A%82"><span class="nav-number">1.1.</span> <span class="nav-text">调研并阐述SRv6的原理细节</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SRv6%E6%98%AF%E5%A6%82%E4%BD%95%E4%B8%8EIPv6%E7%BB%93%E5%90%88%E7%9A%84"><span class="nav-number">1.1.1.</span> <span class="nav-text">SRv6是如何与IPv6结合的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SRv6%E7%9B%B8%E5%85%B3%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="nav-number">1.1.2.</span> <span class="nav-text">SRv6相关的数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#SR-Header"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">SR Header</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Segment-ID"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">Segment ID</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SRv6%E5%A6%82%E4%BD%95%E5%AF%B9%E6%B5%81%E9%87%8F%E8%BF%9B%E8%A1%8C%E6%8E%A7%E5%88%B6"><span class="nav-number">1.1.3.</span> <span class="nav-text">SRv6如何对流量进行控制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8C%87%E4%BB%A4%E9%9B%86"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">指令集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SRv6%E8%BD%AC%E5%8F%91%E8%BF%87%E7%A8%8B"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">SRv6转发过程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%99%E5%87%BA%E6%AD%A5%E9%AA%A42%E4%B8%AD%E8%84%9A%E6%9C%AC%E6%9E%84%E5%BB%BA%E7%9A%84%E7%BD%91%E7%BB%9C%E6%8B%93%E6%89%91%E7%BB%93%E6%9E%84%E7%9A%84%E7%A4%BA%E6%84%8F%E5%9B%BE"><span class="nav-number">1.2.</span> <span class="nav-text">给出步骤2中脚本构建的网络拓扑结构的示意图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E9%87%8A%E6%AD%A5%E9%AA%A43%E4%B8%AD%E5%90%84%E8%84%9A%E6%9C%AC%E4%B8%AD%E5%8C%85%E5%90%AB%E7%9A%84%E9%85%8D%E7%BD%AE%E8%AF%AD%E5%8F%A5%E7%9A%84%E5%90%AB%E4%B9%89"><span class="nav-number">1.3.</span> <span class="nav-text">解释步骤3中各脚本中包含的配置语句的含义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E9%87%8A%E6%AD%A5%E9%AA%A44%E4%B8%AD-ping6-%E6%93%8D%E4%BD%9C%E7%9A%84%E6%B5%81%E9%87%8F%E8%BF%87%E7%A8%8B"><span class="nav-number">1.4.</span> <span class="nav-text">解释步骤4中 ping6 操作的流量过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ping%E8%AF%B7%E6%B1%82%E8%B7%AF%E5%BE%84"><span class="nav-number">1.4.1.</span> <span class="nav-text">ping请求路径</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ping%E5%93%8D%E5%BA%94%E8%B7%AF%E5%BE%84"><span class="nav-number">1.4.2.</span> <span class="nav-text">ping响应路径</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.5.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">周瑞发</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">270</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">周瑞发</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'Ytq8BzsrCa111NhWVN9J8rHG-gzGzoHsz',
+      appKey     : 'XPYBCP4RPAeMshHIS2bbs9tb',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
