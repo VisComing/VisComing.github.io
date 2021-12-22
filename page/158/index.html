@@ -179,7 +179,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2021/03/04/C++%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87/">
+    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2021/08/26/hot-100/238.%E9%99%A4%E8%87%AA%E8%BA%AB%E4%BB%A5%E5%A4%96%E6%95%B0%E7%BB%84%E7%9A%84%E4%B9%98%E7%A7%AF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -193,7 +193,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/03/04/C++%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87/" class="post-title-link" itemprop="url">未命名</a>
+            <a href="/2021/08/26/hot-100/238.%E9%99%A4%E8%87%AA%E8%BA%AB%E4%BB%A5%E5%A4%96%E6%95%B0%E7%BB%84%E7%9A%84%E4%B9%98%E7%A7%AF/" class="post-title-link" itemprop="url">238. 除自身以外数组的乘积</a>
         </h2>
 
         <div class="post-meta">
@@ -203,18 +203,27 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-03-04 17:37:47" itemprop="dateCreated datePublished" datetime="2021-03-04T17:37:47+08:00">2021-03-04</time>
+              <time title="创建时间：2021-08-26 12:26:27" itemprop="dateCreated datePublished" datetime="2021-08-26T12:26:27+08:00">2021-08-26</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-11 09:27:51" itemprop="dateModified" datetime="2021-03-11T09:27:51+08:00">2021-03-11</time>
+                <time title="修改时间：2021-01-21 12:25:52" itemprop="dateModified" datetime="2021-01-21T12:25:52+08:00">2021-01-21</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+                </span>
+            </span>
 
           
-            <span id="/2021/03/04/C++%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87/" class="post-meta-item leancloud_visitors" data-flag-title="" title="阅读次数">
+            <span id="/2021/08/26/hot-100/238.%E9%99%A4%E8%87%AA%E8%BA%AB%E4%BB%A5%E5%A4%96%E6%95%B0%E7%BB%84%E7%9A%84%E4%B9%98%E7%A7%AF/" class="post-meta-item leancloud_visitors" data-flag-title="238. 除自身以外数组的乘积" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -229,8 +238,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/03/04/C++%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/03/04/C++%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/08/26/hot-100/238.%E9%99%A4%E8%87%AA%E8%BA%AB%E4%BB%A5%E5%A4%96%E6%95%B0%E7%BB%84%E7%9A%84%E4%B9%98%E7%A7%AF/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/08/26/hot-100/238.%E9%99%A4%E8%87%AA%E8%BA%AB%E4%BB%A5%E5%A4%96%E6%95%B0%E7%BB%84%E7%9A%84%E4%B9%98%E7%A7%AF/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -245,319 +254,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="1、内存溢出和内存泄漏的区别"><a href="#1、内存溢出和内存泄漏的区别" class="headerlink" title="1、内存溢出和内存泄漏的区别"></a>1、内存溢出和内存泄漏的区别</h3><p>内存溢出 out of memory，就是内存不够用了。程序在申请内存时，没有足够的内存空间供其使用，</p>
-<p>内存泄漏是一件严重的问题，当你申请了一块内存，在使用完后却没有释放它，可能是你忘记delete了，或者你没有保存空间的地址。导致操作系统不会回收，你也无法使用的局面。内存泄漏有时难以察觉，记得老师上课讲过例子，当时他们团队开发的项目运行几个星期就死机了，得重启一次，大概率是碰到了内存泄漏。然后内存泄漏又难以调试，不知道哪里出了问题，这也是c++的难点之一，程序员需要自己管理内存，但很容易出现问题。所以c++11推出了智能指针，用来减少内存泄漏的问题。</p>
-<p>我在做项目时也遇到过一次内存泄露的问题。当时是使用sqlite，调用了sqlite3_get_table函数，该函数用来获得查询的内容。后来发现内存每分钟都在增加，我知道是内存泄漏但不知道在哪，找了很长时间。后来才知道原来在sqlite3_get_table函数内部使用malloc分配空间了，我需要调用sqlite3_free_table()才能释放掉这块内存。现在也有检查内存泄漏的工具，方便程序员调试。</p>
-<p>一但内存泄漏到一定程度，系统内存就小到无法执行程序了，导致内存溢出，程序崩溃。</p>
-<h2 id="2、进程与线程的区别"><a href="#2、进程与线程的区别" class="headerlink" title="2、进程与线程的区别"></a>2、进程与线程的区别</h2><p>进程是资源分配的最小单位，线程是CPU调度的最小单位</p>
-<p>进程：正在执行中的程序</p>
-<p>进程像一列火车，线程则是车厢，一个线程只能属于一个进程，而一个进程可以有多个线程</p>
-<p>线程之间实现共享资源非常方便，但是进程间通信就比较麻烦了。</p>
-<p>进程有独立的地址空间，线程没有，线程只包含一个堆栈和寄存器等</p>
-<p>两个线程能否修改对方的堆栈呢，虽然我们没有这样做的意义，但是实际上是可以的，只要传递一个指向堆栈变量的指针。</p>
-<h3 id="3、进程间通信IPC-Interprocess-communication"><a href="#3、进程间通信IPC-Interprocess-communication" class="headerlink" title="3、进程间通信IPC Interprocess communication"></a>3、进程间通信IPC Interprocess communication</h3><p>管道：半双工通信方法，数据只能单方向流动</p>
-<p>消息队列：比管道更加高级，可以传递一个数据块，每个数据块都含有类型</p>
-<p>共享内存：开辟一段能够被其他进程访问的内存。由一个进程创建，多个进程可以访问。我以前做过共享内存的实验，在linux系统中，使用了一些系统调用。</p>
-<h3 id="4、自旋锁（spinlock）"><a href="#4、自旋锁（spinlock）" class="headerlink" title="4、自旋锁（spinlock）"></a>4、自旋锁（spinlock）</h3><p>一个线程想要获得锁，但该锁被其他线程占有，那么该线程会循环等待，不断的判断是否能成功获得锁，直到获得锁才退出循环。该进程在不断的判断是否能获得锁，却没有进行任何有效的任务，这种现象称为忙等待</p>
-<h3 id="5、递归和迭代有啥区别"><a href="#5、递归和迭代有啥区别" class="headerlink" title="5、递归和迭代有啥区别"></a>5、递归和迭代有啥区别</h3><p>递归：函数自己调用自己，每次调用会增加一层栈帧，每次函数返回会减少一层栈帧。栈的大小是有限的，一般为8MB左右，在linux下是可以修改的。</p>
-<p>尾递归：如果一个函数中所有递归形式的调用都出现在函数的末尾。普通递归会不断创建栈帧然后收缩，尾递归只占用恒定的内存（与迭代一致）。c语言是会对尾递归做优化的（编译器处理生成中间代码时，会进行优化），也就是只有一层栈帧。但java，python并不进行优化</p>
-<p>迭代：将输入作为输出，再次进行处理 for(int i = 0; i &lt; 100; i++) n = f(n);</p>
-<h3 id="6、什么是阻塞"><a href="#6、什么是阻塞" class="headerlink" title="6、什么是阻塞"></a>6、什么是阻塞</h3><p>打电话一直等到有人接为止</p>
-<p>以前用写项目用到socket，socket默认是阻塞的，也就是程序会一直卡在这里直到收到消息。当时我们为了不使程序卡住，就采用了非阻塞的socket，当调用receive函数时，如果缓冲区里面没有东西的话立刻返回，这样程序就不会卡住了。</p>
-<h3 id="7、vector对象是如何增长的"><a href="#7、vector对象是如何增长的" class="headerlink" title="7、vector对象是如何增长的"></a>7、vector对象是如何增长的</h3><p>为了支持快速随机访问，vector将元素连续存储。当我们想要插入一个新的元素是，vector如果只是简单的为我们开辟一个元素大小的空间，那么性能就会非常差，我们知道分配一次内存是及其消耗时间的。</p>
-<p>vector的扩容机制不同编译器实现不一样，常用的有2倍和1.5倍。实际效率较高</p>
-<p>注意、分配内存是重新分配所有内存，比如之前内存为1M， 那么要分配的内存为2M，然后将1M的数据移动过来</p>
-<p>使用2倍（k=2）扩容机制扩容时，每次扩容后的新内存大小必定大于前面的总和，之前的内存不可能被使用</p>
-<p>如果前面分配的内存是连续分配的，由于新内存的大小要大于前面分配内存之和，所以无法使用之前的内存了</p>
-<p>而使用1.5倍（k=1.5)扩容时，在几次扩展以后，可以重用之前的内存空间了。</p>
-<p>1    1.5    2.25 假设内存是连续分配的，那么2.25就可以实现内存的重用 </p>
-<h3 id="8、内联函数"><a href="#8、内联函数" class="headerlink" title="8、内联函数"></a>8、内联函数</h3><p>为了解决一些频繁调用的<strong>小函数</strong>大量消耗栈内存的问题，特别的引入了 <strong>inline</strong> 修饰符，表示为内联函数。</p>
-<p>栈空间就是指放置程序的局部数据（也就是函数内数据）的内存空间。</p>
-<p>inline只是函数对编译器的一个建议，编译器并不一定认为它是内联函数</p>
-<p>定义在类中的成员函数默认是内联的</p>
-<p>关键字 <strong>inline</strong> 必须与函数定义体放在一起才能使函数成为内联，仅将 <strong>inline</strong> 放在函数声明前面不起任何作用。是一种由于实现（函数实现，而非函数声明）的关键字</p>
-<h3 id="9、new和malloc的区别"><a href="#9、new和malloc的区别" class="headerlink" title="9、new和malloc的区别"></a>9、new和malloc的区别</h3><p>new/delete是c++的关键字，malloc/free是库函数</p>
-<p>使用new时无须指明内存块的大小，编译器会根据类型自动推断，malloc需要显示指明所需内存的大小</p>
-<p>new操作符内存分配成功时，返回的是对象类型的指针，无需进行类型转换。而malloc返回的是void*，需要通过强制类型转换将void*转换为我们需要的类型</p>
-<p>new分配失败时，会抛出bad_alloc异常。malloc分配失败时返回NULL</p>
-<p>对于自定义类型，new会先调用operator new函数，申请足够的内存（通常底层通过malloc实现），然后调用类型的构造函数，初始化成员变量，最后返回该类型的指针。delete先调用析构函数，然后调用operator delete函数释放内存（通常底层使用free实现）。malloc/free是库函数，只能动态的申请和释放内存，无法要求其做自定义类型的对象构造和析构方法。</p>
-<p>new在自由存储区上分配内存</p>
-<p>每个编译器实现的new/delete可能不一样。delete关键字编译时会被分为两步：调用析构函数、调用operator delete。析构函数不会释放内存！operator delete才会。</p>
-<p>new不是运算符，operator new可以重载</p>
-<p>new/delete底层一般是用malloc/free实现的</p>
-<h3 id="10、析构函数"><a href="#10、析构函数" class="headerlink" title="10、析构函数"></a>10、析构函数</h3><p>析构函数不负责释放自己（析构函数不会释放当前对象所在的内存，但是需要释放成员变量申请的内存）</p>
-<h3 id="11、悬垂指针"><a href="#11、悬垂指针" class="headerlink" title="11、悬垂指针"></a>11、悬垂指针</h3><p>当从内存中删除一个对象或者一个函数返回时，指针的值并没有改变，依然指向先前内存的位置</p>
-<h3 id="12、野指针"><a href="#12、野指针" class="headerlink" title="12、野指针"></a>12、野指针</h3><p>野指针：访问一个已销毁或者访问受限的内存区域的指针，野指针不能判断是否为NULL来避免<br>垂悬指针：指针正常初始化，曾指向一个对象，该对象被销毁了，但是指针未制空，那么就成了悬空指针。</p>
-<p>产生原因：定义时为初始化，指针操作引起越界</p>
-<h3 id="13、段错误"><a href="#13、段错误" class="headerlink" title="13、段错误"></a>13、段错误</h3><p>当程序试图访问不允许访问的内存位置，或试图以不允许的方式访问内存位置（例如尝试写入只读位置，或覆盖部分操作系统）时会发生段错误。</p>
-<p>访问受系统保护的内存地址</p>
-<p>写入只读的内存地址</p>
-<p>数组越界</p>
-<p>堆栈溢出</p>
-<h3 id="14、逻辑运算符优先级"><a href="#14、逻辑运算符优先级" class="headerlink" title="14、逻辑运算符优先级"></a>14、逻辑运算符优先级</h3><p>! &gt; || &gt; &amp;&amp;</p>
-<p>false || ture &amp;&amp; true结果为true</p>
-<h3 id="15、C-三大特性"><a href="#15、C-三大特性" class="headerlink" title="15、C++三大特性"></a>15、C++三大特性</h3><p>1、封装。隐藏对象的属性和实现细节，只对外部提供接口和方法。</p>
-<p>2、继承：一个对象直接使用另一个对象的属性和方法</p>
-<p>​    优点：减少重复代码。继承是多态的前提。</p>
-<p>3、多态：一个接口，多种方法。使用同一个接口，但是效果不同</p>
-<p>​    动态多态：程序运行时才能确定链接哪一个函数，通过虚函数实现。基类存在一些接口，要求子类重写这些接口。通过基类指针调用虚函数，实际上会调用子类重写的虚函数（基类指针指向子类）</p>
-<p>比如 Base * b;   Child a()； b = &a;</p>
-<p>虚函数是在基类中使用关键字virtual声明的函数。在派生类中重新定义基类的虚函数时，会告诉编译器不要静态链接到该函数。</p>
-<p>要实现多态必须  1、继承  2、子类重写父类方法  3、父类引用子类对象</p>
-<h3 id="16、重载与重写"><a href="#16、重载与重写" class="headerlink" title="16、重载与重写"></a>16、重载与重写</h3><p>重载(overload)：写一个与已有函数同名但参数表不同的函数</p>
-<p>重写(override)：虚函数在派生类中被改写</p>
-<h3 id="17、析构函数"><a href="#17、析构函数" class="headerlink" title="17、析构函数"></a>17、析构函数</h3><p>名字与类名相同，但是要在前面添加~，没有参数和返回值。</p>
-<p>一个类有且仅有一个析构函数。如果定义类是没有定义析构函数，编译器会自动生成默认析构函数</p>
-<p>析构函数在对象消亡时被自动调用。所以可以定义析构函数在对象消亡前完成善后工作。比如用new分配了内存，那么就可以在析构函数中统一delete。</p>
-<h3 id="18、C-内存分布"><a href="#18、C-内存分布" class="headerlink" title="18、C++内存分布"></a>18、C++内存分布</h3><p>栈区</p>
-<p>堆区</p>
-<p>全局/静态区</p>
-<p>文字常量区</p>
-<p>程序代码区</p>
-<p>1、栈内存  ：  由编译器自动分配释放，存储函数的参数值，局部变量值等。程序员无法控制</p>
-<p>const局部变量也存储在栈区，栈区向地址减小的方向增长</p>
-<p>2、堆内存：程序员向操作系统申请一片内存，应该是由操作系统决定分配策略（首次适应，最差适应）。</p>
-<p>3、全局/静态区：全局变量和静态变量是存储在一起的，在程序编译时分配</p>
-<p>4、文字常量区：存储常量字符串</p>
-<p>5、程序代码区：存储函数体的二进制代码</p>
-<h3 id="19、map和unordered-map优点和缺点"><a href="#19、map和unordered-map优点和缺点" class="headerlink" title="19、map和unordered_map优点和缺点"></a>19、map和unordered_map优点和缺点</h3><p>map：底层是基于红黑树实现的。有序性，是map最大的优点</p>
-<p>map的查加、删除等一系列操作时间复杂度稳定 都为logn</p>
-<p>缺点：查找、删除速度较慢、map占用空间较大</p>
-<p>unordered_map：底层是哈希表</p>
-<p>查找效率很高，可达O(1)</p>
-<p>哈希表的建立比较费时，数据无序</p>
-<p>对于查找问题，unordered_map会更加高效一些</p>
-<h3 id="20、迭代器"><a href="#20、迭代器" class="headerlink" title="20、迭代器"></a>20、迭代器</h3><p>要访问顺序容器和关联容器中的元素，需要通过迭代器iterator进行。</p>
-<p>正向迭代器 vector&lt;int&gt; ::iterator iter;</p>
-<p>正向常量迭代器vector&lt;int&gt; ::const_iterator iter;</p>
-<p>反向迭代器 vector&lt;int&gt; ::const_reverse_iterator iter;</p>
-<p>迭代器不是指针，是类模板，表现的像指针。通过重载了指针的一些操作符 -&gt;  *  ++   –等封装成了指针，是一个可以遍历stl容器内全部元素或部分元素的对象。</p>
-<p>迭代器返回的是对象引用而不是对象的值</p>
-<h3 id="21、构造函数"><a href="#21、构造函数" class="headerlink" title="21、构造函数"></a>21、构造函数</h3><p>类的构造函数是一种特殊的成员函数，它会在每次创建类的新对象时被执行</p>
-<p>名称与类名完全相同，不会返回任何类型</p>
-<p>构造函数不能不能被声明为const的</p>
-<p>如果定义变量时没有指定初值，则变量被默认初始化，它的值由定义的位置决定。定义在任何函数体之外的变量被初始化为0.一种例外情况是，定义在函数体内部的内置类型（int, long char, short等基本类型）将不被初始化。一个未被初始化的内置类型变量的值是未定义的。</p>
-<p>Student(string &amp; s) : bookNo(s) {  }，该列表不限定初始化的具体执行顺序</p>
-<p><strong>成员初始化的顺序与它们在类定义中的出现顺序一致</strong>。</p>
-<p>构造函数初始值列表，如果某个数据成员被忽略时，那么它将隐式初始化（默认初始化）</p>
-<p>如果没有定义构造函数，类会通过默认构造函数进行初始化。又叫合成的默认构造函数</p>
-<h3 id="22、指针和引用的区别"><a href="#22、指针和引用的区别" class="headerlink" title="22、指针和引用的区别"></a>22、指针和引用的区别</h3><p>指针是一个变量，只不过这个变量存的是一个地址</p>
-<p>引用是别名（绰号），对引用的任何操作都是对被引用对象的操作，既不是拷贝，也不是指针，而是源对象自己。引用没有空间</p>
-<p>引用定义时必须初始化，引用不能为空</p>
-<p>sizeof(引用)计算的是原对象的大小，size(指针)计算的是指针本身的大小</p>
-<h3 id="23、指针的大小"><a href="#23、指针的大小" class="headerlink" title="23、指针的大小"></a>23、指针的大小</h3><ol>
-<li><p>cpu位数（32位数4字节，64位数8字节）</p>
-</li>
-<li><p>操作系统位数（32位数4字节，64位数8字节）</p>
-</li>
-<li><p>编译器的位数（32位数4字节，64位数8字节）</p>
-<p> 当上述三种位数不同时，取最小的位数</p>
-</li>
-</ol>
-<h3 id="24、数组指针"><a href="#24、数组指针" class="headerlink" title="24、数组指针"></a>24、数组指针</h3><p>指向数组的指针</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a[<span class="number">4</span>][<span class="number">5</span>];</span><br><span class="line"><span class="keyword">int</span> (*p)[<span class="number">5</span>] = a;</span><br></pre></td></tr></table></figure>
+          <p>前后缀分解</p>
+<p>对应数组中下标为i的元素，我们找出前i - 1个数的乘积（前缀）；找出从i + 1到数组末尾的乘积（后缀）。</p>
+<p>某个数的前后缀的乘积就是除自身外数组的乘积</p>
+<p>我们可以开两个数组来维护前缀乘积和后缀乘积</p>
+<p>但题目要求最多只能开一个数组</p>
+<p>我们可以先维护好前缀乘积，然后在遍历的过程中维护后缀乘积</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">productExceptSelf</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">res</span><span class="params">(nums.size())</span></span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.size(); i++) &#123;</span><br><span class="line">            <span class="keyword">if</span>(i == <span class="number">0</span>) res[i] = nums[<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">else</span> res[i] = res[i - <span class="number">1</span>] * nums[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> p = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = nums.size() - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">            <span class="keyword">if</span>(i == <span class="number">0</span>) res[i] = p;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                res[i] = res[i - <span class="number">1</span>] * p;</span><br><span class="line">                p *= nums[i]; </span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<p>p是一个指针变量，它指向包含5个int元素的一维数组，此时p的增量以它所指向的一维数组长度为单位。</p>
-<p>a[1]表示第二行数组的首地址</p>
-<p>*(p+1)表示a[1][0]的地址</p>
-<p>*(p+2) + 3表示a[2][3]的地址</p>
-<p>*（*(p+2) + 3）表示a[2][3]的值</p>
-<h3 id="25、gets"><a href="#25、gets" class="headerlink" title="25、gets"></a>25、gets</h3><p>gets函数是读取字符串，以回车键结束</p>
-<p>fgets是读取一行字符，以换行符结束</p>
-<p>getc读入一个字符</p>
-<p>fgetc读入一个字符，读取一个字节后光标位置后移一位</p>
-<p>带f的是通过函数实现的，不带f的是通过宏定义实现的</p>
-<h3 id="26、-o是八进制"><a href="#26、-o是八进制" class="headerlink" title="26、%o是八进制"></a>26、%o是八进制</h3><h3 id="27、转义字符"><a href="#27、转义字符" class="headerlink" title="27、转义字符"></a>27、转义字符</h3><p>转义字符以<code>\</code>或者<code>\x</code>开头，以<code>\</code>开头表示后跟八进制形式的编码值，以<code>\x</code>开头表示后跟十六进制形式的编码值。对于转义字符来说，只能使用八进制或者十六进制。</p>
-<p>\0到\31是控制字符，负责控制不输出</p>
-<p>\32到\127是打印字符，\开头以八进制匹配，\x以十六进制匹配</p>
-<h3 id="28、set底层实现方式"><a href="#28、set底层实现方式" class="headerlink" title="28、set底层实现方式"></a>28、set底层实现方式</h3><p>红黑树，不像map那样是key-value对，set的key和value是相同的</p>
-<h3 id="29、vector怎么实现的"><a href="#29、vector怎么实现的" class="headerlink" title="29、vector怎么实现的"></a>29、vector怎么实现的</h3><p>vector通过一个连续的数组存放元素，如果集合已满，在新增数据的时候，就要分配一块更大的内存，将原来的数据复制过来，释放之前的内存。</p>
-<h3 id="30、虚函数实现"><a href="#30、虚函数实现" class="headerlink" title="30、虚函数实现"></a>30、虚函数实现</h3><p>C++中的虚函数的作用主要是实现了多态的机制。关于多态，简而言之就是用父类型别的指针指向其子类的实例，然后通过父类的指针调用实际子类的成员函数。这种技术可以让父类的指针有多种形态。</p>
-<h3 id="31、delete和delete-的区别"><a href="#31、delete和delete-的区别" class="headerlink" title="31、delete和delete[]的区别"></a>31、delete和delete[]的区别</h3><p>使用new申请的内存，释放时用delete，使用new[]申请的内存，释放用delete[]</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> *a = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br><span class="line"><span class="keyword">delete</span> a;</span><br><span class="line"><span class="keyword">delete</span> [] a;</span><br></pre></td></tr></table></figure>
-
-<p>很多人认为方法一会造成内存泄漏，然而事实是不会。针对简单的数据结构，方法一和方法二均可正常工作。因为基本的数据类型对象没有析构函数，并且new在分配内存时会记录分配的空间大小，而delete是能正确释放内存，无须调用析构函数释放其余指针，两种方式均可。</p>
-<p><strong>自定义数据类型</strong>，这里一般指类。假设通过new申请了一个<strong>对象数组</strong>，返回一个指针。那么当释放此对象数组的内存时，需要做两件事：一是释放最初申请的那部分空间，二是调用析构函数完成清理工作。对于第一件事，由于new记录了申请时的大小，用delete和delete[]都可以将其正确释放。但是对于第二件事，当使用delete时，只会调用对象数组中的第一个对象的析构函数，而使用delete[]的话，则会逐个调用析构函数。</p>
-<h3 id="32、vector和list的区别"><a href="#32、vector和list的区别" class="headerlink" title="32、vector和list的区别"></a>32、vector和list的区别</h3><p>list容器的工能和数据结构中的双向链表极为相似</p>
-<p>list允许快速的插入和删除，但是随机存取的效率很低，O(n)</p>
-<p>vector和数组类似，有一段连续的存储空间，因此可以高效随机访问。但是由于其内存空间是连续的，所以在进行插入和删除操作时，复杂度为O(n)。另外，当数组内存空间不够时，需要再申请一块空间，然后将原来空间的数组复制过来。</p>
-<h3 id="33、class与struct的区别"><a href="#33、class与struct的区别" class="headerlink" title="33、class与struct的区别"></a>33、class与struct的区别</h3><p>成员的默认访问权限：class默认是private，struct默认是public</p>
-<p>默认继承权限：如果不指定，来自class的继承按照private继承处理，来自struct的继承按照public继承处理</p>
-<p>C++中，class和struct功能基本一致。</p>
-<h3 id="34、拷贝构造函数"><a href="#34、拷贝构造函数" class="headerlink" title="34、拷贝构造函数"></a>34、拷贝构造函数</h3><p>一种特殊的构造函数，它在创建对象时，是使用同一类中之前创建的对象来初始化新创建的对象。</p>
-<p>通常用于：通过使用另一个同类型的对象来初始化新对象的对象/复制对象把它作为参数传递给函数/复制对象，并从函数返回这个对象。</p>
-<h3 id="35、继承的目的"><a href="#35、继承的目的" class="headerlink" title="35、继承的目的"></a>35、继承的目的</h3><p>实现代码重用，最大程度利用原有的代码，具有普遍性的方法继承下来，减少代码量</p>
-<p>派生的目的：当新的问题出现时，原有程序不能完全解决，需要对原有程序程序进行改造</p>
-<p>class   派生类名  ：  继承方式  基类名 {</p>
-<p>​    成员声明；</p>
-<p>}</p>
-<p>calss D : public B</p>
-<p>公有继承，是一个  is-a关系，每一个类型为D的对象都是一个类型为B的对象</p>
-<p>每一个学生都是一个人</p>
-<p>公有继承都可以用是一个关系去描述</p>
-<p>但是是一个关系都能用公有继承去建模</p>
-<p>是一个关系不等于公有继承</p>
-<h3 id="36、复合关系"><a href="#36、复合关系" class="headerlink" title="36、复合关系"></a>36、复合关系</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">calss Person &#123;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">string</span> name;</span><br><span class="line">    ...</span><br><span class="line">    PhoneNumber mobileNuber;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>has a关系</p>
-<p>person和phonenumber是有一个的关系</p>
-<p>is implemented in terms of 根据某物实现</p>
-<p>要实现一个集合，已经实现了一个链表</p>
-<p>calss Set : public List{}  ?这样合适吗？不合适，链表不应该被集合继承</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class Set &#123;</span><br><span class="line">private:</span><br><span class="line">	list items;&#x2F;&#x2F;根据链表来实现集合</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>三种关系</p>
-<p>公有继承是是一个关系</p>
-<p>是一个关系不一定能用公有继承来建模</p>
-<p>复合关系：有一个关系，根据某物实现</p>
-<h3 id="37、私有继承"><a href="#37、私有继承" class="headerlink" title="37、私有继承"></a>37、私有继承</h3><p>私有继承绝对不是是一个关系</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">class A : private B&#123;&#125;</span><br></pre></td></tr></table></figure>
-
-<p>编译器不会将派生类自动转换成基类</p>
-<p>通过私有继承，基类中的<strong>所有属性</strong>在派生类中都变成了私有属性</p>
-<p>用下面的复合关系来替代</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class A &#123;</span><br><span class="line">private: </span><br><span class="line">	B b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>在绝大多数情况下，上下的代码一样</p>
-<p>私有继承仅仅是一种实现技术，在软件设计层面上是没有意义的</p>
-<p>使用根据某物实现的关系替代私有继承</p>
-<p>不要使用私有继承</p>
-<p>没有人能弄懂保护继承，忘记它</p>
-<p>私有继承相当于根据某物实现的关系，不建议使用，使用复合关系替代</p>
-<p>保护继承：忘了它吧</p>
-<p>派生类可以继承成员函数的接口和实现</p>
-<p>虚函数、非虚函数、纯虚函数</p>
-<p>有纯虚函数的类不能实例化对象</p>
-<p>声明纯虚函数的目的：使派生类仅仅继承函数的接口</p>
-<p>虚函数的目的：使派生类继承函数的接口和缺省实现</p>
-<p>非虚函数的目的：使派生类继承函数的接口和强制性实现</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> &#123;</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">mf2</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">D</span> :</span> <span class="keyword">public</span> B &#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">mf2</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>编译没有错误，只是有一个警告</p>
-<p>D x</p>
-<p>B *pB = &amp;x</p>
-<p>pB-&gt;mf2()会调用B的mf2函数</p>
-<p>D *pD = &amp;x</p>
-<p>pD-&gt;mf2()会调用D的mf2函数</p>
-<p>同一个对象，不同的指针指向它，行为却不同，一种类似精神分类的症状</p>
-<p>所以不许重新定义非虚函数</p>
-<h3 id="38、多态"><a href="#38、多态" class="headerlink" title="38、多态"></a>38、多态</h3><p>调用同一个函数/方法，不同的对象会产生不同的行为</p>
-<p>多态四种实现方式</p>
-<p>表面的实现方式</p>
-<p>​    强制多态：通过将数据进行类型转换实现</p>
-<p>​    函数重载（只有返回值类型不同，不能构成重载，函数const属性不同属于重载）</p>
-<h3 id="39、extern"><a href="#39、extern" class="headerlink" title="39、extern"></a>39、extern</h3><p>全局变量可以为本文件中的其他函数所共用，它的有效范围是从定义变量的位置开始到本源文件结束。</p>
-<p>要想在定义点之前引用该全局变量，则应该在引用之前使用关键字extern对该变量作“外部变量声明”，表示该变量是一个已经定义的外部变量。</p>
-<p>声明可以进行多次，但定义只有一次。</p>
-<p>比如在一个.c文件中定义了一个全局变量 int a，那么要在.h文件中使用extern int a声明。如果其他文件想要使用该全局变量，则只需将它的头文件添加进来即可。</p>
-<h3 id="40、浅拷贝、深拷贝"><a href="#40、浅拷贝、深拷贝" class="headerlink" title="40、浅拷贝、深拷贝"></a>40、浅拷贝、深拷贝</h3><p>对一个已知对象进行拷贝，会自动调用一种构造函数—拷贝构造函数，如果用户没有定义，那么会调用默认拷贝构造函数。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> &#123;</span></span><br><span class="line">    <span class="keyword">char</span> * name;</span><br><span class="line">    Student() &#123;</span><br><span class="line">        name = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">20</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Student a;</span><br><span class="line">    <span class="function">student <span class="title">b</span><span class="params">(a)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>调用一次构造函数，调用两次析构函数，会出错。因为默认构造函数执行的是浅拷贝，即对name拷贝后会出现两个指针指向同一块内存区域。</p>
-<p>所以在对含有指针成员的对象进行拷贝时，必须要自己定义拷贝构造函数，使拷贝后的对象指针成员有自己的内存空间，即进行深拷贝。</p>
-<p>Student(const Student&amp; s) {</p>
-<p>​    name = new char[20];</p>
-<p>​    memcpy(name, s.name, strlen(s,name));</p>
-<p>}</p>
-<p>浅拷贝只是对指针本身的拷贝，拷贝后的两个指针指向同一内存空间，深拷贝不但对指针进行拷贝，而且对指针指向的内容进行拷贝，经过深拷贝后的指针是指向两个不同地址的指针。</p>
-<p>当函数的参数为对象时，实参传递给形参的实际是实参的一个拷贝，会调用拷贝构造函数。</p>
-<p>当参数的返回值为一个对象时，该对象实际上是函数内对象的一个拷贝，用于返回函数调用处。</p>
-<p>浅拷贝带来问题的本质在于析构函数释放多次堆内存，使用std::shared_ptr可以解决。</p>
-<h3 id="41、int-a-5-0，1，-2，-3，-4"><a href="#41、int-a-5-0，1，-2，-3，-4" class="headerlink" title="41、int a[5] = {0，1， 2， 3， 4}"></a>41、int a[5] = {0，1， 2， 3， 4}</h3><p>*(a + 1)  = 1</p>
-<p>&amp;a + 1相当于加了一个数组的偏移，即指向4后面的那一个位置</p>
-<p><code>(((int*)(&amp;a + 1)) - 1) = 4</code></p>
-<h3 id="42、const-char-a-“hello”"><a href="#42、const-char-a-“hello”" class="headerlink" title="42、const char * a = “hello”"></a>42、const char * a = “hello”</h3><p>存储在常量区，不能更改</p>
-<h3 id="43、空类的大小"><a href="#43、空类的大小" class="headerlink" title="43、空类的大小"></a>43、空类的大小</h3><p>class A{};</p>
-<p>sizeof(A)为1</p>
-<p>空类的大小为1个字节：因为空类可以实例化，实例化必然再内存中占有一个位置，因此，编译器为其优化为1个字节。</p>
-<p>class B: public A {</p>
-<p>​    int b;</p>
-<p>}</p>
-<p>B类的大小为4个字节，因为B类中定义了int变量。在空基类被继承后，子类会优化掉基类的1字节大小，节省了空间大小，提高运行效率</p>
-<p>与类大小有关的因素：普通成员变量、虚函数、继承</p>
-<p>与类大小无关的因素：静态成员变量、静态成员函数及普通成员函数。</p>
-<p>class A{virtual void f(){}};</p>
-<p>A的大小为指针的大小（4或8个字节），有虚函数表的地址。</p>
-<h3 id="44、字节对齐"><a href="#44、字节对齐" class="headerlink" title="44、字节对齐"></a>44、字节对齐</h3><p>内存对齐主要遵循下面三个原则</p>
-<p>公式一、前面的地址必须是后面地址的整数倍，不是就补齐</p>
-<p>公式二、整个struct的地址必须是最大字节的整数倍</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">struct A&#123;</span><br><span class="line">    char a;</span><br><span class="line">    int b;</span><br><span class="line">    short c;</span><br><span class="line">&#125;</span><br><span class="line">1000 1111 1100</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">struct A&#123;</span><br><span class="line">	int a;</span><br><span class="line">	char b;</span><br><span class="line">	char c;</span><br><span class="line">&#125;;</span><br><span class="line">1111 1100</span><br></pre></td></tr></table></figure>
-
-<p>每个<strong>特定平台</strong>上的编译器都有自己的默认“<strong>对齐系数</strong>”。可以通过预编译命令#pragma pack(n)</p>
-<h3 id="45、char-a-“XYZ”-char-b-“XYZ”"><a href="#45、char-a-“XYZ”-char-b-“XYZ”" class="headerlink" title="45、char* a = “XYZ”; char* b = “XYZ”"></a>45、char* a = “XYZ”; char* b = “XYZ”</h3><p>“XYZ”存储在常量区,</p>
-<p>a, b指向同一个地址。</p>
-<h3 id="46、函数指针"><a href="#46、函数指针" class="headerlink" title="46、函数指针"></a>46、函数指针</h3><p>函数指针指向函数而非对象。和其他指针一样，函数指针指向某种特定类型。函数的类型由它的返回类型和形参类型共同决定，与函数名无关。</p>
-<p><code>bool lengthCompare(const string &amp;, const string &amp;);</code></p>
-<p>该函数的类型为<code>bool (const string &amp;, const string &amp;)</code></p>
-<p>要想声明一个可以指向该函数的指针，只需要用指针替换函数名即可:</p>
-<p><code>bool (*pf)(const string &amp;, const string &amp;);</code></p>
-<p>*pf左右两边的括号必不可少。如果不写这对括号，变成了函数pf，返回值为bool指针</p>
-<p>使用函数指针</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">bool (*p)(const string&amp;, const string&amp;);</span><br><span class="line">pf &#x3D; lengthCompare;</span><br><span class="line">pf &#x3D; &amp;lengthCompare;</span><br><span class="line">&#x2F;&#x2F;二者是等价的，pf指向名为lengthCompare的函数</span><br></pre></td></tr></table></figure>
-
-<p>此外，我们还可以直接使用指向函数的指针调用该函数，无须提前解引用指针。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">bool b1 &#x3D; pf(&quot;ni&quot;, &quot;hao&quot;);</span><br><span class="line">bool b2 &#x3D; (*pf)(&quot;ni&quot;, &quot;hao&quot;);</span><br><span class="line">bool b3 &#x3D; lengthCompare(&quot;ni&quot;, &quot;hao&quot;);</span><br><span class="line">&#x2F;&#x2F;以上三种写法是等价的</span><br></pre></td></tr></table></figure>
-
-<h3 id="47、a-i-j"><a href="#47、a-i-j" class="headerlink" title="47、a[i][j]"></a>47、a[i][j]</h3><p>(*(a + i))[j]           *(a + i)[j]是错误的</p>
-<p>*(*(a+ i) + j)</p>
-<p>*(&amp;a[0][0] + 4 * i + j)</p>
-<h3 id="48、二维数组和二级指针"><a href="#48、二维数组和二级指针" class="headerlink" title="48、二维数组和二级指针"></a>48、二维数组和二级指针</h3><p>两者不一样</p>
-<p>int *<em>p，p是一个指针，指向int\</em></p>
-<p>int a[4][5]</p>
-<p>a是二维数组名，首先是一个指针，指向一个含有5个元素的int型数组</p>
-<p>a和a[0]的值一样，a[0]是一个一维数组，也是一个指针常量，该指针的值是数组第一个元素的地址。</p>
-<p>a[0] = &amp;a[0][0]</p>
-<p>归并排序第二步合并是归并名字的由来</p>
-<h3 id="49、快速排序"><a href="#49、快速排序" class="headerlink" title="49、快速排序"></a>49、快速排序</h3><p>快排的最优时间复杂度是O(nlogn)，最差复杂度为O(n^2)</p>
-<p>空间复杂度最优为O(logn),最差为O(n);</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">100010</span>;</span><br><span class="line"><span class="keyword">int</span> q[N];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">quick_sort</span><span class="params">(<span class="keyword">int</span> q[], <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(l &gt;= r) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">int</span> x = q[l + r &gt;&gt; <span class="number">1</span>], i = l - <span class="number">1</span>, j = r + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(i &lt; j) &#123;</span><br><span class="line">        <span class="keyword">while</span>(q[++i] &lt; x);</span><br><span class="line">        <span class="keyword">while</span>(q[--j] &gt; x);</span><br><span class="line">        <span class="keyword">if</span>(i &lt; j) <span class="built_in">std</span>::swap(q[i], q[j]);</span><br><span class="line">    &#125;</span><br><span class="line">    quick_sort(q, l, j);</span><br><span class="line">    quick_sort(q, j + <span class="number">1</span>, r);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;q[i]);</span><br><span class="line">    quick_sort(q, <span class="number">0</span>, n - <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, q[i]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="50、int-p-new-int-10-int-p-new-int-10"><a href="#50、int-p-new-int-10-int-p-new-int-10" class="headerlink" title="50、int *p = new int[10]; int *p = new int[10]()"></a>50、int *p = new int[10]; int *p = new int[10]()</h3><p>对于内置类型而言，new仅仅是分配内存，除非后面加上（），相当于调用它的构造函数</p>
-<p>对于自定义类型而言，只要一调用呢哇，那么编译器不仅仅给它分配内存，还会调用它的构造函数进行初始化，即使后面没有加（）</p>
-<h3 id="51、char-str"><a href="#51、char-str" class="headerlink" title="51、char str[]"></a>51、char str[]</h3><p>strlen计算字符串的长度，不包含’’\0’</p>
-<p>sizeof计算<strong>内存</strong>的大小   char str[100] = “qqq”  sizeof(str) = 100; </p>
-<p>char str[] = “Hello”;</p>
-<p>*str = ‘H’       sizeof(str) = 6          strlen(str) = 5</p>
-<p>printf(“%s”, str)        Hello</p>
-<p>printf(“%s”, str + 1) ello</p>
-<p>C语言中操作字符串是通过它在内存中的存储单元的首地址进行的，这是字符串的终极本质。</p>
-<p>对于数组 str = &amp; str[0]</p>
-<p>const char *str = “Hello”</p>
-<p>*str = ‘H’        sizeof(str) = 8(指针大小)        strlen(str) = 5</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">example</span><span class="params">(<span class="keyword">char</span> acWelcome[])</span> </span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>, <span class="keyword">sizeof</span>(acWelcome));</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">char</span> acWelcome[] = <span class="string">&quot;Welcome to Huawei Test&quot;</span>;</span><br><span class="line">    example(acWelcome);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;\n%d\n&quot;</span>, <span class="keyword">sizeof</span>(acWelcome));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210307090612946.png" alt="image-20210307090612946"></p>
-<p>数组名作为参数传递时，数组名退化为指针，传递过去的其实是数组的首地址</p>
-<h3 id="52、多态"><a href="#52、多态" class="headerlink" title="52、多态"></a>52、多态</h3><p>多态性分为编译时多态性和运行时多态性，</p>
-<p>编译时多态性通过静态编联完成，例如函数重载，运算符重载；</p>
-<p>运行时多态性则是动态编联完成，主要通过虚函数来实现；</p>
-<h3 id="53、linux查看系统进程"><a href="#53、linux查看系统进程" class="headerlink" title="53、linux查看系统进程"></a>53、linux查看系统进程</h3><p>ps：显示所有运行中的进程</p>
-<p>top：进程了动态图，包括cpu、内存、运行时间等</p>
-<h3 id="54、linux让进程后台运行"><a href="#54、linux让进程后台运行" class="headerlink" title="54、linux让进程后台运行"></a>54、linux让进程后台运行</h3><p>当用户注销或网络断开时，终端会收到hangup：HUP信号关闭所有子进程。因此，解决办法就有两条途径：要么让进程忽略HUP信号，要么让进程在新的会话里从而成为不属于此终端的子进程</p>
-<p>1、nohup</p>
-<p>可以让提交的命令忽略hangup信号</p>
-<p>nohup 的使用是十分方便的，只需在要处理的命令前加上 nohup 即可，标准输出和标准错误缺省会被重定向到 nohup.out 文件中。一般我们可在结尾加上”&amp;”来将命令同时放入后台运行，也可用”&gt;filename 2&gt;&amp;1”来更改缺省的重定向文件名。</p>
-<p>nohup不会让任务变为后台任务，需要加上&amp;</p>
-<p>2、setsid</p>
-<p>进程ID叫做PID</p>
-<p>可以设置该进程的父进程为init进程</p>
-<p>3、&amp;</p>
-<p>只要在命令的尾部加上符号&amp;，启动的进程就会成为后台进程。如果要让正在运行的前台任务变为后台任务，可以按ctrl+z暂停该程序，然后执行bg命令（让最近一个暂停的后台任务继续执行）</p>
-<p>4、disown</p>
-<p>可以将指定任务从后台任务列表删除，后台任务不在列表中，那么session就不会向它发出SIGHUP信号。</p>
-<p>5、终端复用器</p>
-<p>Screen 和 tmux</p>
-<h3 id="55、快排空间复杂度"><a href="#55、快排空间复杂度" class="headerlink" title="55、快排空间复杂度"></a>55、快排空间复杂度</h3><p>每次递归需要的空间是固定的，总体空间复杂度即递归层数，因此平均/最好复杂度为O(nlog)，最坏空间复杂度为O(n);</p>
-<h3 id="56、C-逗号表达式"><a href="#56、C-逗号表达式" class="headerlink" title="56、C++逗号表达式"></a>56、C++逗号表达式</h3><p>使用逗号运算符是为了把几个表达式放在一起。</p>
-<p>整个逗号表达式的值为系列中最后一个表达式的值。</p>
-<p>从本质上讲，逗号的作用是将一系列运算按顺序执行。</p>
-<p>表达式1，表达式2</p>
-<p>求解过程是：先求表达式1，在求表达式2。整个逗号表达式的值是表达式2的值。</p>
-<p>最右边的那盒表达式的值将作为整个逗号表达式的值，其他表达式的值会被丢弃。</p>
 
       
     </div>
@@ -576,7 +280,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/157/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/157/">157</a><span class="page-number current">158</span><a class="page-number" href="/page/159/">159</a><span class="space">&hellip;</span><a class="page-number" href="/page/270/">270</a><a class="extend next" rel="next" href="/page/159/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/157/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/157/">157</a><span class="page-number current">158</span><a class="page-number" href="/page/159/">159</a><span class="space">&hellip;</span><a class="page-number" href="/page/269/">269</a><a class="extend next" rel="next" href="/page/159/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -642,14 +346,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">270</span>
+          <span class="site-state-item-count">269</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">

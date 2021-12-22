@@ -179,7 +179,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2021/01/15/hot-100/234.%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/">
+    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2021/08/26/c++/%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%B5%85%E6%8B%B7%E8%B4%9D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -193,7 +193,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/01/15/hot-100/234.%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/" class="post-title-link" itemprop="url">234. 回文链表</a>
+            <a href="/2021/08/26/c++/%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%B5%85%E6%8B%B7%E8%B4%9D/" class="post-title-link" itemprop="url">深拷贝浅拷贝</a>
         </h2>
 
         <div class="post-meta">
@@ -202,22 +202,19 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-01-15 16:48:14 / 修改时间：16:53:27" itemprop="dateCreated datePublished" datetime="2021-01-15T16:48:14+08:00">2021-01-15</time>
+              <time title="创建时间：2021-08-26 12:26:27" itemprop="dateCreated datePublished" datetime="2021-08-26T12:26:27+08:00">2021-08-26</time>
             </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
                 </span>
-            </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-18 14:37:42" itemprop="dateModified" datetime="2021-03-18T14:37:42+08:00">2021-03-18</time>
+              </span>
 
           
-            <span id="/2021/01/15/hot-100/234.%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/" class="post-meta-item leancloud_visitors" data-flag-title="234. 回文链表" title="阅读次数">
+            <span id="/2021/08/26/c++/%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%B5%85%E6%8B%B7%E8%B4%9D/" class="post-meta-item leancloud_visitors" data-flag-title="深拷贝浅拷贝" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -232,8 +229,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/01/15/hot-100/234.%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/15/hot-100/234.%E5%9B%9E%E6%96%87%E9%93%BE%E8%A1%A8/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/08/26/c++/%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%B5%85%E6%8B%B7%E8%B4%9D/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/08/26/c++/%E6%B7%B1%E6%8B%B7%E8%B4%9D%E6%B5%85%E6%8B%B7%E8%B4%9D/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -248,11 +245,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>首先利用快慢指针找到中点</p>
-<p>然后将中点之后的链表反转</p>
-<p>然后从前半部分的链表头和从反转后的链表头开始走，判断是否是回文链表</p>
-<p><img src="https://p-icgo.oss-cn-beijing.aliyuncs.com/image/image-20210115165313301.png" alt="image-20210115165313301"></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * struct ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode *next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) : val(x), next(NULL) &#123;&#125;</span></span><br><span class="line"><span class="comment"> * &#125;;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(ListNode* head)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(!head) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">auto</span> slow = head, fast = head;</span><br><span class="line">        <span class="keyword">while</span>(fast &amp;&amp; fast-&gt;next) &#123;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">            fast = fast-&gt;next-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//slow为中点</span></span><br><span class="line">        <span class="keyword">auto</span> a = slow, b = slow-&gt;next;</span><br><span class="line">        slow-&gt;next = <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">while</span>(b) &#123;</span><br><span class="line">            <span class="keyword">auto</span> t = b-&gt;next;</span><br><span class="line">            b-&gt;next = a;</span><br><span class="line">            a = b;</span><br><span class="line">            b = t;            </span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">auto</span> m = head, n = a;</span><br><span class="line">        <span class="keyword">while</span>(m &amp;&amp; n) &#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; m-&gt;val &lt;&lt; n-&gt;val;</span><br><span class="line">            <span class="keyword">if</span>(m-&gt;val != n-&gt;val) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            m = m-&gt;next;</span><br><span class="line">            n = n-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+          <p>简而言之，浅拷贝拷贝指针变量的值，深拷贝拷贝指针所指向的内存空间</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">foo</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    foo() &#123;</span><br><span class="line">		p = <span class="keyword">new</span> <span class="keyword">int</span>(<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    ~foo() &#123;</span><br><span class="line">        <span class="keyword">delete</span> p;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> *p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">foo <span class="title">bar</span><span class="params">(foo&amp; r)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> r;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    foo a;</span><br><span class="line">    foo b = bar(a);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>上述代码有问题吗？</p>
+<p>有问题，注意bar函数，传入的是引用，但是返回不是引用，返回时会执行拷贝构造，那么会执行浅拷贝。也就是说foo变量a 和b 中的指针p会执行同一片内存</p>
+<p>如何改正？加一个拷贝构造函数即可</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">foo(<span class="keyword">const</span> foo&amp; r) &#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;copy constructor\n&quot;</span>;</span><br><span class="line">        p = <span class="keyword">new</span> <span class="keyword">int</span>(<span class="number">1</span>);</span><br><span class="line">        *p = *(r.p);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
 
 
       
@@ -272,7 +273,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/194/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/194/">194</a><span class="page-number current">195</span><a class="page-number" href="/page/196/">196</a><span class="space">&hellip;</span><a class="page-number" href="/page/270/">270</a><a class="extend next" rel="next" href="/page/196/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/194/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/194/">194</a><span class="page-number current">195</span><a class="page-number" href="/page/196/">196</a><span class="space">&hellip;</span><a class="page-number" href="/page/269/">269</a><a class="extend next" rel="next" href="/page/196/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -338,14 +339,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">270</span>
+          <span class="site-state-item-count">269</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">

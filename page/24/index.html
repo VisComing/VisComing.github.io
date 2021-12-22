@@ -179,7 +179,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2021/07/22/linux/ssh%E5%85%8D%E5%AF%86/">
+    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2021/08/26/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AF%95/C++%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -193,7 +193,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2021/07/22/linux/ssh%E5%85%8D%E5%AF%86/" class="post-title-link" itemprop="url">ssh免密登录</a>
+            <a href="/2021/08/26/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AF%95/C++%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/" class="post-title-link" itemprop="url">C++优先队列</a>
         </h2>
 
         <div class="post-meta">
@@ -202,22 +202,19 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-07-22 23:27:10 / 修改时间：23:33:57" itemprop="dateCreated datePublished" datetime="2021-07-22T23:27:10+08:00">2021-07-22</time>
+              <time title="创建时间：2021-08-26 12:26:31" itemprop="dateCreated datePublished" datetime="2021-08-26T12:26:31+08:00">2021-08-26</time>
             </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
                 </span>
-            </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-03-13 20:33:49" itemprop="dateModified" datetime="2021-03-13T20:33:49+08:00">2021-03-13</time>
+              </span>
 
           
-            <span id="/2021/07/22/linux/ssh%E5%85%8D%E5%AF%86/" class="post-meta-item leancloud_visitors" data-flag-title="ssh免密登录" title="阅读次数">
+            <span id="/2021/08/26/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AF%95/C++%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/" class="post-meta-item leancloud_visitors" data-flag-title="C++优先队列" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -232,8 +229,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2021/07/22/linux/ssh%E5%85%8D%E5%AF%86/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/07/22/linux/ssh%E5%85%8D%E5%AF%86/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/08/26/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AF%95/C++%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/08/26/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AF%95/C++%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -248,19 +245,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>如果主机上还没有ssh公私钥，先生成</p>
-<p><code>ssh-keygen</code></p>
-<p>本机A，想要免密登录服务器B</p>
-<p>A：找到<code>~/.ssh/id_rsa.pub</code></p>
-<p>把里面的内容追加到服务器B的<code>~/.ssh/authorized_keys</code>后</p>
-<p>如果服务器B没有<code>authorized_keys</code>这个文件，那就创建一个</p>
-<p>然后尝试一下是否可以免密登录</p>
-<p>另一种方法比较简单，直接<code>ssh-copy-id user@Bip</code>即可。</p>
-<p>如果依然无法免密登录，有可能是文件夹权限的问题，参考<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1044014">这篇文章</a></p>
-<p>把服务器B的文件权限设置成</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod <span class="number">700</span> ~/.ssh</span><br><span class="line">chmod <span class="number">600</span> ~<span class="regexp">/.ssh/</span>authorized_keys</span><br></pre></td></tr></table></figure>
-
-<p>应该就可以了</p>
+          <p>需要包含头文件#include &lt;queue&gt;</p>
+<p>优先队列具有队列的所有特性，只是在队列基本操作上加了一个内部的排序，本质上是一个堆</p>
+<p>top 访问队头元素</p>
+<p>empty 判断队列是否为空</p>
+<p>size 返回队列中元素个数</p>
+<p>push 在<strong>队尾</strong>插入元素并排序</p>
+<p>emplace 原地构造一个元素并插入队列</p>
+<p>（类似insert，res.insert(“你好”)，会调用一次构造函数，一次拷贝构造函数，一次析构函数，用来释放临时对象。而emplace只需要调用一次构造函数就行了）</p>
+<p>pop 弹出<strong>队头</strong>元素</p>
+<p>priority_queue&lt;int&gt; p 默认是 大根堆</p>
+<p>priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt;&gt; p小根堆</p>
 
       
     </div>
@@ -279,7 +274,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/23/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><span class="page-number current">24</span><a class="page-number" href="/page/25/">25</a><span class="space">&hellip;</span><a class="page-number" href="/page/270/">270</a><a class="extend next" rel="next" href="/page/25/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/23/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/23/">23</a><span class="page-number current">24</span><a class="page-number" href="/page/25/">25</a><span class="space">&hellip;</span><a class="page-number" href="/page/269/">269</a><a class="extend next" rel="next" href="/page/25/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -345,14 +340,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">270</span>
+          <span class="site-state-item-count">269</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">

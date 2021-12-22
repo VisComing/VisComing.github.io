@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zhouruifa.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"appID":"3NGUE881LI","apiKey":"226809de1e28342bfee8f817b2b71f19","indexName":"hexoSearch","hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+  </script>
+
+  <meta name="description" content="C++ STL 简介vector头文件#include &lt;vector&gt; using std::vector 初始化vector&lt;int&gt;  a&#x2F;&#x2F;初始化一个空vector vector&lt;int&gt; a(10, 3)&#x2F;10个int型元素，它们的值均为3 vector&lt;int&gt; a(10)&#x2F;&#x2F;10个int型元素，执行类的默认初始化，这里10个元素均被初始">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ STL 简介">
+<meta property="og:url" content="http://zhouruifa.top/2021/08/26/c++%20stl%20%E7%AE%80%E4%BB%8B/index.html">
+<meta property="og:site_name" content="周瑞发的网站">
+<meta property="og:description" content="C++ STL 简介vector头文件#include &lt;vector&gt; using std::vector 初始化vector&lt;int&gt;  a&#x2F;&#x2F;初始化一个空vector vector&lt;int&gt; a(10, 3)&#x2F;10个int型元素，它们的值均为3 vector&lt;int&gt; a(10)&#x2F;&#x2F;10个int型元素，执行类的默认初始化，这里10个元素均被初始">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-08-26T04:26:26.923Z">
+<meta property="article:modified_time" content="2021-11-30T10:30:13.603Z">
+<meta property="article:author" content="周瑞发">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://zhouruifa.top/2021/08/26/c++%20stl%20%E7%AE%80%E4%BB%8B/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>C++ STL 简介 | 周瑞发的网站</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">周瑞发的网站</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">欢迎访问</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+  14 min. read
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://zhouruifa.top/2021/08/26/c++%20stl%20%E7%AE%80%E4%BB%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="周瑞发">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="周瑞发的网站">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          C++ STL 简介
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-08-26 12:26:26" itemprop="dateCreated datePublished" datetime="2021-08-26T12:26:26+08:00">2021-08-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-11-30 18:30:13" itemprop="dateModified" datetime="2021-11-30T18:30:13+08:00">2021-11-30</time>
+              </span>
+
+          
+            <span id="/2021/08/26/c++%20stl%20%E7%AE%80%E4%BB%8B/" class="post-meta-item leancloud_visitors" data-flag-title="C++ STL 简介" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/08/26/c++%20stl%20%E7%AE%80%E4%BB%8B/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/08/26/c++%20stl%20%E7%AE%80%E4%BB%8B/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="C-STL-简介"><a href="#C-STL-简介" class="headerlink" title="C++ STL 简介"></a>C++ STL 简介</h1><h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h2><h3 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h3><p><code>#include &lt;vector&gt;</code></p>
+<p><code>using std::vector</code></p>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p><code>vector&lt;int&gt;  a</code>//初始化一个空vector</p>
+<p><code>vector&lt;int&gt; a(10, 3)</code>/10个int型元素，它们的值均为3</p>
+<p><code>vector&lt;int&gt; a(10)</code>//10个int型元素，执行类的默认初始化，这里10个元素均被初始化为0</p>
+<p><code>vector&lt;int&gt; b = a</code>//b中包含a中所有元素的副本</p>
+<p><code>vector&lt;int&gt; b(a)</code>//同上</p>
+<p><code>vector&lt;int&gt; a&#123;1,2,3,4&#125;</code>//列表初始化，</p>
+<h3 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h3><h4 id="a-push-back-x"><a href="#a-push-back-x" class="headerlink" title="a.push_back(x)"></a>a.push_back(x)</h4><p>向a末尾插入元素x</p>
+<h4 id="a-empty"><a href="#a-empty" class="headerlink" title="a.empty()"></a>a.empty()</h4><p>判断a是否为空，空则返回true</p>
+<h4 id="a-size"><a href="#a-size" class="headerlink" title="a.size()"></a>a.size()</h4><p>返回a中元素的个数</p>
+<h4 id="a-n"><a href="#a-n" class="headerlink" title="a[n]"></a>a[n]</h4><p>支持随机寻址，返回a中第n个元素的引用，相当于对数组的操作</p>
+<h4 id="a-b-a-b"><a href="#a-b-a-b" class="headerlink" title="a==b    a!=b"></a>a==b    a!=b</h4><p>判断a和b是否相等（当且仅当它们的元素数量相同且相同位置的元素值都相同）</p>
+<h4 id="lt-lt-gt-gt"><a href="#lt-lt-gt-gt" class="headerlink" title="&lt;    &lt;=    &gt;    &gt;="></a>&lt;    &lt;=    &gt;    &gt;=</h4><p>按照字典序比较两个vector</p>
+<h4 id="a-clear"><a href="#a-clear" class="headerlink" title="a.clear()"></a>a.clear()</h4><p>删除a中所有的元素</p>
+<h4 id="a-front-a-back"><a href="#a-front-a-back" class="headerlink" title="a.front()    a.back()"></a>a.front()    a.back()</h4><p>返回a中的第一个数 返回a中的最后一个数</p>
+<h4 id="a-begin-a-end"><a href="#a-begin-a-end" class="headerlink" title="a.begin()    a.end()"></a>a.begin()    a.end()</h4><p>指向a中的第一个元素，指向a中最后一个元素的下一个位置</p>
+<h3 id="遍历方式"><a href="#遍历方式" class="headerlink" title="遍历方式"></a>遍历方式</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; a.size(); i ++) <span class="built_in">cout</span> &lt;&lt; a[i] &lt;&lt; <span class="string">&#x27; &#x27;</span>;<span class="comment">//使用下标来遍历</span></span><br><span class="line"><span class="keyword">for</span>(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator it = a.begin(); it != a.end(); it ++) <span class="built_in">cout</span> &lt;&lt; *it &lt;&lt; <span class="string">&#x27; &#x27;</span>;<span class="comment">//使用迭代器来遍历</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> x:a) <span class="built_in">cout</span> &lt;&lt; x &lt;&lt; <span class="string">&#x27; &#x27;</span>;<span class="comment">//范围遍历</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="vector的增长"><a href="#vector的增长" class="headerlink" title="vector的增长"></a>vector的增长</h3><p>vector可以理解为动态数组，为了减少分配空间的次数，vector大概是在每次需要分配新的内存空间时讲当前容量翻倍</p>
+<blockquote>
+<p>使用vector时不建议先指定好vector的大小，而是应该先创建一个空的vector对象，然后在运行时利用push_back向其中添加元素。</p>
+</blockquote>
+<h3 id="二维vector"><a href="#二维vector" class="headerlink" title="二维vector"></a>二维vector</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; a;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; m; i ++) &#123;<span class="comment">//将二维数组array的元素插入到二维vector中</span></span><br><span class="line">	<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; temp;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j ++) &#123;</span><br><span class="line">		temp.push_back(<span class="built_in">array</span>[m][n]);</span><br><span class="line">	&#125;</span><br><span class="line">	a.push_back(temp);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt; <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt; <span class="title">v</span><span class="params">(n，<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;(m))</span></span>;</span><br><span class="line"><span class="comment">//它有n个元素，每个元素都是包含m个int型元素的一维向量</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//遍历二维vector</span></span><br><span class="line"><span class="keyword">for</span>(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;::iterator it = a.begin(); it != a.end(); it ++) &#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator t = (*it).begin(); t != (*it).end(); t ++) &#123;</span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; *t &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="string"><a href="#string" class="headerlink" title="string"></a>string</h2><h3 id="头文件-1"><a href="#头文件-1" class="headerlink" title="头文件"></a>头文件</h3><p><code>#include &lt;string&gt;</code></p>
+<p><code>using std::string</code></p>
+<h3 id="初始化-1"><a href="#初始化-1" class="headerlink" title="初始化"></a>初始化</h3><p><code>string s</code>//默认初始化，s是一个空字符串</p>
+<p><code>string s = &quot;nihaoya&quot;</code>//拷贝初始化，s是该字符串字面值的副本</p>
+<p><code>string s(&quot;nihaoya&quot;)</code>//直接初始化</p>
+<p><code>string s(10,&#39;c&#39;)</code>//s包含10个重复的c</p>
+<h3 id="常用操作-1"><a href="#常用操作-1" class="headerlink" title="常用操作"></a>常用操作</h3><h4 id="s-size"><a href="#s-size" class="headerlink" title="s.size()"></a>s.size()</h4><p>返回s中字符的个数</p>
+<h4 id="s-empty"><a href="#s-empty" class="headerlink" title="s.empty()"></a>s.empty()</h4><p>判断s是否为空，空则返回true</p>
+<h4 id="s-clear"><a href="#s-clear" class="headerlink" title="s.clear()"></a>s.clear()</h4><p>删除字符串的所有字符</p>
+<h4 id="s-n"><a href="#s-n" class="headerlink" title="s[n]"></a>s[n]</h4><p>string支持随机访问</p>
+<h4 id><a href="#" class="headerlink" title="+"></a>+</h4><p>在字符串末尾追加字符串，注意必须确保每个加号的两侧的运算对象至少有一个是string</p>
+<h4 id="s-substr-pos-n"><a href="#s-substr-pos-n" class="headerlink" title="s.substr(pos, n)"></a>s.substr(pos, n)</h4><p>返回从s字符串的pos位置（从0开始）开始的向后n个字符的字符串，如果不写第二个参数，则默认返回从pos位置开始到最后一个字符的字符串</p>
+<h4 id="s-c-str"><a href="#s-c-str" class="headerlink" title="s.c_str()"></a>s.c_str()</h4><p>该函数返回一个const char*，指向以空值结尾的字符串（即c风格的字符串）。当你想要将一个string对象传递给需要c风格字符串的函数的时候，就可以使用该函数</p>
+<h4 id="stoi-s"><a href="#stoi-s" class="headerlink" title="stoi(s)"></a>stoi(s)</h4><p>将字符串转换为int型，stoi()会做范围检查，默认范围是在int的范围内的，如果超出范围的话则会出现runtime error</p>
+<h4 id="to-string-val"><a href="#to-string-val" class="headerlink" title="to_string(val)"></a>to_string(val)</h4><p>将数字转化成字符串</p>
+<h3 id="遍历方式-1"><a href="#遍历方式-1" class="headerlink" title="遍历方式"></a>遍历方式</h3><p><code>for(int i = 0; i &lt; s.size(); i ++) cout &lt;&lt; s[i] &lt;&lt; &#39; &#39;; </code></p>
+<p><code>for(string::iterator it = s.begin(); it != s.end(); i ++) cout &lt;&lt; *it &lt;&lt; endl;</code></p>
+<p><code>for(auto c:s) cout &lt;&lt; c &lt;&lt; &#39; &#39;;</code></p>
+<h2 id="deque"><a href="#deque" class="headerlink" title="deque"></a>deque</h2><p>双端队列</p>
+<h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>deque<int> d;</int></p>
+<h3 id="常用操作-2"><a href="#常用操作-2" class="headerlink" title="常用操作"></a>常用操作</h3><h4 id="d-size"><a href="#d-size" class="headerlink" title="d.size()"></a>d.size()</h4><p>返回双端队列的大小</p>
+<h4 id="d-empty"><a href="#d-empty" class="headerlink" title="d.empty()"></a>d.empty()</h4><p>判断双端队列是否为空</p>
+<h4 id="d-clear"><a href="#d-clear" class="headerlink" title="d.clear()"></a>d.clear()</h4><p>删除双端队列的所有元素</p>
+<h4 id="d-front-d-back"><a href="#d-front-d-back" class="headerlink" title="d.front()/d.back()"></a>d.front()/d.back()</h4><p>返回双端队列的队头/队尾元素</p>
+<h4 id="d-push-back-d-pop-back"><a href="#d-push-back-d-pop-back" class="headerlink" title="d.push_back/d.pop_back()"></a>d.push_back/d.pop_back()</h4><p>插入队尾/弹出队尾元素</p>
+<h4 id="d-push-front-d-pop-front"><a href="#d-push-front-d-pop-front" class="headerlink" title="d.push_front()/d.pop_front()"></a>d.push_front()/d.pop_front()</h4><p>插入队首/弹出队首元素</p>
+<h4 id="-1"><a href="#-1" class="headerlink" title="[]"></a>[]</h4><p>支持随机访问</p>
+<h2 id="queue"><a href="#queue" class="headerlink" title="queue"></a>queue</h2><p>queue和stack都是在deque基础上改写来的，queue,stack,deque没有迭代器，因为它们只能从头或尾进行操作</p>
+<h3 id="头文件-2"><a href="#头文件-2" class="headerlink" title="头文件"></a>头文件</h3><p><code>#include&lt;vector&gt;</code></p>
+<p><code>using std::vector</code></p>
+<h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><p><code>queue&lt;int&gt; q</code></p>
+<h3 id="常用操作-3"><a href="#常用操作-3" class="headerlink" title="常用操作"></a>常用操作</h3><h4 id="q-front"><a href="#q-front" class="headerlink" title="q.front()"></a>q.front()</h4><p>返回队列第一个元素的引用</p>
+<h4 id="q-back"><a href="#q-back" class="headerlink" title="q.back()"></a>q.back()</h4><p>返回队列的最后一个元素的引用</p>
+<h4 id="q-push-i"><a href="#q-push-i" class="headerlink" title="q.push(i)"></a>q.push(i)</h4><p>向队尾添加元素</p>
+<h4 id="q-pop"><a href="#q-pop" class="headerlink" title="q.pop()"></a>q.pop()</h4><p>删除队列中第一个元素</p>
+<h4 id="q-size"><a href="#q-size" class="headerlink" title="q.size()"></a>q.size()</h4><p>返回队列元素的个数</p>
+<h4 id="q-empty"><a href="#q-empty" class="headerlink" title="q.empty()"></a>q.empty()</h4><p>判断队列是否为空，如果为空，则返回true</p>
+<h2 id="stack"><a href="#stack" class="headerlink" title="stack"></a>stack</h2><h3 id="头文件-3"><a href="#头文件-3" class="headerlink" title="头文件"></a>头文件</h3><p><code>#include &lt;stack&gt;</code></p>
+<p><code>using std::stack</code></p>
+<h3 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h3><p><code>stack&lt;int&gt; s</code></p>
+<h3 id="常用操作-4"><a href="#常用操作-4" class="headerlink" title="常用操作"></a>常用操作</h3><h4 id="s-push-i"><a href="#s-push-i" class="headerlink" title="s.push(i)"></a>s.push(i)</h4><p>向栈顶插入一个元素</p>
+<h4 id="s-pop"><a href="#s-pop" class="headerlink" title="s.pop()"></a>s.pop()</h4><p>弹出栈顶元素</p>
+<h4 id="s-top"><a href="#s-top" class="headerlink" title="s.top()"></a>s.top()</h4><p>返回栈顶元素</p>
+<h4 id="s-empty-1"><a href="#s-empty-1" class="headerlink" title="s.empty()"></a>s.empty()</h4><p>判断栈是否为空，空则返回true</p>
+<h4 id="s-size-1"><a href="#s-size-1" class="headerlink" title="s.size()"></a>s.size()</h4><p>返回栈中元素的个数</p>
+<h2 id="set-multiset"><a href="#set-multiset" class="headerlink" title="set/multiset"></a>set/multiset</h2><p>底层实现是红黑树</p>
+<p>set是一个内部自动有序且不含重复元素的容器 ,multiset可以含重复元素</p>
+<h3 id="常用操作-5"><a href="#常用操作-5" class="headerlink" title="常用操作"></a>常用操作</h3><h4 id="begin-end-size-empty"><a href="#begin-end-size-empty" class="headerlink" title="begin()    end()    size()    empty()"></a>begin()    end()    size()    empty()</h4><h4 id="s-insert-x"><a href="#s-insert-x" class="headerlink" title="s.insert(x)"></a>s.insert(x)</h4><p>将x插入set容器中，并且自动递增排序和去重，时间复杂度为logn</p>
+<h4 id="s-find-x"><a href="#s-find-x" class="headerlink" title="s.find(x)"></a>s.find(x)</h4><p>返回set中对应值为x的迭代器，时间复杂度为logn，如果找不到，则返回end迭代器</p>
+<h4 id="s-count-x"><a href="#s-count-x" class="headerlink" title="s.count(x)"></a>s.count(x)</h4><p>返回值为x数的个数</p>
+<h4 id="s-erase"><a href="#s-erase" class="headerlink" title="s.erase()"></a>s.erase()</h4><p>输入是一个数x，删除所有x，时间复杂度为</p>
+<p>输入一个迭代器，则删除该迭代器</p>
+<h4 id="lower-bound-upper-bound"><a href="#lower-bound-upper-bound" class="headerlink" title="lower_bound()/upper_bound"></a>lower_bound()/upper_bound</h4><p>lower_bound(x) 返回大于等于x的最小的数的迭代器</p>
+<p>upper_bound(x)返回大于x的最小的数的迭代器</p>
+<h2 id="priority-queue"><a href="#priority-queue" class="headerlink" title="priority_queue"></a>priority_queue</h2><p>优先队列，底层是用堆实现的</p>
+<h3 id="头文件-4"><a href="#头文件-4" class="headerlink" title="头文件"></a>头文件</h3><p><code>#include &lt;queue&gt;</code></p>
+<p><code>using std::queue</code></p>
+<h3 id="定义-3"><a href="#定义-3" class="headerlink" title="定义"></a>定义</h3><p><code>priority_queue&lt;int&gt; p</code>//默认是大根堆</p>
+<p><code>priority_queue&lt;int, vector&lt;int&gt;, less&lt;int&gt;&gt;heap;</code>//大根堆</p>
+<p><code>priority_queue&lt;int, vector&lt;int&gt;, greater&lt;int&gt;&gt;heap;</code>//小根堆</p>
+<h3 id="常用操作-6"><a href="#常用操作-6" class="headerlink" title="常用操作"></a>常用操作</h3><h4 id="p-push"><a href="#p-push" class="headerlink" title="p.push()"></a>p.push()</h4><p>向堆中插入一个元素</p>
+<h4 id="p-top"><a href="#p-top" class="headerlink" title="p.top()"></a>p.top()</h4><p>返回堆顶元素</p>
+<h4 id="p-pop"><a href="#p-pop" class="headerlink" title="p.pop()"></a>p.pop()</h4><p>弹出堆顶元素</p>
+<h4 id="p-empty"><a href="#p-empty" class="headerlink" title="p.empty()"></a>p.empty()</h4><p>判断优先队列是否为空，空则返回true</p>
+<h4 id="p-size"><a href="#p-size" class="headerlink" title="p.size()"></a>p.size()</h4><p>返回优先队列中元素的个数</p>
+<h4 id="p-push-i"><a href="#p-push-i" class="headerlink" title="p.push(i)"></a>p.push(i)</h4><p>向堆中插入一个元素</p>
+<h2 id="pair"><a href="#pair" class="headerlink" title="pair"></a>pair</h2><h3 id="头文件-5"><a href="#头文件-5" class="headerlink" title="头文件"></a>头文件</h3><p><code>#include &lt;utility&gt;</code></p>
+<h3 id="初始化-2"><a href="#初始化-2" class="headerlink" title="初始化"></a>初始化</h3><p><code>pair&lt;string, int&gt; p</code>;</p>
+<p><code>pair&lt;string, int&gt; p(&quot;zrf&quot;, 1)</code></p>
+<p><code>pair&lt;string, int&gt; p = &#123;&quot;zrf&quot;, 1&#125;</code></p>
+<p><code>pair&lt;string, int&gt; p = make_pair(&quot;zrf&quot;, 1)</code></p>
+<h3 id="常用操作-7"><a href="#常用操作-7" class="headerlink" title="常用操作"></a>常用操作</h3><h4 id="p-first"><a href="#p-first" class="headerlink" title="p.first"></a>p.first</h4><p>返回p的第一个数据成员</p>
+<h4 id="p-second"><a href="#p-second" class="headerlink" title="p.second"></a>p.second</h4><p>返回p的第二个数据成员</p>
+<h4 id="make-pair-v1-v2"><a href="#make-pair-v1-v2" class="headerlink" title="make_pair(v1, v2)"></a>make_pair(v1, v2)</h4><p>返回一个用v1，v2初始化的pair</p>
+<h4 id="p1-p2-p1-p2"><a href="#p1-p2-p1-p2" class="headerlink" title="p1 == p2    p1 != p2"></a>p1 == p2    p1 != p2</h4><p>当first和second成员分别相等时，两个pair相等</p>
+<h2 id="map-multimap"><a href="#map-multimap" class="headerlink" title="map/multimap"></a>map/multimap</h2><p>底层数据结构是红黑树</p>
+<h4 id="insert"><a href="#insert" class="headerlink" title="insert()"></a>insert()</h4><p>插入的数是一个pair</p>
+<h4 id="erase"><a href="#erase" class="headerlink" title="erase()"></a>erase()</h4><p>c.erase(k)    从c中删除每个关键字为k的元素。返回一个size_type值，指出删除的元素的数量</p>
+<p>c.erase(p)    从c中删除迭代器p指定的元素。p不能指向尾后迭代器，返回一个指向p之后元素的迭代器</p>
+<h4 id="find"><a href="#find" class="headerlink" title="find()"></a>find()</h4><p>返回一个迭代器，指向第一个关键字为k的元素，若k不在容器中，则返回尾后迭代器</p>
+<h4 id="count-k"><a href="#count-k" class="headerlink" title="count(k)"></a>count(k)</h4><p>返回关键字等于k的元素的数量</p>
+<h4 id="clear"><a href="#clear" class="headerlink" title="clear()"></a>clear()</h4><p>删除map中所有的元素</p>
+<h4 id="size-empty"><a href="#size-empty" class="headerlink" title="size()    empty()"></a>size()    empty()</h4><h4 id="-2"><a href="#-2" class="headerlink" title="[]"></a>[]</h4><p>可以像数组一样使用，时间复杂度是O(logn)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">map&lt;string,int&gt; m;</span><br><span class="line">m[&quot;zrf&quot;] &#x3D; 1;&#x2F;&#x2F;插入</span><br></pre></td></tr></table></figure>
+
+<h4 id="lower-bound-k-upper-bound-k"><a href="#lower-bound-k-upper-bound-k" class="headerlink" title="lower_bound(k)/upper_bound(k)"></a>lower_bound(k)/upper_bound(k)</h4><p>返回一个迭代器，指向第一个关键字大于等于/大于k的元素</p>
+<h2 id="unorder-set-unorder-multiset-unorder-map-unorder-multimap"><a href="#unorder-set-unorder-multiset-unorder-map-unorder-multimap" class="headerlink" title="unorder_set    unorder_multiset    unorder_map    unorder_multimap"></a>unorder_set    unorder_multiset    unorder_map    unorder_multimap</h2><p>底层实现为哈希表</p>
+<p>优点：增删改查时间复杂度是O(1)</p>
+<p>缺点：不支持lower_bound()    upper_bound()</p>
+<h2 id="list"><a href="#list" class="headerlink" title="list"></a>list</h2><p>双向链表</p>
+<h3 id="头文件-6"><a href="#头文件-6" class="headerlink" title="头文件"></a>头文件</h3><p><code>#include &lt;list&gt;</code></p>
+<h3 id="初始化-3"><a href="#初始化-3" class="headerlink" title="初始化"></a>初始化</h3><p><code>list&lt;int&gt; values;</code>//创建一个空list容器</p>
+<p><code>list&lt;int&gt; values(10)</code>//创建一个包含10个元素的容器，每个元素的值都是默认值</p>
+<p><code>list&lt;int&gt; values(10, 5)</code>//创建一个包含10个元素的容器，每个元素的值都是5</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int a[] &#x3D; &#123; 1,2,3,4,5 &#125;;</span><br><span class="line">std::list&lt;int&gt; values(a, a+5);&#x2F;&#x2F;拷贝指定区域的元素，创建新的list容器</span><br></pre></td></tr></table></figure>
+
+<h3 id="常用操作-8"><a href="#常用操作-8" class="headerlink" title="常用操作"></a>常用操作</h3><p><code>values.front()</code>//返回第一个元素的引用</p>
+<p><code>values.back()</code>//返回最后一个元素的引用</p>
+<p><code>push_front();pop_front();push_back();pop_back();insert();earse();clear();</code></p>
+<h2 id="forward-list"><a href="#forward-list" class="headerlink" title="forward_list"></a>forward_list</h2><p>单向链表</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/08/26/algolia/" rel="prev" title="本地上传到algolia">
+      <i class="fa fa-chevron-left"></i> 本地上传到algolia
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/08/26/C++%E9%9D%A2%E8%AF%95%E5%87%86%E5%A4%87/" rel="next" title="">
+       <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#C-STL-%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">C++ STL 简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#vector"><span class="nav-number">1.1.</span> <span class="nav-text">vector</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%B4%E6%96%87%E4%BB%B6"><span class="nav-number">1.1.1.</span> <span class="nav-text">头文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">1.1.2.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C"><span class="nav-number">1.1.3.</span> <span class="nav-text">常用操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#a-push-back-x"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">a.push_back(x)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#a-empty"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">a.empty()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#a-size"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">a.size()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#a-n"><span class="nav-number">1.1.3.4.</span> <span class="nav-text">a[n]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#a-b-a-b"><span class="nav-number">1.1.3.5.</span> <span class="nav-text">a&#x3D;&#x3D;b    a!&#x3D;b</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lt-lt-gt-gt"><span class="nav-number">1.1.3.6.</span> <span class="nav-text">&lt;    &lt;&#x3D;    &gt;    &gt;&#x3D;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#a-clear"><span class="nav-number">1.1.3.7.</span> <span class="nav-text">a.clear()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#a-front-a-back"><span class="nav-number">1.1.3.8.</span> <span class="nav-text">a.front()    a.back()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#a-begin-a-end"><span class="nav-number">1.1.3.9.</span> <span class="nav-text">a.begin()    a.end()</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%81%8D%E5%8E%86%E6%96%B9%E5%BC%8F"><span class="nav-number">1.1.4.</span> <span class="nav-text">遍历方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vector%E7%9A%84%E5%A2%9E%E9%95%BF"><span class="nav-number">1.1.5.</span> <span class="nav-text">vector的增长</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E7%BB%B4vector"><span class="nav-number">1.1.6.</span> <span class="nav-text">二维vector</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#string"><span class="nav-number">1.2.</span> <span class="nav-text">string</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%B4%E6%96%87%E4%BB%B6-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">头文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C-1"><span class="nav-number">1.2.3.</span> <span class="nav-text">常用操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#s-size"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">s.size()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#s-empty"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">s.empty()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#s-clear"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">s.clear()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#s-n"><span class="nav-number">1.2.3.4.</span> <span class="nav-text">s[n]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">1.2.3.5.</span> <span class="nav-text">+</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#s-substr-pos-n"><span class="nav-number">1.2.3.6.</span> <span class="nav-text">s.substr(pos, n)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#s-c-str"><span class="nav-number">1.2.3.7.</span> <span class="nav-text">s.c_str()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#stoi-s"><span class="nav-number">1.2.3.8.</span> <span class="nav-text">stoi(s)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#to-string-val"><span class="nav-number">1.2.3.9.</span> <span class="nav-text">to_string(val)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%81%8D%E5%8E%86%E6%96%B9%E5%BC%8F-1"><span class="nav-number">1.2.4.</span> <span class="nav-text">遍历方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#deque"><span class="nav-number">1.3.</span> <span class="nav-text">deque</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">1.3.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C-2"><span class="nav-number">1.3.2.</span> <span class="nav-text">常用操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#d-size"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">d.size()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#d-empty"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">d.empty()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#d-clear"><span class="nav-number">1.3.2.3.</span> <span class="nav-text">d.clear()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#d-front-d-back"><span class="nav-number">1.3.2.4.</span> <span class="nav-text">d.front()&#x2F;d.back()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#d-push-back-d-pop-back"><span class="nav-number">1.3.2.5.</span> <span class="nav-text">d.push_back&#x2F;d.pop_back()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#d-push-front-d-pop-front"><span class="nav-number">1.3.2.6.</span> <span class="nav-text">d.push_front()&#x2F;d.pop_front()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-1"><span class="nav-number">1.3.2.7.</span> <span class="nav-text">[]</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#queue"><span class="nav-number">1.4.</span> <span class="nav-text">queue</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%B4%E6%96%87%E4%BB%B6-2"><span class="nav-number">1.4.1.</span> <span class="nav-text">头文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-1"><span class="nav-number">1.4.2.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C-3"><span class="nav-number">1.4.3.</span> <span class="nav-text">常用操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#q-front"><span class="nav-number">1.4.3.1.</span> <span class="nav-text">q.front()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#q-back"><span class="nav-number">1.4.3.2.</span> <span class="nav-text">q.back()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#q-push-i"><span class="nav-number">1.4.3.3.</span> <span class="nav-text">q.push(i)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#q-pop"><span class="nav-number">1.4.3.4.</span> <span class="nav-text">q.pop()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#q-size"><span class="nav-number">1.4.3.5.</span> <span class="nav-text">q.size()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#q-empty"><span class="nav-number">1.4.3.6.</span> <span class="nav-text">q.empty()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stack"><span class="nav-number">1.5.</span> <span class="nav-text">stack</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%B4%E6%96%87%E4%BB%B6-3"><span class="nav-number">1.5.1.</span> <span class="nav-text">头文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-2"><span class="nav-number">1.5.2.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C-4"><span class="nav-number">1.5.3.</span> <span class="nav-text">常用操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#s-push-i"><span class="nav-number">1.5.3.1.</span> <span class="nav-text">s.push(i)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#s-pop"><span class="nav-number">1.5.3.2.</span> <span class="nav-text">s.pop()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#s-top"><span class="nav-number">1.5.3.3.</span> <span class="nav-text">s.top()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#s-empty-1"><span class="nav-number">1.5.3.4.</span> <span class="nav-text">s.empty()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#s-size-1"><span class="nav-number">1.5.3.5.</span> <span class="nav-text">s.size()</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#set-multiset"><span class="nav-number">1.6.</span> <span class="nav-text">set&#x2F;multiset</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C-5"><span class="nav-number">1.6.1.</span> <span class="nav-text">常用操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#begin-end-size-empty"><span class="nav-number">1.6.1.1.</span> <span class="nav-text">begin()    end()    size()    empty()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#s-insert-x"><span class="nav-number">1.6.1.2.</span> <span class="nav-text">s.insert(x)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#s-find-x"><span class="nav-number">1.6.1.3.</span> <span class="nav-text">s.find(x)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#s-count-x"><span class="nav-number">1.6.1.4.</span> <span class="nav-text">s.count(x)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#s-erase"><span class="nav-number">1.6.1.5.</span> <span class="nav-text">s.erase()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lower-bound-upper-bound"><span class="nav-number">1.6.1.6.</span> <span class="nav-text">lower_bound()&#x2F;upper_bound</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#priority-queue"><span class="nav-number">1.7.</span> <span class="nav-text">priority_queue</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%B4%E6%96%87%E4%BB%B6-4"><span class="nav-number">1.7.1.</span> <span class="nav-text">头文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89-3"><span class="nav-number">1.7.2.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C-6"><span class="nav-number">1.7.3.</span> <span class="nav-text">常用操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#p-push"><span class="nav-number">1.7.3.1.</span> <span class="nav-text">p.push()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#p-top"><span class="nav-number">1.7.3.2.</span> <span class="nav-text">p.top()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#p-pop"><span class="nav-number">1.7.3.3.</span> <span class="nav-text">p.pop()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#p-empty"><span class="nav-number">1.7.3.4.</span> <span class="nav-text">p.empty()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#p-size"><span class="nav-number">1.7.3.5.</span> <span class="nav-text">p.size()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#p-push-i"><span class="nav-number">1.7.3.6.</span> <span class="nav-text">p.push(i)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pair"><span class="nav-number">1.8.</span> <span class="nav-text">pair</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%B4%E6%96%87%E4%BB%B6-5"><span class="nav-number">1.8.1.</span> <span class="nav-text">头文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96-2"><span class="nav-number">1.8.2.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C-7"><span class="nav-number">1.8.3.</span> <span class="nav-text">常用操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#p-first"><span class="nav-number">1.8.3.1.</span> <span class="nav-text">p.first</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#p-second"><span class="nav-number">1.8.3.2.</span> <span class="nav-text">p.second</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#make-pair-v1-v2"><span class="nav-number">1.8.3.3.</span> <span class="nav-text">make_pair(v1, v2)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#p1-p2-p1-p2"><span class="nav-number">1.8.3.4.</span> <span class="nav-text">p1 &#x3D;&#x3D; p2    p1 !&#x3D; p2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#map-multimap"><span class="nav-number">1.9.</span> <span class="nav-text">map&#x2F;multimap</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#insert"><span class="nav-number">1.9.0.1.</span> <span class="nav-text">insert()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#erase"><span class="nav-number">1.9.0.2.</span> <span class="nav-text">erase()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#find"><span class="nav-number">1.9.0.3.</span> <span class="nav-text">find()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#count-k"><span class="nav-number">1.9.0.4.</span> <span class="nav-text">count(k)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#clear"><span class="nav-number">1.9.0.5.</span> <span class="nav-text">clear()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#size-empty"><span class="nav-number">1.9.0.6.</span> <span class="nav-text">size()    empty()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#-2"><span class="nav-number">1.9.0.7.</span> <span class="nav-text">[]</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lower-bound-k-upper-bound-k"><span class="nav-number">1.9.0.8.</span> <span class="nav-text">lower_bound(k)&#x2F;upper_bound(k)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#unorder-set-unorder-multiset-unorder-map-unorder-multimap"><span class="nav-number">1.10.</span> <span class="nav-text">unorder_set    unorder_multiset    unorder_map    unorder_multimap</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#list"><span class="nav-number">1.11.</span> <span class="nav-text">list</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%B4%E6%96%87%E4%BB%B6-6"><span class="nav-number">1.11.1.</span> <span class="nav-text">头文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96-3"><span class="nav-number">1.11.2.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C-8"><span class="nav-number">1.11.3.</span> <span class="nav-text">常用操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#forward-list"><span class="nav-number">1.12.</span> <span class="nav-text">forward_list</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">周瑞发</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">269</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">周瑞发</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : true,
+      appId      : 'Ytq8BzsrCa111NhWVN9J8rHG-gzGzoHsz',
+      appKey     : 'XPYBCP4RPAeMshHIS2bbs9tb',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : true,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
